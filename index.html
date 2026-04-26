@@ -1,255 +1,860 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Turn</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The Turn | Greystone</title>
 
 <style>
-body { font-family: Arial; margin:0; background:#f4f1e8; }
-header { background:#0f2b22; color:white; padding:20px; font-size:28px; }
-
-.container { padding:15px; max-width:500px; margin:auto; }
-
-.card {
-  background:white;
-  padding:15px;
-  border-radius:12px;
-  margin-bottom:12px;
+:root {
+  --navy: #21384c;
+  --blue: #3478bd;
+  --blue-dark: #1f5f9f;
+  --green: #0f3b2f;
+  --gold: #c8a24a;
+  --bg: #f3f4f5;
+  --card: #ffffff;
+  --text: #1f2d38;
+  --muted: #7b858d;
+  --line: #e4e7ea;
+  --red: #c24b40;
+  --shadow: 0 10px 28px rgba(0,0,0,.08);
 }
 
-button {
-  width:100%;
-  padding:12px;
-  border:none;
-  border-radius:8px;
-  background:#0f2b22;
-  color:white;
-  font-weight:bold;
-  margin-top:8px;
+* {
+  box-sizing: border-box;
 }
 
-.secondary { background:#ddd; color:#000; }
-
-.player {
-  display:flex;
-  justify-content:space-between;
-  margin-bottom:8px;
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
 }
 
-.hole {
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  margin-bottom:8px;
-  background:#eef2ee;
-  padding:8px;
-  border-radius:8px;
+.app {
+  max-width: 460px;
+  margin: 0 auto;
+  min-height: 100vh;
+  background: #f7f8f9;
 }
 
-.score-btn {
-  width:30px;
-  height:30px;
-  font-size:18px;
+.topbar {
+  background: white;
+  padding: 18px 18px 14px;
+  border-bottom: 1px solid var(--line);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.back {
+  font-size: 34px;
+  line-height: 1;
+  color: var(--blue);
+}
+
+.brand-title {
+  font-size: 32px;
+  font-weight: 900;
+  letter-spacing: .5px;
+  color: var(--navy);
+}
+
+.brand-sub {
+  color: var(--muted);
+  font-size: 13px;
+  margin-top: 2px;
 }
 
 .tabs {
-  display:flex;
-  gap:5px;
-  margin-bottom:10px;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 6px;
+  padding: 10px;
+  background: white;
+  border-bottom: 1px solid var(--line);
+  position: sticky;
+  top: 73px;
+  z-index: 9;
 }
 
 .tab {
-  flex:1;
-  padding:10px;
-  background:white;
-  border-radius:8px;
-  text-align:center;
-  cursor:pointer;
+  border: 1px solid var(--line);
+  background: white;
+  color: var(--navy);
+  padding: 9px 4px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 800;
 }
 
-.active { background:#0f2b22; color:white; }
+.tab.active {
+  background: var(--blue);
+  border-color: var(--blue);
+  color: white;
+}
 
-.screen { display:none; }
-.screen.active { display:block; }
+.content {
+  padding: 18px 14px 90px;
+}
+
+.section-label {
+  margin: 12px 2px 10px;
+  color: #777;
+  font-size: 18px;
+  letter-spacing: .8px;
+  text-transform: uppercase;
+  font-weight: 900;
+}
+
+.card {
+  background: var(--card);
+  border-radius: 18px;
+  box-shadow: var(--shadow);
+  padding: 18px;
+  margin-bottom: 16px;
+}
+
+.card.flat {
+  box-shadow: none;
+  border: 1px solid var(--line);
+}
+
+.hero {
+  background: linear-gradient(135deg, var(--navy), #152330);
+  color: white;
+}
+
+.hero h1 {
+  margin: 0;
+  font-size: 32px;
+}
+
+.hero p {
+  color: #d6dde3;
+  margin: 8px 0 0;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.stack {
+  display: grid;
+  gap: 12px;
+}
+
+.btn {
+  border: none;
+  width: 100%;
+  background: var(--blue);
+  color: white;
+  border-radius: 14px;
+  padding: 14px 16px;
+  font-size: 16px;
+  font-weight: 900;
+}
+
+.btn.secondary {
+  background: white;
+  color: var(--blue);
+  border: 2px solid var(--blue);
+}
+
+.btn.dark {
+  background: var(--navy);
+}
+
+.pill-row {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 12px;
+}
+
+.pill {
+  background: #eef4fb;
+  color: var(--blue-dark);
+  border: 1px solid #cfe1f4;
+  padding: 7px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.pill.gold {
+  background: rgba(200,162,74,.16);
+  color: #7a5d18;
+  border-color: rgba(200,162,74,.3);
+}
+
+.input,
+select {
+  width: 100%;
+  border: none;
+  background: #eef0f2;
+  border-radius: 10px;
+  padding: 13px 14px;
+  font-size: 15px;
+  margin-top: 6px;
+}
+
+label {
+  display: block;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 900;
+  letter-spacing: .7px;
+  text-transform: uppercase;
+}
+
+.grid2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.player-card {
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 12px;
+  background: white;
+}
+
+.player-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.player-name {
+  font-weight: 900;
+  font-size: 16px;
+  color: var(--navy);
+}
+
+.small {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.scorecard-header {
+  display: grid;
+  grid-template-columns: 52px 1fr 1fr 1fr;
+  gap: 8px;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 900;
+  text-transform: uppercase;
+  padding: 0 4px 8px;
+}
+
+.score-row {
+  display: grid;
+  grid-template-columns: 52px 1fr 1fr 1fr;
+  gap: 8px;
+  align-items: center;
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 10px 8px;
+  margin-bottom: 8px;
+}
+
+.hole-num {
+  background: var(--blue);
+  color: white;
+  border-radius: 12px;
+  padding: 9px 0;
+  text-align: center;
+  font-weight: 900;
+}
+
+.score-control {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  background: #f2f4f6;
+  border-radius: 999px;
+  padding: 4px;
+}
+
+.score-control button {
+  border: none;
+  background: white;
+  color: var(--blue);
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  font-size: 19px;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.score-control span {
+  min-width: 20px;
+  text-align: center;
+  font-weight: 900;
+}
+
+.leader-row {
+  display: grid;
+  grid-template-columns: 34px 1fr 52px 52px 64px;
+  gap: 8px;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.leader-row:last-child {
+  border-bottom: none;
+}
+
+.rank {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #eef4fb;
+  color: var(--blue);
+  display: grid;
+  place-items: center;
+  font-weight: 900;
+}
+
+.num {
+  text-align: center;
+  font-weight: 900;
+}
+
+.money {
+  text-align: right;
+  font-weight: 900;
+  color: var(--green);
+}
+
+.money.neg {
+  color: var(--red);
+}
+
+.course-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 11px;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.course-table th,
+.course-table td {
+  border: 1px solid #d7dadd;
+  padding: 5px;
+  text-align: center;
+}
+
+.course-table th {
+  background: #f0f2f4;
+}
+
+.tee-gold { background: #ffd91f; }
+.tee-blue { background: #1388bd; color: white; }
+.tee-grey { background: #a9adad; }
+.tee-white { background: white; }
+.tee-green { background: #009b74; color: white; }
+.tee-red { background: #e33c3f; color: white; }
 
 .chat {
-  background:#111;
-  color:white;
-  padding:10px;
-  border-radius:8px;
-  margin-top:10px;
+  background: #111b18;
+  color: white;
+  border-radius: 16px;
+  padding: 14px;
+  margin-bottom: 10px;
+}
+
+.chat strong {
+  color: var(--gold);
+}
+
+.hidden {
+  display: none;
 }
 </style>
 </head>
 
 <body>
+<div class="app">
 
-<header>The Turn</header>
+  <div class="topbar">
+    <div class="brand">
+      <div class="back">‹</div>
+      <div>
+        <div class="brand-title">THE TURN</div>
+        <div class="brand-sub">Greystone Golf Club · Milton, ON</div>
+      </div>
+    </div>
+  </div>
 
-<div class="container">
+  <div class="tabs">
+    <button class="tab active" onclick="showScreen('home', this)">Home</button>
+    <button class="tab" onclick="showScreen('setup', this)">Setup</button>
+    <button class="tab" onclick="showScreen('score', this)">Score</button>
+    <button class="tab" onclick="showScreen('games', this)">Games</button>
+    <button class="tab" onclick="showScreen('lounge', this)">Lounge</button>
+  </div>
 
-<div class="tabs">
-<div class="tab active" onclick="show('home',this)">Home</div>
-<div class="tab" onclick="show('setup',this)">Setup</div>
-<div class="tab" onclick="show('score',this)">Score</div>
-<div class="tab" onclick="show('games',this)">Games</div>
-<div class="tab" onclick="show('lounge',this)">Lounge</div>
-</div>
+  <div class="content">
 
-<!-- HOME -->
-<div id="home" class="screen active">
-<div class="card">
-<h3>Saturday Skins</h3>
-<p>Greystone · Blue tees · $20</p>
-<button onclick="showByName('score')">Start Round</button>
-</div>
+    <section id="home" class="screen">
+      <div class="card hero">
+        <h1>Saturday Skins</h1>
+        <p>Blue tees · 4 players · Net skins + Nassau</p>
+        <div class="pill-row">
+          <span class="pill gold">$20 buy-in</span>
+          <span class="pill">Group scoring</span>
+          <span class="pill">18 holes</span>
+        </div>
+      </div>
 
-<div class="card">
-<h4>Groups</h4>
-<p>Saturday Skins</p>
-<p>Men’s Night</p>
-<button>Create Group</button>
-</div>
-</div>
+      <div class="section-label">Groups</div>
 
-<!-- SETUP -->
-<div id="setup" class="screen">
-<div class="card">
-<h3>Create Round</h3>
+      <div class="card">
+        <div class="row">
+          <div>
+            <div class="player-name">Saturday Skins</div>
+            <div class="small">Recurring weekly · editable roster</div>
+          </div>
+          <span class="pill">Active</span>
+        </div>
+        <button class="btn" onclick="go('setup')">Create Round</button>
+      </div>
 
-<label>Group</label>
-<select>
-<option>Saturday Skins</option>
-</select>
+      <div class="card flat">
+        <div class="player-name">Men’s Night</div>
+        <div class="small">One-off or recurring group</div>
+      </div>
 
-<label>Format</label>
-<select>
-<option>Skins + Nassau</option>
-<option>Stroke Play</option>
-</select>
+      <div class="section-label">Course</div>
+      <div class="card">
+        <div class="player-name">Greystone Golf Club</div>
+        <div class="small">Par 72 · 6 tee options · 18 holes</div>
+        <div class="pill-row">
+          <span class="pill gold">Gold 6864</span>
+          <span class="pill">Blue 6501</span>
+          <span class="pill">White 6054</span>
+          <span class="pill">Red 5430</span>
+        </div>
+      </div>
+    </section>
 
-<h4>Players</h4>
+    <section id="setup" class="screen hidden">
+      <div class="section-label">Round Setup</div>
 
-<div class="player">
-Rob
-<select>
-<option>Blue</option>
-<option>White</option>
-</select>
-<input type="number" value="7">
-</div>
+      <div class="card">
+        <label>Round name</label>
+        <input class="input" id="roundName" value="Saturday Skins" />
 
-<div class="player">
-Mike
-<select>
-<option>Blue</option>
-<option>White</option>
-</select>
-<input type="number" value="11">
-</div>
+        <div class="grid2">
+          <div>
+            <label>Format</label>
+            <select id="format">
+              <option>Skins + Nassau</option>
+              <option>Stroke Play</option>
+              <option>Skins Only</option>
+              <option>Nassau Only</option>
+            </select>
+          </div>
+          <div>
+            <label>Scoring</label>
+            <select id="scoringType">
+              <option>Net</option>
+              <option>Gross</option>
+            </select>
+          </div>
+        </div>
 
-<div class="player">
-Chris
-<select>
-<option>White</option>
-</select>
-<input type="number" value="15">
-</div>
+        <div class="grid2">
+          <div>
+            <label>Buy-in</label>
+            <input class="input" id="buyIn" type="number" value="20" />
+          </div>
+          <div>
+            <label>Default tee</label>
+            <select id="defaultTee" onchange="applyDefaultTee()">
+              <option>Blue</option>
+              <option>Gold</option>
+              <option>Grey</option>
+              <option>White</option>
+              <option>Green</option>
+              <option>Red</option>
+            </select>
+          </div>
+        </div>
+      </div>
 
-<button>Create Round</button>
-</div>
-</div>
+      <div class="section-label">Players</div>
+      <div id="playersSetup"></div>
 
-<!-- SCORE -->
-<div id="score" class="screen">
-<div class="card">
-<h3>Scorecard (Scorer: You)</h3>
+      <div class="card">
+        <button class="btn" onclick="startRound()">Start Round</button>
+        <button class="btn secondary" onclick="addPlayer()">Add Player</button>
+      </div>
+    </section>
 
-<div id="holes"></div>
+    <section id="score" class="screen hidden">
+      <div class="section-label">Group Scorecard</div>
 
-</div>
-</div>
+      <div class="card">
+        <div class="row">
+          <div>
+            <div class="player-name">Scorer: You</div>
+            <div class="small">Scores start at par. Tap + or −.</div>
+          </div>
+          <span class="pill" id="holeCount">18 holes</span>
+        </div>
+      </div>
 
-<!-- GAMES -->
-<div id="games" class="screen">
-<div class="card">
-<h3>Games</h3>
-<p>Skins, Nassau, payouts</p>
+      <div class="scorecard-header">
+        <div>Hole</div>
+        <div>Rob</div>
+        <div>Mike</div>
+        <div>Chris</div>
+      </div>
 
-<div>
-Rob +45<br>
-Mike +10<br>
-Chris -25
-</div>
+      <div id="scoreRows"></div>
+    </section>
 
-</div>
-</div>
+    <section id="games" class="screen hidden">
+      <div class="section-label">Games</div>
 
-<!-- LOUNGE -->
-<div id="lounge" class="screen">
-<div class="card">
-<h3>The Lounge</h3>
+      <div class="card">
+        <div class="player-name">Live Leaderboard</div>
+        <div class="small">Gross, net, and running results.</div>
+        <div id="leaderboard"></div>
+      </div>
 
-<div class="chat">
-Rob: Took skin on 3<br>
-Mike: Wind was up<br>
-Chris: Pressing
-</div>
+      <div class="card">
+        <div class="player-name">Skins Board</div>
+        <div class="small">Net skins based on current scores.</div>
+        <div id="skinsBoard"></div>
+      </div>
 
-<input placeholder="Message...">
-<button>Send</button>
+      <div class="card">
+        <div class="player-name">Nassau</div>
+        <div class="small">Front, back, total.</div>
+        <div id="nassauBoard"></div>
+      </div>
+    </section>
 
-</div>
-</div>
+    <section id="lounge" class="screen hidden">
+      <div class="section-label">The Lounge</div>
 
+      <div class="card hero">
+        <div class="player-name" style="color:white;">Members only</div>
+        <p>Results, chirps, photos, and post-round receipts.</p>
+      </div>
+
+      <div class="chat">
+        <strong>The Turn</strong><br>
+        Saturday Skins is live. Keep the pencil away from the guy losing money.
+      </div>
+
+      <div class="chat">
+        <strong>Rob</strong><br>
+        Scores are defaulted to par. This might be the best I look all day.
+      </div>
+
+      <div class="card">
+        <label>Post to The Lounge</label>
+        <input class="input" placeholder="Message..." />
+        <button class="btn">Post</button>
+      </div>
+    </section>
+
+  </div>
 </div>
 
 <script>
-const pars = [5,3,4,5,4,3,4,4,4,5,3,4,4,3,4,4,4,5];
-let scores = [...pars];
+const course = {
+  pars: [5,3,4,5,4,3,4,4,4,5,3,4,4,3,4,4,4,5],
+  mensHcp: [17,13,7,11,3,15,1,5,9,4,12,2,8,14,18,10,6,16],
+  tees: {
+    Gold:  [515,213,435,541,430,186,436,363,404,536,189,405,409,150,301,405,417,529],
+    Blue:  [488,191,411,520,419,161,405,351,394,511,160,383,387,145,282,384,395,514],
+    Grey:  [488,169,389,520,395,161,365,339,394,511,160,361,355,145,282,384,373,514],
+    White: [467,169,389,494,395,142,365,339,363,478,135,361,355,138,259,369,373,463],
+    Green: [467,148,360,494,307,142,349,305,323,478,135,311,311,125,259,369,326,463],
+    Red:   [430,148,360,466,307,125,349,305,323,434,111,311,311,125,237,337,326,425]
+  }
+};
 
-function renderHoles() {
-  const div = document.getElementById("holes");
+let players = [
+  { name: "Rob", tee: "Blue", hcp: 7 },
+  { name: "Mike", tee: "Blue", hcp: 11 },
+  { name: "Chris", tee: "White", hcp: 15 }
+];
+
+let scores = {};
+
+function initScores() {
+  players.forEach(p => {
+    scores[p.name] = course.pars.slice();
+  });
+}
+
+function showScreen(id, btn) {
+  document.querySelectorAll(".screen").forEach(s => {
+    s.classList.add("hidden");
+  });
+  document.getElementById(id).classList.remove("hidden");
+
+  document.querySelectorAll(".tab").forEach(t => t.classList.remove("active"));
+  btn.classList.add("active");
+
+  if (id === "games") renderGames();
+}
+
+function go(id) {
+  const btn = [...document.querySelectorAll(".tab")].find(t => t.textContent.toLowerCase().includes(id));
+  btn.click();
+}
+
+function renderSetup() {
+  const div = document.getElementById("playersSetup");
   div.innerHTML = "";
 
-  pars.forEach((p,i)=>{
-    let h = document.createElement("div");
-    h.className="hole";
-
-    h.innerHTML = `
-      <div>Hole ${i+1} (Par ${p})</div>
-      <div>
-        <button class="score-btn" onclick="change(${i},-1)">-</button>
-        <span id="s${i}">${scores[i]}</span>
-        <button class="score-btn" onclick="change(${i},1)">+</button>
+  players.forEach((p, idx) => {
+    const card = document.createElement("div");
+    card.className = "card player-card";
+    card.innerHTML = `
+      <div class="player-top">
+        <div class="player-name">${p.name}</div>
+        <span class="pill">${p.tee}</span>
+      </div>
+      <div class="grid2" style="margin-top:12px;">
+        <div>
+          <label>Name</label>
+          <input class="input" value="${p.name}" onchange="players[${idx}].name=this.value; renderSetup();" />
+        </div>
+        <div>
+          <label>Handicap</label>
+          <input class="input" type="number" value="${p.hcp}" onchange="players[${idx}].hcp=Number(this.value);" />
+        </div>
+        <div>
+          <label>Tee</label>
+          <select onchange="players[${idx}].tee=this.value; renderSetup();">
+            ${Object.keys(course.tees).map(t => `<option ${t===p.tee ? "selected" : ""}>${t}</option>`).join("")}
+          </select>
+        </div>
+        <div>
+          <label>Status</label>
+          <select>
+            <option>Playing</option>
+            <option>Out</option>
+          </select>
+        </div>
       </div>
     `;
-    div.appendChild(h);
+    div.appendChild(card);
   });
 }
 
-function change(i,val){
-  scores[i]+=val;
-  document.getElementById("s"+i).innerText = scores[i];
+function applyDefaultTee() {
+  const tee = document.getElementById("defaultTee").value;
+  players = players.map(p => ({ ...p, tee }));
+  renderSetup();
 }
 
-function show(id,btn){
-  document.querySelectorAll(".screen").forEach(s=>s.classList.remove("active"));
-  document.querySelectorAll(".tab").forEach(t=>t.classList.remove("active"));
-  document.getElementById(id).classList.add("active");
-  btn.classList.add("active");
+function addPlayer() {
+  players.push({ name: "New Player", tee: document.getElementById("defaultTee").value, hcp: 10 });
+  renderSetup();
 }
 
-function showByName(name){
-  document.querySelectorAll(".tab").forEach(t=>{
-    if(t.innerText.toLowerCase().includes(name)){
-      t.click();
-    }
+function startRound() {
+  initScores();
+  renderScorecard();
+  go("score");
+}
+
+function renderScorecard() {
+  const header = document.querySelector(".scorecard-header");
+  header.innerHTML = `<div>Hole</div>` + players.map(p => `<div>${p.name}</div>`).join("");
+
+  header.style.gridTemplateColumns = `52px repeat(${players.length}, 1fr)`;
+
+  const div = document.getElementById("scoreRows");
+  div.innerHTML = "";
+
+  for (let i = 0; i < 18; i++) {
+    const row = document.createElement("div");
+    row.className = "score-row";
+    row.style.gridTemplateColumns = `52px repeat(${players.length}, 1fr)`;
+
+    row.innerHTML = `
+      <div class="hole-num">${i+1}<br><span style="font-size:10px;">P${course.pars[i]}</span></div>
+      ${players.map(p => `
+        <div class="score-control">
+          <button onclick="changeScore('${p.name}', ${i}, -1)">−</button>
+          <span id="score-${safe(p.name)}-${i}">${scores[p.name][i]}</span>
+          <button onclick="changeScore('${p.name}', ${i}, 1)">+</button>
+        </div>
+      `).join("")}
+    `;
+
+    div.appendChild(row);
+  }
+}
+
+function changeScore(name, hole, delta) {
+  scores[name][hole] += delta;
+  if (scores[name][hole] < 1) scores[name][hole] = 1;
+  document.getElementById(`score-${safe(name)}-${hole}`).textContent = scores[name][hole];
+  saveLocal();
+}
+
+function safe(name) {
+  return name.replaceAll(" ", "-").replaceAll(".", "");
+}
+
+function strokesOnHole(player, holeIndex) {
+  const hcp = player.hcp;
+  const holeHcp = course.mensHcp[holeIndex];
+  let strokes = 0;
+
+  if (hcp >= holeHcp) strokes += 1;
+  if (hcp > 18 && (hcp - 18) >= holeHcp) strokes += 1;
+
+  return strokes;
+}
+
+function playerTotals(player) {
+  const gross = scores[player.name].reduce((a,b) => a+b, 0);
+  let net = 0;
+
+  scores[player.name].forEach((s, i) => {
+    net += s - strokesOnHole(player, i);
+  });
+
+  const front = scores[player.name].slice(0,9).reduce((a,b)=>a+b,0);
+  const back = scores[player.name].slice(9,18).reduce((a,b)=>a+b,0);
+
+  return { gross, net, front, back };
+}
+
+function renderGames() {
+  renderLeaderboard();
+  renderSkins();
+  renderNassau();
+}
+
+function renderLeaderboard() {
+  const div = document.getElementById("leaderboard");
+  div.innerHTML = "";
+
+  const rows = players.map(p => ({ ...p, ...playerTotals(p) }))
+    .sort((a,b) => a.net - b.net);
+
+  rows.forEach((p, i) => {
+    const row = document.createElement("div");
+    row.className = "leader-row";
+    row.innerHTML = `
+      <div class="rank">${i+1}</div>
+      <div>
+        <div class="player-name">${p.name}</div>
+        <div class="small">${p.tee} tees · HCP ${p.hcp}</div>
+      </div>
+      <div class="num">${p.gross}</div>
+      <div class="num">${p.net}</div>
+      <div class="money">${i===0 ? "+$" + Number(document.getElementById("buyIn").value || 20) : "$0"}</div>
+    `;
+    div.appendChild(row);
   });
 }
 
-renderHoles();
+function renderSkins() {
+  const div = document.getElementById("skinsBoard");
+  div.innerHTML = "";
+
+  for (let h = 0; h < 18; h++) {
+    const results = players.map(p => {
+      return {
+        name: p.name,
+        net: scores[p.name][h] - strokesOnHole(p, h)
+      };
+    });
+
+    const min = Math.min(...results.map(r => r.net));
+    const winners = results.filter(r => r.net === min);
+
+    const line = document.createElement("div");
+    line.className = "leader-row";
+    line.style.gridTemplateColumns = "34px 1fr 70px";
+    line.innerHTML = `
+      <div class="rank">${h+1}</div>
+      <div>
+        <div class="player-name">${winners.length === 1 ? winners[0].name : "Carryover"}</div>
+        <div class="small">Par ${course.pars[h]} · HCP ${course.mensHcp[h]}</div>
+      </div>
+      <div class="money">${winners.length === 1 ? "Skin" : ""}</div>
+    `;
+    div.appendChild(line);
+  }
+}
+
+function renderNassau() {
+  const div = document.getElementById("nassauBoard");
+  div.innerHTML = "";
+
+  const rows = players.map(p => ({
+    name: p.name,
+    front: scores[p.name].slice(0,9).reduce((a,b)=>a+b,0),
+    back: scores[p.name].slice(9,18).reduce((a,b)=>a+b,0),
+    total: scores[p.name].reduce((a,b)=>a+b,0)
+  })).sort((a,b)=>a.total-b.total);
+
+  rows.forEach((p,i) => {
+    const row = document.createElement("div");
+    row.className = "leader-row";
+    row.innerHTML = `
+      <div class="rank">${i+1}</div>
+      <div>
+        <div class="player-name">${p.name}</div>
+        <div class="small">Front ${p.front} · Back ${p.back}</div>
+      </div>
+      <div class="num">${p.front}</div>
+      <div class="num">${p.back}</div>
+      <div class="money">${p.total}</div>
+    `;
+    div.appendChild(row);
+  });
+}
+
+function saveLocal() {
+  localStorage.setItem("theTurnPlayers", JSON.stringify(players));
+  localStorage.setItem("theTurnScores", JSON.stringify(scores));
+}
+
+function loadLocal() {
+  const savedPlayers = localStorage.getItem("theTurnPlayers");
+  const savedScores = localStorage.getItem("theTurnScores");
+
+  if (savedPlayers) players = JSON.parse(savedPlayers);
+  if (savedScores) scores = JSON.parse(savedScores);
+  else initScores();
+}
+
+loadLocal();
+renderSetup();
+renderScorecard();
 </script>
-
 </body>
 </html>
