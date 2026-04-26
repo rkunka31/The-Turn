@@ -51,118 +51,48 @@ body{
   border-bottom-right-radius:34px;
 }
 
-.topline{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-}
-
-.mark{
-  display:flex;
-  align-items:center;
-  gap:10px;
-}
+.topline{display:flex;align-items:center;justify-content:space-between}
+.mark{display:flex;align-items:center;gap:10px}
 
 .logo{
-  width:36px;
-  height:36px;
-  border:1.5px solid var(--gold);
-  border-radius:50%;
-  display:grid;
-  place-items:center;
-  color:var(--gold2);
-  font-family:Georgia,serif;
-  font-weight:800;
+  width:36px;height:36px;border:1.5px solid var(--gold);border-radius:50%;
+  display:grid;place-items:center;color:var(--gold2);font-family:Georgia,serif;font-weight:800;
 }
 
-.brand{
-  font-family:Georgia,serif;
-  letter-spacing:4px;
-  font-size:16px;
-}
+.brand{font-family:Georgia,serif;letter-spacing:4px;font-size:16px}
 
 .avatar{
-  width:34px;
-  height:34px;
-  border-radius:50%;
+  width:34px;height:34px;border-radius:50%;
   background:linear-gradient(135deg,#d8c188,#f2e6c1);
   border:2px solid rgba(255,255,255,.45);
 }
 
-.hero h1{
-  margin:24px 0 4px;
-  font-size:26px;
-  letter-spacing:-.3px;
-}
+.hero h1{margin:24px 0 4px;font-size:26px;letter-spacing:-.3px}
+.sub{margin:0;color:#cfd9d1;font-size:13px}
 
-.sub{
-  margin:0;
-  color:#cfd9d1;
-  font-size:13px;
-}
-
-.badges{
-  display:flex;
-  gap:8px;
-  flex-wrap:wrap;
-  margin-top:14px;
-}
-
+.badges{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
 .badge{
-  padding:7px 10px;
-  border-radius:999px;
-  background:rgba(255,255,255,.1);
-  border:1px solid rgba(255,255,255,.15);
-  color:#f4ead4;
-  font-size:11px;
-  font-weight:800;
+  padding:7px 10px;border-radius:999px;background:rgba(255,255,255,.1);
+  border:1px solid rgba(255,255,255,.15);color:#f4ead4;font-size:11px;font-weight:800;
 }
+.badge.live{background:#4e8f2f;color:white;border:none}
 
-.badge.live{
-  background:#4e8f2f;
-  color:white;
-  border:none;
-}
-
-.content{
-  padding:16px 14px 92px;
-}
+.content{padding:16px 14px 92px}
 
 .tabs{
-  position:fixed;
-  left:50%;
-  bottom:0;
-  transform:translateX(-50%);
-  width:min(430px,100%);
-  background:rgba(251,247,238,.94);
-  backdrop-filter:blur(16px);
-  border-top:1px solid var(--line);
-  display:grid;
-  grid-template-columns:repeat(5,1fr);
-  padding:9px 8px 12px;
-  z-index:20;
+  position:fixed;left:50%;bottom:0;transform:translateX(-50%);
+  width:min(430px,100%);background:rgba(251,247,238,.94);
+  backdrop-filter:blur(16px);border-top:1px solid var(--line);
+  display:grid;grid-template-columns:repeat(5,1fr);padding:9px 8px 12px;z-index:20;
 }
 
 .tab{
-  border:0;
-  background:transparent;
-  color:#897f71;
-  font-size:10px;
-  font-weight:800;
-  display:grid;
-  gap:3px;
-  place-items:center;
+  border:0;background:transparent;color:#897f71;font-size:10px;font-weight:800;
+  display:grid;gap:3px;place-items:center;
 }
-
 .tab span{
-  width:24px;
-  height:24px;
-  display:grid;
-  place-items:center;
-  border-radius:50%;
-  font-size:15px;
+  width:24px;height:24px;display:grid;place-items:center;border-radius:50%;font-size:15px;
 }
-
 .tab.active{color:var(--green)}
 .tab.active span{background:var(--green);color:white}
 
@@ -170,26 +100,13 @@ body{
 .screen.active{display:block}
 
 .section-head{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  margin:18px 2px 9px;
+  display:flex;align-items:center;justify-content:space-between;margin:18px 2px 9px;
 }
-
 .section-head h2{
-  margin:0;
-  font-size:12px;
-  letter-spacing:.9px;
-  color:#857b70;
-  text-transform:uppercase;
+  margin:0;font-size:12px;letter-spacing:.9px;color:#857b70;text-transform:uppercase;
 }
-
 .section-head button{
-  border:0;
-  background:transparent;
-  color:var(--muted);
-  font-size:11px;
-  font-weight:800;
+  border:0;background:transparent;color:var(--muted);font-size:11px;font-weight:800;
 }
 
 .card{
@@ -202,249 +119,146 @@ body{
 }
 
 .round-card{background:linear-gradient(180deg,#fff,#f8f2e8)}
-
-.round-top{
-  display:flex;
-  align-items:flex-start;
-  justify-content:space-between;
-  gap:12px;
-}
-
-.title{
-  font-size:16px;
-  font-weight:900;
-  color:#17211b;
-}
-
-.meta{
-  font-size:12px;
-  color:var(--muted);
-  margin-top:3px;
-}
-
-.player-dots{
-  display:flex;
-  margin-top:12px;
-}
-
-.dot{
-  width:26px;
-  height:26px;
-  border-radius:50%;
-  background:linear-gradient(135deg,#0f5f3d,#89a76d);
-  border:2px solid white;
-  margin-right:-6px;
-}
+.round-top{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
+.title{font-size:16px;font-weight:900;color:#17211b}
+.meta{font-size:12px;color:var(--muted);margin-top:3px}
 
 .status{
-  background:#6ea444;
-  color:white;
-  border-radius:7px;
-  padding:5px 7px;
-  font-size:10px;
-  font-weight:900;
+  background:#6ea444;color:white;border-radius:7px;padding:5px 7px;font-size:10px;font-weight:900;
 }
 
 .gold-btn,.green-btn,.ghost-btn{
-  width:100%;
-  border:0;
-  border-radius:999px;
-  padding:14px 16px;
-  font-size:14px;
-  font-weight:900;
-  margin-top:12px;
+  width:100%;border:0;border-radius:999px;padding:14px 16px;font-size:14px;font-weight:900;margin-top:12px;
 }
+.gold-btn{background:linear-gradient(135deg,#b98b3e,#e3c577);color:#17120a}
+.green-btn{background:linear-gradient(135deg,var(--green2),var(--green));color:white}
+.ghost-btn{background:white;border:1px solid var(--line);color:var(--green)}
 
-.gold-btn{
-  background:linear-gradient(135deg,#b98b3e,#e3c577);
-  color:#17120a;
-}
-
-.green-btn{
-  background:linear-gradient(135deg,var(--green2),var(--green));
-  color:white;
-}
-
-.ghost-btn{
-  background:white;
-  border:1px solid var(--line);
-  color:var(--green);
-}
-
-.grid2{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:10px;
-}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px}
 
 label{
-  display:block;
-  font-size:10px;
-  letter-spacing:.8px;
-  color:#8a8176;
-  text-transform:uppercase;
-  font-weight:900;
-  margin-bottom:5px;
+  display:block;font-size:10px;letter-spacing:.8px;color:#8a8176;text-transform:uppercase;font-weight:900;margin-bottom:5px;
 }
 
 input,select{
-  width:100%;
-  border:1px solid var(--line);
-  background:#f6efe4;
-  border-radius:14px;
-  padding:12px;
-  font-size:14px;
-  color:#1d271f;
+  width:100%;border:1px solid var(--line);background:#f6efe4;border-radius:14px;
+  padding:12px;font-size:14px;color:#1d271f;
 }
 
 .player-card{
-  display:grid;
-  grid-template-columns:1fr 74px 60px;
-  gap:8px;
-  align-items:center;
-  background:#fffaf1;
-  border:1px solid var(--line);
-  border-radius:17px;
-  padding:11px;
-  margin-bottom:9px;
+  display:grid;grid-template-columns:1fr 74px 60px;gap:8px;align-items:center;
+  background:#fffaf1;border:1px solid var(--line);border-radius:17px;padding:11px;margin-bottom:9px;
 }
 
-.score-top{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  margin-bottom:12px;
-}
-
-.hole-strip{
-  display:flex;
-  gap:6px;
-  overflow:auto;
-  padding-bottom:8px;
-}
+.score-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.hole-strip{display:flex;gap:6px;overflow:auto;padding-bottom:8px}
 
 .hole-pill{
-  min-width:34px;
-  height:34px;
-  border-radius:9px;
-  border:1px solid var(--line);
-  background:#fff;
-  color:#344238;
-  display:grid;
-  place-items:center;
-  font-weight:900;
-  font-size:12px;
+  min-width:34px;height:34px;border-radius:9px;border:1px solid var(--line);background:#fff;color:#344238;
+  display:grid;place-items:center;font-weight:900;font-size:12px;
 }
+.hole-pill.active{background:var(--green);color:white;border-color:var(--green)}
 
-.hole-pill.active{
-  background:var(--green);
-  color:white;
-  border-color:var(--green);
-}
-
-.score-table{
-  display:grid;
-  gap:9px;
-}
-
+.score-table{display:grid;gap:9px}
 .score-row{
-  display:grid;
-  grid-template-columns:1.1fr 108px 48px;
-  gap:9px;
-  align-items:center;
-  background:white;
-  border:1px solid var(--line);
-  border-radius:17px;
-  padding:11px;
+  display:grid;grid-template-columns:1.1fr 108px 48px;gap:9px;align-items:center;
+  background:white;border:1px solid var(--line);border-radius:17px;padding:11px;
 }
 
-.score-name{
-  font-weight:900;
-  font-size:14px;
-}
-
-.score-note{
-  color:var(--muted);
-  font-size:11px;
-  margin-top:2px;
-}
+.score-name{font-weight:900;font-size:14px}
+.score-note{color:var(--muted);font-size:11px;margin-top:2px}
 
 .stroke-dot{
-  display:inline-block;
-  width:7px;
-  height:7px;
-  border-radius:50%;
-  background:var(--gold);
-  margin-left:5px;
-  vertical-align:middle;
-  box-shadow:0 0 0 2px rgba(199,161,90,.18);
+  display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--gold);
+  margin-left:5px;vertical-align:middle;box-shadow:0 0 0 2px rgba(199,161,90,.18);
 }
 
 .control{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:7px;
-  background:#f2eadf;
-  border-radius:999px;
-  padding:4px;
+  display:flex;align-items:center;justify-content:center;gap:7px;background:#f2eadf;border-radius:999px;padding:4px;
 }
-
 .control button{
-  border:0;
-  width:30px;
-  height:30px;
-  border-radius:50%;
-  background:white;
-  color:var(--green);
-  font-size:20px;
-  font-weight:900;
+  border:0;width:30px;height:30px;border-radius:50%;background:white;color:var(--green);
+  font-size:20px;font-weight:900;
 }
-
-.control strong{
-  min-width:20px;
-  text-align:center;
-  font-size:16px;
-}
-
-.net{
-  text-align:right;
-  font-weight:900;
-  color:var(--green);
-}
+.control strong{min-width:20px;text-align:center;font-size:16px}
+.net{text-align:right;font-weight:900;color:var(--green)}
 
 .leader-row{
-  display:grid;
-  grid-template-columns:32px 1fr 44px 44px 56px;
-  gap:8px;
-  align-items:center;
-  padding:12px 0;
-  border-bottom:1px solid var(--line);
+  display:grid;grid-template-columns:32px 1fr 44px 44px 56px;gap:8px;align-items:center;
+  padding:12px 0;border-bottom:1px solid var(--line);
 }
-
 .leader-row:last-child{border-bottom:0}
-
 .rank{
-  width:28px;
-  height:28px;
-  border-radius:50%;
-  display:grid;
-  place-items:center;
-  background:#efe6d5;
-  color:#7b5d20;
-  font-weight:900;
+  width:28px;height:28px;border-radius:50%;display:grid;place-items:center;
+  background:#efe6d5;color:#7b5d20;font-weight:900;
+}
+.num{text-align:center;font-weight:900}
+.money{text-align:right;color:var(--green);font-weight:900}
+
+.builder-progress{display:flex;gap:8px;margin:4px 0 14px}
+.step{
+  width:28px;height:28px;border-radius:50%;display:grid;place-items:center;
+  background:#efe6d5;color:#8a6b27;font-weight:900;font-size:13px;
+}
+.step.active{background:var(--green);color:white}
+.builder-card{background:linear-gradient(180deg,#fffdf8,#f7efe2)}
+
+.game-type-grid{display:grid;gap:12px}
+.game-type{
+  width:100%;border:1px solid var(--line);background:white;border-radius:22px;padding:16px;text-align:left;
+  display:grid;grid-template-columns:44px 1fr;column-gap:12px;row-gap:2px;align-items:center;
+  box-shadow:0 12px 30px rgba(23,18,12,.08);
+}
+.game-type strong{font-size:18px;color:#17211b}
+.game-type span{grid-column:2;color:var(--muted);font-size:13px}
+.game-type.active{
+  border-color:var(--green);
+  box-shadow:0 0 0 2px rgba(15,95,61,.12),0 12px 30px rgba(23,18,12,.08);
+}
+.game-icon{
+  width:42px;height:42px;border-radius:50%;display:grid;place-items:center;
+  background:#f2eadf;color:var(--green);font-weight:900;
 }
 
-.num{
-  text-align:center;
-  font-weight:900;
+.game-options{display:grid;gap:12px}
+.game-card{
+  width:100%;text-align:left;border:1px solid var(--line);background:white;border-radius:22px;
+  padding:16px;box-shadow:0 12px 30px rgba(23,18,12,.08);
+}
+.game-card.selected{
+  border-color:var(--gold);
+  box-shadow:0 0 0 2px rgba(199,161,90,.22),0 12px 30px rgba(23,18,12,.08);
+}
+.game-card-top{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}
+.game-card h3{margin:0;font-size:19px;color:#17211b}
+.game-card p{margin:6px 0 0;color:var(--muted);font-size:13px;line-height:1.35}
+.game-tag{
+  background:#f1eadf;color:#7a5d18;border-radius:999px;padding:6px 9px;font-size:10px;font-weight:900;white-space:nowrap;
 }
 
-.money{
-  text-align:right;
-  color:var(--green);
-  font-weight:900;
+.side-grid{display:flex;flex-wrap:wrap;gap:9px;margin-bottom:16px}
+.side-chip{
+  border:1px solid var(--line);background:white;color:#17211b;border-radius:999px;
+  padding:10px 13px;font-size:13px;font-weight:900;
 }
+.side-chip.selected{background:var(--green);border-color:var(--green);color:white}
+
+.game-section{display:none}
+.game-section.active{display:block}
+
+.team-card{
+  background:#fffaf1;border:1px solid var(--line);border-radius:18px;padding:12px;margin-bottom:10px;
+}
+.team-card.active{border-color:var(--green);box-shadow:0 0 0 2px rgba(15,95,61,.12)}
+.team-title{font-weight:900;color:#17211b;margin-bottom:8px}
+.team-chip{
+  display:inline-flex;align-items:center;gap:5px;margin:4px 4px 0 0;
+  border:1px solid var(--line);border-radius:999px;padding:7px 9px;background:white;
+  font-size:12px;font-weight:900;color:#17211b;
+}
+.team-chip.a{background:#ecf6f1;border-color:#cde5d8}
+.team-chip.b{background:#f7edda;border-color:#ead5aa}
 
 .lounge{
   background:
@@ -453,503 +267,321 @@ input,select{
     linear-gradient(135deg,#111,#1a211c);
   color:white;
 }
-
 .lounge .meta{color:#d0c7b7}
-
 .chat{
-  background:rgba(255,255,255,.08);
-  border:1px solid rgba(255,255,255,.1);
-  border-radius:17px;
-  padding:12px;
-  margin-top:10px;
-  color:#f8f2e7;
+  background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.1);
+  border-radius:17px;padding:12px;margin-top:10px;color:#f8f2e7;
 }
-
 .chat strong{color:var(--gold2)}
-
 .small-logo{
-  width:66px;
-  height:66px;
-  border:1.5px solid var(--gold);
-  border-radius:50%;
-  display:grid;
-  place-items:center;
-  color:var(--gold2);
-  font-family:Georgia,serif;
-  font-size:34px;
-  margin:0 auto 12px;
+  width:66px;height:66px;border:1.5px solid var(--gold);border-radius:50%;display:grid;place-items:center;
+  color:var(--gold2);font-family:Georgia,serif;font-size:34px;margin:0 auto 12px;
 }
-
 .center{text-align:center}
-
-.builder-progress{
-  display:flex;
-  gap:8px;
-  margin:4px 0 14px;
-}
-
-.step{
-  width:28px;
-  height:28px;
-  border-radius:50%;
-  display:grid;
-  place-items:center;
-  background:#efe6d5;
-  color:#8a6b27;
-  font-weight:900;
-  font-size:13px;
-}
-
-.step.active{
-  background:var(--green);
-  color:white;
-}
-
-.builder-card{background:linear-gradient(180deg,#fffdf8,#f7efe2)}
-
-.game-type-grid{
-  display:grid;
-  gap:12px;
-}
-
-.game-type{
-  width:100%;
-  border:1px solid var(--line);
-  background:white;
-  border-radius:22px;
-  padding:16px;
-  text-align:left;
-  display:grid;
-  grid-template-columns:44px 1fr;
-  column-gap:12px;
-  row-gap:2px;
-  align-items:center;
-  box-shadow:0 12px 30px rgba(23,18,12,.08);
-}
-
-.game-type strong{
-  font-size:18px;
-  color:#17211b;
-}
-
-.game-type span{
-  grid-column:2;
-  color:var(--muted);
-  font-size:13px;
-}
-
-.game-type.active{
-  border-color:var(--green);
-  box-shadow:0 0 0 2px rgba(15,95,61,.12), 0 12px 30px rgba(23,18,12,.08);
-}
-
-.game-icon{
-  width:42px;
-  height:42px;
-  border-radius:50%;
-  display:grid;
-  place-items:center;
-  background:#f2eadf;
-  color:var(--green);
-  font-weight:900;
-}
-
-.game-options{
-  display:grid;
-  gap:12px;
-}
-
-.game-card{
-  width:100%;
-  text-align:left;
-  border:1px solid var(--line);
-  background:white;
-  border-radius:22px;
-  padding:16px;
-  box-shadow:0 12px 30px rgba(23,18,12,.08);
-}
-
-.game-card.selected{
-  border-color:var(--gold);
-  box-shadow:0 0 0 2px rgba(199,161,90,.22), 0 12px 30px rgba(23,18,12,.08);
-}
-
-.game-card-top{
-  display:flex;
-  justify-content:space-between;
-  gap:10px;
-  align-items:flex-start;
-}
-
-.game-card h3{
-  margin:0;
-  font-size:19px;
-  color:#17211b;
-}
-
-.game-card p{
-  margin:6px 0 0;
-  color:var(--muted);
-  font-size:13px;
-  line-height:1.35;
-}
-
-.game-tag{
-  background:#f1eadf;
-  color:#7a5d18;
-  border-radius:999px;
-  padding:6px 9px;
-  font-size:10px;
-  font-weight:900;
-  white-space:nowrap;
-}
-
-.side-grid{
-  display:flex;
-  flex-wrap:wrap;
-  gap:9px;
-  margin-bottom:16px;
-}
-
-.side-chip{
-  border:1px solid var(--line);
-  background:white;
-  color:#17211b;
-  border-radius:999px;
-  padding:10px 13px;
-  font-size:13px;
-  font-weight:900;
-}
-
-.side-chip.selected{
-  background:var(--green);
-  border-color:var(--green);
-  color:white;
-}
-
-.game-section{
-  display:none;
-}
-
-.game-section.active{
-  display:block;
-}
 </style>
 </head>
 
 <body>
 <div class="app">
 
-  <header class="hero">
-    <div class="topline">
-      <div class="mark">
-        <div class="logo">T</div>
-        <div class="brand">THE TURN</div>
+<header class="hero">
+  <div class="topline">
+    <div class="mark">
+      <div class="logo">T</div>
+      <div class="brand">THE TURN</div>
+    </div>
+    <div class="avatar"></div>
+  </div>
+
+  <h1 id="heroTitle">Saturday Morning Crew</h1>
+  <p class="sub">Greystone Golf Club · Milton, ON</p>
+
+  <div class="badges" id="heroBadges">
+    <span class="badge live">LIVE</span>
+    <span class="badge">Skins</span>
+    <span class="badge">Best Ball</span>
+    <span class="badge">Greystone</span>
+  </div>
+</header>
+
+<main class="content">
+
+<section id="home" class="screen active">
+  <div class="section-head">
+    <h2>Upcoming Rounds</h2>
+    <button onclick="switchTab('setup')">New</button>
+  </div>
+
+  <div class="card round-card">
+    <div class="round-top">
+      <div>
+        <div class="title">Saturday Skins</div>
+        <div class="meta">Today · 8:30 AM · 4/4 players</div>
       </div>
-      <div class="avatar"></div>
+      <span class="status">GROUP</span>
+    </div>
+    <button class="gold-btn" onclick="switchTab('setup')">Create Round</button>
+  </div>
+
+  <div class="section-head">
+    <h2>Live Now</h2>
+    <button onclick="switchTab('games')">View</button>
+  </div>
+
+  <div class="card" onclick="switchTab('score')">
+    <div class="round-top">
+      <div>
+        <div class="title" id="liveTitle">Current Round</div>
+        <div class="meta" id="liveMeta">Ready to score · Tap to open scorecard</div>
+      </div>
+      <span class="status">LIVE</span>
+    </div>
+  </div>
+
+  <div class="section-head">
+    <h2>Groups</h2>
+    <button onclick="alert('Group editor coming in v6')">Edit</button>
+  </div>
+
+  <div class="card" onclick="switchTab('setup')">
+    <div class="title">Saturday Morning Crew</div>
+    <div class="meta">Recurring weekly · roster editable</div>
+  </div>
+
+  <div class="card" onclick="switchTab('setup')">
+    <div class="title">Men’s Night</div>
+    <div class="meta">One-off or recurring rounds</div>
+  </div>
+</section>
+
+<section id="setup" class="screen">
+  <div class="section-head">
+    <h2>Game Builder</h2>
+    <button onclick="resetGames()">Reset</button>
+  </div>
+
+  <div class="builder-progress">
+    <div class="step active">1</div>
+    <div class="step active">2</div>
+    <div class="step active">3</div>
+  </div>
+
+  <div class="card builder-card">
+    <div class="title">Create a round</div>
+    <div class="meta">Choose players, teams, games, and scoring basis.</div>
+
+    <div style="margin-top:14px;">
+      <label>Round name</label>
+      <input id="roundName" value="Saturday Skins" onchange="saveLocal()">
     </div>
 
-    <h1 id="heroTitle">Saturday Morning Crew</h1>
-    <p class="sub">Greystone Golf Club · Milton, ON</p>
-
-    <div class="badges" id="heroBadges">
-      <span class="badge live">LIVE</span>
-      <span class="badge">Skins</span>
-      <span class="badge">Nassau</span>
-      <span class="badge">Blue Tees</span>
+    <div class="grid2" style="margin-top:14px;">
+      <div>
+        <label>Players</label>
+        <select id="playerCount" onchange="setPlayerCount()">
+          <option value="2">2 players</option>
+          <option value="3">3 players</option>
+          <option value="4" selected>4 players</option>
+        </select>
+      </div>
+      <div>
+        <label>Scoring</label>
+        <select id="gameScoring" onchange="saveLocal(); renderScore();">
+          <option>Net</option>
+          <option>Gross</option>
+        </select>
+      </div>
     </div>
-  </header>
+  </div>
 
-  <main class="content">
+  <div class="section-head"><h2>Competition Style</h2></div>
 
-    <section id="home" class="screen active">
-      <div class="section-head">
-        <h2>Upcoming Rounds</h2>
-        <button onclick="switchTab('setup')">New</button>
+  <div class="game-type-grid">
+    <button class="game-type active" onclick="selectStyle(this,'individual')">
+      <div class="game-icon">♙</div>
+      <strong>Individual</strong>
+      <span>Each player competes alone</span>
+    </button>
+
+    <button class="game-type" onclick="selectStyle(this,'team')">
+      <div class="game-icon">♙♙</div>
+      <strong>Teams</strong>
+      <span>2v2, best ball, Vegas</span>
+    </button>
+
+    <button class="game-type" onclick="selectStyle(this,'side')">
+      <div class="game-icon">＋</div>
+      <strong>Side Games</strong>
+      <span>Skins, snake, greenies</span>
+    </button>
+  </div>
+
+  <div class="section-head"><h2>Recommended Games</h2></div>
+  <div id="gameOptions" class="game-options"></div>
+
+  <div id="teamSetupBlock">
+    <div class="section-head">
+      <h2>Teams</h2>
+      <button onclick="autoTeams()">Auto teams</button>
+    </div>
+
+    <div class="card">
+      <div class="meta">Tap a team button beside each player, or use Auto teams.</div>
+      <div id="teamsSetup" style="margin-top:12px;"></div>
+    </div>
+  </div>
+
+  <div class="section-head"><h2>Side Action</h2></div>
+
+  <div class="side-grid">
+    <button class="side-chip selected" data-side="Skins" onclick="toggleChip(this)">Skins</button>
+    <button class="side-chip" data-side="Closest to Pin" onclick="toggleChip(this)">Closest to Pin</button>
+    <button class="side-chip" data-side="Snake" onclick="toggleChip(this)">Snake</button>
+    <button class="side-chip" data-side="Birdies" onclick="toggleChip(this)">Birdies</button>
+    <button class="side-chip" data-side="Greenies" onclick="toggleChip(this)">Greenies</button>
+    <button class="side-chip" data-side="Putts" onclick="toggleChip(this)">Putts</button>
+  </div>
+
+  <div class="section-head">
+    <h2>Players</h2>
+    <button onclick="addPlayer()">Add</button>
+  </div>
+
+  <div id="playersSetup"></div>
+
+  <div class="section-head"><h2>Game Settings</h2></div>
+
+  <div class="card">
+    <div class="grid2">
+      <div>
+        <label>Buy-in</label>
+        <input type="number" id="buyIn" value="20" onchange="saveLocal()">
       </div>
-
-      <div class="card round-card">
-        <div class="round-top">
-          <div>
-            <div class="title">Saturday Skins</div>
-            <div class="meta">Today · 8:30 AM · 4/4 players</div>
-            <div class="player-dots">
-              <div class="dot"></div><div class="dot"></div><div class="dot"></div><div class="dot"></div>
-            </div>
-          </div>
-          <span class="status">GROUP</span>
-        </div>
-        <button class="gold-btn" onclick="switchTab('setup')">Create Round</button>
+      <div>
+        <label>Skin value</label>
+        <input type="number" id="skinValue" value="5" onchange="saveLocal()">
       </div>
+    </div>
 
-      <div class="section-head">
-        <h2>Live Now</h2>
-        <button onclick="switchTab('games')">View</button>
+    <div class="grid2" style="margin-top:10px;">
+      <div>
+        <label>Nassau</label>
+        <input type="number" id="nassauValue" value="5" onchange="saveLocal()">
       </div>
-
-      <div class="card" onclick="switchTab('score')">
-        <div class="round-top">
-          <div>
-            <div class="title" id="liveTitle">Current Round</div>
-            <div class="meta" id="liveMeta">Ready to score · Tap to open scorecard</div>
-          </div>
-          <span class="status">LIVE</span>
-        </div>
+      <div>
+        <label>Presses</label>
+        <select id="presses" onchange="saveLocal()">
+          <option>Off</option>
+          <option>Manual</option>
+          <option>Auto 2 Down</option>
+        </select>
       </div>
+    </div>
 
-      <div class="section-head">
-        <h2>Groups</h2>
-        <button onclick="alert('Group editor coming in v5')">Edit</button>
+    <button class="green-btn" onclick="startRound()">Start Scoring</button>
+  </div>
+</section>
+
+<section id="score" class="screen">
+  <div class="score-top">
+    <div>
+      <div class="title">Scorecard</div>
+      <div class="meta">One scorer enters for the group</div>
+    </div>
+    <span class="status">LIVE</span>
+  </div>
+
+  <div class="card">
+    <div class="hole-strip" id="holeStrip"></div>
+  </div>
+
+  <div class="card">
+    <div class="round-top">
+      <div>
+        <div class="title" id="holeTitle">Hole 1</div>
+        <div class="meta" id="holeMeta">Par 5 · HCP 17</div>
       </div>
+      <span class="status" id="holeStatus">Net</span>
+    </div>
 
-      <div class="card" onclick="switchTab('setup')">
-        <div class="title">Saturday Morning Crew</div>
-        <div class="meta">Recurring weekly · roster editable</div>
-      </div>
+    <div class="score-table" id="scoreRows" style="margin-top:14px;"></div>
 
-      <div class="card" onclick="switchTab('setup')">
-        <div class="title">Men’s Night</div>
-        <div class="meta">One-off or recurring rounds</div>
-      </div>
-    </section>
+    <div class="grid2" style="margin-top:12px;">
+      <button class="ghost-btn" onclick="prevHole()">Previous</button>
+      <button class="green-btn" onclick="nextHole()">Next Hole</button>
+    </div>
+  </div>
+</section>
 
-    <section id="setup" class="screen">
-      <div class="section-head">
-        <h2>Game Builder</h2>
-        <button onclick="resetGames()">Reset</button>
-      </div>
+<section id="games" class="screen">
+  <div class="section-head"><h2>Leaderboard</h2></div>
+  <div class="card"><div id="leaderboard"></div></div>
 
-      <div class="builder-progress">
-        <div class="step active">1</div>
-        <div class="step active">2</div>
-        <div class="step active">3</div>
-      </div>
+  <div id="teamBestBallSection" class="game-section">
+    <div class="section-head"><h2>Team Best Ball</h2></div>
+    <div class="card">
+      <div class="title">2v2 Best Ball</div>
+      <div class="meta">Lowest team net score counts on each hole.</div>
+      <div id="teamBestBallBoard"></div>
+    </div>
+  </div>
 
-      <div class="card builder-card">
-        <div class="title">Create a round</div>
-        <div class="meta">Choose the group size, games, scoring basis, and side action.</div>
+  <div id="skinsSection" class="game-section">
+    <div class="section-head"><h2>Skins</h2></div>
+    <div class="card">
+      <div class="title">Skins Board</div>
+      <div class="meta">Outright low score wins. Ties carry over.</div>
+      <div id="skinsBoard"></div>
+    </div>
+  </div>
 
-        <div style="margin-top:14px;">
-          <label>Round name</label>
-          <input id="roundName" value="Saturday Skins">
-        </div>
+  <div id="nassauSection" class="game-section">
+    <div class="section-head"><h2>Nassau</h2></div>
+    <div class="card">
+      <div class="title">Front · Back · Total</div>
+      <div class="meta">Individual totals for now. Team Nassau next.</div>
+      <div id="nassauBoard"></div>
+    </div>
+  </div>
 
-        <div class="grid2" style="margin-top:14px;">
-          <div>
-            <label>Players</label>
-            <select id="playerCount" onchange="setPlayerCount()">
-              <option value="2">2 players</option>
-              <option value="3">3 players</option>
-              <option value="4" selected>4 players</option>
-            </select>
-          </div>
-          <div>
-            <label>Scoring</label>
-            <select id="gameScoring" onchange="saveLocal()">
-              <option>Net</option>
-              <option>Gross</option>
-            </select>
-          </div>
-        </div>
-      </div>
+  <div id="sideSection" class="game-section">
+    <div class="section-head"><h2>Side Action</h2></div>
+    <div class="card">
+      <div class="title">Active Side Games</div>
+      <div class="meta" id="sideActionText">Skins</div>
+    </div>
+  </div>
+</section>
 
-      <div class="section-head"><h2>Competition Style</h2></div>
+<section id="lounge" class="screen">
+  <div class="card lounge center">
+    <div class="small-logo">G</div>
+    <div class="brand">THE LOUNGE</div>
+    <p class="meta">Invite-only. Results, stories, and receipts.</p>
+  </div>
 
-      <div class="game-type-grid">
-        <button class="game-type active" onclick="selectStyle(this,'individual')">
-          <div class="game-icon">♙</div>
-          <strong>Individual</strong>
-          <span>Each player competes alone</span>
-        </button>
+  <div class="card lounge">
+    <div class="chat">
+      <strong>The Turn</strong><br>
+      Saturday Skins is live. Team Best Ball is now on the board.
+    </div>
+    <div class="chat">
+      <strong>Rob</strong><br>
+      Auto teams were “random” and somehow still unfair.
+    </div>
+  </div>
+</section>
 
-        <button class="game-type" onclick="selectStyle(this,'team')">
-          <div class="game-icon">♙♙</div>
-          <strong>Teams</strong>
-          <span>2v2, best ball, Vegas</span>
-        </button>
+</main>
 
-        <button class="game-type" onclick="selectStyle(this,'side')">
-          <div class="game-icon">＋</div>
-          <strong>Side Games</strong>
-          <span>Skins, snake, greenies</span>
-        </button>
-      </div>
+<nav class="tabs">
+  <button class="tab active" data-tab="home" onclick="show('home',this)"><span>⌂</span>Home</button>
+  <button class="tab" data-tab="setup" onclick="show('setup',this)"><span>＋</span>Round</button>
+  <button class="tab" data-tab="score" onclick="show('score',this)"><span>□</span>Score</button>
+  <button class="tab" data-tab="games" onclick="show('games',this)"><span>♛</span>Games</button>
+  <button class="tab" data-tab="lounge" onclick="show('lounge',this)"><span>☰</span>Lounge</button>
+</nav>
 
-      <div class="section-head"><h2>Recommended Games</h2></div>
-      <div id="gameOptions" class="game-options"></div>
-
-      <div class="section-head"><h2>Side Action</h2></div>
-
-      <div class="side-grid">
-        <button class="side-chip selected" data-side="Skins" onclick="toggleChip(this)">Skins</button>
-        <button class="side-chip" data-side="Closest to Pin" onclick="toggleChip(this)">Closest to Pin</button>
-        <button class="side-chip" data-side="Snake" onclick="toggleChip(this)">Snake</button>
-        <button class="side-chip" data-side="Birdies" onclick="toggleChip(this)">Birdies</button>
-        <button class="side-chip" data-side="Greenies" onclick="toggleChip(this)">Greenies</button>
-        <button class="side-chip" data-side="Putts" onclick="toggleChip(this)">Putts</button>
-      </div>
-
-      <div class="section-head">
-        <h2>Players</h2>
-        <button onclick="addPlayer()">Add</button>
-      </div>
-
-      <div id="playersSetup"></div>
-
-      <div class="section-head"><h2>Game Settings</h2></div>
-
-      <div class="card">
-        <div class="grid2">
-          <div>
-            <label>Buy-in</label>
-            <input type="number" id="buyIn" value="20" onchange="saveLocal()">
-          </div>
-          <div>
-            <label>Skin value</label>
-            <input type="number" id="skinValue" value="5" onchange="saveLocal()">
-          </div>
-        </div>
-
-        <div class="grid2" style="margin-top:10px;">
-          <div>
-            <label>Nassau</label>
-            <input type="number" id="nassauValue" value="5" onchange="saveLocal()">
-          </div>
-          <div>
-            <label>Presses</label>
-            <select id="presses" onchange="saveLocal()">
-              <option>Off</option>
-              <option>Manual</option>
-              <option>Auto 2 Down</option>
-            </select>
-          </div>
-        </div>
-
-        <button class="green-btn" onclick="startRound()">Start Scoring</button>
-      </div>
-    </section>
-
-    <section id="score" class="screen">
-      <div class="score-top">
-        <div>
-          <div class="title">Scorecard</div>
-          <div class="meta">One scorer enters for the group</div>
-        </div>
-        <span class="status">LIVE</span>
-      </div>
-
-      <div class="card">
-        <div class="hole-strip" id="holeStrip"></div>
-      </div>
-
-      <div class="card">
-        <div class="round-top">
-          <div>
-            <div class="title" id="holeTitle">Hole 1</div>
-            <div class="meta" id="holeMeta">Par 5 · HCP 17</div>
-          </div>
-          <span class="status" id="holeStatus">Net</span>
-        </div>
-
-        <div class="score-table" id="scoreRows" style="margin-top:14px;"></div>
-
-        <div class="grid2" style="margin-top:12px;">
-          <button class="ghost-btn" onclick="prevHole()">Previous</button>
-          <button class="green-btn" onclick="nextHole()">Next Hole</button>
-        </div>
-      </div>
-    </section>
-
-    <section id="games" class="screen">
-      <div class="section-head"><h2>Leaderboard</h2></div>
-
-      <div class="card">
-        <div id="leaderboard"></div>
-      </div>
-
-      <div id="skinsSection" class="game-section">
-        <div class="section-head"><h2>Skins</h2></div>
-        <div class="card">
-          <div class="title">Skins Board</div>
-          <div class="meta">Outright low score wins. Ties carry over.</div>
-          <div id="skinsBoard"></div>
-        </div>
-      </div>
-
-      <div id="nassauSection" class="game-section">
-        <div class="section-head"><h2>Nassau</h2></div>
-        <div class="card">
-          <div class="title">Front · Back · Total</div>
-          <div class="meta">Shown against the current field leader for now.</div>
-          <div id="nassauBoard"></div>
-        </div>
-      </div>
-
-      <div id="matchSection" class="game-section">
-        <div class="section-head"><h2>Match Play</h2></div>
-        <div class="card">
-          <div class="title">Match Play</div>
-          <div class="meta">Hole-by-hole match logic coming next.</div>
-        </div>
-      </div>
-
-      <div id="wolfSection" class="game-section">
-        <div class="section-head"><h2>Wolf</h2></div>
-        <div class="card">
-          <div class="title">Wolf</div>
-          <div class="meta">Rotating order and partner selection coming next.</div>
-        </div>
-      </div>
-
-      <div id="stablefordSection" class="game-section">
-        <div class="section-head"><h2>Stableford</h2></div>
-        <div class="card">
-          <div class="title">Stableford</div>
-          <div class="meta">Points-based scoring coming next.</div>
-        </div>
-      </div>
-
-      <div id="sideSection" class="game-section">
-        <div class="section-head"><h2>Side Action</h2></div>
-        <div class="card">
-          <div class="title">Active Side Games</div>
-          <div class="meta" id="sideActionText">Skins</div>
-        </div>
-      </div>
-    </section>
-
-    <section id="lounge" class="screen">
-      <div class="card lounge center">
-        <div class="small-logo">G</div>
-        <div class="brand">THE LOUNGE</div>
-        <p class="meta">Invite-only. Results, stories, and receipts.</p>
-      </div>
-
-      <div class="card lounge">
-        <div class="chat">
-          <strong>The Turn</strong><br>
-          Saturday Skins is live. Keep the pencil away from the guy losing money.
-        </div>
-        <div class="chat">
-          <strong>Rob</strong><br>
-          Scores start at par. This is likely my peak.
-        </div>
-        <div class="chat">
-          <strong>Mike</strong><br>
-          I’m filing a wind complaint.
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <nav class="tabs">
-    <button class="tab active" data-tab="home" onclick="show('home',this)"><span>⌂</span>Home</button>
-    <button class="tab" data-tab="setup" onclick="show('setup',this)"><span>＋</span>Round</button>
-    <button class="tab" data-tab="score" onclick="show('score',this)"><span>□</span>Score</button>
-    <button class="tab" data-tab="games" onclick="show('games',this)"><span>♛</span>Games</button>
-    <button class="tab" data-tab="lounge" onclick="show('lounge',this)"><span>☰</span>Lounge</button>
-  </nav>
 </div>
 
 <script>
@@ -960,23 +592,23 @@ const course = {
     Gold:[515,213,435,541,430,186,436,363,404,536,189,405,409,150,301,405,417,529],
     Blue:[488,191,411,520,419,161,405,351,394,511,160,383,387,145,282,384,395,514],
     Grey:[488,169,389,520,395,161,365,339,394,511,160,361,355,145,282,384,373,514],
-    White:[467,169,389,494,395,142,365,339,363,478,135,361,355,138,259,369,373,463],
+    White:[467,169,389,494,395,142,365,339,363,478,135,361,355,138,259,369,326,463],
     Green:[467,148,360,494,307,142,349,305,323,478,135,311,311,125,259,369,326,463],
     Red:[430,148,360,466,307,125,349,305,323,434,111,311,311,125,237,337,326,425]
   }
 };
 
 let players = [
-  {name:"Rob", tee:"Blue", hcp:7},
-  {name:"Mike", tee:"Blue", hcp:11},
-  {name:"Chris", tee:"White", hcp:15},
-  {name:"Alex", tee:"Blue", hcp:4}
+  {name:"Rob", tee:"Blue", hcp:7, team:"A"},
+  {name:"Mike", tee:"Blue", hcp:11, team:"B"},
+  {name:"Chris", tee:"White", hcp:15, team:"B"},
+  {name:"Alex", tee:"Blue", hcp:4, team:"A"}
 ];
 
 let currentHole = 0;
 let scores = {};
-let selectedStyle = "individual";
-let selectedGames = ["Skins", "Nassau"];
+let selectedStyle = "team";
+let selectedGames = ["Skins","Best Ball"];
 let sideGames = ["Skins"];
 
 const gamesByCount = {
@@ -1023,10 +655,12 @@ function setPlayerCount(){
   const count = Number(document.getElementById("playerCount").value);
   players = players.slice(0, count);
   while(players.length < count){
-    players.push({name:`Player ${players.length+1}`, tee:"Blue", hcp:10});
+    players.push({name:`Player ${players.length+1}`, tee:"Blue", hcp:10, team: players.length % 2 === 0 ? "A" : "B"});
   }
   initScores();
+  autoTeams(false);
   renderPlayers();
+  renderTeams();
   renderGameOptions();
   saveLocal();
 }
@@ -1039,7 +673,7 @@ function renderPlayers(){
       <div class="player-card">
         <div>
           <div class="score-name">${p.name}</div>
-          <div class="score-note">Default profile</div>
+          <div class="score-note">Team ${p.team} · default profile</div>
         </div>
         <select onchange="players[${i}].tee=this.value; saveLocal(); renderScore();">
           ${Object.keys(course.tees).map(t=>`<option ${t===p.tee?"selected":""}>${t}</option>`).join("")}
@@ -1055,13 +689,70 @@ function addPlayer(){
     alert("Prototype supports up to 4 players for now.");
     return;
   }
-  players.push({name:`Player ${players.length+1}`, tee:"Blue", hcp:10});
+  players.push({name:`Player ${players.length+1}`, tee:"Blue", hcp:10, team: players.length % 2 === 0 ? "A" : "B"});
   document.getElementById("playerCount").value = String(players.length);
   initScores();
   renderPlayers();
+  renderTeams();
   renderGameOptions();
   renderScore();
   saveLocal();
+}
+
+function autoTeams(shouldSave=true){
+  if(players.length === 4){
+    const sorted = [...players].sort((a,b)=>a.hcp-b.hcp);
+    sorted[0].team = "A";
+    sorted[3].team = "A";
+    sorted[1].team = "B";
+    sorted[2].team = "B";
+  } else {
+    players.forEach((p,i)=>p.team = i % 2 === 0 ? "A" : "B");
+  }
+  renderPlayers();
+  renderTeams();
+  renderScore();
+  if(shouldSave) saveLocal();
+}
+
+function setTeam(index, team){
+  players[index].team = team;
+  renderPlayers();
+  renderTeams();
+  renderScore();
+  saveLocal();
+}
+
+function renderTeams(){
+  const el = document.getElementById("teamsSetup");
+  if(!el) return;
+
+  const teamA = players.filter(p=>p.team==="A").map(p=>p.name);
+  const teamB = players.filter(p=>p.team==="B").map(p=>p.name);
+
+  el.innerHTML = `
+    <div class="team-card active">
+      <div class="team-title">Team A</div>
+      ${teamA.length ? teamA.map(n=>`<span class="team-chip a">${n}</span>`).join("") : `<div class="meta">No players yet</div>`}
+    </div>
+    <div class="team-card active">
+      <div class="team-title">Team B</div>
+      ${teamB.length ? teamB.map(n=>`<span class="team-chip b">${n}</span>`).join("") : `<div class="meta">No players yet</div>`}
+    </div>
+
+    <div style="margin-top:12px;">
+      ${players.map((p,i)=>`
+        <div class="player-card" style="grid-template-columns:1fr 56px 56px;">
+          <div>
+            <div class="score-name">${p.name}</div>
+            <div class="score-note">Current: Team ${p.team}</div>
+          </div>
+          <button class="ghost-btn" style="padding:9px;margin:0;" onclick="setTeam(${i},'A')">A</button>
+          <button class="ghost-btn" style="padding:9px;margin:0;" onclick="setTeam(${i},'B')">B</button>
+        </div>
+      `).join("")}
+    </div>
+  `;
 }
 
 function selectStyle(button, style){
@@ -1182,7 +873,7 @@ function strokeDots(player,hole){
   return Array.from({length:count}).map(()=>`<span class="stroke-dot"></span>`).join("");
 }
 
-function displayScore(player,hole){
+function scoreFor(player,hole){
   const type = document.getElementById("gameScoring")?.value || "Net";
   const gross = scores[player.name][hole];
   return type === "Net" ? gross - strokes(player,hole) : gross;
@@ -1203,7 +894,7 @@ function renderScore(){
       <div class="score-row">
         <div>
           <div class="score-name">${p.name}${strokeDots(p,currentHole)}</div>
-          <div class="score-note">${p.tee} · HCP ${p.hcp} · ${strokes(p,currentHole)} stroke${strokes(p,currentHole) === 1 ? "" : "s"}</div>
+          <div class="score-note">Team ${p.team} · ${p.tee} · HCP ${p.hcp}</div>
         </div>
         <div class="control">
           <button onclick="change('${p.name}',-1)">−</button>
@@ -1232,8 +923,13 @@ function totals(p){
 function renderGames(){
   renderLeaderboard();
 
-  const sections = ["skinsSection","nassauSection","matchSection","wolfSection","stablefordSection","sideSection"];
+  const sections = ["teamBestBallSection","skinsSection","nassauSection","sideSection"];
   sections.forEach(id => document.getElementById(id).classList.remove("active"));
+
+  if(selectedGames.includes("Best Ball")){
+    document.getElementById("teamBestBallSection").classList.add("active");
+    renderTeamBestBall();
+  }
 
   if(selectedGames.includes("Skins") || sideGames.includes("Skins")){
     document.getElementById("skinsSection").classList.add("active");
@@ -1243,18 +939,6 @@ function renderGames(){
   if(selectedGames.includes("Nassau")){
     document.getElementById("nassauSection").classList.add("active");
     renderNassau();
-  }
-
-  if(selectedGames.includes("Match Play")){
-    document.getElementById("matchSection").classList.add("active");
-  }
-
-  if(selectedGames.includes("Wolf")){
-    document.getElementById("wolfSection").classList.add("active");
-  }
-
-  if(selectedGames.includes("Stableford")){
-    document.getElementById("stablefordSection").classList.add("active");
   }
 
   if(sideGames.length){
@@ -1274,7 +958,7 @@ function renderLeaderboard(){
         <div class="rank">${i+1}</div>
         <div>
           <div class="score-name">${p.name}</div>
-          <div class="score-note">${p.tee} · HCP ${p.hcp}</div>
+          <div class="score-note">Team ${p.team} · ${p.tee} · HCP ${p.hcp}</div>
         </div>
         <div class="num">${p.gross}</div>
         <div class="num">${p.net}</div>
@@ -1282,6 +966,63 @@ function renderLeaderboard(){
       </div>
     `;
   });
+}
+
+function teamPlayers(team){
+  return players.filter(p=>p.team===team);
+}
+
+function bestBallScore(team,hole){
+  const members = teamPlayers(team);
+  if(!members.length) return null;
+  return Math.min(...members.map(p=>scoreFor(p,hole)));
+}
+
+function renderTeamBestBall(){
+  const el = document.getElementById("teamBestBallBoard");
+  el.innerHTML = "";
+
+  let totalA = 0;
+  let totalB = 0;
+  let holesA = 0;
+  let holesB = 0;
+
+  for(let i=0;i<18;i++){
+    const a = bestBallScore("A",i);
+    const b = bestBallScore("B",i);
+
+    if(a !== null) totalA += a;
+    if(b !== null) totalB += b;
+
+    if(a !== null && b !== null){
+      if(a < b) holesA++;
+      if(b < a) holesB++;
+    }
+  }
+
+  el.innerHTML += `
+    <div class="leader-row" style="grid-template-columns:32px 1fr 56px 56px 56px;">
+      <div class="rank">A</div>
+      <div>
+        <div class="score-name">Team A</div>
+        <div class="score-note">${teamPlayers("A").map(p=>p.name).join(" + ") || "No players"}</div>
+      </div>
+      <div class="num">${totalA}</div>
+      <div class="num">${holesA}</div>
+      <div class="money">${totalA < totalB ? "Lead" : ""}</div>
+    </div>
+
+    <div class="leader-row" style="grid-template-columns:32px 1fr 56px 56px 56px;">
+      <div class="rank">B</div>
+      <div>
+        <div class="score-name">Team B</div>
+        <div class="score-note">${teamPlayers("B").map(p=>p.name).join(" + ") || "No players"}</div>
+      </div>
+      <div class="num">${totalB}</div>
+      <div class="num">${holesB}</div>
+      <div class="money">${totalB < totalA ? "Lead" : ""}</div>
+    </div>
+  `;
 }
 
 function renderSkins(){
@@ -1299,7 +1040,6 @@ function renderSkins(){
 
     const low=Math.min(...holeResults.map(r=>r.score));
     const winners=holeResults.filter(r=>r.score===low);
-
     const payout = Number(document.getElementById("skinValue")?.value || 5) * carry;
 
     el.innerHTML += `
@@ -1312,7 +1052,6 @@ function renderSkins(){
         <div class="money">${winners.length===1?"Skin":""}</div>
       </div>
     `;
-
     if(winners.length === 1) carry = 0;
   });
 }
@@ -1329,7 +1068,6 @@ function renderNassau(){
 
     let frontNet = 0;
     let backNet = 0;
-
     for(let i=0;i<9;i++) frontNet += scores[p.name][i] - strokes(p,i);
     for(let i=9;i<18;i++) backNet += scores[p.name][i] - strokes(p,i);
 
@@ -1359,12 +1097,7 @@ function renderNassau(){
 
 function saveLocal(){
   const state = {
-    players,
-    scores,
-    currentHole,
-    selectedStyle,
-    selectedGames,
-    sideGames,
+    players,scores,currentHole,selectedStyle,selectedGames,sideGames,
     roundName:document.getElementById("roundName")?.value,
     gameScoring:document.getElementById("gameScoring")?.value,
     buyIn:document.getElementById("buyIn")?.value,
@@ -1372,22 +1105,19 @@ function saveLocal(){
     nassauValue:document.getElementById("nassauValue")?.value,
     presses:document.getElementById("presses")?.value
   };
-  localStorage.setItem("theTurnV4", JSON.stringify(state));
+  localStorage.setItem("theTurnV5", JSON.stringify(state));
 }
 
 function loadLocal(){
-  const raw = localStorage.getItem("theTurnV4");
-  if(!raw){
-    initScores();
-    return;
-  }
+  const raw = localStorage.getItem("theTurnV5");
+  if(!raw){initScores();return}
 
   try{
     const state = JSON.parse(raw);
     players = state.players || players;
     scores = state.scores || {};
     currentHole = state.currentHole || 0;
-    selectedStyle = state.selectedStyle || "individual";
+    selectedStyle = state.selectedStyle || "team";
     selectedGames = state.selectedGames || selectedGames;
     sideGames = state.sideGames || sideGames;
     initScores();
@@ -1399,8 +1129,13 @@ function loadLocal(){
       if(state.skinValue) document.getElementById("skinValue").value = state.skinValue;
       if(state.nassauValue) document.getElementById("nassauValue").value = state.nassauValue;
       if(state.presses) document.getElementById("presses").value = state.presses;
+      document.getElementById("playerCount").value = String(players.length);
       updateHeroBadges();
-    }, 0);
+      renderGameOptions();
+      renderTeams();
+      renderPlayers();
+      renderScore();
+    },0);
   } catch(e){
     initScores();
   }
@@ -1408,6 +1143,7 @@ function loadLocal(){
 
 loadLocal();
 renderPlayers();
+renderTeams();
 renderGameOptions();
 renderScore();
 updateHeroBadges();
