@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Turn v9</title>
+<style>
+body{margin:0;font-family:-apple-system,Arial;background:#f4efe4}
+.app{max-width:420px;margin:auto;background:#fff;min-height:100vh}
+.header{background:#0f5f3d;color:#fff;padding:16px}
+.section{padding:12px}
+.card{border:1px solid #e6ded1;border-radius:14px;padding:12px;margin-bottom:10px;background:#fff}
+.row{display:flex;justify-content:space-between;align-items:center;margin:6px 0}
+button{width:28px;height:28px;border:none;border-radius:50%;background:#0f5f3d;color:#fff}
+.score{min-width:20px;text-align:center;font-weight:900}
+.small{font-size:11px;color:#777}
+.leader{font-weight:900;color:#0f5f3d}
+.match{font-weight:900;text-align:center;margin-top:6px}
+</style>
+</head>
+<body>
+<div class="app">
+
+<div class="header">
+<h2>Saturday Skins</h2>
+<div class="small">Best Ball · Nassau</div>
+</div>
+
+<div class="section">
+<h3>Scorecard</h3>
+<div id="score"></div>
+</div>
+
+<div class="section">
+<h3>Best Ball</h3>
+<div id="bestball"></div>
+</div>
+
+<div class="section">
+<h3>Nassau</h3>
+<div id="nassau"></div>
+</div>
+
+</div>
+
+<script>
+const course={
+pars:[5,3,4,5,4,3,4,4,4,5,3,4,4,3,4,4,4,5],
+hcp:[17,13,7,11,3,15,1,5,9,4,12,2,8,14,18,10,6,16]
+};
+
+let players=[
+{name:"Rob",hcp:7,team:"A"},
+{name:"Mike",hcp:11,team:"B"},
+{name:"Chris",hcp:15,team:"B"},
+{name:"Alex",hcp:4,team:"A"}
+];
+
+let scores={};
+players.forEach(p=>scores[p.name]=Array(18).fill(0));
+
+function strokes(p,h){
+return p.hcp>=course.hcp[h]?1:0;
+}
+
+function rawToGross(raw,par){
+if(raw===0) return 0;
+return par+(raw-1);
+}
+
+function net(p,h){
+let r=scores[p.name][h];
+if(r===0) return null;
+return rawToGross(r,course.pars[h]) - strokes(p,h);
+}
+
+function display(p,h){
+let n=net(p,h);
+return n===null?"-":n;
+}
+
+function change(n,h,d){
+let r=scores[n][h]+d;
+if(r<0) r=0;
+scores[n][h]=r;
+render();
+}
+
+function bestBall(t,h){
+let vals=players.filter(p=>p.team===t).map(p=>net(p,h)).filter(v=>v!==null);
+if(!vals.length) return null;
+return Math.min(...vals);
+}
+
+function render(){
+let el=document.getElementById("score");
+el.innerHTML="";
+for(let h=0;h<9;h++){
+el.innerHTML+=`<div class="card"><b>Hole ${h+1} (Par ${course.pars[h]})</b>`;
+players.forEach(p=>{
+el.innerHTML+=`
+<div class="row">
+<span>${p.name} <span class="small">(${p.team})</span></span>
+<span>
+<button onclick="change('${p.name}',${h},-1)">-</button>
+<span class="score">${display(p,h)}</span>
+<button onclick="change('${p.name}',${h},1)">+</button>
+</span>
+</div>`;
+});
+el.innerHTML+="</div>";
+}
+renderBestBall();
+renderNassau();
+}
+
+function renderBestBall(){
+let a=0,b=0;
+for(let h=0;h<18;h++){
+let sa=bestBall("A",h);
+let sb=bestBall("B",h);
+if(sa!==null) a+=sa;
+if(sb!==null) b+=sb;
+}
+document.getElementById("bestball").innerHTML=
+`<div class="card">
+Team A: ${a}<br>
+Team B: ${b}<br>
+<div class="leader">${a<b?"A leads":b<a?"B leads":"All square"}</div>
+</div>`;
+}
+
+function status(a,b,rem){
+let d=a-b;
+if(d===0) return "All square";
+if(Math.abs(d)>rem) return (d>0?"A":"B")+" wins "+Math.abs(d)+"&"+rem;
+return (d>0?"A":"B")+" "+Math.abs(d)+" up";
+}
+
+function renderNassau(){
+let a=0,b=0,played=0;
+for(let h=0;h<18;h++){
+let sa=bestBall("A",h);
+let sb=bestBall("B",h);
+if(sa!==null && sb!==null){
+played++;
+if(sa<sb) a++;
+if(sb<sa) b++;
+}
+}
+let rem=18-played;
+document.getElementById("nassau").innerHTML=
+`<div class="card">
+A holes: ${a}<br>
+B holes: ${b}<br>
+<div class="match">${status(a,b,rem)}</div>
+<div class="small">thru ${played}</div>
+</div>`;
+}
+
+render();
+</script>
+
+</body>
+</html>
