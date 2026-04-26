@@ -489,6 +489,153 @@ input,select{
 }
 
 .center{text-align:center}
+
+.builder-progress{
+  display:flex;
+  gap:8px;
+  margin:4px 0 14px;
+}
+
+.step{
+  width:28px;
+  height:28px;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  background:#efe6d5;
+  color:#8a6b27;
+  font-weight:900;
+  font-size:13px;
+}
+
+.step.active{
+  background:var(--green);
+  color:white;
+}
+
+.builder-card{
+  background:linear-gradient(180deg,#fffdf8,#f7efe2);
+}
+
+.game-type-grid{
+  display:grid;
+  gap:12px;
+}
+
+.game-type{
+  width:100%;
+  border:1px solid var(--line);
+  background:white;
+  border-radius:22px;
+  padding:16px;
+  text-align:left;
+  display:grid;
+  grid-template-columns:44px 1fr;
+  column-gap:12px;
+  row-gap:2px;
+  align-items:center;
+  box-shadow:0 12px 30px rgba(23,18,12,.08);
+}
+
+.game-type strong{
+  font-size:18px;
+  color:#17211b;
+}
+
+.game-type span{
+  grid-column:2;
+  color:var(--muted);
+  font-size:13px;
+}
+
+.game-type.active{
+  border-color:var(--green);
+  box-shadow:0 0 0 2px rgba(15,95,61,.12), 0 12px 30px rgba(23,18,12,.08);
+}
+
+.game-icon{
+  width:42px;
+  height:42px;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  background:#f2eadf;
+  color:var(--green);
+  font-weight:900;
+}
+
+.game-options{
+  display:grid;
+  gap:12px;
+}
+
+.game-card{
+  width:100%;
+  text-align:left;
+  border:1px solid var(--line);
+  background:white;
+  border-radius:22px;
+  padding:16px;
+  box-shadow:0 12px 30px rgba(23,18,12,.08);
+}
+
+.game-card.selected{
+  border-color:var(--gold);
+  box-shadow:0 0 0 2px rgba(199,161,90,.22), 0 12px 30px rgba(23,18,12,.08);
+}
+
+.game-card-top{
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+  align-items:flex-start;
+}
+
+.game-card h3{
+  margin:0;
+  font-size:19px;
+  color:#17211b;
+}
+
+.game-card p{
+  margin:6px 0 0;
+  color:var(--muted);
+  font-size:13px;
+  line-height:1.35;
+}
+
+.game-tag{
+  background:#f1eadf;
+  color:#7a5d18;
+  border-radius:999px;
+  padding:6px 9px;
+  font-size:10px;
+  font-weight:900;
+  white-space:nowrap;
+}
+
+.side-grid{
+  display:flex;
+  flex-wrap:wrap;
+  gap:9px;
+  margin-bottom:16px;
+}
+
+.side-chip{
+  border:1px solid var(--line);
+  background:white;
+  color:#17211b;
+  border-radius:999px;
+  padding:10px 13px;
+  font-size:13px;
+  font-weight:900;
+}
+
+.side-chip.selected{
+  background:var(--green);
+  border-color:var(--green);
+  color:white;
+}
 </style>
 </head>
 
@@ -569,56 +716,123 @@ input,select{
     </section>
 
     <section id="setup" class="screen">
-      <div class="section-head"><h2>Round Setup</h2></div>
+      <div class="section-head">
+        <h2>Game Builder</h2>
+        <button onclick="resetGames()">Reset</button>
+      </div>
 
-      <div class="card">
-        <div class="form-grid">
+      <div class="builder-progress">
+        <div class="step active">1</div>
+        <div class="step">2</div>
+        <div class="step">3</div>
+      </div>
+
+      <div class="card builder-card">
+        <div class="title">Create a round</div>
+        <div class="meta">Build the game around your group size, format, and side action.</div>
+
+        <div class="grid2" style="margin-top:14px;">
           <div>
-            <label>Round name</label>
-            <input value="Saturday Skins" />
+            <label>Players</label>
+            <select id="playerCount" onchange="renderGameOptions()">
+              <option value="2">2 players</option>
+              <option value="3">3 players</option>
+              <option value="4" selected>4 players</option>
+            </select>
           </div>
-
-          <div class="grid2">
-            <div>
-              <label>Format</label>
-              <select>
-                <option>Skins + Nassau</option>
-                <option>Skins Only</option>
-                <option>Nassau Only</option>
-                <option>Stroke Play</option>
-              </select>
-            </div>
-            <div>
-              <label>Scoring</label>
-              <select>
-                <option>Net</option>
-                <option>Gross</option>
-              </select>
-            </div>
-          </div>
-
-          <div class="grid2">
-            <div>
-              <label>Buy-in</label>
-              <input type="number" value="20" />
-            </div>
-            <div>
-              <label>Holes</label>
-              <select>
-                <option>18</option>
-                <option>Front 9</option>
-                <option>Back 9</option>
-              </select>
-            </div>
+          <div>
+            <label>Scoring</label>
+            <select id="gameScoring">
+              <option>Net</option>
+              <option>Gross</option>
+            </select>
           </div>
         </div>
       </div>
 
-      <div class="section-head"><h2>Players</h2><button>Add</button></div>
+      <div class="section-head">
+        <h2>Competition Style</h2>
+      </div>
+
+      <div class="game-type-grid">
+        <button class="game-type active" onclick="selectStyle(this,'individual')">
+          <div class="game-icon">♙</div>
+          <strong>Individual</strong>
+          <span>Each player competes alone</span>
+        </button>
+
+        <button class="game-type" onclick="selectStyle(this,'team')">
+          <div class="game-icon">♙♙</div>
+          <strong>Teams</strong>
+          <span>2v2, best ball, Vegas</span>
+        </button>
+
+        <button class="game-type" onclick="selectStyle(this,'side')">
+          <div class="game-icon">＋</div>
+          <strong>Side Games</strong>
+          <span>Skins, snake, greenies</span>
+        </button>
+      </div>
+
+      <div class="section-head">
+        <h2>Recommended Games</h2>
+      </div>
+
+      <div id="gameOptions" class="game-options"></div>
+
+      <div class="section-head">
+        <h2>Side Action</h2>
+      </div>
+
+      <div class="side-grid">
+        <button class="side-chip selected" onclick="toggleChip(this)">Skins</button>
+        <button class="side-chip" onclick="toggleChip(this)">Closest to Pin</button>
+        <button class="side-chip" onclick="toggleChip(this)">Snake</button>
+        <button class="side-chip" onclick="toggleChip(this)">Birdies</button>
+        <button class="side-chip" onclick="toggleChip(this)">Greenies</button>
+        <button class="side-chip" onclick="toggleChip(this)">Putts</button>
+      </div>
+
+      <div class="section-head">
+        <h2>Players</h2>
+        <button>Add</button>
+      </div>
 
       <div id="playersSetup"></div>
 
-      <button class="green-btn" onclick="switchTab('score')">Start Scoring</button>
+      <div class="section-head">
+        <h2>Game Settings</h2>
+      </div>
+
+      <div class="card">
+        <div class="grid2">
+          <div>
+            <label>Buy-in</label>
+            <input type="number" id="buyIn" value="20">
+          </div>
+          <div>
+            <label>Skin value</label>
+            <input type="number" id="skinValue" value="5">
+          </div>
+        </div>
+
+        <div class="grid2" style="margin-top:10px;">
+          <div>
+            <label>Nassau</label>
+            <input type="number" id="nassauValue" value="5">
+          </div>
+          <div>
+            <label>Presses</label>
+            <select id="presses">
+              <option>Off</option>
+              <option>Manual</option>
+              <option>Auto 2 Down</option>
+            </select>
+          </div>
+        </div>
+
+        <button class="green-btn" onclick="switchTab('score')">Start Scoring</button>
+      </div>
     </section>
 
     <section id="score" class="screen">
@@ -716,6 +930,29 @@ let currentHole = 0;
 let scores = {};
 players.forEach(p => scores[p.name] = [...course.pars]);
 
+const gamesByCount = {
+  2: [
+    { name:"Match Play", tag:"Best for 2", desc:"Hole-by-hole match. Clean, simple, and easy to settle." },
+    { name:"Nassau", tag:"Classic", desc:"Front nine, back nine, and total. Add manual presses if needed." },
+    { name:"Stroke Play", tag:"Simple", desc:"Lowest gross or net total wins." }
+  ],
+  3: [
+    { name:"Skins", tag:"Best for 3", desc:"Win a hole outright. Ties carry over." },
+    { name:"Stableford", tag:"Points", desc:"Points for scoring well. Good when handicaps vary." },
+    { name:"Stroke Play", tag:"Simple", desc:"Gross or net total for the round." }
+  ],
+  4: [
+    { name:"Skins", tag:"Popular", desc:"Each hole is worth money. Low score wins, ties carry over." },
+    { name:"Nassau", tag:"Classic", desc:"Three bets in one round: front, back, total." },
+    { name:"Wolf", tag:"4 only", desc:"Rotating tee order. Choose a partner or go alone." },
+    { name:"Best Ball", tag:"2v2", desc:"Teams of two. Best net score counts each hole." },
+    { name:"Vegas", tag:"2v2", desc:"Team scores become two-digit numbers. Great for gamblers." }
+  ]
+};
+
+let selectedStyle = "individual";
+let selectedGames = ["Skins"];
+
 function show(id,btn){
   document.querySelectorAll(".screen").forEach(s=>s.classList.remove("active"));
   document.getElementById(id).classList.add("active");
@@ -746,6 +983,57 @@ function renderPlayers(){
       </div>
     `;
   });
+}
+
+function selectStyle(button, style){
+  selectedStyle = style;
+  document.querySelectorAll(".game-type").forEach(b => b.classList.remove("active"));
+  button.classList.add("active");
+  renderGameOptions();
+}
+
+function renderGameOptions(){
+  const count = document.getElementById("playerCount").value;
+  const el = document.getElementById("gameOptions");
+  el.innerHTML = "";
+
+  gamesByCount[count].forEach(game => {
+    const card = document.createElement("button");
+    card.className = "game-card";
+    if(selectedGames.includes(game.name)) card.classList.add("selected");
+
+    card.onclick = function(){
+      this.classList.toggle("selected");
+
+      if(selectedGames.includes(game.name)){
+        selectedGames = selectedGames.filter(g => g !== game.name);
+      } else {
+        selectedGames.push(game.name);
+      }
+    };
+
+    card.innerHTML = `
+      <div class="game-card-top">
+        <div>
+          <h3>${game.name}</h3>
+          <p>${game.desc}</p>
+        </div>
+        <span class="game-tag">${game.tag}</span>
+      </div>
+    `;
+
+    el.appendChild(card);
+  });
+}
+
+function toggleChip(button){
+  button.classList.toggle("selected");
+}
+
+function resetGames(){
+  selectedGames = [];
+  document.querySelectorAll(".game-card").forEach(c => c.classList.remove("selected"));
+  document.querySelectorAll(".side-chip").forEach(c => c.classList.remove("selected"));
 }
 
 function renderHoleStrip(){
@@ -847,6 +1135,7 @@ function renderSkins(){
 
 renderPlayers();
 renderScore();
+renderGameOptions();
 </script>
 </body>
 </html>
