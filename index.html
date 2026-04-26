@@ -1,496 +1,255 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The Turn | Greystone</title>
-  <style>
-    :root {
-      --green: #0b2b22;
-      --green2: #123d31;
-      --gold: #c8a24a;
-      --cream: #f6f1e7;
-      --card: #ffffff;
-      --text: #17211c;
-      --muted: #6f7b72;
-      --red: #b4493f;
-    }
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Turn</title>
 
-    * { box-sizing: border-box; }
+<style>
+body { font-family: Arial; margin:0; background:#f4f1e8; }
+header { background:#0f2b22; color:white; padding:20px; font-size:28px; }
 
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: var(--cream);
-      color: var(--text);
-    }
+.container { padding:15px; max-width:500px; margin:auto; }
 
-    header {
-      background: linear-gradient(135deg, var(--green), var(--green2));
-      color: white;
-      padding: 28px 20px 22px;
-      border-bottom-left-radius: 28px;
-      border-bottom-right-radius: 28px;
-    }
+.card {
+  background:white;
+  padding:15px;
+  border-radius:12px;
+  margin-bottom:12px;
+}
 
-    .eyebrow {
-      color: var(--gold);
-      font-size: 12px;
-      letter-spacing: 1.8px;
-      text-transform: uppercase;
-    }
+button {
+  width:100%;
+  padding:12px;
+  border:none;
+  border-radius:8px;
+  background:#0f2b22;
+  color:white;
+  font-weight:bold;
+  margin-top:8px;
+}
 
-    h1 {
-      margin: 8px 0 4px;
-      font-size: 38px;
-      letter-spacing: -1px;
-    }
+.secondary { background:#ddd; color:#000; }
 
-    .subtitle {
-      margin: 0;
-      color: #dfe8df;
-      font-size: 15px;
-    }
+.player {
+  display:flex;
+  justify-content:space-between;
+  margin-bottom:8px;
+}
 
-    main {
-      padding: 18px;
-      max-width: 520px;
-      margin: auto;
-    }
+.hole {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:8px;
+  background:#eef2ee;
+  padding:8px;
+  border-radius:8px;
+}
 
-    .card {
-      background: var(--card);
-      border-radius: 20px;
-      padding: 18px;
-      margin-bottom: 16px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-    }
+.score-btn {
+  width:30px;
+  height:30px;
+  font-size:18px;
+}
 
-    .section-title {
-      font-size: 13px;
-      text-transform: uppercase;
-      letter-spacing: 1.4px;
-      color: var(--muted);
-      margin-bottom: 12px;
-    }
+.tabs {
+  display:flex;
+  gap:5px;
+  margin-bottom:10px;
+}
 
-    .button {
-      width: 100%;
-      border: none;
-      background: var(--green);
-      color: white;
-      padding: 14px 16px;
-      border-radius: 14px;
-      font-size: 16px;
-      font-weight: 700;
-      cursor: pointer;
-      margin-top: 10px;
-    }
+.tab {
+  flex:1;
+  padding:10px;
+  background:white;
+  border-radius:8px;
+  text-align:center;
+  cursor:pointer;
+}
 
-    .button.secondary {
-      background: #efe7d4;
-      color: var(--green);
-    }
+.active { background:#0f2b22; color:white; }
 
-    .pill-row {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-      margin-top: 10px;
-    }
+.screen { display:none; }
+.screen.active { display:block; }
 
-    .pill {
-      padding: 8px 11px;
-      border-radius: 999px;
-      background: #f1f3ef;
-      font-size: 13px;
-      color: var(--green);
-      font-weight: 700;
-    }
-
-    .gold {
-      background: rgba(200,162,74,0.18);
-      color: #7a5d18;
-    }
-
-    .leader-row, .score-row {
-      display: grid;
-      grid-template-columns: 1fr 52px 52px 70px;
-      gap: 8px;
-      align-items: center;
-      padding: 12px 0;
-      border-bottom: 1px solid #edf0ec;
-      font-size: 14px;
-    }
-
-    .leader-row:last-child,
-    .score-row:last-child {
-      border-bottom: none;
-    }
-
-    .name {
-      font-weight: 800;
-    }
-
-    .muted {
-      color: var(--muted);
-      font-size: 12px;
-    }
-
-    .score {
-      font-weight: 800;
-      text-align: center;
-    }
-
-    .money {
-      color: var(--gold);
-      font-weight: 900;
-      text-align: right;
-    }
-
-    .tabs {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 8px;
-      margin-bottom: 16px;
-    }
-
-    .tab {
-      border: none;
-      padding: 11px 6px;
-      border-radius: 999px;
-      background: white;
-      color: var(--green);
-      font-size: 13px;
-      font-weight: 800;
-      cursor: pointer;
-    }
-
-    .tab.active {
-      background: var(--green);
-      color: white;
-    }
-
-    .screen {
-      display: none;
-    }
-
-    .screen.active {
-      display: block;
-    }
-
-    input, select {
-      width: 100%;
-      padding: 13px;
-      border-radius: 12px;
-      border: 1px solid #d7ddd5;
-      font-size: 15px;
-      margin: 6px 0 12px;
-      background: white;
-    }
-
-    label {
-      font-size: 12px;
-      color: var(--muted);
-      font-weight: 800;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
-
-    .hole-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 9px;
-    }
-
-    .hole {
-      background: #f5f7f4;
-      border-radius: 14px;
-      padding: 12px;
-      text-align: center;
-    }
-
-    .hole strong {
-      display: block;
-      font-size: 18px;
-    }
-
-    .dark-card {
-      background: #0f1814;
-      color: white;
-    }
-
-    .dark-card .muted {
-      color: #b8c2bb;
-    }
-
-    .chat {
-      background: #18231e;
-      border-radius: 14px;
-      padding: 12px;
-      margin-top: 10px;
-      color: white;
-    }
-
-    .chat strong {
-      color: var(--gold);
-    }
-
-    footer {
-      text-align: center;
-      color: var(--muted);
-      font-size: 12px;
-      padding: 20px;
-    }
-  </style>
+.chat {
+  background:#111;
+  color:white;
+  padding:10px;
+  border-radius:8px;
+  margin-top:10px;
+}
+</style>
 </head>
 
 <body>
-  <header>
-    <div class="eyebrow">Greystone Golf Club</div>
-    <h1>The Turn</h1>
-    <p class="subtitle">Private rounds. Live scoring. Presses settled before the parking lot.</p>
-  </header>
 
-  <main>
-    <div class="tabs">
-      <button class="tab active" onclick="showScreen('home', this)">Home</button>
-      <button class="tab" onclick="showScreen('scorecard', this)">Score</button>
-      <button class="tab" onclick="showScreen('press', this)">Press</button>
-      <button class="tab" onclick="showScreen('lounge', this)">Lounge</button>
-    </div>
+<header>The Turn</header>
 
-    <section id="home" class="screen active">
-      <div class="card">
-        <div class="section-title">Tonight at Greystone</div>
-        <h2>Saturday Skins</h2>
-        <p class="muted">4:10 PM · Greystone · Blue tees · $20 buy-in</p>
+<div class="container">
 
-        <div class="pill-row">
-          <span class="pill gold">Skins</span>
-          <span class="pill">Nassau</span>
-          <span class="pill">Net</span>
-          <span class="pill">The Lounge Open</span>
-        </div>
+<div class="tabs">
+<div class="tab active" onclick="show('home',this)">Home</div>
+<div class="tab" onclick="show('setup',this)">Setup</div>
+<div class="tab" onclick="show('score',this)">Score</div>
+<div class="tab" onclick="show('games',this)">Games</div>
+<div class="tab" onclick="show('lounge',this)">Lounge</div>
+</div>
 
-        <button class="button" onclick="showByName('scorecard')">Start Scoring</button>
-        <button class="button secondary" onclick="alert('Invite link copied. Prototype only for now.')">Copy Invite</button>
+<!-- HOME -->
+<div id="home" class="screen active">
+<div class="card">
+<h3>Saturday Skins</h3>
+<p>Greystone · Blue tees · $20</p>
+<button onclick="showByName('score')">Start Round</button>
+</div>
+
+<div class="card">
+<h4>Groups</h4>
+<p>Saturday Skins</p>
+<p>Men’s Night</p>
+<button>Create Group</button>
+</div>
+</div>
+
+<!-- SETUP -->
+<div id="setup" class="screen">
+<div class="card">
+<h3>Create Round</h3>
+
+<label>Group</label>
+<select>
+<option>Saturday Skins</option>
+</select>
+
+<label>Format</label>
+<select>
+<option>Skins + Nassau</option>
+<option>Stroke Play</option>
+</select>
+
+<h4>Players</h4>
+
+<div class="player">
+Rob
+<select>
+<option>Blue</option>
+<option>White</option>
+</select>
+<input type="number" value="7">
+</div>
+
+<div class="player">
+Mike
+<select>
+<option>Blue</option>
+<option>White</option>
+</select>
+<input type="number" value="11">
+</div>
+
+<div class="player">
+Chris
+<select>
+<option>White</option>
+</select>
+<input type="number" value="15">
+</div>
+
+<button>Create Round</button>
+</div>
+</div>
+
+<!-- SCORE -->
+<div id="score" class="screen">
+<div class="card">
+<h3>Scorecard (Scorer: You)</h3>
+
+<div id="holes"></div>
+
+</div>
+</div>
+
+<!-- GAMES -->
+<div id="games" class="screen">
+<div class="card">
+<h3>Games</h3>
+<p>Skins, Nassau, payouts</p>
+
+<div>
+Rob +45<br>
+Mike +10<br>
+Chris -25
+</div>
+
+</div>
+</div>
+
+<!-- LOUNGE -->
+<div id="lounge" class="screen">
+<div class="card">
+<h3>The Lounge</h3>
+
+<div class="chat">
+Rob: Took skin on 3<br>
+Mike: Wind was up<br>
+Chris: Pressing
+</div>
+
+<input placeholder="Message...">
+<button>Send</button>
+
+</div>
+</div>
+
+</div>
+
+<script>
+const pars = [5,3,4,5,4,3,4,4,4,5,3,4,4,3,4,4,4,5];
+let scores = [...pars];
+
+function renderHoles() {
+  const div = document.getElementById("holes");
+  div.innerHTML = "";
+
+  pars.forEach((p,i)=>{
+    let h = document.createElement("div");
+    h.className="hole";
+
+    h.innerHTML = `
+      <div>Hole ${i+1} (Par ${p})</div>
+      <div>
+        <button class="score-btn" onclick="change(${i},-1)">-</button>
+        <span id="s${i}">${scores[i]}</span>
+        <button class="score-btn" onclick="change(${i},1)">+</button>
       </div>
+    `;
+    div.appendChild(h);
+  });
+}
 
-      <div class="card">
-        <div class="section-title">Members</div>
-        <div class="leader-row">
-          <div><div class="name">Rob</div><div class="muted">Index 7.0</div></div>
-          <div class="score">Blue</div>
-          <div class="score">7</div>
-          <div class="money">$0</div>
-        </div>
-        <div class="leader-row">
-          <div><div class="name">Mike</div><div class="muted">Index 11.2</div></div>
-          <div class="score">Blue</div>
-          <div class="score">11</div>
-          <div class="money">$0</div>
-        </div>
-        <div class="leader-row">
-          <div><div class="name">Chris</div><div class="muted">Index 14.1</div></div>
-          <div class="score">White</div>
-          <div class="score">15</div>
-          <div class="money">$0</div>
-        </div>
-      </div>
+function change(i,val){
+  scores[i]+=val;
+  document.getElementById("s"+i).innerText = scores[i];
+}
 
-      <div class="card">
-        <div class="section-title">Create Round</div>
+function show(id,btn){
+  document.querySelectorAll(".screen").forEach(s=>s.classList.remove("active"));
+  document.querySelectorAll(".tab").forEach(t=>t.classList.remove("active"));
+  document.getElementById(id).classList.add("active");
+  btn.classList.add("active");
+}
 
-        <label>Course</label>
-        <select>
-          <option>Greystone Golf Club</option>
-        </select>
-
-        <label>Tee</label>
-        <select>
-          <option>Blue · 6,501 yards</option>
-          <option>Gold · 6,864 yards</option>
-          <option>Grey · 6,305 yards</option>
-          <option>White · 6,054 yards</option>
-          <option>Green · 5,672 yards</option>
-          <option>Red · 5,430 yards</option>
-        </select>
-
-        <label>Format</label>
-        <select>
-          <option>Skins + Nassau</option>
-          <option>Gross / Net Stroke Play</option>
-          <option>Match Play</option>
-        </select>
-
-        <button class="button">Create Round</button>
-      </div>
-    </section>
-
-    <section id="scorecard" class="screen">
-      <div class="card">
-        <div class="section-title">Live Scorecard</div>
-        <h2>Front Nine</h2>
-        <div class="hole-grid" id="holes"></div>
-      </div>
-
-      <div class="card">
-        <div class="section-title">Leaderboard</div>
-        <div id="leaderboard"></div>
-      </div>
-    </section>
-
-    <section id="press" class="screen">
-      <div class="card dark-card">
-        <div class="section-title">Press</div>
-        <h2>Money Game</h2>
-        <p class="muted">Skins, Nassau, and side action for this round.</p>
-
-        <div class="pill-row">
-          <span class="pill gold">$20 Buy-In</span>
-          <span class="pill gold">$5 Skins</span>
-          <span class="pill gold">$5 Nassau</span>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="section-title">Running Payouts</div>
-        <div class="leader-row">
-          <div><div class="name">Rob</div><div class="muted">2 skins · Front won</div></div>
-          <div></div>
-          <div></div>
-          <div class="money">+$45</div>
-        </div>
-        <div class="leader-row">
-          <div><div class="name">Mike</div><div class="muted">1 skin</div></div>
-          <div></div>
-          <div></div>
-          <div class="money">+$10</div>
-        </div>
-        <div class="leader-row">
-          <div><div class="name">Chris</div><div class="muted">Pressed on 7</div></div>
-          <div></div>
-          <div></div>
-          <div class="money" style="color: var(--red);">-$25</div>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="section-title">Skins Board</div>
-        <p><strong>Hole 3:</strong> Rob · Net birdie</p>
-        <p><strong>Hole 6:</strong> Carryover</p>
-        <p><strong>Hole 8:</strong> Mike · Gross birdie</p>
-      </div>
-    </section>
-
-    <section id="lounge" class="screen">
-      <div class="card dark-card">
-        <div class="section-title">The Lounge</div>
-        <h2>Members Only</h2>
-        <p class="muted">Round chatter, results, chirps, and receipts.</p>
-
-        <div class="chat">
-          <strong>System</strong><br />
-          Rob took the first skin on 3. Quiet confidence or dumb luck?
-        </div>
-
-        <div class="chat">
-          <strong>Mike</strong><br />
-          I would like the record to show the wind was different for me.
-        </div>
-
-        <div class="chat">
-          <strong>Chris</strong><br />
-          Press is on. I’ve seen enough.
-        </div>
-
-        <input placeholder="Post to The Lounge..." />
-        <button class="button">Send</button>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    The Turn · Greystone Golf Club · Prototype
-  </footer>
-
-  <script>
-    const holes = [
-      { hole: 1, par: 4, yards: 418, hcp: 7 },
-      { hole: 2, par: 5, yards: 546, hcp: 3 },
-      { hole: 3, par: 4, yards: 389, hcp: 11 },
-      { hole: 4, par: 3, yards: 174, hcp: 15 },
-      { hole: 5, par: 4, yards: 432, hcp: 1 },
-      { hole: 6, par: 4, yards: 372, hcp: 13 },
-      { hole: 7, par: 5, yards: 527, hcp: 5 },
-      { hole: 8, par: 3, yards: 162, hcp: 17 },
-      { hole: 9, par: 4, yards: 421, hcp: 9 }
-    ];
-
-    const players = [
-      { name: "Rob", gross: 38, net: 35, money: 45 },
-      { name: "Mike", gross: 41, net: 36, money: 10 },
-      { name: "Chris", gross: 45, net: 38, money: -25 }
-    ];
-
-    function showScreen(id, button) {
-      document.querySelectorAll(".screen").forEach(screen => {
-        screen.classList.remove("active");
-      });
-
-      document.querySelectorAll(".tab").forEach(tab => {
-        tab.classList.remove("active");
-      });
-
-      document.getElementById(id).classList.add("active");
-      button.classList.add("active");
+function showByName(name){
+  document.querySelectorAll(".tab").forEach(t=>{
+    if(t.innerText.toLowerCase().includes(name)){
+      t.click();
     }
+  });
+}
 
-    function showByName(id) {
-      const tabs = Array.from(document.querySelectorAll(".tab"));
-      const tab = tabs.find(t => t.textContent.toLowerCase().includes(id === "scorecard" ? "score" : id));
-      showScreen(id, tab);
-    }
+renderHoles();
+</script>
 
-    function renderHoles() {
-      const container = document.getElementById("holes");
-      container.innerHTML = "";
-
-      holes.forEach(h => {
-        const div = document.createElement("div");
-        div.className = "hole";
-        div.innerHTML = `
-          <span class="muted">Hole ${h.hole}</span>
-          <strong>Par ${h.par}</strong>
-          <span class="muted">${h.yards} yds · HCP ${h.hcp}</span>
-          <input type="number" placeholder="Score" style="margin-top:8px;text-align:center;" />
-        `;
-        container.appendChild(div);
-      });
-    }
-
-    function renderLeaderboard() {
-      const container = document.getElementById("leaderboard");
-      container.innerHTML = "";
-
-      players
-        .sort((a, b) => a.net - b.net)
-        .forEach(p => {
-          const div = document.createElement("div");
-          div.className = "leader-row";
-          div.innerHTML = `
-            <div><div class="name">${p.name}</div><div class="muted">Net leaderboard</div></div>
-            <div class="score">${p.gross}</div>
-            <div class="score">${p.net}</div>
-            <div class="money">${p.money >= 0 ? "+" : ""}$${p.money}</div>
-          `;
-          container.appendChild(div);
-        });
-    }
-
-    renderHoles();
-    renderLeaderboard();
-  </script>
 </body>
 </html>
