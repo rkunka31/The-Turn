@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>The Turn v15 | Greystone</title>
+<title>The Turn v17 | Greystone</title>
 <style>
 :root{--green:#0f5f3d;--green2:#0a432d;--paper:#fbf7ee;--gold:#c7a15a;--muted:#756d62;--line:#e5dccd;--danger:#b6483f;--shadow:0 14px 35px rgba(23,18,12,.12)}
-*{box-sizing:border-box}body{margin:0;background:linear-gradient(180deg,#eee7d9,#f8f3ea);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;color:#17211b}button,input,select{font:inherit}button{cursor:pointer}.app{max-width:430px;margin:auto;min-height:100vh;background:var(--paper);box-shadow:0 0 60px rgba(0,0,0,.18);padding-bottom:92px}.hero{background:linear-gradient(180deg,rgba(8,13,10,.45),rgba(8,13,10,.92)),radial-gradient(circle at top right,rgba(199,161,90,.35),transparent 35%),linear-gradient(135deg,#0a0f0c,#173424);color:#fff;padding:22px 18px 18px;border-bottom-left-radius:34px;border-bottom-right-radius:34px}.top{display:flex;align-items:center;justify-content:space-between}.mark{display:flex;align-items:center;gap:10px}.logo{width:36px;height:36px;border:1.5px solid var(--gold);border-radius:50%;display:grid;place-items:center;color:#e2c47a;font-family:Georgia,serif;font-weight:900}.brand{font-family:Georgia,serif;letter-spacing:4px;font-size:16px}.avatar{width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,#d8c188,#f2e6c1);border:2px solid rgba(255,255,255,.45)}.hero h1{margin:24px 0 4px;font-size:26px}.sub{margin:0;color:#cfd9d1;font-size:13px}.badges{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}.badge{padding:7px 10px;border-radius:999px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);color:#f4ead4;font-size:11px;font-weight:800}.badge.live{background:#4e8f2f;color:white;border:none}.content{padding:16px 14px}.screen{display:none}.screen.active{display:block}.tabs{position:fixed;left:50%;bottom:0;transform:translateX(-50%);width:min(430px,100%);background:rgba(251,247,238,.95);backdrop-filter:blur(16px);border-top:1px solid var(--line);display:grid;grid-template-columns:repeat(6,1fr);padding:9px 8px 12px;z-index:20}.tab{border:0;background:transparent;color:#897f71;font-size:10px;font-weight:800;display:grid;gap:3px;place-items:center}.tab span{width:24px;height:24px;display:grid;place-items:center;border-radius:50%;font-size:15px}.tab.active{color:var(--green)}.tab.active span{background:var(--green);color:white}.section{display:flex;align-items:center;justify-content:space-between;margin:18px 2px 9px}.section h2{margin:0;font-size:12px;letter-spacing:.9px;color:#857b70;text-transform:uppercase}.section button{border:0;background:transparent;color:var(--muted);font-size:11px;font-weight:800}.card{background:rgba(255,255,255,.9);border:1px solid rgba(230,222,209,.9);box-shadow:var(--shadow);border-radius:22px;padding:15px;margin-bottom:12px}.title{font-size:16px;font-weight:900;color:#17211b}.meta{font-size:12px;color:var(--muted);margin-top:3px}.row{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}.status{background:#6ea444;color:white;border-radius:7px;padding:5px 7px;font-size:10px;font-weight:900}.btn{width:100%;border:0;border-radius:999px;padding:14px 16px;font-size:14px;font-weight:900;margin-top:12px}.gold{background:linear-gradient(135deg,#b98b3e,#e3c577);color:#17120a}.green{background:linear-gradient(135deg,var(--green2),var(--green));color:white}.ghost{background:white;border:1px solid var(--line);color:var(--green)}.danger{background:#fff0ee;color:var(--danger);border:1px solid #efc7c1}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}label{display:block;font-size:10px;letter-spacing:.8px;color:#8a8176;text-transform:uppercase;font-weight:900;margin-bottom:5px}input,select{width:100%;border:1px solid var(--line);background:#f6efe4;border-radius:14px;padding:12px;font-size:14px;color:#1d271f}.side-grid{display:flex;flex-wrap:wrap;gap:9px}.chip{border:1px solid var(--line);background:white;color:#17211b;border-radius:999px;padding:10px 13px;font-size:13px;font-weight:900}.chip.on{background:var(--green);border-color:var(--green);color:white}.player{display:grid;grid-template-columns:1fr 74px 60px;gap:8px;align-items:center;background:#fffaf1;border:1px solid var(--line);border-radius:17px;padding:11px;margin-bottom:9px}.name-input{width:100%;border:1px solid var(--line);background:white;border-radius:12px;padding:9px;font-weight:900}.small-btn{border:1px solid var(--line);background:#fffaf1;color:#17211b;border-radius:999px;padding:8px 6px;font-size:11px;font-weight:900}.team-card{background:#fffaf1;border:1px solid var(--line);border-radius:18px;padding:12px;margin-bottom:10px}.team-chip{display:inline-flex;margin:4px 4px 0 0;border:1px solid var(--line);border-radius:999px;padding:7px 9px;background:white;font-size:12px;font-weight:900}.team-chip.a{background:#ecf6f1}.team-chip.b{background:#f7edda}.holes{display:flex;gap:6px;overflow:auto;padding-bottom:8px}.hole{min-width:34px;height:34px;border-radius:9px;border:1px solid var(--line);background:white;color:#344238;display:grid;place-items:center;font-weight:900;font-size:12px}.hole.active{background:var(--green);color:white}.hole.played{border-color:#9fcdb7;background:#eef7f2}.score-row{display:grid;grid-template-columns:1fr 108px 48px;gap:9px;align-items:center;background:white;border:1px solid var(--line);border-radius:17px;padding:11px;margin-bottom:9px}.score-name{font-weight:900;font-size:14px}.score-note{color:var(--muted);font-size:11px;margin-top:2px}.dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--gold);margin-left:5px}.control{display:flex;align-items:center;justify-content:center;gap:7px;background:#f2eadf;border-radius:999px;padding:4px}.control button{border:0;width:30px;height:30px;border-radius:50%;background:white;color:var(--green);font-size:20px;font-weight:900}.control strong{min-width:20px;text-align:center}.net{text-align:right;font-weight:900;color:var(--green)}.quick{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:8px}.quick button{border:1px solid var(--line);background:#fffaf1;border-radius:999px;padding:7px 5px;font-size:11px;font-weight:900}.leader{display:grid;grid-template-columns:32px 1fr 44px 44px 62px;gap:8px;align-items:center;padding:12px 0;border-bottom:1px solid var(--line)}.leader:last-child{border-bottom:0}.rank{width:28px;height:28px;border-radius:50%;display:grid;place-items:center;background:#efe6d5;color:#7b5d20;font-weight:900}.num{text-align:center;font-weight:900}.money-pos{color:var(--green);font-weight:900;text-align:right}.money-neg{color:var(--danger);font-weight:900;text-align:right}.game-section{display:none}.game-section.active{display:block}.lounge{background:linear-gradient(180deg,rgba(8,10,8,.25),rgba(8,10,8,.9)),radial-gradient(circle at top right,rgba(199,161,90,.28),transparent 34%),linear-gradient(135deg,#111,#1a211c);color:white}.lounge .meta{color:#d0c7b7}.small-logo{width:66px;height:66px;border:1.5px solid var(--gold);border-radius:50%;display:grid;place-items:center;color:#e2c47a;font-family:Georgia,serif;font-size:34px;margin:0 auto 12px}.center{text-align:center}.feed{background:white;border:1px solid var(--line);border-radius:20px;padding:13px;margin-bottom:11px;box-shadow:0 10px 26px rgba(23,18,12,.08)}.feed-top{display:flex;align-items:center;gap:9px;margin-bottom:8px}.feed-avatar{width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#d8c188,#f2e6c1);display:grid;place-items:center;font-weight:900;color:#193223}.reacts{display:flex;gap:8px;margin-top:10px}.react{border:1px solid var(--line);background:#fffaf1;color:#17211b;border-radius:999px;padding:7px 9px;font-size:12px;font-weight:900}.modal{position:fixed;inset:0;background:rgba(0,0,0,.45);display:none;align-items:flex-end;justify-content:center;z-index:50}.modal.active{display:flex}.sheet{width:min(430px,100%);max-height:86vh;overflow:auto;background:var(--paper);border-top-left-radius:28px;border-top-right-radius:28px;padding:16px}.settle-row,.transfer-row{display:grid;grid-template-columns:1fr 78px;gap:10px;align-items:center;padding:10px 0;border-bottom:1px solid var(--line)}.mini{font-size:11px;color:var(--muted);margin-top:8px;line-height:1.35}.warn{background:#fff8e8;border:1px solid #ead5aa;color:#7a5d18;border-radius:14px;padding:10px;font-size:12px;margin:10px 0}.template-card{border:1px solid var(--line);background:white;border-radius:18px;padding:13px;margin-bottom:10px}.history-card{background:white;border:1px solid var(--line);border-radius:18px;padding:13px;margin-bottom:10px}.stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}.stat-box{background:#fffaf1;border:1px solid var(--line);border-radius:16px;padding:11px}.stat-value{font-size:18px;font-weight:900}.prototype-note{background:#ecf6f1;border:1px solid #cde5d8;border-radius:18px;padding:12px;margin-bottom:12px;color:#193223;font-size:12px;line-height:1.35}
+*{box-sizing:border-box}body{margin:0;background:linear-gradient(180deg,#eee7d9,#f8f3ea);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;color:#17211b}button,input,select{font:inherit}button{cursor:pointer}.app{max-width:430px;margin:auto;min-height:100vh;background:var(--paper);box-shadow:0 0 60px rgba(0,0,0,.18);padding-bottom:92px}.hero{background:linear-gradient(180deg,rgba(8,13,10,.45),rgba(8,13,10,.92)),radial-gradient(circle at top right,rgba(199,161,90,.35),transparent 35%),linear-gradient(135deg,#0a0f0c,#173424);color:#fff;padding:22px 18px 18px;border-bottom-left-radius:34px;border-bottom-right-radius:34px}.top{display:flex;align-items:center;justify-content:space-between}.mark{display:flex;align-items:center;gap:10px}.logo{width:36px;height:36px;border:1.5px solid var(--gold);border-radius:50%;display:grid;place-items:center;color:#e2c47a;font-family:Georgia,serif;font-weight:900}.brand{font-family:Georgia,serif;letter-spacing:4px;font-size:16px}.avatar{width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,#d8c188,#f2e6c1);border:2px solid rgba(255,255,255,.45)}.hero h1{margin:24px 0 4px;font-size:26px}.sub{margin:0;color:#cfd9d1;font-size:13px}.badges{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}.badge{padding:7px 10px;border-radius:999px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);color:#f4ead4;font-size:11px;font-weight:800}.badge.live{background:#4e8f2f;color:white;border:none}.content{padding:16px 14px}.screen{display:none}.screen.active{display:block}.tabs{position:fixed;left:50%;bottom:0;transform:translateX(-50%);width:min(430px,100%);background:rgba(251,247,238,.95);backdrop-filter:blur(16px);border-top:1px solid var(--line);display:grid;grid-template-columns:repeat(7,1fr);padding:9px 8px 12px;z-index:20}.tab{border:0;background:transparent;color:#897f71;font-size:10px;font-weight:800;display:grid;gap:3px;place-items:center}.tab span{width:24px;height:24px;display:grid;place-items:center;border-radius:50%;font-size:15px}.tab.active{color:var(--green)}.tab.active span{background:var(--green);color:white}.section{display:flex;align-items:center;justify-content:space-between;margin:18px 2px 9px}.section h2{margin:0;font-size:12px;letter-spacing:.9px;color:#857b70;text-transform:uppercase}.section button{border:0;background:transparent;color:var(--muted);font-size:11px;font-weight:800}.card{background:rgba(255,255,255,.9);border:1px solid rgba(230,222,209,.9);box-shadow:var(--shadow);border-radius:22px;padding:15px;margin-bottom:12px}.title{font-size:16px;font-weight:900;color:#17211b}.meta{font-size:12px;color:var(--muted);margin-top:3px}.row{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}.status{background:#6ea444;color:white;border-radius:7px;padding:5px 7px;font-size:10px;font-weight:900}.btn{width:100%;border:0;border-radius:999px;padding:14px 16px;font-size:14px;font-weight:900;margin-top:12px}.gold{background:linear-gradient(135deg,#b98b3e,#e3c577);color:#17120a}.green{background:linear-gradient(135deg,var(--green2),var(--green));color:white}.ghost{background:white;border:1px solid var(--line);color:var(--green)}.danger{background:#fff0ee;color:var(--danger);border:1px solid #efc7c1}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}label{display:block;font-size:10px;letter-spacing:.8px;color:#8a8176;text-transform:uppercase;font-weight:900;margin-bottom:5px}input,select{width:100%;border:1px solid var(--line);background:#f6efe4;border-radius:14px;padding:12px;font-size:14px;color:#1d271f}.side-grid{display:flex;flex-wrap:wrap;gap:9px}.chip{border:1px solid var(--line);background:white;color:#17211b;border-radius:999px;padding:10px 13px;font-size:13px;font-weight:900}.chip.on{background:var(--green);border-color:var(--green);color:white}.player{display:grid;grid-template-columns:1fr 74px 60px;gap:8px;align-items:center;background:#fffaf1;border:1px solid var(--line);border-radius:17px;padding:11px;margin-bottom:9px}.name-input{width:100%;border:1px solid var(--line);background:white;border-radius:12px;padding:9px;font-weight:900}.small-btn{border:1px solid var(--line);background:#fffaf1;color:#17211b;border-radius:999px;padding:8px 6px;font-size:11px;font-weight:900}.team-card{background:#fffaf1;border:1px solid var(--line);border-radius:18px;padding:12px;margin-bottom:10px}.team-chip{display:inline-flex;margin:4px 4px 0 0;border:1px solid var(--line);border-radius:999px;padding:7px 9px;background:white;font-size:12px;font-weight:900}.team-chip.a{background:#ecf6f1}.team-chip.b{background:#f7edda}.holes{display:flex;gap:6px;overflow:auto;padding-bottom:8px}.hole{min-width:34px;height:34px;border-radius:9px;border:1px solid var(--line);background:white;color:#344238;display:grid;place-items:center;font-weight:900;font-size:12px}.hole.active{background:var(--green);color:white}.hole.played{border-color:#9fcdb7;background:#eef7f2}.score-row{display:grid;grid-template-columns:1fr 108px 48px;gap:9px;align-items:center;background:white;border:1px solid var(--line);border-radius:17px;padding:11px;margin-bottom:9px}.score-name{font-weight:900;font-size:14px}.score-note{color:var(--muted);font-size:11px;margin-top:2px}.dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--gold);margin-left:5px}.control{display:flex;align-items:center;justify-content:center;gap:7px;background:#f2eadf;border-radius:999px;padding:4px}.control button{border:0;width:30px;height:30px;border-radius:50%;background:white;color:var(--green);font-size:20px;font-weight:900}.control strong{min-width:20px;text-align:center}.net{text-align:right;font-weight:900;color:var(--green)}.quick{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:8px}.quick button{border:1px solid var(--line);background:#fffaf1;border-radius:999px;padding:7px 5px;font-size:11px;font-weight:900}.leader{display:grid;grid-template-columns:32px 1fr 44px 44px 62px;gap:8px;align-items:center;padding:12px 0;border-bottom:1px solid var(--line)}.leader:last-child{border-bottom:0}.rank{width:28px;height:28px;border-radius:50%;display:grid;place-items:center;background:#efe6d5;color:#7b5d20;font-weight:900}.num{text-align:center;font-weight:900}.money-pos{color:var(--green);font-weight:900;text-align:right}.money-neg{color:var(--danger);font-weight:900;text-align:right}.game-section{display:none}.game-section.active{display:block}.lounge{background:linear-gradient(180deg,rgba(8,10,8,.25),rgba(8,10,8,.9)),radial-gradient(circle at top right,rgba(199,161,90,.28),transparent 34%),linear-gradient(135deg,#111,#1a211c);color:white}.lounge .meta{color:#d0c7b7}.small-logo{width:66px;height:66px;border:1.5px solid var(--gold);border-radius:50%;display:grid;place-items:center;color:#e2c47a;font-family:Georgia,serif;font-size:34px;margin:0 auto 12px}.center{text-align:center}.feed{background:white;border:1px solid var(--line);border-radius:20px;padding:13px;margin-bottom:11px;box-shadow:0 10px 26px rgba(23,18,12,.08)}.feed-top{display:flex;align-items:center;gap:9px;margin-bottom:8px}.feed-avatar{width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#d8c188,#f2e6c1);display:grid;place-items:center;font-weight:900;color:#193223}.reacts{display:flex;gap:8px;margin-top:10px}.react{border:1px solid var(--line);background:#fffaf1;color:#17211b;border-radius:999px;padding:7px 9px;font-size:12px;font-weight:900}.modal{position:fixed;inset:0;background:rgba(0,0,0,.45);display:none;align-items:flex-end;justify-content:center;z-index:50}.modal.active{display:flex}.sheet{width:min(430px,100%);max-height:86vh;overflow:auto;background:var(--paper);border-top-left-radius:28px;border-top-right-radius:28px;padding:16px}.settle-row,.transfer-row{display:grid;grid-template-columns:1fr 78px;gap:10px;align-items:center;padding:10px 0;border-bottom:1px solid var(--line)}.mini{font-size:11px;color:var(--muted);margin-top:8px;line-height:1.35}.warn{background:#fff8e8;border:1px solid #ead5aa;color:#7a5d18;border-radius:14px;padding:10px;font-size:12px;margin:10px 0}.template-card{border:1px solid var(--line);background:white;border-radius:18px;padding:13px;margin-bottom:10px}.history-card{background:white;border:1px solid var(--line);border-radius:18px;padding:13px;margin-bottom:10px}.stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}.stat-box{background:#fffaf1;border:1px solid var(--line);border-radius:16px;padding:11px}.stat-value{font-size:18px;font-weight:900}.prototype-note{background:#ecf6f1;border:1px solid #cde5d8;border-radius:18px;padding:12px;margin-bottom:12px;color:#193223;font-size:12px;line-height:1.35}
 
 .setup-step{background:white;border:1px solid var(--line);border-radius:22px;padding:15px;margin-bottom:12px}
 .step-label{display:inline-block;background:#ecf6f1;color:var(--green);border-radius:999px;padding:5px 9px;font-size:10px;font-weight:900;margin-bottom:8px}
@@ -30,6 +30,22 @@
 .copy-box{background:#fffaf1;border:1px solid var(--line);border-radius:14px;padding:10px;margin-top:10px;font-size:12px;line-height:1.4}
 .score-pill{display:inline-block;border:1px solid var(--line);background:#fffaf1;border-radius:999px;padding:4px 7px;font-size:10px;font-weight:900;margin-top:4px}
 
+
+.finish-card{background:#ecf6f1;border:1px solid #cde5d8;border-radius:18px;padding:12px;margin-top:12px}
+.finish-card .title{color:#193223}
+
+
+.complete-hero{background:linear-gradient(135deg,#0a432d,#0f5f3d);color:white;border-radius:24px;padding:18px;margin-bottom:12px}
+.complete-hero .meta{color:#dce9df}
+.complete-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}
+.complete-stat{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.18);border-radius:16px;padding:11px}
+.complete-stat strong{display:block;font-size:20px}
+.action-stack{display:grid;gap:8px;margin-top:10px}
+.timeline-row{display:grid;grid-template-columns:34px 1fr auto;gap:8px;align-items:center;padding:9px 0;border-bottom:1px solid var(--line)}
+.timeline-row:last-child{border-bottom:0}
+.share-text{white-space:pre-line;background:#fffaf1;border:1px solid var(--line);border-radius:14px;padding:10px;font-size:12px;line-height:1.4;margin-top:10px}
+.segment-pill{display:inline-block;border-radius:999px;background:#f1eadf;color:#7a5d18;padding:5px 8px;font-size:10px;font-weight:900;margin:3px 3px 0 0}
+
 </style>
 </head>
 <body>
@@ -37,7 +53,7 @@
 <header class="hero"><div class="top"><div class="mark"><div class="logo">T</div><div class="brand">THE TURN</div></div><div class="avatar"></div></div><h1 id="heroTitle">The Turn</h1><p class="sub">Greystone Golf Club · Milton, ON</p><div class="badges" id="heroBadges"></div></header>
 <main class="content">
 <section id="home" class="screen active">
-  <div class="prototype-note">v15: templates moved to Round, pre-start summary, settlement copy, and round restore.</div>
+  <div class="prototype-note">v17: Round Complete screen, final leaderboard, share text, and stronger post-round flow.</div>
   <div class="section"><h2>Upcoming Rounds</h2><button onclick="switchTab('setup')">New</button></div>
   <div class="card"><div class="title">App Controls</div><div class="meta">Use during testing if Chrome keeps old scores.</div><button class="btn ghost" onclick="startFreshRound()">Start fresh round</button><button class="btn danger" onclick="hardResetAll()">Reset saved app data</button></div>
   <div class="card"><div class="row"><div><div class="title">New Round</div><div class="meta">4 players · choose games on Round tab</div></div><span class="status">GROUP</span></div><button class="btn gold" onclick="switchTab('setup')">Create Round</button></div>
@@ -66,7 +82,7 @@
 <section id="score" class="screen">
   <div class="row" style="margin-bottom:12px"><div><div class="title">Scorecard</div><div class="meta" id="scoreProgress">0 holes scored · leaderboard based on scored holes only</div></div><span class="status">LIVE</span></div>
   <div class="card"><div class="holes" id="holeStrip"></div></div>
-  <div class="card"><div class="row"><div><div class="title" id="holeTitle">Hole 1</div><div class="meta" id="holeMeta">Par 5 · HCP 17</div></div><span class="status" id="holeStatus">Net</span></div><div class="quick"><button onclick="quickScore(-1)">Birdie</button><button onclick="quickScore(0)">Par</button><button onclick="quickScore(1)">Bogey</button><button onclick="quickScore(2)">Double</button></div><div class="grid2" style="margin-top:8px"><button class="small-btn" onclick="clearHole()">Clear this hole</button><button class="small-btn" onclick="copyParToHole()">Copy par to all</button></div><div id="scoreRows" style="margin-top:14px"></div><div class="grid2" style="margin-top:12px"><button class="btn ghost" onclick="prevHole()">Previous</button><button class="btn green" onclick="nextHole()">Next Hole</button></div></div>
+  <div class="card"><div class="row"><div><div class="title" id="holeTitle">Hole 1</div><div class="meta" id="holeMeta">Par 5 · HCP 17</div></div><span class="status" id="holeStatus">Net</span></div><div class="quick"><button onclick="quickScore(-1)">Birdie</button><button onclick="quickScore(0)">Par</button><button onclick="quickScore(1)">Bogey</button><button onclick="quickScore(2)">Double</button></div><div class="grid2" style="margin-top:8px"><button class="small-btn" onclick="clearHole()">Clear this hole</button><button class="small-btn" onclick="copyParToHole()">Copy par to all</button></div><div id="scoreRows" style="margin-top:14px"></div><div id="finishRoundPanel"></div><div class="grid2" style="margin-top:12px"><button class="btn ghost" onclick="prevHole()">Previous</button><button class="btn green" onclick="nextHole()">Next Hole</button></div></div>
 </section>
 
 <section id="games" class="screen">
@@ -77,6 +93,45 @@
   <div id="nassauSection" class="game-section"><div class="section"><h2>Nassau</h2></div><div class="card"><div class="title">Team Nassau</div><div id="nassauBoard"></div><div class="card" style="box-shadow:none;margin-top:10px"><div class="score-name">Presses</div><div class="meta">Manual presses are tracked separately.</div><div id="pressBoard"></div><button class="btn ghost" onclick="addManualPress()">Add manual press from current hole</button></div></div></div>
   <div id="vegasSection" class="game-section"><div class="section"><h2>Vegas</h2></div><div class="card"><div class="title">Vegas Board</div><div id="vegasBoard"></div></div></div>
   <div id="sideSection" class="game-section"><div class="section"><h2>Side Action</h2></div><div class="card"><div class="title">Active Side Games</div><div class="meta" id="sideActionText">Skins</div></div></div>
+</section>
+
+
+<section id="complete" class="screen">
+  <div class="complete-hero">
+    <div class="title" style="color:white">Round Complete</div>
+    <div class="meta">Final summary, settlement, and sharing.</div>
+    <div class="complete-grid">
+      <div class="complete-stat"><strong id="completeHoles">0</strong><span>holes scored</span></div>
+      <div class="complete-stat"><strong id="completeLeader">-</strong><span>money leader</span></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="title">Final Leaderboard</div>
+    <div id="completeLeaderboard"></div>
+  </div>
+
+  <div class="card">
+    <div class="title">Settlement</div>
+    <div class="meta">Exact transfers to settle the round.</div>
+    <div id="completeTransfers"></div>
+    <div class="action-stack">
+      <button class="btn ghost" onclick="copySettlement()">Copy settlement text</button>
+      <button class="btn green" onclick="saveRoundResult()">Save result</button>
+      <button class="btn gold" onclick="postRoundRecap()">Post recap to Lounge</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="title">Game Breakdown</div>
+    <div id="completeBreakdown"></div>
+  </div>
+
+  <div class="card">
+    <div class="title">Share Text</div>
+    <div class="meta">Plain text for group chat.</div>
+    <div class="share-text" id="shareText"></div>
+  </div>
 </section>
 
 <section id="lounge" class="screen">
@@ -98,7 +153,7 @@
   <div id="roundHistory"></div>
 </section>
 </main>
-<nav class="tabs"><button class="tab active" data-tab="home" onclick="show('home',this)"><span>⌂</span>Home</button><button class="tab" data-tab="setup" onclick="show('setup',this)"><span>＋</span>Round</button><button class="tab" data-tab="score" onclick="show('score',this)"><span>□</span>Score</button><button class="tab" data-tab="games" onclick="show('games',this)"><span>♛</span>Games</button><button class="tab" data-tab="lounge" onclick="show('lounge',this)"><span>☰</span>Lounge</button><button class="tab" data-tab="profile" onclick="show('profile',this)"><span>◉</span>Profile</button></nav>
+<nav class="tabs"><button class="tab active" data-tab="home" onclick="show('home',this)"><span>⌂</span>Home</button><button class="tab" data-tab="setup" onclick="show('setup',this)"><span>＋</span>Round</button><button class="tab" data-tab="score" onclick="show('score',this)"><span>□</span>Score</button><button class="tab" data-tab="games" onclick="show('games',this)"><span>♛</span>Games</button><button class="tab" data-tab="complete" onclick="show('complete',this)"><span>✓</span>Done</button><button class="tab" data-tab="lounge" onclick="show('lounge',this)"><span>☰</span>Lounge</button><button class="tab" data-tab="profile" onclick="show('profile',this)"><span>◉</span>Profile</button></nav>
 </div>
 <div class="modal" id="settlementModal" onclick="closeSettlement(event)"><div class="sheet" id="settlementSheet"></div></div>
 <div class="modal" id="historyModal" onclick="closeHistory(event)"><div class="sheet" id="historySheet"></div></div>
@@ -171,7 +226,7 @@ function settlement(){let l={};players.forEach(p=>l[p.name]=0);if(selectedGames.
 function transfers(){let l=settlement(),d=Object.entries(l).filter(x=>x[1]<0).map(x=>({n:x[0],a:-x[1]})),c=Object.entries(l).filter(x=>x[1]>0).map(x=>({n:x[0],a:x[1]})),out=[];let i=0,j=0;while(i<d.length&&j<c.length){let a=Math.min(d[i].a,c[j].a);if(a>0.01)out.push({from:d[i].n,to:c[j].n,amount:Math.round(a)});d[i].a-=a;c[j].a-=a;if(d[i].a<=.01)i++;if(c[j].a<=.01)j++}return out}
 function openSettlement(){let l=settlement();settlementSheet.innerHTML=`<div class="section"><h2>Settlement</h2><button onclick="closeSettlement()">Close</button></div><div class="card"><div class="title">Settlement summary</div><div class="meta">Buy-in is informational. Settlement uses Nassau, skins, presses, and Vegas values only.</div>${Object.entries(l).sort((a,b)=>b[1]-a[1]).map(([n,v])=>`<div class="settle-row"><div>${n}</div><div class="${v>=0?"money-pos":"money-neg"}">${money(v)}</div></div>`).join("")}</div><div class="card"><div class="title">Game breakdown</div>${settlementBreakdownHtml()}</div><div class="card"><div class="title">Exact transfers</div>${transfers().map(t=>`<div class="transfer-row"><div>${t.from} pays ${t.to}</div><div class="money-neg">$${t.amount}</div></div>`).join("")||'<div class="meta">No transfers needed.</div>'}<button class="btn ghost" onclick="copySettlement()">Copy settlement text</button><div class="copy-box">${settlementText().replace(/\n/g,'<br>')}</div></div>`;settlementModal.classList.add("active")}
 function closeSettlement(e){if(!e||e.target.id==="settlementModal")settlementModal.classList.remove("active")}
-function postRoundRecap(){let l=settlement(),lead=Object.entries(l).sort((a,b)=>b[1]-a[1])[0]||["No leader",0];loungePosts.unshift({by:"The Turn",text:`Round recap posted. ${lead[0]} leads at ${money(lead[1])}.`,reactions:0});renderLounge();switchTab("lounge");saveLocal()}
+function postRoundRecap(){let l=settlement(),lead=Object.entries(l).sort((a,b)=>b[1]-a[1])[0]||["No leader",0];loungePosts.unshift({by:"The Turn",text:typeof buildShareText==="function" ? buildShareText() : `Round recap posted. ${lead[0]} leads at ${money(lead[1])}.`,reactions:0});renderLounge();switchTab("lounge");saveLocal()}
 function addLoungePost(){let t=prompt("Post to The Lounge");if(!t)return;loungePosts.unshift({by:"Rob",text:t,reactions:0});renderLounge();saveLocal()}
 function reactToPost(i){loungePosts[i].reactions++;renderLounge();saveLocal()}
 function renderLounge(){loungeFeed.innerHTML=loungePosts.map((p,i)=>`<div class="feed"><div class="feed-top"><div class="feed-avatar">${p.by[0]}</div><div><div class="score-name">${p.by}</div><div class="score-note">Greystone Lounge · private</div></div></div><div>${p.text}</div><div class="reacts"><button class="react" onclick="reactToPost(${i})">🍻 ${p.reactions}</button><button class="react">Comment</button><button class="react">Receipt</button></div></div>`).join("")}
@@ -332,9 +387,101 @@ function postHistory(id){
   switchTab("lounge");
 }
 
+
+function renderFinishRoundPanel(){
+  const el = document.getElementById("finishRoundPanel");
+  if(!el) return;
+  if(currentHole !== 17){
+    el.innerHTML = "";
+    return;
+  }
+  const scored18 = players.some(p=>scores[p.name]?.[17]);
+  el.innerHTML = `
+    <div class="finish-card">
+      <div class="title">Finish round</div>
+      <div class="meta">${scored18 ? "Hole 18 has scores entered. Save this result to Round History." : "You are on hole 18. Enter scores, then save the round."}</div>
+      <button class="btn green" onclick="finishRound()">Save round result</button>
+      <button class="btn ghost" onclick="openSettlement()">Review settlement</button>
+    </div>
+  `;
+}
+
+
+function roundLeader(){
+  const led = settlement();
+  const rows = Object.entries(led).sort((a,b)=>b[1]-a[1]);
+  return rows[0] || ["-",0];
+}
+
+function finalLeaderboardRows(){
+  const type = gameScoring.value;
+  return players.map(p=>({...p,...totals(p)})).sort((a,b)=>type==="Net"?a.net-b.net:a.gross-b.gross);
+}
+
+function gameSegmentsSummary(){
+  const parts = [];
+  if(selectedGames.includes("Nassau")){
+    const n = nassau();
+    parts.push(`Nassau: Front ${match(n.front)}, Back ${match(n.back)}, Total ${match(n.total)}`);
+  }
+  if(selectedGames.includes("Skins") || sideGames.includes("Skins")){
+    const skins = Object.entries(skinsLedger()).filter(([n,v])=>Math.abs(v)>0);
+    parts.push(`Skins: ${skins.length ? skins.map(([n,v])=>`${n} ${money(v)}`).join(", ") : "No decided skins yet"}`);
+  }
+  if(selectedGames.includes("Vegas")){
+    const v = Object.entries(vegasLedger()).filter(([n,val])=>Math.abs(val)>0);
+    parts.push(`Vegas: ${v.length ? v.map(([n,val])=>`${n} ${money(val)}`).join(", ") : "No Vegas points yet"}`);
+  }
+  if(manualPresses.length){
+    const p = Object.entries(pressLedger()).filter(([n,val])=>Math.abs(val)>0);
+    parts.push(`Presses: ${p.length ? p.map(([n,val])=>`${n} ${money(val)}`).join(", ") : "No press winner yet"}`);
+  }
+  return parts;
+}
+
+function buildShareText(){
+  const leader = roundLeader();
+  const transfersText = settlementText();
+  const lb = finalLeaderboardRows().map((p,i)=>`${i+1}. ${p.name}: Gross ${p.gross}, Net ${p.net}`).join("\\n");
+  const gamesText = selectedGames.length ? selectedGames.join(" + ") : "Stroke Play";
+  return `${roundName.value || "Round"}\\n${holesScored()} holes scored · ${gamesText}\\n\\nLeaderboard:\\n${lb}\\n\\nSettlement:\\n${transfersText}\\n\\nLeader: ${leader[0]} ${money(leader[1])}`;
+}
+
+function renderComplete(){
+  const holesEl = document.getElementById("completeHoles");
+  if(!holesEl) return;
+  const leader = roundLeader();
+  holesEl.innerText = holesScored();
+  document.getElementById("completeLeader").innerText = `${leader[0]} ${money(leader[1])}`;
+
+  document.getElementById("completeLeaderboard").innerHTML = finalLeaderboardRows().map((p,i)=>`
+    <div class="leader">
+      <div class="rank">${i+1}</div>
+      <div><div class="score-name">${p.name}</div><div class="score-note">Team ${p.team} · ${p.tee} · HCP ${p.hcp}</div></div>
+      <div class="num">${p.gross}</div>
+      <div class="num">${p.net}</div>
+      <div></div>
+    </div>
+  `).join("");
+
+  const tr = transfers();
+  document.getElementById("completeTransfers").innerHTML = tr.length ? tr.map(t=>`
+    <div class="transfer-row"><div>${t.from} pays ${t.to}</div><div class="money-neg">$${t.amount}</div></div>
+  `).join("") : '<div class="meta">No transfers needed.</div>';
+
+  document.getElementById("completeBreakdown").innerHTML = gameSegmentsSummary().map(x=>`<div class="segment-pill">${x}</div>`).join("") || '<div class="meta">No active games.</div>';
+  document.getElementById("shareText").innerText = buildShareText();
+}
+
+function finishRound(){
+  saveRoundResult();
+  switchTab("complete");
+}
+
+
 function saveLocal(){let st={players,scores,currentHole,selectedGames,sideGames,loungePosts,manualPresses,roundName:roundName.value,gameScoring:gameScoring.value,buyIn:buyIn.value,skinValue:skinValue.value,nassauValue:nassauValue.value,vegasPoint:vegasPoint.value};localStorage.setItem("theTurnFixed",JSON.stringify(st))}
 function loadLocal(){let raw=localStorage.getItem("theTurnFixed");if(!raw){scores=emptyScores();return}try{let s=JSON.parse(raw);players=Array.isArray(s.players)&&s.players.length>=2?s.players:copy(defaults.players);scores=s.scores||{};currentHole=Number(s.currentHole||0);selectedGames=Array.isArray(s.selectedGames)?s.selectedGames:selectedGames;sideGames=Array.isArray(s.sideGames)?s.sideGames:sideGames;loungePosts=Array.isArray(s.loungePosts)?s.loungePosts:loungePosts;manualPresses=Array.isArray(s.manualPresses)?s.manualPresses:[];ensurePlayers();roundName.value=s.roundName||"New Round";gameScoring.value=s.gameScoring||"Net";buyIn.value=s.buyIn||20;skinValue.value=s.skinValue||5;nassauValue.value=s.nassauValue||5;vegasPoint.value=s.vegasPoint||1}catch(e){players=copy(defaults.players);scores=emptyScores()}}
-function renderAll(save=false){ensurePlayers();updateBadges();updateProgress();renderGameOptions();renderWarnings();renderTeams();renderSideOptions();renderPlayers();renderScore();renderGames();renderLounge();renderProfile();renderHistory();renderNamedRosters();renderRoundSummary()}
+function renderAll(save=false){ensurePlayers();updateBadges();updateProgress();renderGameOptions();renderWarnings();renderTeams();renderSideOptions();renderPlayers();renderScore();renderGames();renderLounge();renderProfile();renderHistory();renderNamedRosters();renderRoundSummary();renderFinishRoundPanel();renderComplete()}
 loadLocal();ensurePlayers();renderAll();
 </script>
 </body>
