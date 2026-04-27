@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>The Turn v14 | Greystone</title>
+<title>The Turn v15 | Greystone</title>
 <style>
 :root{--green:#0f5f3d;--green2:#0a432d;--paper:#fbf7ee;--gold:#c7a15a;--muted:#756d62;--line:#e5dccd;--danger:#b6483f;--shadow:0 14px 35px rgba(23,18,12,.12)}
 *{box-sizing:border-box}body{margin:0;background:linear-gradient(180deg,#eee7d9,#f8f3ea);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;color:#17211b}button,input,select{font:inherit}button{cursor:pointer}.app{max-width:430px;margin:auto;min-height:100vh;background:var(--paper);box-shadow:0 0 60px rgba(0,0,0,.18);padding-bottom:92px}.hero{background:linear-gradient(180deg,rgba(8,13,10,.45),rgba(8,13,10,.92)),radial-gradient(circle at top right,rgba(199,161,90,.35),transparent 35%),linear-gradient(135deg,#0a0f0c,#173424);color:#fff;padding:22px 18px 18px;border-bottom-left-radius:34px;border-bottom-right-radius:34px}.top{display:flex;align-items:center;justify-content:space-between}.mark{display:flex;align-items:center;gap:10px}.logo{width:36px;height:36px;border:1.5px solid var(--gold);border-radius:50%;display:grid;place-items:center;color:#e2c47a;font-family:Georgia,serif;font-weight:900}.brand{font-family:Georgia,serif;letter-spacing:4px;font-size:16px}.avatar{width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,#d8c188,#f2e6c1);border:2px solid rgba(255,255,255,.45)}.hero h1{margin:24px 0 4px;font-size:26px}.sub{margin:0;color:#cfd9d1;font-size:13px}.badges{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}.badge{padding:7px 10px;border-radius:999px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);color:#f4ead4;font-size:11px;font-weight:800}.badge.live{background:#4e8f2f;color:white;border:none}.content{padding:16px 14px}.screen{display:none}.screen.active{display:block}.tabs{position:fixed;left:50%;bottom:0;transform:translateX(-50%);width:min(430px,100%);background:rgba(251,247,238,.95);backdrop-filter:blur(16px);border-top:1px solid var(--line);display:grid;grid-template-columns:repeat(6,1fr);padding:9px 8px 12px;z-index:20}.tab{border:0;background:transparent;color:#897f71;font-size:10px;font-weight:800;display:grid;gap:3px;place-items:center}.tab span{width:24px;height:24px;display:grid;place-items:center;border-radius:50%;font-size:15px}.tab.active{color:var(--green)}.tab.active span{background:var(--green);color:white}.section{display:flex;align-items:center;justify-content:space-between;margin:18px 2px 9px}.section h2{margin:0;font-size:12px;letter-spacing:.9px;color:#857b70;text-transform:uppercase}.section button{border:0;background:transparent;color:var(--muted);font-size:11px;font-weight:800}.card{background:rgba(255,255,255,.9);border:1px solid rgba(230,222,209,.9);box-shadow:var(--shadow);border-radius:22px;padding:15px;margin-bottom:12px}.title{font-size:16px;font-weight:900;color:#17211b}.meta{font-size:12px;color:var(--muted);margin-top:3px}.row{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}.status{background:#6ea444;color:white;border-radius:7px;padding:5px 7px;font-size:10px;font-weight:900}.btn{width:100%;border:0;border-radius:999px;padding:14px 16px;font-size:14px;font-weight:900;margin-top:12px}.gold{background:linear-gradient(135deg,#b98b3e,#e3c577);color:#17120a}.green{background:linear-gradient(135deg,var(--green2),var(--green));color:white}.ghost{background:white;border:1px solid var(--line);color:var(--green)}.danger{background:#fff0ee;color:var(--danger);border:1px solid #efc7c1}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}label{display:block;font-size:10px;letter-spacing:.8px;color:#8a8176;text-transform:uppercase;font-weight:900;margin-bottom:5px}input,select{width:100%;border:1px solid var(--line);background:#f6efe4;border-radius:14px;padding:12px;font-size:14px;color:#1d271f}.side-grid{display:flex;flex-wrap:wrap;gap:9px}.chip{border:1px solid var(--line);background:white;color:#17211b;border-radius:999px;padding:10px 13px;font-size:13px;font-weight:900}.chip.on{background:var(--green);border-color:var(--green);color:white}.player{display:grid;grid-template-columns:1fr 74px 60px;gap:8px;align-items:center;background:#fffaf1;border:1px solid var(--line);border-radius:17px;padding:11px;margin-bottom:9px}.name-input{width:100%;border:1px solid var(--line);background:white;border-radius:12px;padding:9px;font-weight:900}.small-btn{border:1px solid var(--line);background:#fffaf1;color:#17211b;border-radius:999px;padding:8px 6px;font-size:11px;font-weight:900}.team-card{background:#fffaf1;border:1px solid var(--line);border-radius:18px;padding:12px;margin-bottom:10px}.team-chip{display:inline-flex;margin:4px 4px 0 0;border:1px solid var(--line);border-radius:999px;padding:7px 9px;background:white;font-size:12px;font-weight:900}.team-chip.a{background:#ecf6f1}.team-chip.b{background:#f7edda}.holes{display:flex;gap:6px;overflow:auto;padding-bottom:8px}.hole{min-width:34px;height:34px;border-radius:9px;border:1px solid var(--line);background:white;color:#344238;display:grid;place-items:center;font-weight:900;font-size:12px}.hole.active{background:var(--green);color:white}.hole.played{border-color:#9fcdb7;background:#eef7f2}.score-row{display:grid;grid-template-columns:1fr 108px 48px;gap:9px;align-items:center;background:white;border:1px solid var(--line);border-radius:17px;padding:11px;margin-bottom:9px}.score-name{font-weight:900;font-size:14px}.score-note{color:var(--muted);font-size:11px;margin-top:2px}.dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--gold);margin-left:5px}.control{display:flex;align-items:center;justify-content:center;gap:7px;background:#f2eadf;border-radius:999px;padding:4px}.control button{border:0;width:30px;height:30px;border-radius:50%;background:white;color:var(--green);font-size:20px;font-weight:900}.control strong{min-width:20px;text-align:center}.net{text-align:right;font-weight:900;color:var(--green)}.quick{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:8px}.quick button{border:1px solid var(--line);background:#fffaf1;border-radius:999px;padding:7px 5px;font-size:11px;font-weight:900}.leader{display:grid;grid-template-columns:32px 1fr 44px 44px 62px;gap:8px;align-items:center;padding:12px 0;border-bottom:1px solid var(--line)}.leader:last-child{border-bottom:0}.rank{width:28px;height:28px;border-radius:50%;display:grid;place-items:center;background:#efe6d5;color:#7b5d20;font-weight:900}.num{text-align:center;font-weight:900}.money-pos{color:var(--green);font-weight:900;text-align:right}.money-neg{color:var(--danger);font-weight:900;text-align:right}.game-section{display:none}.game-section.active{display:block}.lounge{background:linear-gradient(180deg,rgba(8,10,8,.25),rgba(8,10,8,.9)),radial-gradient(circle at top right,rgba(199,161,90,.28),transparent 34%),linear-gradient(135deg,#111,#1a211c);color:white}.lounge .meta{color:#d0c7b7}.small-logo{width:66px;height:66px;border:1.5px solid var(--gold);border-radius:50%;display:grid;place-items:center;color:#e2c47a;font-family:Georgia,serif;font-size:34px;margin:0 auto 12px}.center{text-align:center}.feed{background:white;border:1px solid var(--line);border-radius:20px;padding:13px;margin-bottom:11px;box-shadow:0 10px 26px rgba(23,18,12,.08)}.feed-top{display:flex;align-items:center;gap:9px;margin-bottom:8px}.feed-avatar{width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#d8c188,#f2e6c1);display:grid;place-items:center;font-weight:900;color:#193223}.reacts{display:flex;gap:8px;margin-top:10px}.react{border:1px solid var(--line);background:#fffaf1;color:#17211b;border-radius:999px;padding:7px 9px;font-size:12px;font-weight:900}.modal{position:fixed;inset:0;background:rgba(0,0,0,.45);display:none;align-items:flex-end;justify-content:center;z-index:50}.modal.active{display:flex}.sheet{width:min(430px,100%);max-height:86vh;overflow:auto;background:var(--paper);border-top-left-radius:28px;border-top-right-radius:28px;padding:16px}.settle-row,.transfer-row{display:grid;grid-template-columns:1fr 78px;gap:10px;align-items:center;padding:10px 0;border-bottom:1px solid var(--line)}.mini{font-size:11px;color:var(--muted);margin-top:8px;line-height:1.35}.warn{background:#fff8e8;border:1px solid #ead5aa;color:#7a5d18;border-radius:14px;padding:10px;font-size:12px;margin:10px 0}.template-card{border:1px solid var(--line);background:white;border-radius:18px;padding:13px;margin-bottom:10px}.history-card{background:white;border:1px solid var(--line);border-radius:18px;padding:13px;margin-bottom:10px}.stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}.stat-box{background:#fffaf1;border:1px solid var(--line);border-radius:16px;padding:11px}.stat-value{font-size:18px;font-weight:900}.prototype-note{background:#ecf6f1;border:1px solid #cde5d8;border-radius:18px;padding:12px;margin-bottom:12px;color:#193223;font-size:12px;line-height:1.35}
@@ -17,6 +17,19 @@
 .explain-row{display:grid;grid-template-columns:1fr 80px;gap:10px;padding:7px 0;border-bottom:1px solid var(--line)}
 .explain-row:last-child{border-bottom:0}
 
+
+.round-summary{background:#fffaf1;border:1px solid var(--line);border-radius:18px;padding:12px;margin:10px 0}
+.summary-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}
+.summary-item{background:white;border:1px solid var(--line);border-radius:14px;padding:10px}
+.summary-value{font-weight:900;font-size:16px}
+.summary-label{font-size:11px;color:var(--muted);margin-top:2px}
+.template-row{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px}
+.template-mini{border:1px solid var(--line);background:white;border-radius:18px;padding:12px;text-align:left;box-shadow:0 8px 18px rgba(23,18,12,.06)}
+.template-mini strong{display:block;font-size:14px}
+.template-mini span{display:block;font-size:11px;color:var(--muted);margin-top:3px}
+.copy-box{background:#fffaf1;border:1px solid var(--line);border-radius:14px;padding:10px;margin-top:10px;font-size:12px;line-height:1.4}
+.score-pill{display:inline-block;border:1px solid var(--line);background:#fffaf1;border-radius:999px;padding:4px 7px;font-size:10px;font-weight:900;margin-top:4px}
+
 </style>
 </head>
 <body>
@@ -24,7 +37,7 @@
 <header class="hero"><div class="top"><div class="mark"><div class="logo">T</div><div class="brand">THE TURN</div></div><div class="avatar"></div></div><h1 id="heroTitle">The Turn</h1><p class="sub">Greystone Golf Club · Milton, ON</p><div class="badges" id="heroBadges"></div></header>
 <main class="content">
 <section id="home" class="screen active">
-  <div class="prototype-note">v14: setup flow, named rosters, game guards, and clearer settlement breakdown.</div>
+  <div class="prototype-note">v15: templates moved to Round, pre-start summary, settlement copy, and round restore.</div>
   <div class="section"><h2>Upcoming Rounds</h2><button onclick="switchTab('setup')">New</button></div>
   <div class="card"><div class="title">App Controls</div><div class="meta">Use during testing if Chrome keeps old scores.</div><button class="btn ghost" onclick="startFreshRound()">Start fresh round</button><button class="btn danger" onclick="hardResetAll()">Reset saved app data</button></div>
   <div class="card"><div class="row"><div><div class="title">New Round</div><div class="meta">4 players · choose games on Round tab</div></div><span class="status">GROUP</span></div><button class="btn gold" onclick="switchTab('setup')">Create Round</button></div>
@@ -47,7 +60,7 @@
   <div id="playersSetup"></div>
   <div class="grid2" style="margin-top:8px"><button class="small-btn" onclick="saveNamedRoster()">Save named roster</button><button class="small-btn" onclick="loadRoster()">Load last roster</button></div><div id="namedRosterList" class="card" style="box-shadow:none;margin-top:10px"></div>
   <div class="section"><h2>Step 4 · Settings</h2></div>
-  <div class="card"><div class="grid2"><div><label>Buy-in</label><input type="number" id="buyIn" value="20" onchange="saveLocal();renderAll()"></div><div><label>Skin value</label><input type="number" id="skinValue" value="5" onchange="saveLocal();renderAll()"></div></div><div class="grid2" style="margin-top:10px"><div><label>Nassau</label><input type="number" id="nassauValue" value="5" onchange="saveLocal();renderAll()"></div><div><label>Vegas Point</label><input type="number" id="vegasPoint" value="1" onchange="saveLocal();renderAll()"></div></div><div class="mini">Buy-in is informational for now. Settlement uses game values only.</div><button class="btn green" onclick="startRound()">Start Scoring</button></div>
+  <div class="card"><div class="grid2"><div><label>Buy-in</label><input type="number" id="buyIn" value="20" onchange="saveLocal();renderAll()"></div><div><label>Skin value</label><input type="number" id="skinValue" value="5" onchange="saveLocal();renderAll()"></div></div><div class="grid2" style="margin-top:10px"><div><label>Nassau</label><input type="number" id="nassauValue" value="5" onchange="saveLocal();renderAll()"></div><div><label>Vegas Point</label><input type="number" id="vegasPoint" value="1" onchange="saveLocal();renderAll()"></div></div><div class="mini">Buy-in is informational for now. Settlement uses game values only.</div><div class="round-summary" id="roundSummary"></div><button class="btn green" onclick="startRound()">Start Scoring</button></div>
 </section>
 
 <section id="score" class="screen">
@@ -128,7 +141,7 @@ function setHole(i){currentHole=i;renderAll();saveLocal()}function nextHole(){if
 function strokes(p,h){let s=0;if(p.hcp>=course.hcp[h])s++;if(p.hcp>18&&p.hcp-18>=course.hcp[h])s++;return s}
 function dots(p,h){return Array.from({length:strokes(p,h)}).map(()=>'<span class="dot"></span>').join("")}
 function scoreFor(p,h){let g=scores[p.name]?.[h]||0;if(!g)return null;return gameScoring.value==="Net"?g-strokes(p,h):g}
-function renderScore(){renderHoles();holeTitle.innerText=`Hole ${currentHole+1}`;holeMeta.innerText=`Par ${course.pars[currentHole]} · HCP ${course.hcp[currentHole]}`;holeStatus.innerText=gameScoring.value;scoreRows.innerHTML=players.map(p=>{let g=scores[p.name]?.[currentHole]||0,n=g?g-strokes(p,currentHole):0;return `<div class="score-row"><div><div class="score-name">${p.name}${dots(p,currentHole)}</div><div class="score-note">Team ${p.team} · ${p.tee} · HCP ${p.hcp}</div></div><div class="control"><button onclick="change('${p.name}',-1)">−</button><strong>${g}</strong><button onclick="change('${p.name}',1)">+</button></div><div class="net">${n}</div></div>`}).join("")}
+function renderScore(){renderHoles();holeTitle.innerText=`Hole ${currentHole+1}`;holeMeta.innerText=`Par ${course.pars[currentHole]} · HCP ${course.hcp[currentHole]}`;holeStatus.innerText=gameScoring.value;scoreRows.innerHTML=players.map(p=>{let g=scores[p.name]?.[currentHole]||0,n=g?g-strokes(p,currentHole):0;return `<div class="score-row"><div><div class="score-name">${p.name}${dots(p,currentHole)}</div><div class="score-note">Team ${p.team} · ${p.tee} · HCP ${p.hcp}</div><span class="score-pill">Gross ${g || 0} · Net ${n || 0}</span></div><div class="control"><button onclick="change('${p.name}',-1)">−</button><strong>${g}</strong><button onclick="change('${p.name}',1)">+</button></div><div class="net">${n}</div></div>`}).join("")}
 function quickScore(d){players.forEach(p=>scores[p.name][currentHole]=Math.max(1,course.pars[currentHole]+d));renderAll();saveLocal()}
 function clearHole(){players.forEach(p=>scores[p.name][currentHole]=0);renderAll();saveLocal()}
 function copyParToHole(){players.forEach(p=>scores[p.name][currentHole]=course.pars[currentHole]);renderAll();saveLocal()}
@@ -156,15 +169,15 @@ function pressLedger(){let l={};players.forEach(p=>l[p.name]=0);manualPresses.fo
 function vegasLedger(){let l={};players.forEach(p=>l[p.name]=0);if(!selectedGames.includes("Vegas"))return l;for(let i=0;i<18;i++){let v=vegasHole(i);if(!v||v.w==="Push")continue;let amt=v.d*Number(vegasPoint.value||1);if(v.w==="A"){team("A").forEach(p=>l[p.name]+=amt);team("B").forEach(p=>l[p.name]-=amt)}else{team("B").forEach(p=>l[p.name]+=amt);team("A").forEach(p=>l[p.name]-=amt)}}return l}
 function settlement(){let l={};players.forEach(p=>l[p.name]=0);if(selectedGames.includes("Skins")||sideGames.includes("Skins"))Object.entries(skinsLedger()).forEach(([n,v])=>l[n]+=v);Object.entries(nassauLedger()).forEach(([n,v])=>l[n]+=v);Object.entries(pressLedger()).forEach(([n,v])=>l[n]+=v);Object.entries(vegasLedger()).forEach(([n,v])=>l[n]+=v);return l}
 function transfers(){let l=settlement(),d=Object.entries(l).filter(x=>x[1]<0).map(x=>({n:x[0],a:-x[1]})),c=Object.entries(l).filter(x=>x[1]>0).map(x=>({n:x[0],a:x[1]})),out=[];let i=0,j=0;while(i<d.length&&j<c.length){let a=Math.min(d[i].a,c[j].a);if(a>0.01)out.push({from:d[i].n,to:c[j].n,amount:Math.round(a)});d[i].a-=a;c[j].a-=a;if(d[i].a<=.01)i++;if(c[j].a<=.01)j++}return out}
-function openSettlement(){let l=settlement();settlementSheet.innerHTML=`<div class="section"><h2>Settlement</h2><button onclick="closeSettlement()">Close</button></div><div class="card"><div class="title">Settlement summary</div><div class="meta">Buy-in is informational. Settlement uses Nassau, skins, presses, and Vegas values only.</div>${Object.entries(l).sort((a,b)=>b[1]-a[1]).map(([n,v])=>`<div class="settle-row"><div>${n}</div><div class="${v>=0?"money-pos":"money-neg"}">${money(v)}</div></div>`).join("")}</div><div class="card"><div class="title">Game breakdown</div>${settlementBreakdownHtml()}</div><div class="card"><div class="title">Exact transfers</div>${transfers().map(t=>`<div class="transfer-row"><div>${t.from} pays ${t.to}</div><div class="money-neg">$${t.amount}</div></div>`).join("")||'<div class="meta">No transfers needed.</div>'}</div>`;settlementModal.classList.add("active")}
+function openSettlement(){let l=settlement();settlementSheet.innerHTML=`<div class="section"><h2>Settlement</h2><button onclick="closeSettlement()">Close</button></div><div class="card"><div class="title">Settlement summary</div><div class="meta">Buy-in is informational. Settlement uses Nassau, skins, presses, and Vegas values only.</div>${Object.entries(l).sort((a,b)=>b[1]-a[1]).map(([n,v])=>`<div class="settle-row"><div>${n}</div><div class="${v>=0?"money-pos":"money-neg"}">${money(v)}</div></div>`).join("")}</div><div class="card"><div class="title">Game breakdown</div>${settlementBreakdownHtml()}</div><div class="card"><div class="title">Exact transfers</div>${transfers().map(t=>`<div class="transfer-row"><div>${t.from} pays ${t.to}</div><div class="money-neg">$${t.amount}</div></div>`).join("")||'<div class="meta">No transfers needed.</div>'}<button class="btn ghost" onclick="copySettlement()">Copy settlement text</button><div class="copy-box">${settlementText().replace(/\n/g,'<br>')}</div></div>`;settlementModal.classList.add("active")}
 function closeSettlement(e){if(!e||e.target.id==="settlementModal")settlementModal.classList.remove("active")}
 function postRoundRecap(){let l=settlement(),lead=Object.entries(l).sort((a,b)=>b[1]-a[1])[0]||["No leader",0];loungePosts.unshift({by:"The Turn",text:`Round recap posted. ${lead[0]} leads at ${money(lead[1])}.`,reactions:0});renderLounge();switchTab("lounge");saveLocal()}
 function addLoungePost(){let t=prompt("Post to The Lounge");if(!t)return;loungePosts.unshift({by:"Rob",text:t,reactions:0});renderLounge();saveLocal()}
 function reactToPost(i){loungePosts[i].reactions++;renderLounge();saveLocal()}
 function renderLounge(){loungeFeed.innerHTML=loungePosts.map((p,i)=>`<div class="feed"><div class="feed-top"><div class="feed-avatar">${p.by[0]}</div><div><div class="score-name">${p.by}</div><div class="score-note">Greystone Lounge · private</div></div></div><div>${p.text}</div><div class="reacts"><button class="react" onclick="reactToPost(${i})">🍻 ${p.reactions}</button><button class="react">Comment</button><button class="react">Receipt</button></div></div>`).join("")}
-function applyTemplate(t){players=copy(defaults.players);scores=emptyScores();if(t==="nassau5"){selectedGames=["Nassau"];sideGames=[];nassauValue.value=5;roundName.value="$5 Nassau"}if(t==="nassau10"){selectedGames=["Nassau"];sideGames=[];nassauValue.value=10;roundName.value="$10 Nassau"}if(t==="skins"){selectedGames=["Skins"];sideGames=["Skins"];roundName.value="Skins Game"}if(t==="bestballskins"){selectedGames=["Best Ball","Skins"];sideGames=["Skins"];roundName.value="Best Ball + Skins"}if(t==="vegas"){selectedGames=["Vegas"];sideGames=[];roundName.value="Vegas"}autoTeams(false);renderAll();saveLocal();switchTab("setup")}
-function saveRoundResult(){let h=JSON.parse(localStorage.getItem("theTurnHistory")||"[]");let r={id:Date.now(),name:roundName.value,date:new Date().toLocaleString(),holes:holesScored(),ledger:settlement(),transfers:transfers(),games:selectedGames};h.unshift(r);localStorage.setItem("theTurnHistory",JSON.stringify(h.slice(0,20)));renderHistory();alert("Round saved.")}
-function renderHistory(){let h=JSON.parse(localStorage.getItem("theTurnHistory")||"[]");roundHistory.innerHTML=h.map(r=>`<div class="history-card"><div class="title">${r.name}</div><div class="meta">${r.date} · ${r.holes} holes</div><div>${Object.entries(r.ledger).map(([n,v])=>`<span class="badge">${n} ${money(v)}</span>`).join("")}</div></div>`).join("")||'<div class="card"><div class="meta">No saved rounds yet.</div></div>'}
+function applyTemplate(t){players=copy(defaults.players);scores=emptyScores();if(t==="nassau5"){selectedGames=["Nassau"];sideGames=[];nassauValue.value=5;roundName.value="$5 Nassau"}if(t==="nassau10"){selectedGames=["Nassau"];sideGames=[];nassauValue.value=10;roundName.value="$10 Nassau"}if(t==="skins"){selectedGames=["Skins"];sideGames=["Skins"];roundName.value="Skins Game"}if(t==="bestballskins"){selectedGames=["Best Ball","Skins"];sideGames=["Skins"];roundName.value="Best Ball + Skins"}if(t==="vegas"){selectedGames=["Vegas"];sideGames=[];roundName.value="Vegas"}if(t==="fullmix"){selectedGames=["Nassau","Skins","Best Ball","Vegas"];sideGames=["Skins","Birdies"];nassauValue.value=10;skinValue.value=5;roundName.value="Full Mix"}autoTeams(false);renderAll();saveLocal();switchTab("setup")}
+function saveRoundResult(){let h=JSON.parse(localStorage.getItem("theTurnHistory")||"[]");let r={id:Date.now(),name:roundName.value,date:new Date().toLocaleString(),holes:holesScored(),ledger:settlement(),transfers:transfers(),games:selectedGames,snapshot:{players:copy(players),scores:copy(scores),selectedGames:copy(selectedGames),sideGames:copy(sideGames),manualPresses:copy(manualPresses),currentHole}};h.unshift(r);localStorage.setItem("theTurnHistory",JSON.stringify(h.slice(0,20)));renderHistory();alert("Round saved.")}
+function renderHistory(){let h=JSON.parse(localStorage.getItem("theTurnHistory")||"[]");roundHistory.innerHTML=h.map(r=>`<div class="history-card"><div class="title">${r.name}</div><div class="meta">${r.date} · ${r.holes} holes · ${(r.games||[]).join(" + ")}</div><div style="margin-top:8px">${Object.entries(r.ledger||{}).map(([n,v])=>`<span class="badge">${n} ${money(v)}</span>`).join("")}</div><div class="grid2" style="margin-top:10px"><button class="small-btn" onclick="restoreRound(${r.id})">Restore</button><button class="small-btn" onclick="postHistory(${r.id})">Post</button><button class="small-btn" onclick="deleteHistory(${r.id})">Delete</button></div></div>`).join("")||'<div class="card"><div class="meta">No saved rounds yet.</div></div>'}
 function renderProfile(){profileHoles.innerText=holesScored();let rob=players[0],l=settlement();profileMoney.innerText=money(l[rob.name]||0)}
 
 function gameIsAllowed(g){
@@ -247,9 +260,81 @@ function settlementBreakdownHtml(){
   `).join("");
 }
 
+
+function renderRoundSummary(){
+  const el = document.getElementById("roundSummary");
+  if(!el) return;
+  const gamesText = selectedGames.length ? selectedGames.join(" + ") : "Stroke Play";
+  const sidesText = sideGames.length ? sideGames.join(" + ") : "None";
+  el.innerHTML = `
+    <div class="title">Round summary</div>
+    <div class="meta">Review before scoring.</div>
+    <div class="summary-grid">
+      <div class="summary-item"><div class="summary-value">${players.length}</div><div class="summary-label">players</div></div>
+      <div class="summary-item"><div class="summary-value">${gameScoring.value}</div><div class="summary-label">scoring</div></div>
+      <div class="summary-item"><div class="summary-value">$${nassauValue.value || 0}</div><div class="summary-label">Nassau</div></div>
+      <div class="summary-item"><div class="summary-value">$${skinValue.value || 0}</div><div class="summary-label">skin value</div></div>
+    </div>
+    <div class="mini">Games: ${gamesText}</div>
+    <div class="mini">Side action: ${sidesText}</div>
+  `;
+}
+
+function settlementText(){
+  const rows = transfers();
+  if(!rows.length) return "No transfers needed.";
+  return rows.map(t=>`${t.from} pays ${t.to} $${t.amount}`).join("\\n");
+}
+
+function copySettlement(){
+  const text = settlementText();
+  if(navigator.clipboard){
+    navigator.clipboard.writeText(text).then(()=>alert("Settlement copied."));
+  } else {
+    alert(text);
+  }
+}
+
+function restoreRound(id){
+  const h = JSON.parse(localStorage.getItem("theTurnHistory") || "[]");
+  const r = h.find(x=>x.id===id);
+  if(!r || !r.snapshot){
+    alert("This saved round cannot be restored.");
+    return;
+  }
+  players = r.snapshot.players;
+  scores = r.snapshot.scores;
+  selectedGames = r.snapshot.selectedGames;
+  sideGames = r.snapshot.sideGames;
+  manualPresses = r.snapshot.manualPresses || [];
+  currentHole = r.snapshot.currentHole || 0;
+  ensurePlayers();
+  renderAll();
+  saveLocal();
+  switchTab("score");
+}
+
+function deleteHistory(id){
+  let h = JSON.parse(localStorage.getItem("theTurnHistory") || "[]");
+  h = h.filter(x=>x.id!==id);
+  localStorage.setItem("theTurnHistory", JSON.stringify(h));
+  renderHistory();
+}
+
+function postHistory(id){
+  const h = JSON.parse(localStorage.getItem("theTurnHistory") || "[]");
+  const r = h.find(x=>x.id===id);
+  if(!r) return;
+  const leader = Object.entries(r.ledger||{}).sort((a,b)=>b[1]-a[1])[0] || ["No leader",0];
+  loungePosts.unshift({by:"The Turn",text:`Saved round posted. ${r.name}: ${leader[0]} finished at ${money(leader[1])}.`,reactions:0});
+  renderLounge();
+  saveLocal();
+  switchTab("lounge");
+}
+
 function saveLocal(){let st={players,scores,currentHole,selectedGames,sideGames,loungePosts,manualPresses,roundName:roundName.value,gameScoring:gameScoring.value,buyIn:buyIn.value,skinValue:skinValue.value,nassauValue:nassauValue.value,vegasPoint:vegasPoint.value};localStorage.setItem("theTurnFixed",JSON.stringify(st))}
 function loadLocal(){let raw=localStorage.getItem("theTurnFixed");if(!raw){scores=emptyScores();return}try{let s=JSON.parse(raw);players=Array.isArray(s.players)&&s.players.length>=2?s.players:copy(defaults.players);scores=s.scores||{};currentHole=Number(s.currentHole||0);selectedGames=Array.isArray(s.selectedGames)?s.selectedGames:selectedGames;sideGames=Array.isArray(s.sideGames)?s.sideGames:sideGames;loungePosts=Array.isArray(s.loungePosts)?s.loungePosts:loungePosts;manualPresses=Array.isArray(s.manualPresses)?s.manualPresses:[];ensurePlayers();roundName.value=s.roundName||"New Round";gameScoring.value=s.gameScoring||"Net";buyIn.value=s.buyIn||20;skinValue.value=s.skinValue||5;nassauValue.value=s.nassauValue||5;vegasPoint.value=s.vegasPoint||1}catch(e){players=copy(defaults.players);scores=emptyScores()}}
-function renderAll(save=false){ensurePlayers();updateBadges();updateProgress();renderGameOptions();renderWarnings();renderTeams();renderSideOptions();renderPlayers();renderScore();renderGames();renderLounge();renderProfile();renderHistory();renderNamedRosters()}
+function renderAll(save=false){ensurePlayers();updateBadges();updateProgress();renderGameOptions();renderWarnings();renderTeams();renderSideOptions();renderPlayers();renderScore();renderGames();renderLounge();renderProfile();renderHistory();renderNamedRosters();renderRoundSummary()}
 loadLocal();ensurePlayers();renderAll();
 </script>
 </body>
