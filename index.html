@@ -397,7 +397,7 @@ input,select{width:100%;border:1px solid var(--line);background:#f0e9dd;border-r
         <span class="status live" id="holeStatus">NET</span>
       </div>
       <div class="quick">
-        <button onclick="quickScore(-1)">Eagle</button>
+        <button onclick="quickScore(-1)">Birdie</button>
         <button onclick="quickScore(0)">Par</button>
         <button onclick="quickScore(1)">Bogey</button>
         <button onclick="quickScore(2)">Double</button>
@@ -521,7 +521,7 @@ input,select{width:100%;border:1px solid var(--line);background:#f0e9dd;border-r
 <section id="complete" class="screen">
   <header class="screen-header">
     <button class="sh-btn" onclick="showMore()">☰</button>
-    <div class="sh-title">ROUND COMPLETE</div>
+    <div class="sh-title">RESULTS</div>
     <button class="sh-btn" onclick="copySettlement()">↑</button>
   </header>
   <div class="inner-tabs">
@@ -565,14 +565,23 @@ input,select{width:100%;border:1px solid var(--line);background:#f0e9dd;border-r
 
     <div id="completeTabSettlement" class="complete-tab-content">
       <div class="card">
-        <div class="title" style="margin-bottom:4px">Exact Settlements</div>
-        <div class="meta" style="margin-bottom:12px">Transfers to settle the round</div>
+        <div class="title" style="margin-bottom:10px">Net Results</div>
+        <div id="completeSettleSummary"></div>
+      </div>
+      <div class="card">
+        <div class="title" style="margin-bottom:10px">Game Breakdown</div>
+        <div id="completeSettleBreakdown"></div>
+      </div>
+      <div class="card">
+        <div class="title" style="margin-bottom:4px">Exact Transfers</div>
+        <div class="meta" style="margin-bottom:12px">Who pays who</div>
         <div id="completeTransfers"></div>
+        <button class="btn ghost" onclick="copySettlement()" style="margin-top:12px">Copy Settlement Text</button>
+        <div class="copy-box" id="completeCopyBox" style="margin-top:8px"></div>
       </div>
       <div class="card">
         <div class="title" style="margin-bottom:6px">Share Text</div>
         <div class="share-text" id="shareText"></div>
-        <button class="btn ghost" onclick="copySettlement()" style="margin-top:8px">Copy Text</button>
       </div>
     </div>
 
@@ -689,40 +698,26 @@ input,select{width:100%;border:1px solid var(--line);background:#f0e9dd;border-r
   </div>
 </section>
 
-<!-- ══════════════════════════════════════
-     HOME / PROFILE (legacy, via More)
-══════════════════════════════════════ -->
-<section id="home" class="screen">
+<section id="profile" class="screen">
   <header class="screen-header">
-    <button class="sh-btn" onclick="showMore()">☰</button>
-    <div class="press-mark" style="flex:1;justify-content:center">
-      <div class="press-logo-circle">
-        <svg viewBox="0 0 120 120" fill="none"><defs><linearGradient id="g2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f3d992"/><stop offset=".55" stop-color="#cba15a"/><stop offset="1" stop-color="#8c6428"/></linearGradient></defs><path d="M30 96V24h34c19 0 30 10 30 26s-11 26-30 26H48v20H30Z" stroke="url(#g2)" stroke-width="5" stroke-linejoin="round"/><path d="M48 60V38h16c8 0 13 5 13 11s-5 11-13 11H48Z" stroke="url(#g2)" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </div>
-      <div><div class="press-brand-name">PRESS</div><div class="press-brand-sub">GREYSTONE</div></div>
-    </div>
+    <button class="sh-btn" onclick="showMore()">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <div class="sh-title">PROFILE</div>
     <div style="width:36px"></div>
   </header>
   <div class="screen-body">
-    <div class="card">
-      <div class="title">Current Round Stats</div>
-      <div class="stat-grid">
-        <div class="stat-box"><div class="stat-value" id="profileHoles">0</div><div class="meta">holes scored</div></div>
-        <div class="stat-box"><div class="stat-value" id="profileMoney">$0</div><div class="meta">ledger</div></div>
-      </div>
+    <div class="card" style="text-align:center;padding:22px 16px">
+      <div id="profileAvatar" style="width:68px;height:68px;border-radius:50%;display:grid;place-items:center;margin:0 auto 14px;font-size:22px;font-weight:800;color:white;letter-spacing:1px;background:var(--green)"></div>
+      <div id="profileName" style="font-family:var(--ff-display);font-size:20px;font-weight:700;color:var(--ink)"></div>
+      <div id="profileHcp" class="meta" style="margin-top:4px"></div>
     </div>
-    <div class="card"><div class="title">Current Round</div><div class="meta" id="liveMeta">Ready to score</div><div class="meta" id="liveTitle" style="display:none"></div><button class="btn green" onclick="switchTab('score')">Go to Scorecard</button><button class="btn gold" onclick="switchTab('setup')">New Round</button></div>
-  </div>
-</section>
-
-<section id="profile" class="screen">
-  <header class="screen-header">
-    <button class="sh-btn" onclick="showMore()">☰</button>
-    <div class="sh-title">PROFILE</div>
-    <button class="sh-btn" onclick="saveLocal()">✓</button>
-  </header>
-  <div class="screen-body">
-    <div class="card"><div class="title">Stats</div><div class="stat-grid"><div class="stat-box"><div class="stat-value" id="profileHoles2">0</div><div class="meta">holes scored</div></div><div class="stat-box"><div class="stat-value" id="profileMoney2">$0</div><div class="meta">ledger</div></div></div></div>
+    <div class="section"><h2>Season Stats</h2></div>
+    <div id="profileSeasonGrid" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-bottom:4px"></div>
+    <div class="section"><h2>Current Round</h2></div>
+    <div id="profileCurrentRound"></div>
+    <div class="section"><h2>Recent Rounds</h2></div>
+    <div id="profileRecentRounds"></div>
   </div>
 </section>
 
@@ -748,11 +743,11 @@ input,select{width:100%;border:1px solid var(--line);background:#f0e9dd;border-r
     </div>
     Games
   </button>
-  <button class="tab" data-tab="lounge" onclick="show('lounge',this)">
+  <button class="tab" data-tab="complete" onclick="show('complete',this)">
     <div class="tab-icon">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
     </div>
-    Lounge
+    Results
   </button>
   <button class="tab" data-tab="more" onclick="showMore()">
     <div class="tab-icon">
@@ -772,11 +767,9 @@ input,select{width:100%;border:1px solid var(--line);background:#f0e9dd;border-r
       </div>
       <div><div style="font-family:var(--ff-display);font-size:18px;font-weight:700;letter-spacing:4px;color:var(--ink)">PRESS</div><div style="font-size:11px;color:var(--muted);font-weight:600">Greystone Golf Club</div></div>
     </div>
-    <button class="more-item" onclick="navTo('complete')"><div class="more-icon"><svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div><div class="more-item-text"><strong>Round Complete</strong><span>Final results &amp; settlement</span></div><svg style="width:16px;height:16px;stroke:var(--line);stroke-width:2;fill:none;flex-shrink:0" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></buttonon>
-    <button class="more-item" onclick="navTo('home')"><div class="more-icon"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div><div class="more-item-text"><strong>Home</strong><span>Dashboard &amp; quick actions</span></div><svg style="width:16px;height:16px;stroke:var(--line);stroke-width:2;fill:none;flex-shrink:0" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></button>
-    <button class="more-item" onclick="navTo('profile')"><div class="more-icon"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div><div class="more-item-text"><strong>Profile</strong><span>Stats &amp; history</span></div><svg style="width:16px;height:16px;stroke:var(--line);stroke-width:2;fill:none;flex-shrink:0" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></button>
+    <button class="more-item" onclick="navTo('lounge')"><div class="more-icon"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></div><div class="more-item-text"><strong>Lounge</strong><span>Feed &amp; round history</span></div><svg style="width:16px;height:16px;stroke:var(--line);stroke-width:2;fill:none;flex-shrink:0" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></button>
+    <button class="more-item" onclick="navTo('profile')"><div class="more-icon"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div><div class="more-item-text"><strong>Profile</strong><span>Stats &amp; career earnings</span></div><svg style="width:16px;height:16px;stroke:var(--line);stroke-width:2;fill:none;flex-shrink:0" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></button>
     <button class="more-item" onclick="navTo('admin')"><div class="more-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg></div><div class="more-item-text"><strong>Admin</strong><span>Data, backup &amp; settings</span></div><svg style="width:16px;height:16px;stroke:var(--line);stroke-width:2;fill:none;flex-shrink:0" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></button>
-    <button class="more-item" onclick="hideMore();openSettlement()"><div class="more-icon" style="background:#e6f2ec"><svg viewBox="0 0 24 24" style="stroke:var(--green2)"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div><div class="more-item-text"><strong>Settle Now</strong><span>View current settlement</span></div><svg style="width:16px;height:16px;stroke:var(--line);stroke-width:2;fill:none;flex-shrink:0" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></buttonton>
   </div>
 </div>
 
@@ -796,6 +789,8 @@ function avatarHtml(name, idx){
 // ─── DATA & STATE ────────────────────────────────────────────────────────────
 const defaults={players:[{name:"John Miller",tee:"White",hcp:7,team:"A"},{name:"Brad White",tee:"White",hcp:11,team:"B"},{name:"Dan Clark",tee:"White",hcp:15,team:"B"},{name:"Ryan Smith",tee:"White",hcp:4,team:"A"}],lounge:[{by:"Press",text:"Round is ready. Choose games and start scoring.",reactions:2}]};
 const course={pars:[5,3,4,5,4,3,4,4,4,5,3,4,4,3,4,4,4,5],hcp:[17,13,7,11,3,15,1,5,9,4,12,2,8,14,18,10,6,16],tees:{Gold:[515,213,435,541,430,186,436,363,404,536,189,405,409,150,301,405,417,529],Blue:[488,191,411,520,419,161,405,351,394,511,160,383,387,145,282,384,395,514],White:[467,169,389,494,395,142,365,339,363,478,135,361,355,138,259,369,326,463],Green:[467,148,360,494,307,142,349,305,323,478,135,311,311,125,259,369,326,463],Red:[430,148,360,466,307,125,349,305,323,434,111,311,311,125,237,337,326,425]}};
+const teeRatings={Gold:{rating:'73.4',slope:'140'},Blue:{rating:'71.8',slope:'136'},White:{rating:'71.2',slope:'132'},Green:{rating:'69.8',slope:'128'},Red:{rating:'68.4',slope:'124'}};
+function renderCourseDetail(){const el=document.getElementById('courseDetail');if(!el)return;const tee=players[0]?.tee||'White';const r=teeRatings[tee]||{rating:'71.2',slope:'132'};el.innerText=`${tee} Tees · ${r.rating} / ${r.slope}`;}
 let players=copy(defaults.players),scores={},currentHole=0,selectedGames=["Skins","Best Ball"],sideGames=["Skins"],loungePosts=copy(defaults.lounge),manualPresses=[];
 const games=["Skins","Nassau","Best Ball","Vegas","Wolf"],sides=["Skins","Closest to Pin","Snake","Birdies","Greenies","Putts"];
 
@@ -814,7 +809,7 @@ function ensurePlayers(){
 // ─── NAV ─────────────────────────────────────────────────────────────────────
 function show(id,btn){
   document.querySelectorAll(".screen").forEach(s=>s.classList.remove("active"));
-  document.getElementById(id).classList.add("active");
+  document.getElementById(id)?.classList.add("active");
   document.querySelectorAll(".tab").forEach(t=>t.classList.remove("active"));
   if(btn && btn.dataset && btn.dataset.tab){
     document.querySelector(`[data-tab="${btn.dataset.tab}"]`)?.classList.add("active");
@@ -1065,9 +1060,15 @@ function transfers(){let l=settlement(),d=Object.entries(l).filter(x=>x[1]<0).ma
 function settlementText(){const rows=transfers();if(!rows.length)return"No transfers needed.";return rows.map(t=>`${t.from} pays ${t.to} $${t.amount}`).join("\n")}
 function copySettlement(){const text=settlementText();if(navigator.clipboard){navigator.clipboard.writeText(text).then(()=>alert("Settlement copied."))}else{alert(text)}}
 function settlementBreakdownHtml(){
+  const ICONS={
+    Skins:{bg:'#f5ecda',stroke:'#8a6a1a',path:'<path d="M6 9H4V5h16v4h-2"/><path d="M8 9a4 4 0 008 0"/><line x1="12" y1="13" x2="12" y2="17"/><rect x="8" y="17" width="8" height="2" rx="1"/>'},
+    Nassau:{bg:'#e6eef5',stroke:'#2a5a8a',path:'<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>'},
+    Presses:{bg:'#fff0ee',stroke:'#b6483f',path:'<polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>'},
+    Vegas:{bg:'#f5ecda',stroke:'#8a6a1a',path:'<rect x="3" y="3" width="18" height="18" rx="3"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/>'}
+  };
   const parts=[{name:"Skins",ledger:(selectedGames.includes("Skins")||sideGames.includes("Skins"))?skinsLedger():null},{name:"Nassau",ledger:selectedGames.includes("Nassau")?nassauLedger():null},{name:"Presses",ledger:manualPresses.length?pressLedger():null},{name:"Vegas",ledger:selectedGames.includes("Vegas")?vegasLedger():null}].filter(p=>p.ledger);
   if(!parts.length)return'<div class="meta">No active settlement games.</div>';
-  return parts.map(part=>`<div style="margin-bottom:12px"><div style="font-weight:700;font-size:13px;margin-bottom:6px">${part.name}</div>${Object.entries(part.ledger).map(([n,v])=>`<div class="settle-row"><div>${n}</div><div class="${v>=0?"money-pos":"money-neg"}">${money(v)}</div></div>`).join("")}</div>`).join("");
+  return parts.map(part=>{const ic=ICONS[part.name]||{bg:'#f0e9dd',stroke:'var(--muted)',path:''};return`<div style="margin-bottom:14px"><div style="display:flex;align-items:center;gap:10px;margin-bottom:8px"><div style="width:34px;height:34px;border-radius:9px;background:${ic.bg};display:grid;place-items:center;flex-shrink:0"><svg viewBox="0 0 24 24" fill="none" stroke="${ic.stroke}" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="18" height="18">${ic.path}</svg></div><span style="font-family:var(--ff-display);font-weight:700;font-size:13px">${part.name}</span></div>${Object.entries(part.ledger).map(([n,v])=>`<div class="settle-row"><div>${n}</div><div class="${v>=0?"money-pos":"money-neg"}">${money(v)}</div></div>`).join("")}</div>`;}).join("");
 }
 function openSettlement(){
   let l=settlement();
@@ -1089,6 +1090,12 @@ function renderComplete(){
   if(completeTransfers)completeTransfers.innerHTML=transfers().map(t=>`<div class="transfer-row"><div class="score-name">${t.from} → ${t.to}</div><div class="money-neg">$${t.amount}</div></div>`).join("")||'<div class="meta">No transfers needed.</div>';
   if(shareText)shareText.innerText=buildShareText();
   if(auditTrail)auditTrail.innerHTML=buildAuditTrail();
+  const ss=document.getElementById('completeSettleSummary');
+  if(ss)ss.innerHTML=Object.entries(l).sort((a,b)=>b[1]-a[1]).map(([n,v])=>`<div class="settle-row"><div class="score-name">${n}</div><div class="${v>=0?"money-pos":"money-neg"}">${money(v)}</div></div>`).join("");
+  const sb=document.getElementById('completeSettleBreakdown');
+  if(sb)sb.innerHTML=settlementBreakdownHtml();
+  const cb=document.getElementById('completeCopyBox');
+  if(cb)cb.innerHTML=settlementText().replace(/\n/g,'<br>');
 }
 function buildAuditTrail(){
   const parts=[];
@@ -1139,10 +1146,24 @@ function closeHistory(e){if(!e||e.target.id==="historyModal")historyModal.classL
 
 // ─── PROFILE ─────────────────────────────────────────────────────────────────
 function renderProfile(){
-  const h=holesScored(),l=settlement();
-  [profileHoles,document.getElementById("profileHoles2")].forEach(el=>{if(el)el.innerText=h});
-  const rob=players[0],val=l[rob?.name]||0;
-  [profileMoney,document.getElementById("profileMoney2")].forEach(el=>{if(el)el.innerText=money(val)});
+  ensurePlayers();
+  const me=players[0];if(!me)return;
+  const avEl=document.getElementById('profileAvatar');
+  if(avEl){avEl.innerText=initials(me.name);avEl.style.background=avColor(0);}
+  const nameEl=document.getElementById('profileName');if(nameEl)nameEl.innerText=me.name;
+  const hcpEl=document.getElementById('profileHcp');if(hcpEl)hcpEl.innerText=`${me.tee} Tees · HCP ${me.hcp}`;
+  const hist=JSON.parse(localStorage.getItem('theTurnHistory')||'[]');
+  let totalMoney=0,wins=0,losses=0;
+  hist.forEach(r=>{const v=r.ledger?.[me.name]||0;totalMoney+=v;if(v>0)wins++;if(v<0)losses++;});
+  const sg=document.getElementById('profileSeasonGrid');
+  if(sg)sg.innerHTML=`<div class="stat-box"><div class="stat-value">${hist.length}</div><div class="meta">rounds</div></div><div class="stat-box"><div class="stat-value">${wins}W-${losses}L</div><div class="meta">record</div></div><div class="stat-box"><div class="stat-value ${totalMoney>=0?'money-pos':'money-neg'}" style="font-size:16px">${money(totalMoney)}</div><div class="meta">career</div></div>`;
+  const l=settlement(),curVal=l[me.name]||0,curH=holesScored();
+  const crEl=document.getElementById('profileCurrentRound');
+  if(crEl)crEl.innerHTML=`<div class="card"><div class="card-row"><div class="title" style="font-size:13px">Holes Scored</div><div style="font-weight:800;font-size:14px">${curH}</div></div><div class="card-row"><div class="title" style="font-size:13px">Round Ledger</div><div class="${curVal>=0?'money-pos':'money-neg'}" style="font-size:15px;font-weight:800">${money(curVal)}</div></div><div class="card-row"><div class="title" style="font-size:13px">Active Games</div><div class="meta">${selectedGames.join(', ')||'Stroke Play'}</div></div></div>`;
+  const rrEl=document.getElementById('profileRecentRounds');
+  if(!rrEl)return;
+  if(!hist.length){rrEl.innerHTML='<div class="card"><div class="meta">No saved rounds yet.</div></div>';return;}
+  rrEl.innerHTML=hist.slice(0,5).map(r=>{const v=r.ledger?.[me.name]||0;return`<div class="history-card"><div style="display:flex;justify-content:space-between;align-items:center"><div><div class="title">${r.name}</div><div class="meta">${r.date} · ${r.holes} holes · ${(r.games||[]).join(' + ')||'Stroke Play'}</div></div><div class="${v>=0?'money-pos':'money-neg'}" style="font-size:16px;font-weight:800">${money(v)}</div></div></div>`;}).join('');
 }
 
 // ─── ADMIN ───────────────────────────────────────────────────────────────────
@@ -1181,6 +1202,7 @@ function renderAll(save=true){
   renderProfile();
   renderAdmin();
   renderNamedRosters();
+  renderCourseDetail();
   updateProgress();
   if(save)saveLocal();
   // Date
