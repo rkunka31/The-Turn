@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>The Turn v18 HTML | Greystone</title>
+<title>Press | Greystone</title>
 <style>
 :root{--green:#0f5f3d;--green2:#0a432d;--paper:#fbf7ee;--gold:#c7a15a;--muted:#756d62;--line:#e5dccd;--danger:#b6483f;--shadow:0 14px 35px rgba(23,18,12,.12)}
 *{box-sizing:border-box}body{margin:0;background:linear-gradient(180deg,#eee7d9,#f8f3ea);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;color:#17211b}button,input,select{font:inherit}button{cursor:pointer}.app{max-width:430px;margin:auto;min-height:100vh;background:var(--paper);box-shadow:0 0 60px rgba(0,0,0,.18);padding-bottom:92px}.hero{background:linear-gradient(180deg,rgba(8,13,10,.45),rgba(8,13,10,.92)),radial-gradient(circle at top right,rgba(199,161,90,.35),transparent 35%),linear-gradient(135deg,#0a0f0c,#173424);color:#fff;padding:22px 18px 18px;border-bottom-left-radius:34px;border-bottom-right-radius:34px}.top{display:flex;align-items:center;justify-content:space-between}.mark{display:flex;align-items:center;gap:10px}.logo{width:36px;height:36px;border:1.5px solid var(--gold);border-radius:50%;display:grid;place-items:center;color:#e2c47a;font-family:Georgia,serif;font-weight:900}.brand{font-family:Georgia,serif;letter-spacing:4px;font-size:16px}.avatar{width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,#d8c188,#f2e6c1);border:2px solid rgba(255,255,255,.45)}.hero h1{margin:24px 0 4px;font-size:26px}.sub{margin:0;color:#cfd9d1;font-size:13px}.badges{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}.badge{padding:7px 10px;border-radius:999px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);color:#f4ead4;font-size:11px;font-weight:800}.badge.live{background:#4e8f2f;color:white;border:none}.content{padding:16px 14px}.screen{display:none}.screen.active{display:block}.tabs{position:fixed;left:50%;bottom:0;transform:translateX(-50%);width:min(430px,100%);background:rgba(251,247,238,.95);backdrop-filter:blur(16px);border-top:1px solid var(--line);display:grid;grid-template-columns:repeat(8,1fr);padding:9px 8px 12px;z-index:20}.tab{border:0;background:transparent;color:#897f71;font-size:10px;font-weight:800;display:grid;gap:3px;place-items:center}.tab span{width:24px;height:24px;display:grid;place-items:center;border-radius:50%;font-size:15px}.tab.active{color:var(--green)}.tab.active span{background:var(--green);color:white}.section{display:flex;align-items:center;justify-content:space-between;margin:18px 2px 9px}.section h2{margin:0;font-size:12px;letter-spacing:.9px;color:#857b70;text-transform:uppercase}.section button{border:0;background:transparent;color:var(--muted);font-size:11px;font-weight:800}.card{background:rgba(255,255,255,.9);border:1px solid rgba(230,222,209,.9);box-shadow:var(--shadow);border-radius:22px;padding:15px;margin-bottom:12px}.title{font-size:16px;font-weight:900;color:#17211b}.meta{font-size:12px;color:var(--muted);margin-top:3px}.row{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}.status{background:#6ea444;color:white;border-radius:7px;padding:5px 7px;font-size:10px;font-weight:900}.btn{width:100%;border:0;border-radius:999px;padding:14px 16px;font-size:14px;font-weight:900;margin-top:12px}.gold{background:linear-gradient(135deg,#b98b3e,#e3c577);color:#17120a}.green{background:linear-gradient(135deg,var(--green2),var(--green));color:white}.ghost{background:white;border:1px solid var(--line);color:var(--green)}.danger{background:#fff0ee;color:var(--danger);border:1px solid #efc7c1}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}label{display:block;font-size:10px;letter-spacing:.8px;color:#8a8176;text-transform:uppercase;font-weight:900;margin-bottom:5px}input,select{width:100%;border:1px solid var(--line);background:#f6efe4;border-radius:14px;padding:12px;font-size:14px;color:#1d271f}.side-grid{display:flex;flex-wrap:wrap;gap:9px}.chip{border:1px solid var(--line);background:white;color:#17211b;border-radius:999px;padding:10px 13px;font-size:13px;font-weight:900}.chip.on{background:var(--green);border-color:var(--green);color:white}.player{display:grid;grid-template-columns:1fr 74px 60px;gap:8px;align-items:center;background:#fffaf1;border:1px solid var(--line);border-radius:17px;padding:11px;margin-bottom:9px}.name-input{width:100%;border:1px solid var(--line);background:white;border-radius:12px;padding:9px;font-weight:900}.small-btn{border:1px solid var(--line);background:#fffaf1;color:#17211b;border-radius:999px;padding:8px 6px;font-size:11px;font-weight:900}.team-card{background:#fffaf1;border:1px solid var(--line);border-radius:18px;padding:12px;margin-bottom:10px}.team-chip{display:inline-flex;margin:4px 4px 0 0;border:1px solid var(--line);border-radius:999px;padding:7px 9px;background:white;font-size:12px;font-weight:900}.team-chip.a{background:#ecf6f1}.team-chip.b{background:#f7edda}.holes{display:flex;gap:6px;overflow:auto;padding-bottom:8px}.hole{min-width:34px;height:34px;border-radius:9px;border:1px solid var(--line);background:white;color:#344238;display:grid;place-items:center;font-weight:900;font-size:12px}.hole.active{background:var(--green);color:white}.hole.played{border-color:#9fcdb7;background:#eef7f2}.score-row{display:grid;grid-template-columns:1fr 108px 48px;gap:9px;align-items:center;background:white;border:1px solid var(--line);border-radius:17px;padding:11px;margin-bottom:9px}.score-name{font-weight:900;font-size:14px}.score-note{color:var(--muted);font-size:11px;margin-top:2px}.dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--gold);margin-left:5px}.control{display:flex;align-items:center;justify-content:center;gap:7px;background:#f2eadf;border-radius:999px;padding:4px}.control button{border:0;width:30px;height:30px;border-radius:50%;background:white;color:var(--green);font-size:20px;font-weight:900}.control strong{min-width:20px;text-align:center}.net{text-align:right;font-weight:900;color:var(--green)}.quick{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:8px}.quick button{border:1px solid var(--line);background:#fffaf1;border-radius:999px;padding:7px 5px;font-size:11px;font-weight:900}.leader{display:grid;grid-template-columns:32px 1fr 44px 44px 62px;gap:8px;align-items:center;padding:12px 0;border-bottom:1px solid var(--line)}.leader:last-child{border-bottom:0}.rank{width:28px;height:28px;border-radius:50%;display:grid;place-items:center;background:#efe6d5;color:#7b5d20;font-weight:900}.num{text-align:center;font-weight:900}.money-pos{color:var(--green);font-weight:900;text-align:right}.money-neg{color:var(--danger);font-weight:900;text-align:right}.game-section{display:none}.game-section.active{display:block}.lounge{background:linear-gradient(180deg,rgba(8,10,8,.25),rgba(8,10,8,.9)),radial-gradient(circle at top right,rgba(199,161,90,.28),transparent 34%),linear-gradient(135deg,#111,#1a211c);color:white}.lounge .meta{color:#d0c7b7}.small-logo{width:66px;height:66px;border:1.5px solid var(--gold);border-radius:50%;display:grid;place-items:center;color:#e2c47a;font-family:Georgia,serif;font-size:34px;margin:0 auto 12px}.center{text-align:center}.feed{background:white;border:1px solid var(--line);border-radius:20px;padding:13px;margin-bottom:11px;box-shadow:0 10px 26px rgba(23,18,12,.08)}.feed-top{display:flex;align-items:center;gap:9px;margin-bottom:8px}.feed-avatar{width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#d8c188,#f2e6c1);display:grid;place-items:center;font-weight:900;color:#193223}.reacts{display:flex;gap:8px;margin-top:10px}.react{border:1px solid var(--line);background:#fffaf1;color:#17211b;border-radius:999px;padding:7px 9px;font-size:12px;font-weight:900}.modal{position:fixed;inset:0;background:rgba(0,0,0,.45);display:none;align-items:flex-end;justify-content:center;z-index:50}.modal.active{display:flex}.sheet{width:min(430px,100%);max-height:86vh;overflow:auto;background:var(--paper);border-top-left-radius:28px;border-top-right-radius:28px;padding:16px}.settle-row,.transfer-row{display:grid;grid-template-columns:1fr 78px;gap:10px;align-items:center;padding:10px 0;border-bottom:1px solid var(--line)}.mini{font-size:11px;color:var(--muted);margin-top:8px;line-height:1.35}.warn{background:#fff8e8;border:1px solid #ead5aa;color:#7a5d18;border-radius:14px;padding:10px;font-size:12px;margin:10px 0}.template-card{border:1px solid var(--line);background:white;border-radius:18px;padding:13px;margin-bottom:10px}.history-card{background:white;border:1px solid var(--line);border-radius:18px;padding:13px;margin-bottom:10px}.stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}.stat-box{background:#fffaf1;border:1px solid var(--line);border-radius:16px;padding:11px}.stat-value{font-size:18px;font-weight:900}.prototype-note{background:#ecf6f1;border:1px solid #cde5d8;border-radius:18px;padding:12px;margin-bottom:12px;color:#193223;font-size:12px;line-height:1.35}
@@ -58,17 +58,100 @@
 .mode-dark .card,.mode-dark .admin-card,.mode-dark .template-card,.mode-dark .history-card,.mode-dark .feed{background:#1f241b;color:#f7f1e7}
 .mode-dark input,.mode-dark select,.mode-dark .textarea-box{background:#161a13;color:#f7f1e7;border-color:#343c30}
 
+
+/* PRESS v19 brand layer */
+:root{
+  --green:#0f2e23;
+  --green2:#184332;
+  --paper:#f3efe6;
+  --gold:#cba15a;
+  --gold2:#e3bd68;
+  --muted:#746f65;
+  --line:#ded5c6;
+  --danger:#b6483f;
+  --shadow:0 18px 45px rgba(20,24,18,.14);
+  --ink:#142018;
+}
+body{
+  background:radial-gradient(circle at top left,rgba(203,161,90,.18),transparent 32%),linear-gradient(180deg,#e9e2d6,#f8f3ea);
+  color:var(--ink);
+}
+.app{background:radial-gradient(circle at top right,rgba(203,161,90,.10),transparent 25%),var(--paper)}
+.hero{
+  background:linear-gradient(180deg,rgba(7,20,15,.20),rgba(7,20,15,.92)),radial-gradient(circle at top right,rgba(203,161,90,.32),transparent 38%),linear-gradient(135deg,#07140f,#0f2e23 58%,#184332);
+}
+.logo{border:1.5px solid var(--gold2);color:var(--gold2);background:radial-gradient(circle at 40% 25%,rgba(255,255,255,.20),transparent 34%),linear-gradient(145deg,#082117,#0f3b2b);box-shadow:0 0 0 2px rgba(203,161,90,.08),0 8px 18px rgba(0,0,0,.18)}
+.brand{font-family:Georgia,serif;letter-spacing:5px;font-size:17px}
+.hero h1{font-family:Georgia,serif;letter-spacing:.5px}
+.badge.live,.status{background:linear-gradient(135deg,#0f5f3d,#184332)}
+.badge{color:#f4ead4;border-color:rgba(203,161,90,.28)}
+.card,.admin-card,.template-card,.history-card,.feed{border-radius:24px;background:rgba(255,255,255,.88);border:1px solid rgba(222,213,198,.95);box-shadow:0 18px 38px rgba(23,18,12,.10)}
+.gold{background:linear-gradient(135deg,#b78335,#e3bd68);color:#17120a;box-shadow:0 10px 22px rgba(183,131,53,.22)}
+.green{background:linear-gradient(135deg,#0f2e23,#184332);color:white;box-shadow:0 10px 22px rgba(15,46,35,.20)}
+.ghost{background:#fffdf8;border:1px solid var(--line);color:#0f2e23}
+.chip.on{background:linear-gradient(135deg,#0f2e23,#184332);color:white;border-color:#0f2e23}
+.tabs{background:rgba(243,239,230,.95)}
+.tab.active{color:#0f5f3d}
+.tab.active span{background:linear-gradient(135deg,#0f2e23,#184332)}
+input,select,.textarea-box{background:#f7efe4;border-color:#ded5c6}
+.lounge{background:linear-gradient(180deg,rgba(7,20,15,.18),rgba(7,20,15,.95)),radial-gradient(circle at top right,rgba(203,161,90,.30),transparent 35%),linear-gradient(135deg,#07140f,#0f2e23)}
+.lounge .meta{color:#d0c7b7}
+.small-logo{border-color:var(--gold2);color:var(--gold2);background:linear-gradient(145deg,#082117,#0f3b2b)}
+.press-mark{width:38px;height:38px;border-radius:50%;display:grid;place-items:center}
+.press-mark svg{width:33px;height:33px;display:block}
+.press-tagline{font-size:11px;letter-spacing:2px;color:var(--gold2);text-transform:uppercase;font-weight:900}
+#splash{position:fixed;inset:0;z-index:9999;display:grid;place-items:center;background:linear-gradient(180deg,rgba(6,16,12,.15),rgba(6,16,12,.92)),radial-gradient(circle at 50% 26%,rgba(203,161,90,.22),transparent 28%),linear-gradient(145deg,#06100c,#0f2e23 62%,#07140f);color:white;transition:opacity .55s ease,visibility .55s ease}
+#splash.hide{opacity:0;visibility:hidden}
+.splash-inner{text-align:center;transform:translateY(-8px)}
+.splash-logo{width:118px;height:118px;border:2px solid var(--gold2);border-radius:50%;display:grid;place-items:center;margin:0 auto 20px;box-shadow:0 0 0 8px rgba(203,161,90,.08),0 22px 52px rgba(0,0,0,.34);background:radial-gradient(circle at 38% 28%,rgba(255,255,255,.18),transparent 32%),linear-gradient(145deg,#082117,#0f3b2b)}
+.splash-logo svg{width:92px;height:92px}
+.splash-title{font-family:Georgia,serif;font-size:46px;letter-spacing:9px;margin:0}
+.splash-tag{margin-top:10px;color:var(--gold2);text-transform:uppercase;letter-spacing:2.4px;font-weight:900;font-size:12px}
+.splash-line{width:58px;height:2px;background:var(--gold2);margin:24px auto 0}
+.press-wordmark{font-family:Georgia,serif;letter-spacing:8px;font-size:28px;line-height:1}
+.course-photo{min-height:155px;border-radius:26px;background:linear-gradient(180deg,rgba(6,16,12,.05),rgba(6,16,12,.92)),radial-gradient(circle at 30% 70%,rgba(203,161,90,.16),transparent 28%),linear-gradient(135deg,#14271e,#0b2118 45%,#07140f);position:relative;overflow:hidden}
+.course-photo:before{content:"";position:absolute;left:-12%;right:-12%;bottom:-28px;height:78px;background:radial-gradient(ellipse at center,rgba(203,161,90,.20),transparent 62%),linear-gradient(90deg,transparent,#2c5b38,transparent);border-radius:50%}
+.course-photo:after{content:"";position:absolute;left:0;right:0;bottom:0;height:70px;background:repeating-linear-gradient(-12deg,rgba(255,255,255,.04) 0 5px,transparent 5px 18px);opacity:.9}
+.icon-row{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:14px}
+.icon-card{text-align:center;color:#f4ead4;font-size:10px;font-weight:900;text-transform:uppercase;letter-spacing:.4px}
+.icon-bubble{width:42px;height:42px;border:1px solid var(--gold2);border-radius:50%;display:grid;place-items:center;margin:0 auto 7px;color:var(--gold2)}
+.mode-dark{--paper:#151812;--line:#2e352b;--muted:#b8b2a8;color:#f7f1e7;background:#0f110d}
+
 </style>
 </head>
 <body>
+
+<div id="splash">
+  <div class="splash-inner">
+    <div class="splash-logo"><svg viewBox="0 0 120 120" aria-label="Press logo"><defs><linearGradient id="pg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f3efe6"/><stop offset="1" stop-color="#cba15a"/></linearGradient></defs><circle cx="60" cy="60" r="48" fill="none" stroke="#cba15a" stroke-width="4"/><path d="M45 91V29h31c13 0 22 8 22 20 0 13-9 21-23 21H58v21H45zm13-33h16c7 0 11-3 11-9s-4-9-11-9H58v18z" fill="url(#pg)"/><path d="M38 93c18-9 39-11 58-4" fill="none" stroke="#cba15a" stroke-width="4" stroke-linecap="round"/><path d="M71 25v-9h18l-5 5 5 4H71z" fill="#cba15a"/></svg></div>
+    <h1 class="splash-title">PRESS</h1>
+    <div class="splash-tag">Every shot. Every press. Every dollar.</div>
+    <div class="splash-line"></div>
+  </div>
+</div>
+
 <div class="app">
-<header class="hero"><div class="top"><div class="mark"><div class="logo">T</div><div class="brand">THE TURN</div></div><div class="avatar"></div></div><h1 id="heroTitle">The Turn</h1><p class="sub">Greystone Golf Club · Milton, ON</p><div class="badges" id="heroBadges"></div></header>
+<header class="hero"><div class="top"><div class="mark"><div class="logo press-mark"><svg viewBox="0 0 120 120" aria-label="Press logo"><defs><linearGradient id="pg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f3efe6"/><stop offset="1" stop-color="#cba15a"/></linearGradient></defs><circle cx="60" cy="60" r="48" fill="none" stroke="#cba15a" stroke-width="4"/><path d="M45 91V29h31c13 0 22 8 22 20 0 13-9 21-23 21H58v21H45zm13-33h16c7 0 11-3 11-9s-4-9-11-9H58v18z" fill="url(#pg)"/><path d="M38 93c18-9 39-11 58-4" fill="none" stroke="#cba15a" stroke-width="4" stroke-linecap="round"/><path d="M71 25v-9h18l-5 5 5 4H71z" fill="#cba15a"/></svg></div><div><div class="brand">PRESS</div><div class="press-tagline">Every shot settled</div></div></div><div class="avatar"></div></div><h1 id="heroTitle">Press</h1><p class="sub">Every shot. Every press. Every dollar.</p><div class="badges" id="heroBadges"></div></header>
 <main class="content">
 <section id="home" class="screen active">
-  <div class="prototype-note">v18 HTML: Admin, backup/restore, settlement audit trail, and stronger saved data tools.</div>
+  <div class="prototype-note">v19: Press brand system, splash screen, logo, and premium green/gold UI.</div>
+  
+  <div class="card course-photo">
+    <div style="position:relative;z-index:2;padding:18px;color:white">
+      <div class="press-wordmark">PRESS</div>
+      <div class="press-tagline" style="margin-top:8px">Every shot. Every press. Every dollar.</div>
+      <div class="icon-row">
+        <div class="icon-card"><div class="icon-bubble">⚑</div>Track<br>Every shot</div>
+        <div class="icon-card"><div class="icon-bubble">$</div>Settle<br>Every game</div>
+        <div class="icon-card"><div class="icon-bubble">↯</div>Press<br>The edge</div>
+        <div class="icon-card"><div class="icon-bubble">♕</div>Own<br>The round</div>
+      </div>
+    </div>
+  </div>
+
   <div class="section"><h2>Upcoming Rounds</h2><button onclick="switchTab('setup')">New</button></div>
   <div class="card"><div class="title">App Controls</div><div class="meta">Use during testing if Chrome keeps old scores.</div><button class="btn ghost" onclick="startFreshRound()">Start fresh round</button><button class="btn danger" onclick="hardResetAll()">Reset saved app data</button></div>
-  <div class="card"><div class="row"><div><div class="title">New Round</div><div class="meta">4 players · choose games on Round tab</div></div><span class="status">GROUP</span></div><button class="btn gold" onclick="switchTab('setup')">Create Round</button></div>
+  <div class="card"><div class="row"><div><div class="title">Press Round</div><div class="meta">4 players · choose games on Round tab</div></div><span class="status">GROUP</span></div><button class="btn gold" onclick="switchTab('setup')">Create Round</button></div>
   <div class="section"><h2>Live Now</h2><button onclick="switchTab('games')">View</button></div>
   <div class="card" onclick="switchTab('score')"><div class="row"><div><div class="title" id="liveTitle">Current Round</div><div class="meta" id="liveMeta">Ready to score · tap to open scorecard</div></div><span class="status">LIVE</span></div></div>
 </section>
@@ -154,7 +237,7 @@
 </section>
 
 <section id="lounge" class="screen">
-  <div class="card lounge center"><div class="small-logo">G</div><div class="brand">THE LOUNGE</div><p class="meta">Invite-only. Results, stories, and receipts.</p><button class="btn gold" onclick="addLoungePost()">Post to Lounge</button></div>
+  <div class="card lounge center"><div class="small-logo">G</div><div class="brand">PRESS LOUNGE</div><p class="meta">Invite-only. Results, stories, and receipts.</p><button class="btn gold" onclick="addLoungePost()">Post to Lounge</button></div>
   <div class="section"><h2>Feed</h2><button onclick="postRoundRecap()">Recap</button></div>
   <div id="loungeFeed"></div>
 </section>
@@ -208,7 +291,7 @@
 <div class="modal" id="settlementModal" onclick="closeSettlement(event)"><div class="sheet" id="settlementSheet"></div></div>
 <div class="modal" id="historyModal" onclick="closeHistory(event)"><div class="sheet" id="historySheet"></div></div>
 <script>
-const defaults={players:[{name:"Rob",tee:"Blue",hcp:7,team:"A"},{name:"Mike",tee:"Blue",hcp:11,team:"B"},{name:"Chris",tee:"White",hcp:15,team:"B"},{name:"Alex",tee:"Blue",hcp:4,team:"A"}],lounge:[{by:"The Turn",text:"Round is ready. Choose games and start scoring.",reactions:2}]};
+const defaults={players:[{name:"Rob",tee:"Blue",hcp:7,team:"A"},{name:"Mike",tee:"Blue",hcp:11,team:"B"},{name:"Chris",tee:"White",hcp:15,team:"B"},{name:"Alex",tee:"Blue",hcp:4,team:"A"}],lounge:[{by:"Press",text:"Round is ready. Choose games and start scoring.",reactions:2}]};
 const course={pars:[5,3,4,5,4,3,4,4,4,5,3,4,4,3,4,4,4,5],hcp:[17,13,7,11,3,15,1,5,9,4,12,2,8,14,18,10,6,16],tees:{Gold:[515,213,435,541,430,186,436,363,404,536,189,405,409,150,301,405,417,529],Blue:[488,191,411,520,419,161,405,351,394,511,160,383,387,145,282,384,395,514],Grey:[488,169,389,520,395,161,365,339,394,511,160,361,355,145,282,384,373,514],White:[467,169,389,494,395,142,365,339,363,478,135,361,355,138,259,369,326,463],Green:[467,148,360,494,307,142,349,305,323,478,135,311,311,125,259,369,326,463],Red:[430,148,360,466,307,125,349,305,323,434,111,311,311,125,237,337,326,425]}};
 let players=copy(defaults.players),scores={},currentHole=0,selectedGames=["Skins","Best Ball"],sideGames=["Skins"],loungePosts=copy(defaults.lounge),manualPresses=[];
 const games=["Skins","Nassau","Best Ball","Vegas","Wolf"],sides=["Skins","Closest to Pin","Snake","Birdies","Greenies","Putts"];
@@ -276,7 +359,7 @@ function settlement(){let l={};players.forEach(p=>l[p.name]=0);if(selectedGames.
 function transfers(){let l=settlement(),d=Object.entries(l).filter(x=>x[1]<0).map(x=>({n:x[0],a:-x[1]})),c=Object.entries(l).filter(x=>x[1]>0).map(x=>({n:x[0],a:x[1]})),out=[];let i=0,j=0;while(i<d.length&&j<c.length){let a=Math.min(d[i].a,c[j].a);if(a>0.01)out.push({from:d[i].n,to:c[j].n,amount:Math.round(a)});d[i].a-=a;c[j].a-=a;if(d[i].a<=.01)i++;if(c[j].a<=.01)j++}return out}
 function openSettlement(){let l=settlement();settlementSheet.innerHTML=`<div class="section"><h2>Settlement</h2><button onclick="closeSettlement()">Close</button></div><div class="card"><div class="title">Settlement summary</div><div class="meta">Buy-in is informational. Settlement uses Nassau, skins, presses, and Vegas values only.</div>${Object.entries(l).sort((a,b)=>b[1]-a[1]).map(([n,v])=>`<div class="settle-row"><div>${n}</div><div class="${v>=0?"money-pos":"money-neg"}">${money(v)}</div></div>`).join("")}</div><div class="card"><div class="title">Game breakdown</div>${settlementBreakdownHtml()}</div><div class="card"><div class="title">Exact transfers</div>${transfers().map(t=>`<div class="transfer-row"><div>${t.from} pays ${t.to}</div><div class="money-neg">$${t.amount}</div></div>`).join("")||'<div class="meta">No transfers needed.</div>'}<button class="btn ghost" onclick="copySettlement()">Copy settlement text</button><div class="copy-box">${settlementText().replace(/\n/g,'<br>')}</div></div>`;settlementModal.classList.add("active")}
 function closeSettlement(e){if(!e||e.target.id==="settlementModal")settlementModal.classList.remove("active")}
-function postRoundRecap(){let l=settlement(),lead=Object.entries(l).sort((a,b)=>b[1]-a[1])[0]||["No leader",0];loungePosts.unshift({by:"The Turn",text:typeof buildShareText==="function" ? buildShareText() : `Round recap posted. ${lead[0]} leads at ${money(lead[1])}.`,reactions:0});renderLounge();switchTab("lounge");saveLocal()}
+function postRoundRecap(){let l=settlement(),lead=Object.entries(l).sort((a,b)=>b[1]-a[1])[0]||["No leader",0];loungePosts.unshift({by:"Press",text:typeof buildShareText==="function" ? buildShareText() : `Round recap posted. ${lead[0]} leads at ${money(lead[1])}.`,reactions:0});renderLounge();switchTab("lounge");saveLocal()}
 function addLoungePost(){let t=prompt("Post to The Lounge");if(!t)return;loungePosts.unshift({by:"Rob",text:t,reactions:0});renderLounge();saveLocal()}
 function reactToPost(i){loungePosts[i].reactions++;renderLounge();saveLocal()}
 function renderLounge(){loungeFeed.innerHTML=loungePosts.map((p,i)=>`<div class="feed"><div class="feed-top"><div class="feed-avatar">${p.by[0]}</div><div><div class="score-name">${p.by}</div><div class="score-note">Greystone Lounge · private</div></div></div><div>${p.text}</div><div class="reacts"><button class="react" onclick="reactToPost(${i})">🍻 ${p.reactions}</button><button class="react">Comment</button><button class="react">Receipt</button></div></div>`).join("")}
@@ -431,7 +514,7 @@ function postHistory(id){
   const r = h.find(x=>x.id===id);
   if(!r) return;
   const leader = Object.entries(r.ledger||{}).sort((a,b)=>b[1]-a[1])[0] || ["No leader",0];
-  loungePosts.unshift({by:"The Turn",text:`Saved round posted. ${r.name}: ${leader[0]} finished at ${money(leader[1])}.`,reactions:0});
+  loungePosts.unshift({by:"Press",text:`Saved round posted. ${r.name}: ${leader[0]} finished at ${money(leader[1])}.`,reactions:0});
   renderLounge();
   saveLocal();
   switchTab("lounge");
@@ -684,6 +767,14 @@ function saveLocal(){let st={players,scores,currentHole,selectedGames,sideGames,
 function loadLocal(){let raw=localStorage.getItem("theTurnFixed");if(!raw){scores=emptyScores();return}try{let s=JSON.parse(raw);players=Array.isArray(s.players)&&s.players.length>=2?s.players:copy(defaults.players);scores=s.scores||{};currentHole=Number(s.currentHole||0);selectedGames=Array.isArray(s.selectedGames)?s.selectedGames:selectedGames;sideGames=Array.isArray(s.sideGames)?s.sideGames:sideGames;loungePosts=Array.isArray(s.loungePosts)?s.loungePosts:loungePosts;manualPresses=Array.isArray(s.manualPresses)?s.manualPresses:[];ensurePlayers();roundName.value=s.roundName||"New Round";gameScoring.value=s.gameScoring||"Net";buyIn.value=s.buyIn||20;skinValue.value=s.skinValue||5;nassauValue.value=s.nassauValue||5;vegasPoint.value=s.vegasPoint||1}catch(e){players=copy(defaults.players);scores=emptyScores()}}
 function renderAll(save=false){ensurePlayers();updateBadges();updateProgress();renderGameOptions();renderWarnings();renderTeams();renderSideOptions();renderPlayers();renderScore();renderGames();renderLounge();renderProfile();renderHistory();renderNamedRosters();renderRoundSummary();renderFinishRoundPanel();renderComplete();renderAdmin();renderAuditTrail();applyDisplayMode()}
 applyDisplayMode();
+
+function hideSplash(){
+  const s=document.getElementById("splash");
+  if(s) s.classList.add("hide");
+}
+setTimeout(hideSplash,1500);
+window.addEventListener("load",()=>setTimeout(hideSplash,900));
+
 loadLocal();ensurePlayers();renderAll();
 </script>
 </body>
