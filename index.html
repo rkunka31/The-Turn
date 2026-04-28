@@ -4,418 +4,1057 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Press | Greystone</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
 <style>
-:root{--green:#0f5f3d;--green2:#0a432d;--paper:#fbf7ee;--gold:#c7a15a;--muted:#756d62;--line:#e5dccd;--danger:#b6483f;--shadow:0 14px 35px rgba(23,18,12,.12)}
-*{box-sizing:border-box}body{margin:0;background:linear-gradient(180deg,#eee7d9,#f8f3ea);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;color:#17211b}button,input,select{font:inherit}button{cursor:pointer}.app{max-width:430px;margin:auto;min-height:100vh;background:var(--paper);box-shadow:0 0 60px rgba(0,0,0,.18);padding-bottom:92px}.hero{background:linear-gradient(180deg,rgba(8,13,10,.45),rgba(8,13,10,.92)),radial-gradient(circle at top right,rgba(199,161,90,.35),transparent 35%),linear-gradient(135deg,#0a0f0c,#173424);color:#fff;padding:22px 18px 18px;border-bottom-left-radius:34px;border-bottom-right-radius:34px}.top{display:flex;align-items:center;justify-content:space-between}.mark{display:flex;align-items:center;gap:10px}.logo{width:36px;height:36px;border:1.5px solid var(--gold);border-radius:50%;display:grid;place-items:center;color:#e2c47a;font-family:Georgia,serif;font-weight:900}.brand{font-family:Georgia,serif;letter-spacing:4px;font-size:16px}.avatar{width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,#d8c188,#f2e6c1);border:2px solid rgba(255,255,255,.45)}.hero h1{margin:24px 0 4px;font-size:26px}.sub{margin:0;color:#cfd9d1;font-size:13px}.badges{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}.badge{padding:7px 10px;border-radius:999px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.15);color:#f4ead4;font-size:11px;font-weight:800}.badge.live{background:#4e8f2f;color:white;border:none}.content{padding:16px 14px}.screen{display:none}.screen.active{display:block}.tabs{position:fixed;left:50%;bottom:0;transform:translateX(-50%);width:min(430px,100%);background:rgba(251,247,238,.95);backdrop-filter:blur(16px);border-top:1px solid var(--line);display:grid;grid-template-columns:repeat(8,1fr);padding:9px 8px 12px;z-index:20}.tab{border:0;background:transparent;color:#897f71;font-size:10px;font-weight:800;display:grid;gap:3px;place-items:center}.tab span{width:24px;height:24px;display:grid;place-items:center;border-radius:50%;font-size:15px}.tab.active{color:var(--green)}.tab.active span{background:var(--green);color:white}.section{display:flex;align-items:center;justify-content:space-between;margin:18px 2px 9px}.section h2{margin:0;font-size:12px;letter-spacing:.9px;color:#857b70;text-transform:uppercase}.section button{border:0;background:transparent;color:var(--muted);font-size:11px;font-weight:800}.card{background:rgba(255,255,255,.9);border:1px solid rgba(230,222,209,.9);box-shadow:var(--shadow);border-radius:22px;padding:15px;margin-bottom:12px}.title{font-size:16px;font-weight:900;color:#17211b}.meta{font-size:12px;color:var(--muted);margin-top:3px}.row{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}.status{background:#6ea444;color:white;border-radius:7px;padding:5px 7px;font-size:10px;font-weight:900}.btn{width:100%;border:0;border-radius:999px;padding:14px 16px;font-size:14px;font-weight:900;margin-top:12px}.gold{background:linear-gradient(135deg,#b98b3e,#e3c577);color:#17120a}.green{background:linear-gradient(135deg,var(--green2),var(--green));color:white}.ghost{background:white;border:1px solid var(--line);color:var(--green)}.danger{background:#fff0ee;color:var(--danger);border:1px solid #efc7c1}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}label{display:block;font-size:10px;letter-spacing:.8px;color:#8a8176;text-transform:uppercase;font-weight:900;margin-bottom:5px}input,select{width:100%;border:1px solid var(--line);background:#f6efe4;border-radius:14px;padding:12px;font-size:14px;color:#1d271f}.side-grid{display:flex;flex-wrap:wrap;gap:9px}.chip{border:1px solid var(--line);background:white;color:#17211b;border-radius:999px;padding:10px 13px;font-size:13px;font-weight:900}.chip.on{background:var(--green);border-color:var(--green);color:white}.player{display:grid;grid-template-columns:1fr 74px 60px;gap:8px;align-items:center;background:#fffaf1;border:1px solid var(--line);border-radius:17px;padding:11px;margin-bottom:9px}.name-input{width:100%;border:1px solid var(--line);background:white;border-radius:12px;padding:9px;font-weight:900}.small-btn{border:1px solid var(--line);background:#fffaf1;color:#17211b;border-radius:999px;padding:8px 6px;font-size:11px;font-weight:900}.team-card{background:#fffaf1;border:1px solid var(--line);border-radius:18px;padding:12px;margin-bottom:10px}.team-chip{display:inline-flex;margin:4px 4px 0 0;border:1px solid var(--line);border-radius:999px;padding:7px 9px;background:white;font-size:12px;font-weight:900}.team-chip.a{background:#ecf6f1}.team-chip.b{background:#f7edda}.holes{display:flex;gap:6px;overflow:auto;padding-bottom:8px}.hole{min-width:34px;height:34px;border-radius:9px;border:1px solid var(--line);background:white;color:#344238;display:grid;place-items:center;font-weight:900;font-size:12px}.hole.active{background:var(--green);color:white}.hole.played{border-color:#9fcdb7;background:#eef7f2}.score-row{display:grid;grid-template-columns:1fr 108px 48px;gap:9px;align-items:center;background:white;border:1px solid var(--line);border-radius:17px;padding:11px;margin-bottom:9px}.score-name{font-weight:900;font-size:14px}.score-note{color:var(--muted);font-size:11px;margin-top:2px}.dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--gold);margin-left:5px}.control{display:flex;align-items:center;justify-content:center;gap:7px;background:#f2eadf;border-radius:999px;padding:4px}.control button{border:0;width:30px;height:30px;border-radius:50%;background:white;color:var(--green);font-size:20px;font-weight:900}.control strong{min-width:20px;text-align:center}.net{text-align:right;font-weight:900;color:var(--green)}.quick{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-top:8px}.quick button{border:1px solid var(--line);background:#fffaf1;border-radius:999px;padding:7px 5px;font-size:11px;font-weight:900}.leader{display:grid;grid-template-columns:32px 1fr 44px 44px 62px;gap:8px;align-items:center;padding:12px 0;border-bottom:1px solid var(--line)}.leader:last-child{border-bottom:0}.rank{width:28px;height:28px;border-radius:50%;display:grid;place-items:center;background:#efe6d5;color:#7b5d20;font-weight:900}.num{text-align:center;font-weight:900}.money-pos{color:var(--green);font-weight:900;text-align:right}.money-neg{color:var(--danger);font-weight:900;text-align:right}.game-section{display:none}.game-section.active{display:block}.lounge{background:linear-gradient(180deg,rgba(8,10,8,.25),rgba(8,10,8,.9)),radial-gradient(circle at top right,rgba(199,161,90,.28),transparent 34%),linear-gradient(135deg,#111,#1a211c);color:white}.lounge .meta{color:#d0c7b7}.small-logo{width:66px;height:66px;border:1.5px solid var(--gold);border-radius:50%;display:grid;place-items:center;color:#e2c47a;font-family:Georgia,serif;font-size:34px;margin:0 auto 12px}.center{text-align:center}.feed{background:white;border:1px solid var(--line);border-radius:20px;padding:13px;margin-bottom:11px;box-shadow:0 10px 26px rgba(23,18,12,.08)}.feed-top{display:flex;align-items:center;gap:9px;margin-bottom:8px}.feed-avatar{width:32px;height:32px;border-radius:50%;background:linear-gradient(135deg,#d8c188,#f2e6c1);display:grid;place-items:center;font-weight:900;color:#193223}.reacts{display:flex;gap:8px;margin-top:10px}.react{border:1px solid var(--line);background:#fffaf1;color:#17211b;border-radius:999px;padding:7px 9px;font-size:12px;font-weight:900}.modal{position:fixed;inset:0;background:rgba(0,0,0,.45);display:none;align-items:flex-end;justify-content:center;z-index:50}.modal.active{display:flex}.sheet{width:min(430px,100%);max-height:86vh;overflow:auto;background:var(--paper);border-top-left-radius:28px;border-top-right-radius:28px;padding:16px}.settle-row,.transfer-row{display:grid;grid-template-columns:1fr 78px;gap:10px;align-items:center;padding:10px 0;border-bottom:1px solid var(--line)}.mini{font-size:11px;color:var(--muted);margin-top:8px;line-height:1.35}.warn{background:#fff8e8;border:1px solid #ead5aa;color:#7a5d18;border-radius:14px;padding:10px;font-size:12px;margin:10px 0}.template-card{border:1px solid var(--line);background:white;border-radius:18px;padding:13px;margin-bottom:10px}.history-card{background:white;border:1px solid var(--line);border-radius:18px;padding:13px;margin-bottom:10px}.stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}.stat-box{background:#fffaf1;border:1px solid var(--line);border-radius:16px;padding:11px}.stat-value{font-size:18px;font-weight:900}.prototype-note{background:#ecf6f1;border:1px solid #cde5d8;border-radius:18px;padding:12px;margin-bottom:12px;color:#193223;font-size:12px;line-height:1.35}
-
-.setup-step{background:white;border:1px solid var(--line);border-radius:22px;padding:15px;margin-bottom:12px}
-.step-label{display:inline-block;background:#ecf6f1;color:var(--green);border-radius:999px;padding:5px 9px;font-size:10px;font-weight:900;margin-bottom:8px}
-.disabled-chip{opacity:.45;pointer-events:none}
-.named-roster-row{display:grid;grid-template-columns:1fr auto;gap:8px;align-items:center;padding:9px 0;border-bottom:1px solid var(--line)}
-.named-roster-row:last-child{border-bottom:0}
-.explain-card{background:#fffaf1;border:1px solid var(--line);border-radius:16px;padding:11px;margin-top:10px}
-.explain-row{display:grid;grid-template-columns:1fr 80px;gap:10px;padding:7px 0;border-bottom:1px solid var(--line)}
-.explain-row:last-child{border-bottom:0}
-
-
-.round-summary{background:#fffaf1;border:1px solid var(--line);border-radius:18px;padding:12px;margin:10px 0}
-.summary-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}
-.summary-item{background:white;border:1px solid var(--line);border-radius:14px;padding:10px}
-.summary-value{font-weight:900;font-size:16px}
-.summary-label{font-size:11px;color:var(--muted);margin-top:2px}
-.template-row{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:12px}
-.template-mini{border:1px solid var(--line);background:white;border-radius:18px;padding:12px;text-align:left;box-shadow:0 8px 18px rgba(23,18,12,.06)}
-.template-mini strong{display:block;font-size:14px}
-.template-mini span{display:block;font-size:11px;color:var(--muted);margin-top:3px}
-.copy-box{background:#fffaf1;border:1px solid var(--line);border-radius:14px;padding:10px;margin-top:10px;font-size:12px;line-height:1.4}
-.score-pill{display:inline-block;border:1px solid var(--line);background:#fffaf1;border-radius:999px;padding:4px 7px;font-size:10px;font-weight:900;margin-top:4px}
-
-
-.finish-card{background:#ecf6f1;border:1px solid #cde5d8;border-radius:18px;padding:12px;margin-top:12px}
-.finish-card .title{color:#193223}
-
-
-.complete-hero{background:linear-gradient(135deg,#0a432d,#0f5f3d);color:white;border-radius:24px;padding:18px;margin-bottom:12px}
-.complete-hero .meta{color:#dce9df}
-.complete-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}
-.complete-stat{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.18);border-radius:16px;padding:11px}
-.complete-stat strong{display:block;font-size:20px}
-.action-stack{display:grid;gap:8px;margin-top:10px}
-.timeline-row{display:grid;grid-template-columns:34px 1fr auto;gap:8px;align-items:center;padding:9px 0;border-bottom:1px solid var(--line)}
-.timeline-row:last-child{border-bottom:0}
-.share-text{white-space:pre-line;background:#fffaf1;border:1px solid var(--line);border-radius:14px;padding:10px;font-size:12px;line-height:1.4;margin-top:10px}
-.segment-pill{display:inline-block;border-radius:999px;background:#f1eadf;color:#7a5d18;padding:5px 8px;font-size:10px;font-weight:900;margin:3px 3px 0 0}
-
-
-.audit-row{display:grid;grid-template-columns:34px 1fr auto;gap:8px;align-items:center;padding:9px 0;border-bottom:1px solid var(--line)}
-.audit-row:last-child{border-bottom:0}
-.admin-card{background:white;border:1px solid var(--line);border-radius:20px;padding:14px;margin-bottom:12px}
-.admin-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}
-.textarea-box{width:100%;min-height:130px;border:1px solid var(--line);border-radius:14px;padding:10px;background:#fffaf1;font-size:12px;color:#17211b}
-.detail-section{background:#fffaf1;border:1px solid var(--line);border-radius:16px;padding:11px;margin-top:10px}
-.mode-dark{--paper:#151812;--line:#2e352b;--muted:#b8b2a8;color:#f7f1e7;background:#0f110d}
-.mode-dark .app{background:#151812}
-.mode-dark .card,.mode-dark .admin-card,.mode-dark .template-card,.mode-dark .history-card,.mode-dark .feed{background:#1f241b;color:#f7f1e7}
-.mode-dark input,.mode-dark select,.mode-dark .textarea-box{background:#161a13;color:#f7f1e7;border-color:#343c30}
-
-
-/* PRESS SAFE BRAND LAYER */
 :root{
-  --green:#0f2e23;
-  --green2:#184332;
-  --deep:#07140f;
-  --paper:#f3efe6;
-  --gold:#cba15a;
-  --gold2:#e3bd68;
-  --muted:#746f65;
-  --line:#ded5c6;
-  --danger:#b6483f;
-  --shadow:0 18px 45px rgba(20,24,18,.14);
-  --ink:#142018;
+  --green:#0f2623;--green2:#184332;--gold:#c0a35a;--gold2:#e3bd68;
+  --paper:#f3efe6;--white:#fffdf8;--ink:#1a2018;--muted:#6e6860;
+  --line:#e0d8cb;--danger:#b6483f;--card-shadow:0 2px 16px rgba(20,24,18,.07);
+  --ff-display:'Playfair Display',Georgia,serif;--ff-body:'Inter',-apple-system,sans-serif;
 }
-body{
-  background:radial-gradient(circle at top left,rgba(203,161,90,.18),transparent 32%),linear-gradient(180deg,#e9e2d6,#f8f3ea);
-  color:var(--ink);
-}
-.app{
-  background:radial-gradient(circle at top right,rgba(203,161,90,.08),transparent 26%),linear-gradient(180deg,#f7f1e8,#f3efe6);
-}
-.hero{
-  background:linear-gradient(180deg,rgba(7,20,15,.12),rgba(7,20,15,.92)),radial-gradient(circle at 78% 4%,rgba(203,161,90,.26),transparent 30%),linear-gradient(135deg,#07140f,#0f2e23 56%,#184332) !important;
-  border-bottom-left-radius:42px !important;
-  border-bottom-right-radius:42px !important;
-  padding:24px 18px 30px !important;
-  box-shadow:0 20px 44px rgba(7,20,15,.22);
-}
-.logo.press-brand-logo{
-  width:44px !important;
-  height:44px !important;
-  border-radius:50% !important;
-  display:grid !important;
-  place-items:center !important;
-  border:1.5px solid var(--gold2) !important;
-  background:radial-gradient(circle at 35% 25%,rgba(255,255,255,.16),transparent 32%),linear-gradient(145deg,#082117,#0f3b2b) !important;
-  box-shadow:0 0 0 2px rgba(203,161,90,.10),0 12px 24px rgba(0,0,0,.20);
-}
-.logo.press-brand-logo svg{width:35px;height:35px;display:block}
-.brand{font-family:Georgia,serif !important;letter-spacing:8px !important;font-size:20px !important;color:white}
-.press-small-tag{font-size:10px;letter-spacing:2.5px;color:var(--gold2);text-transform:uppercase;font-weight:900;margin-top:4px}
-.hero h1{font-family:Georgia,serif !important;letter-spacing:.4px;font-size:34px !important;color:#fff}
-.sub{color:#dce5df !important;font-size:15px !important}
-.card,.admin-card,.template-card,.history-card,.feed,.setup-step{
-  border-radius:24px !important;
-  background:rgba(255,253,248,.92) !important;
-  border:1px solid rgba(222,213,198,.95) !important;
-  box-shadow:0 18px 42px rgba(23,18,12,.10) !important;
-}
-.gold{background:linear-gradient(135deg,#b78335,#e3bd68) !important;color:#17120a !important}
-.green{background:linear-gradient(135deg,#0f2e23,#184332) !important;color:white !important}
-.chip.on,.tab.active span,.badge.live,.status{background:linear-gradient(135deg,#0f2e23,#184332) !important;color:white !important}
-input,select,.textarea-box{background:#f7efe4 !important;border-color:#ded5c6 !important}
-.tabs{background:rgba(243,239,230,.96) !important;border-top:1px solid rgba(222,213,198,.95) !important}
-.press-brand-panel{
-  min-height:230px;
-  border-radius:28px;
-  overflow:hidden;
-  position:relative;
-  background:linear-gradient(180deg,rgba(7,20,15,.05),rgba(7,20,15,.93)),radial-gradient(circle at 32% 78%,rgba(203,161,90,.18),transparent 30%),linear-gradient(135deg,#173628,#0b2118 46%,#07140f);
-  border:1px solid rgba(222,213,198,.95);
-  box-shadow:0 18px 42px rgba(23,18,12,.12);
-  margin-bottom:14px;
-}
-.press-brand-panel:before{
-  content:"";
-  position:absolute;
-  left:-8%;
-  right:-8%;
-  bottom:-34px;
-  height:112px;
-  border-radius:50%;
-  background:radial-gradient(ellipse at center,rgba(203,161,90,.24),transparent 62%),linear-gradient(90deg,transparent,#2c5b38,transparent);
-}
-.press-brand-panel:after{
-  content:"";
-  position:absolute;
-  left:0;right:0;bottom:0;height:85px;
-  background:repeating-linear-gradient(-12deg,rgba(255,255,255,.05) 0 5px,transparent 5px 18px);
-  opacity:.95;
-}
-.press-panel-content{position:relative;z-index:2;padding:26px 18px;color:white}
-.press-app-icon{
-  width:64px;height:64px;border-radius:18px;display:grid;place-items:center;
-  background:radial-gradient(circle at 38% 28%,rgba(255,255,255,.16),transparent 32%),linear-gradient(145deg,#082117,#0f3b2b);
-  border:1.5px solid var(--gold2);
-  box-shadow:0 12px 28px rgba(0,0,0,.18);
-}
-.press-app-icon svg{width:48px;height:48px}
-.press-word{font-family:Georgia,serif;letter-spacing:11px;font-size:42px;line-height:1;color:white}
-.press-tagline{font-size:11px;letter-spacing:2.4px;color:var(--gold2);text-transform:uppercase;font-weight:900;margin-top:8px}
-.press-icons{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:30px}
-.press-icon-card{text-align:center;color:#f4ead4;font-size:10px;font-weight:900;text-transform:uppercase;letter-spacing:.5px}
-.press-icon-bubble{width:48px;height:48px;border:1.5px solid var(--gold2);border-radius:50%;display:grid;place-items:center;margin:0 auto 8px;color:var(--gold2);font-size:18px;background:rgba(7,20,15,.22)}
-#pressSplash{
-  position:fixed;
-  inset:0;
-  z-index:9999;
-  display:grid;
-  place-items:center;
-  background:linear-gradient(180deg,rgba(6,16,12,.10),rgba(6,16,12,.94)),radial-gradient(circle at 50% 24%,rgba(203,161,90,.22),transparent 30%),linear-gradient(145deg,#06100c,#0f2e23 62%,#07140f);
-  color:white;
-  transition:opacity .45s ease,visibility .45s ease;
-}
-#pressSplash.hide{opacity:0;visibility:hidden;pointer-events:none}
-.press-splash-inner{text-align:center;transform:translateY(-8px)}
-.press-splash-logo{
-  width:126px;height:126px;border:2px solid var(--gold2);border-radius:28px;display:grid;place-items:center;margin:0 auto 22px;
-  box-shadow:0 0 0 8px rgba(203,161,90,.08),0 22px 52px rgba(0,0,0,.34);
-  background:radial-gradient(circle at 38% 28%,rgba(255,255,255,.15),transparent 32%),linear-gradient(145deg,#082117,#0f3b2b);
-}
-.press-splash-logo svg{width:96px;height:96px}
-.press-splash-title{font-family:Georgia,serif;font-size:48px;letter-spacing:13px;margin:0}
-.press-splash-tag{margin-top:12px;color:var(--gold2);text-transform:uppercase;letter-spacing:2.4px;font-weight:900;font-size:12px}
-.press-splash-line{width:58px;height:2px;background:var(--gold2);margin:24px auto 0}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--ff-body);background:#ddd7cc;color:var(--ink);-webkit-font-smoothing:antialiased}
+button,input,select,textarea{font:inherit;cursor:pointer}
+input,select,textarea{cursor:text}
 
+/* APP SHELL */
+.app{max-width:430px;margin:0 auto;min-height:100vh;background:var(--paper);box-shadow:0 0 80px rgba(0,0,0,.22);position:relative;padding-bottom:82px;overflow-x:hidden}
+
+/* SCREENS */
+.screen{display:none}
+.screen.active{display:block}
+
+/* SCREEN HEADER */
+.screen-header{display:flex;align-items:center;justify-content:space-between;padding:14px 14px 13px;background:var(--green);position:sticky;top:0;z-index:10}
+.sh-btn{width:36px;height:36px;border-radius:50%;border:none;background:rgba(255,255,255,.1);color:white;display:grid;place-items:center;font-size:18px;flex-shrink:0}
+.sh-title{font-family:var(--ff-display);font-size:15px;font-weight:700;letter-spacing:.5px;color:white;text-align:center;flex:1}
+.sh-live{display:flex;align-items:center;gap:6px;font-family:var(--ff-display);font-size:13px;font-weight:700;color:white;letter-spacing:.3px}
+.live-dot{width:7px;height:7px;border-radius:50%;background:#5cb85c;animation:pulse 1.8s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+
+/* INNER TABS */
+.inner-tabs{display:flex;background:var(--green);border-bottom:1.5px solid rgba(255,255,255,.1);overflow-x:auto;scrollbar-width:none}
+.inner-tabs::-webkit-scrollbar{display:none}
+.itab{flex:1;min-width:60px;border:none;background:transparent;color:rgba(255,255,255,.45);font-family:var(--ff-display);font-size:9.5px;font-weight:600;letter-spacing:1.5px;padding:10px 4px;border-bottom:2px solid transparent;white-space:nowrap;transition:color .2s,border-color .2s}
+.itab.active{color:var(--gold2);border-bottom-color:var(--gold2)}
+
+/* SCREEN BODY */
+.screen-body{padding:13px}
+
+/* BOTTOM NAV */
+.tabs{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:min(430px,100%);background:rgba(250,246,238,.97);backdrop-filter:blur(16px);border-top:1px solid var(--line);display:grid;grid-template-columns:repeat(5,1fr);padding:6px 2px 16px;z-index:20}
+.tab{border:none;background:transparent;color:#a09080;font-family:var(--ff-body);font-size:10px;font-weight:600;display:flex;flex-direction:column;align-items:center;gap:3px;padding:0}
+.tab-icon{width:30px;height:30px;border-radius:9px;display:grid;place-items:center;transition:background .2s}
+.tab.active{color:var(--green)}
+.tab.active .tab-icon{background:rgba(15,38,35,.1)}
+
+/* CARDS */
+.card{background:var(--white);border:1px solid var(--line);border-radius:18px;padding:14px;margin-bottom:10px;box-shadow:var(--card-shadow)}
+.card-row{display:flex;align-items:center;justify-content:space-between;padding:11px 0;border-bottom:1px solid var(--line)}
+.card-row:last-child{border-bottom:none}
+
+/* SECTION HEADER */
+.section{display:flex;align-items:center;justify-content:space-between;padding:16px 0 8px}
+.section h2{font-family:var(--ff-display);font-size:10px;font-weight:600;letter-spacing:1.5px;color:var(--muted);text-transform:uppercase}
+.section button{border:none;background:transparent;color:var(--green);font-size:12px;font-weight:700}
+
+/* TEXT */
+.title{font-weight:700;font-size:15px;color:var(--ink)}
+.meta{font-size:12px;color:var(--muted);margin-top:2px;line-height:1.4}
+
+/* BUTTONS */
+.btn{width:100%;border:none;border-radius:999px;padding:15px;font-size:13px;font-weight:700;font-family:var(--ff-display);letter-spacing:1.5px;margin-top:10px;transition:opacity .15s;text-transform:uppercase}
+.btn:active{opacity:.8}
+.gold{background:linear-gradient(135deg,#b78335,var(--gold2));color:#17120a}
+.green{background:linear-gradient(135deg,var(--green),var(--green2));color:white}
+.ghost{background:var(--white);border:1.5px solid var(--line);color:var(--green)}
+.danger{background:#fff0ee;color:var(--danger);border:1px solid #efc7c1}
+.small-btn{border:1px solid var(--line);background:var(--white);color:var(--ink);border-radius:999px;padding:8px 12px;font-size:12px;font-weight:600}
+
+/* FORMS */
+label{display:block;font-size:10px;letter-spacing:1px;color:var(--muted);font-weight:700;text-transform:uppercase;margin-bottom:5px}
+input,select{width:100%;border:1px solid var(--line);background:#f0e9dd;border-radius:12px;padding:11px 12px;font-size:14px;color:var(--ink);-webkit-appearance:none;appearance:none}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+
+/* AVATAR */
+.avatar{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;font-weight:800;font-size:12px;flex-shrink:0;color:white;letter-spacing:.5px}
+
+/* STATUS */
+.status{display:inline-block;background:var(--green2);color:white;border-radius:7px;padding:4px 9px;font-size:10px;font-weight:800;letter-spacing:.5px}
+.status.live{background:#3a7a3a}
+
+/* CHIPS */
+.side-grid{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:4px}
+.chip{border:1.5px solid var(--line);background:var(--white);color:var(--ink);border-radius:999px;padding:9px 14px;font-size:13px;font-weight:700}
+.chip.on{background:var(--green);border-color:var(--green);color:white}
+.disabled-chip{opacity:.4;pointer-events:none}
+
+/* HOLE STRIP */
+.holes{display:flex;gap:5px;overflow-x:auto;padding-bottom:4px;scrollbar-width:none}
+.holes::-webkit-scrollbar{display:none}
+.hole{min-width:32px;height:32px;border-radius:8px;border:1px solid var(--line);background:var(--white);color:var(--ink);font-weight:700;font-size:12px;display:grid;place-items:center;flex-shrink:0}
+.hole.active{background:var(--green);color:white;border-color:var(--green)}
+.hole.played{border-color:#9fcdb7;background:#edf6f1}
+
+/* SCORE ROW */
+.score-row{display:grid;grid-template-columns:1fr auto auto;gap:8px;align-items:center;padding:10px 0;border-bottom:1px solid var(--line)}
+.score-row:last-child{border-bottom:none}
+.score-name{font-weight:700;font-size:14px}
+.score-note{color:var(--muted);font-size:11px;margin-top:2px}
+.control{display:flex;align-items:center;gap:5px;background:#ede5d8;border-radius:999px;padding:3px}
+.control button{width:28px;height:28px;border-radius:50%;border:none;background:white;color:var(--green);font-size:20px;font-weight:700;display:grid;place-items:center;line-height:.9}
+.control strong{min-width:18px;text-align:center;font-size:15px;font-weight:800}
+.net{font-weight:800;color:var(--green);font-size:14px;text-align:right}
+.dot{display:inline-block;width:5px;height:5px;border-radius:50%;background:var(--gold);margin-left:3px;vertical-align:middle}
+.score-pill{display:inline-block;background:#ede5d8;border-radius:999px;padding:3px 8px;font-size:10px;font-weight:700;margin-top:3px}
+
+/* QUICK SCORE */
+.quick{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin:10px 0}
+.quick button{border:1px solid var(--line);background:#f0e9dd;border-radius:999px;padding:8px 4px;font-size:12px;font-weight:700;color:var(--ink)}
+
+/* LEADERBOARD */
+.leader{display:grid;grid-template-columns:28px 1fr 36px 36px 60px;gap:6px;align-items:center;padding:10px 0;border-bottom:1px solid var(--line)}
+.leader:last-child{border-bottom:none}
+.rank{width:26px;height:26px;border-radius:50%;display:grid;place-items:center;background:#ede5d8;color:#7b5d20;font-weight:800;font-size:12px}
+.num{text-align:center;font-weight:700;font-size:13px}
+.money-pos{color:var(--green2);font-weight:800;text-align:right;font-size:13px}
+.money-neg{color:var(--danger);font-weight:800;text-align:right;font-size:13px}
+
+/* FEED */
+.feed{background:var(--white);border:1px solid var(--line);border-radius:16px;padding:13px;margin-bottom:10px;box-shadow:var(--card-shadow)}
+.feed-top{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.feed-avatar{width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,#d8c188,#f2e6c1);display:grid;place-items:center;font-weight:800;font-size:12px;color:#193223;flex-shrink:0}
+.reacts{display:flex;gap:8px;margin-top:10px}
+.react{border:1px solid var(--line);background:#f0e9dd;color:var(--ink);border-radius:999px;padding:6px 10px;font-size:12px;font-weight:600}
+
+/* PLAYER ROW (setup) */
+.player{display:grid;grid-template-columns:1fr 80px 52px;gap:8px;align-items:center;background:var(--white);border:1px solid var(--line);border-radius:14px;padding:10px;margin-bottom:8px}
+.name-input{width:100%;border:1px solid var(--line);background:white;border-radius:10px;padding:8px;font-weight:700}
+
+/* TEAM CARD */
+.team-card{background:#f0e9dd;border:1px solid var(--line);border-radius:14px;padding:11px;margin-bottom:8px}
+.team-chip{display:inline-flex;margin:4px 4px 0 0;border:1px solid var(--line);border-radius:999px;padding:6px 10px;background:white;font-size:12px;font-weight:700}
+.team-chip.a{background:#e6f2ec}
+.team-chip.b{background:#f5ecda}
+
+/* COMPLETE */
+.complete-hero{background:linear-gradient(135deg,var(--green),var(--green2));color:white;border-radius:20px;padding:18px;margin-bottom:12px}
+.complete-hero .meta{color:#c0d4c8}
+.complete-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}
+.complete-stat{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.16);border-radius:14px;padding:10px}
+.complete-stat strong{display:block;font-size:22px;font-weight:800}
+.complete-stat span{font-size:11px;color:rgba(255,255,255,.65)}
+.action-stack{display:grid;gap:8px;margin-top:10px}
+.share-text{white-space:pre-line;background:#f0e9dd;border:1px solid var(--line);border-radius:12px;padding:10px;font-size:12px;line-height:1.4;margin-top:8px}
+
+/* SETTLE */
+.settle-row,.transfer-row{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center;padding:10px 0;border-bottom:1px solid var(--line)}
+.settle-row:last-child,.transfer-row:last-child{border-bottom:none}
+
+/* ADMIN */
+.admin-card{background:var(--white);border:1px solid var(--line);border-radius:18px;padding:14px;margin-bottom:10px}
+.admin-row{display:flex;align-items:center;gap:12px;padding:13px 0;border-bottom:1px solid var(--line)}
+.admin-row:last-child{border-bottom:none}
+.admin-icon{width:38px;height:38px;border-radius:10px;display:grid;place-items:center;flex-shrink:0}.admin-icon svg{width:18px;height:18px;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.admin-icon.green-bg{background:#e6f2ec}
+.admin-icon.gold-bg{background:#f5ecda}
+.admin-icon.red-bg{background:#fde8e6}
+.admin-icon.blue-bg{background:#e6eef5}
+.admin-icon.gray-bg{background:#f0e9dd}
+.admin-text{flex:1}
+.admin-text strong{display:block;font-size:14px;font-weight:700}
+.admin-text span{font-size:11px;color:var(--muted)}
+.admin-action{color:var(--muted);font-size:18px}
+.toggle{width:46px;height:26px;border-radius:999px;background:#ccc;border:none;position:relative;transition:background .2s;flex-shrink:0}
+.toggle.on{background:var(--green2)}
+.toggle::after{content:'';position:absolute;width:20px;height:20px;border-radius:50%;background:white;top:3px;left:3px;transition:transform .2s;box-shadow:0 1px 4px rgba(0,0,0,.2)}
+.toggle.on::after{transform:translateX(20px)}
+.admin-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}
+.textarea-box{width:100%;min-height:120px;border:1px solid var(--line);border-radius:12px;padding:10px;background:#f0e9dd;font-size:12px;color:var(--ink);margin-top:8px;resize:none}
+
+/* MISC */
+.warn{background:#fff8e8;border:1px solid #ead5aa;color:#7a5d18;border-radius:12px;padding:10px;font-size:12px;margin:8px 0}
+.mini{font-size:11px;color:var(--muted);margin-top:6px;line-height:1.4}
+.game-section{display:none}
+.game-section.active{display:block}
+.game-tab{display:none}
+.game-tab.active{display:block}
+.lounge-tab-content{display:none}
+.lounge-tab-content.active{display:block}
+.complete-tab-content{display:none}
+.complete-tab-content.active{display:block}
+.named-roster-row{display:grid;grid-template-columns:1fr auto;gap:8px;align-items:center;padding:9px 0;border-bottom:1px solid var(--line)}
+.named-roster-row:last-child{border-bottom:none}
+.explain-card{background:#f0e9dd;border:1px solid var(--line);border-radius:12px;padding:10px;margin-top:8px}
+.explain-row{display:grid;grid-template-columns:1fr auto;gap:8px;padding:6px 0;border-bottom:1px solid var(--line)}
+.explain-row:last-child{border-bottom:none}
+.audit-row{display:grid;grid-template-columns:34px 1fr auto;gap:8px;align-items:center;padding:8px 0;border-bottom:1px solid var(--line)}
+.audit-row:last-child{border-bottom:none}
+.finish-card{background:#e6f2ec;border:1px solid #cde5d8;border-radius:16px;padding:12px;margin-top:12px}
+.finish-card .title{color:#193223}
+.round-summary{background:#f0e9dd;border:1px solid var(--line);border-radius:14px;padding:12px;margin:10px 0}
+.summary-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}
+.summary-item{background:white;border:1px solid var(--line);border-radius:12px;padding:10px}
+.summary-value{font-size:18px;font-weight:800}
+.summary-label{font-size:11px;color:var(--muted);margin-top:2px}
+.stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}
+.stat-box{background:#f0e9dd;border:1px solid var(--line);border-radius:14px;padding:11px}
+.stat-value{font-size:20px;font-weight:800}
+.history-card{background:var(--white);border:1px solid var(--line);border-radius:16px;padding:13px;margin-bottom:10px}
+.template-card{background:var(--white);border:1px solid var(--line);border-radius:16px;padding:13px;margin-bottom:8px;cursor:pointer}
+.segment-pill{display:inline-block;border-radius:999px;background:#f0e9dd;color:#7a5d18;padding:4px 8px;font-size:10px;font-weight:700;margin:3px 3px 0 0}
+.step-label{display:inline-block;background:rgba(15,38,35,.08);color:var(--green);border-radius:999px;padding:5px 9px;font-size:10px;font-weight:700;margin-bottom:8px}
+.prototype-note{background:#e6f2ec;border:1px solid #cde5d8;border-radius:14px;padding:11px;margin-bottom:10px;color:#193223;font-size:12px}
+.copy-box{background:#f0e9dd;border:1px solid var(--line);border-radius:12px;padding:10px;margin-top:8px;font-size:12px;line-height:1.4}
+.score-pill-small{display:inline-block;border:1px solid var(--line);background:#f0e9dd;border-radius:999px;padding:4px 7px;font-size:10px;font-weight:700;margin-top:4px}
+.timeline-row{display:grid;grid-template-columns:34px 1fr auto;gap:8px;align-items:center;padding:9px 0;border-bottom:1px solid var(--line)}
+.timeline-row:last-child{border-bottom:none}
+
+/* Nassau specific */
+.nassau-header{display:grid;grid-template-columns:1fr 52px 52px 52px;gap:6px;padding:6px 0;border-bottom:1px solid var(--line)}
+.nassau-header span{font-family:var(--ff-display);font-size:9px;font-weight:600;letter-spacing:1px;color:var(--muted);text-align:center}
+.nassau-header span:first-child{text-align:left}
+.nassau-row{display:grid;grid-template-columns:1fr 52px 52px 52px;gap:6px;align-items:center;padding:10px 0;border-bottom:1px solid var(--line)}
+.nassau-row:last-child{border-bottom:none}
+.nassau-val{text-align:center;font-weight:800;font-size:14px}
+.nassau-val.pos{color:var(--green2)}
+.nassau-val.neg{color:var(--danger)}
+.nassau-val.dash{color:var(--muted)}
+
+/* Skins specific */
+.skins-pool{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin:10px 0;background:#f0e9dd;border-radius:14px;padding:12px}
+.skins-stat{text-align:center}
+.skins-stat strong{display:block;font-size:18px;font-weight:800;color:var(--ink)}
+.skins-stat span{font-size:10px;color:var(--muted);font-weight:600}
+.skins-holes{display:flex;gap:5px;margin-top:10px;flex-wrap:wrap}
+.skins-hole{width:30px;height:30px;border-radius:50%;border:1.5px solid var(--line);background:white;display:grid;place-items:center;font-size:11px;font-weight:700;color:var(--muted)}
+.skins-hole.won{background:var(--green);border-color:var(--green);color:white}
+
+/* MORE OVERLAY */
+.more-overlay{position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:40;display:none;align-items:flex-end;justify-content:center}
+.more-overlay.active{display:flex}
+.more-sheet{width:min(430px,100%);background:var(--paper);border-top-left-radius:24px;border-top-right-radius:24px;padding:12px 16px 36px}
+.more-handle{width:36px;height:4px;background:var(--line);border-radius:2px;margin:0 auto 14px}
+.more-item{display:flex;align-items:center;gap:12px;padding:13px 0;border-bottom:1px solid var(--line);width:100%;background:transparent;text-align:left;cursor:pointer}
+.more-item:last-child{border-bottom:none}
+.more-icon{width:42px;height:42px;border-radius:12px;background:#ede5d8;display:grid;place-items:center;flex-shrink:0}.more-icon svg{width:20px;height:20px;stroke:var(--green);stroke-width:1.8;fill:none;stroke-linecap:round;stroke-linejoin:round}
+.more-item-text strong{display:block;font-size:15px;font-weight:700;color:var(--ink)}
+.more-item-text span{font-size:12px;color:var(--muted)}
+
+/* MODAL */
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.45);display:none;align-items:flex-end;justify-content:center;z-index:50}
+.modal.active{display:flex}
+.sheet{width:min(430px,100%);max-height:86vh;overflow-y:auto;background:var(--paper);border-top-left-radius:24px;border-top-right-radius:24px;padding:16px}
+
+/* SPLASH */
+#pressSplash{position:fixed;inset:0;z-index:9999;display:grid;place-items:center;background:linear-gradient(160deg,#081610 0%,#0f2623 55%,#0a1c14 100%);color:white;transition:opacity .5s ease,visibility .5s ease}
+#pressSplash.hide{opacity:0;visibility:hidden;pointer-events:none}
+.splash-inner{text-align:center}
+.splash-logo{width:108px;height:108px;border:2px solid var(--gold2);border-radius:26px;display:grid;place-items:center;margin:0 auto 22px;background:radial-gradient(circle at 38% 28%,rgba(255,255,255,.12),transparent 35%),linear-gradient(145deg,#081e14,#0f3b2b);box-shadow:0 0 0 10px rgba(203,161,90,.07),0 24px 56px rgba(0,0,0,.32)}
+.splash-logo svg{width:82px;height:82px}
+.splash-title{font-family:var(--ff-display);font-size:52px;font-weight:700;letter-spacing:8px;color:white}
+.splash-tag{margin-top:12px;color:var(--gold2);text-transform:uppercase;letter-spacing:2.2px;font-weight:700;font-size:11px}
+.splash-line{width:50px;height:2px;background:var(--gold2);margin:20px auto 0}
+
+/* LOGO MARK */
+.press-mark{display:flex;align-items:center;gap:10px}
+.press-logo-circle{width:38px;height:38px;border-radius:50%;border:1.5px solid rgba(227,189,104,.7);display:grid;place-items:center;background:radial-gradient(circle at 35% 25%,rgba(255,255,255,.15),transparent 35%),linear-gradient(145deg,#082117,#0f3b2b);flex-shrink:0}
+.press-logo-circle svg{width:27px;height:27px}
+.press-brand-name{font-family:var(--ff-display);font-size:17px;font-weight:700;letter-spacing:2px;color:white}
+.press-brand-sub{font-size:9px;letter-spacing:2px;color:var(--gold2);font-weight:700;margin-top:1px}
+
+/* DARK MODE */
+.mode-dark{--paper:#141a12;--white:#1c2418;--line:#2e352a;--muted:#9a9590;--ink:#f0ebe0}
+.mode-dark body{background:#0e1210}
+.mode-dark .app{background:var(--paper)}
+.mode-dark input,.mode-dark select,.mode-dark .textarea-box{background:#111a0f;color:var(--ink)}
+.mode-dark .card,.mode-dark .admin-card,.mode-dark .history-card,.mode-dark .feed{background:var(--white);color:var(--ink)}
+.mode-dark .tabs{background:rgba(20,26,18,.97)}
 </style>
 </head>
 <body>
 
+<!-- SPLASH -->
 <div id="pressSplash" onclick="hidePressSplash()">
-  <div class="press-splash-inner">
-    <div class="press-splash-logo"><svg viewBox="0 0 120 120" role="img" aria-label="Press logo">
-  <defs>
-    <linearGradient id="pressGoldA" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#f3d992"/>
-      <stop offset="0.55" stop-color="#cba15a"/>
-      <stop offset="1" stop-color="#8c6428"/>
-    </linearGradient>
-  </defs>
-  <path d="M31 96V24h36c20 0 32 11 32 29s-12 29-32 29H51v14H31Z" fill="none" stroke="url(#pressGoldA)" stroke-width="5" stroke-linejoin="round"/>
-  <path d="M45 96V38h22c11 0 18 6 18 15s-7 15-18 15H58" fill="none" stroke="url(#pressGoldA)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M59 52h9c3 0 5-1 5-3s-2-3-5-3h-9v22" fill="none" stroke="url(#pressGoldA)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-</svg></div>
-    <h1 class="press-splash-title">PRESS</h1>
-    <div class="press-splash-tag">Every shot. Every press. Every dollar.</div>
-    <div class="press-splash-line"></div>
+  <div class="splash-inner">
+    <div class="splash-logo">
+      <svg viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs><linearGradient id="g1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f3d992"/><stop offset=".55" stop-color="#cba15a"/><stop offset="1" stop-color="#8c6428"/></linearGradient></defs>
+        <path d="M30 96V24h34c19 0 30 10 30 26s-11 26-30 26H48v20H30Z" stroke="url(#g1)" stroke-width="5" stroke-linejoin="round"/>
+        <path d="M48 60V38h16c8 0 13 5 13 11s-5 11-13 11H48Z" stroke="url(#g1)" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="88" cy="20" r="7" fill="url(#g1)"/>
+        <line x1="88" y1="20" x2="88" y2="36" stroke="url(#g1)" stroke-width="3" stroke-linecap="round"/>
+        <polygon points="88,20 100,26 88,32" fill="url(#g1)"/>
+      </svg>
+    </div>
+    <h1 class="splash-title">PRESS</h1>
+    <div class="splash-tag">Every shot. Every press. Every dollar.</div>
+    <div class="splash-line"></div>
   </div>
 </div>
 
 <div class="app">
-<header class="hero"><div class="top"><div class="mark"><div class="logo press-brand-logo"><svg viewBox="0 0 120 120" role="img" aria-label="Press logo">
-  <defs>
-    <linearGradient id="pressGoldA" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#f3d992"/>
-      <stop offset="0.55" stop-color="#cba15a"/>
-      <stop offset="1" stop-color="#8c6428"/>
-    </linearGradient>
-  </defs>
-  <path d="M31 96V24h36c20 0 32 11 32 29s-12 29-32 29H51v14H31Z" fill="none" stroke="url(#pressGoldA)" stroke-width="5" stroke-linejoin="round"/>
-  <path d="M45 96V38h22c11 0 18 6 18 15s-7 15-18 15H58" fill="none" stroke="url(#pressGoldA)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M59 52h9c3 0 5-1 5-3s-2-3-5-3h-9v22" fill="none" stroke="url(#pressGoldA)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-</svg></div><div><div class="brand">PRESS</div><div class="press-small-tag">EVERY SHOT SETTLED</div></div></div><div class="avatar"></div></div><h1 id="heroTitle">Press</h1><p class="sub">Every shot. Every press. Every dollar.</p><div class="badges" id="heroBadges"></div></header>
-<main class="content">
-<section id="home" class="screen active">
-  <div class="prototype-note">v18 HTML: Admin, backup/restore, settlement audit trail, and stronger saved data tools.</div>
-  <div class="section"><h2>Upcoming Rounds</h2><button onclick="switchTab('setup')">New</button></div>
-  <div class="card"><div class="title">App Controls</div><div class="meta">Use during testing if Chrome keeps old scores.</div><button class="btn ghost" onclick="startFreshRound()">Start fresh round</button><button class="btn danger" onclick="hardResetAll()">Reset saved app data</button></div>
-  <div class="card"><div class="row"><div><div class="title">New Round</div><div class="meta">4 players · choose games on Round tab</div></div><span class="status">GROUP</span></div><button class="btn gold" onclick="switchTab('setup')">Create Round</button></div>
-  <div class="section"><h2>Live Now</h2><button onclick="switchTab('games')">View</button></div>
-  <div class="card" onclick="switchTab('score')"><div class="row"><div><div class="title" id="liveTitle">Current Round</div><div class="meta" id="liveMeta">Ready to score · tap to open scorecard</div></div><span class="status">LIVE</span></div></div>
+
+<!-- ══════════════════════════════════════
+     SETUP SCREEN
+══════════════════════════════════════ -->
+<section id="setup" class="screen active">
+  <header class="screen-header">
+    <button class="sh-btn" onclick="showMore()">☰</button>
+    <div class="sh-title">ROUND SETUP</div>
+    <button class="sh-btn" onclick="show('admin',document.querySelector('[data-tab=more]'))">⚙</button>
+  </header>
+  <div class="screen-body">
+    <div class="card">
+      <div class="card-row">
+        <div><div class="title">Greystone Golf Club</div><div class="meta" id="courseDetail">White Tees · 71.2 / 132</div></div>
+        <span style="color:var(--muted);font-size:18px">›</span>
+      </div>
+      <div class="card-row">
+        <div><div class="meta" style="color:var(--muted);font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.8px">Date</div><div class="title" id="todayDate"></div></div>
+        <span style="font-size:18px">📅</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px">
+        <div class="title">Players</div>
+        <select id="playerCount" onchange="setPlayerCount()" style="width:auto;padding:6px 10px;font-size:13px;border-radius:999px">
+          <option value="2">2</option><option value="3">3</option><option value="4" selected>4</option>
+        </select>
+      </div>
+      <div id="playersSetup"></div>
+      <div class="grid2" style="margin-top:8px">
+        <button class="small-btn" onclick="saveNamedRoster()">Save roster</button>
+        <button class="small-btn" onclick="loadRoster()">Load roster</button>
+      </div>
+      <div id="namedRosterList" style="margin-top:8px"></div>
+    </div>
+
+    <div class="card">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px">
+        <div class="title">Games</div>
+        <button class="small-btn" onclick="resetGames()">Reset</button>
+      </div>
+      <div class="side-grid" id="gameOptions"></div>
+      <div id="gameWarnings"></div>
+      <div style="margin-top:12px;display:flex;align-items:center;justify-content:space-between">
+        <div class="title" style="font-size:13px">Side Action</div>
+      </div>
+      <div class="side-grid" style="margin-top:8px" id="sideOptions"></div>
+    </div>
+
+    <div class="card">
+      <div class="title" style="margin-bottom:12px">Settings</div>
+      <div class="grid2">
+        <div><label>Round Name</label><input id="roundName" value="New Round" onchange="saveLocal()"></div>
+        <div><label>Scoring</label><select id="gameScoring" onchange="saveLocal();renderAll()"><option>Net</option><option>Gross</option></select></div>
+      </div>
+      <div class="grid2" style="margin-top:10px">
+        <div><label>Nassau $</label><input type="number" id="nassauValue" value="5" onchange="saveLocal();renderAll()"></div>
+        <div><label>Skin Value $</label><input type="number" id="skinValue" value="5" onchange="saveLocal();renderAll()"></div>
+      </div>
+      <div class="grid2" style="margin-top:10px">
+        <div><label>Buy-in $</label><input type="number" id="buyIn" value="20" onchange="saveLocal();renderAll()"></div>
+        <div><label>Vegas $/pt</label><input type="number" id="vegasPoint" value="1" onchange="saveLocal();renderAll()"></div>
+      </div>
+      <div class="round-summary" id="roundSummary"></div>
+      <button class="btn gold" onclick="startRound()" style="margin-top:14px">START ROUND</button>
+      <button class="btn ghost" onclick="startFreshRound()">Reset Scores</button>
+    </div>
+
+    <div class="card">
+      <div class="title" style="margin-bottom:8px">Teams</div>
+      <button class="small-btn" onclick="autoTeams()" style="margin-bottom:8px">Auto-assign teams</button>
+      <div id="teamsSetup"></div>
+    </div>
+  </div>
 </section>
 
-<section id="setup" class="screen">
-  <div class="section"><h2>Game Builder</h2><button onclick="resetGames()">Reset</button></div>
-  <div class="card"><div class="title">Round controls</div><div class="meta">Clear scores without losing players, or fully clear this browser.</div><button class="btn ghost" onclick="startFreshRound()">Start fresh round</button><button class="btn danger" onclick="hardResetAll()">Reset saved app data</button></div>
-  <div class="card"><div class="title">Create a round</div><div class="meta">Choose players, teams, games, and scoring basis.</div><div style="margin-top:14px"><label>Round name</label><input id="roundName" value="New Round" onchange="saveLocal()"></div><div class="grid2" style="margin-top:14px"><div><label>Players</label><select id="playerCount" onchange="setPlayerCount()"><option value="2">2 players</option><option value="3">3 players</option><option value="4" selected>4 players</option></select></div><div><label>Scoring</label><select id="gameScoring" onchange="saveLocal();renderAll()"><option>Net</option><option>Gross</option></select></div></div></div>
-  <div class="section"><h2>Step 1 · Games</h2></div>
-  <div class="side-grid" id="gameOptions"></div>
-  <div id="gameWarnings"></div>
-  <div class="section"><h2>Step 2 · Teams</h2><button onclick="autoTeams()">Auto teams</button></div>
-  <div id="teamsSetup"></div>
-  <div class="section"><h2>Side Action</h2></div>
-  <div class="side-grid" id="sideOptions"></div>
-  <div class="section"><h2>Step 3 · Players</h2><button onclick="addPlayer()">Add</button></div>
-  <div id="playersSetup"></div>
-  <div class="grid2" style="margin-top:8px"><button class="small-btn" onclick="saveNamedRoster()">Save named roster</button><button class="small-btn" onclick="loadRoster()">Load last roster</button></div><div id="namedRosterList" class="card" style="box-shadow:none;margin-top:10px"></div>
-  <div class="section"><h2>Step 4 · Settings</h2></div>
-  <div class="card"><div class="grid2"><div><label>Buy-in</label><input type="number" id="buyIn" value="20" onchange="saveLocal();renderAll()"></div><div><label>Skin value</label><input type="number" id="skinValue" value="5" onchange="saveLocal();renderAll()"></div></div><div class="grid2" style="margin-top:10px"><div><label>Nassau</label><input type="number" id="nassauValue" value="5" onchange="saveLocal();renderAll()"></div><div><label>Vegas Point</label><input type="number" id="vegasPoint" value="1" onchange="saveLocal();renderAll()"></div></div><div class="mini">Buy-in is informational for now. Settlement uses game values only.</div><div class="round-summary" id="roundSummary"></div><button class="btn green" onclick="startRound()">Start Scoring</button></div>
-</section>
-
+<!-- ══════════════════════════════════════
+     SCORE SCREEN
+══════════════════════════════════════ -->
 <section id="score" class="screen">
-  <div class="row" style="margin-bottom:12px"><div><div class="title">Scorecard</div><div class="meta" id="scoreProgress">0 holes scored · leaderboard based on scored holes only</div></div><span class="status">LIVE</span></div>
-  <div class="card"><div class="holes" id="holeStrip"></div></div>
-  <div class="card"><div class="row"><div><div class="title" id="holeTitle">Hole 1</div><div class="meta" id="holeMeta">Par 5 · HCP 17</div></div><span class="status" id="holeStatus">Net</span></div><div class="quick"><button onclick="quickScore(-1)">Birdie</button><button onclick="quickScore(0)">Par</button><button onclick="quickScore(1)">Bogey</button><button onclick="quickScore(2)">Double</button></div><div class="grid2" style="margin-top:8px"><button class="small-btn" onclick="clearHole()">Clear this hole</button><button class="small-btn" onclick="copyParToHole()">Copy par to all</button></div><div id="scoreRows" style="margin-top:14px"></div><div id="finishRoundPanel"></div><div class="grid2" style="margin-top:12px"><button class="btn ghost" onclick="prevHole()">Previous</button><button class="btn green" onclick="nextHole()">Next Hole</button></div></div>
+  <header class="screen-header">
+    <button class="sh-btn" onclick="showMore()">☰</button>
+    <div class="sh-live">
+      <div class="live-dot"></div>
+      <span>ROUND IN PROGRESS</span>
+    </div>
+    <button class="sh-btn" onclick="openSettlement()">⚙</button>
+  </header>
+  <div class="screen-body">
+    <div class="card">
+      <div class="holes" id="holeStrip"></div>
+    </div>
+    <div class="card">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px">
+        <div>
+          <div class="title" id="holeTitle">Hole 1</div>
+          <div class="meta" id="holeMeta">Par 5 · HCP 17</div>
+        </div>
+        <span class="status live" id="holeStatus">NET</span>
+      </div>
+      <div class="quick">
+        <button onclick="quickScore(-1)">Eagle</button>
+        <button onclick="quickScore(0)">Par</button>
+        <button onclick="quickScore(1)">Bogey</button>
+        <button onclick="quickScore(2)">Double</button>
+      </div>
+      <div id="scoreRows"></div>
+      <div id="finishRoundPanel"></div>
+      <div class="grid2" style="margin-top:12px">
+        <button class="btn ghost" style="margin:0" onclick="prevHole()">← Prev</button>
+        <button class="btn green" style="margin:0" onclick="nextHole()">Next →</button>
+      </div>
+    </div>
+    <div class="card">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:4px">
+        <div class="title" style="font-size:13px">Live Leaderboard</div>
+        <div class="meta" id="scoreProgress">0 holes scored</div>
+      </div>
+      <div id="leaderboard"></div>
+    </div>
+    <div class="grid2">
+      <button class="small-btn" onclick="clearHole()">Clear hole</button>
+      <button class="small-btn" onclick="copyParToHole()">Par all</button>
+    </div>
+  </div>
 </section>
 
+<!-- ══════════════════════════════════════
+     GAMES SCREEN
+══════════════════════════════════════ -->
 <section id="games" class="screen">
-  <div class="section"><h2>Leaderboard</h2><button onclick="openSettlement()">Settle</button></div>
-  <div class="card"><div class="mini" id="leaderboardNote">Leaderboard based on scored holes only.</div><div id="leaderboard"></div></div>
-  <div id="teamBestBallSection" class="game-section"><div class="section"><h2>Team Best Ball</h2></div><div class="card"><div class="title">2v2 Best Ball</div><div id="teamBestBallBoard"></div></div></div>
-  <div id="skinsSection" class="game-section"><div class="section"><h2>Skins</h2></div><div class="card"><div class="title">Skins Board</div><div id="skinsBoard"></div></div></div>
-  <div id="nassauSection" class="game-section"><div class="section"><h2>Nassau</h2></div><div class="card"><div class="title">Team Nassau</div><div id="nassauBoard"></div><div class="card" style="box-shadow:none;margin-top:10px"><div class="score-name">Presses</div><div class="meta">Manual presses are tracked separately.</div><div id="pressBoard"></div><button class="btn ghost" onclick="addManualPress()">Add manual press from current hole</button></div></div></div>
-  <div id="vegasSection" class="game-section"><div class="section"><h2>Vegas</h2></div><div class="card"><div class="title">Vegas Board</div><div id="vegasBoard"></div></div></div>
-  <div id="sideSection" class="game-section"><div class="section"><h2>Side Action</h2></div><div class="card"><div class="title">Active Side Games</div><div class="meta" id="sideActionText">Skins</div></div></div>
+  <header class="screen-header">
+    <button class="sh-btn" onclick="switchTab('score')">‹</button>
+    <div class="sh-title">GAMES</div>
+    <button class="sh-btn" onclick="openSettlement()">⚙</button>
+  </header>
+  <div class="inner-tabs">
+    <button class="itab active" onclick="showGameTab('nassau')">NASSAU</button>
+    <button class="itab" onclick="showGameTab('skins')">SKINS</button>
+    <button class="itab" onclick="showGameTab('vegas')">VEGAS</button>
+    <button class="itab" onclick="showGameTab('presses')">PRESSES</button>
+    <button class="itab" onclick="showGameTab('bestball')">BEST BALL</button>
+  </div>
+  <div class="screen-body">
+
+    <div id="gameTabNassau" class="game-tab active">
+      <div id="nassauSection" class="game-section">
+        <div class="card">
+          <div class="nassau-header">
+            <span>Player</span><span>FRONT</span><span>BACK</span><span>TOTAL</span>
+          </div>
+          <div id="nassauBoard"></div>
+        </div>
+      </div>
+      <div id="nassauEmptyState" style="display:none">
+        <div class="card" style="text-align:center;padding:24px">
+          <div style="font-size:28px;margin-bottom:8px">🏌️</div>
+          <div class="title">Nassau not active</div>
+          <div class="meta">Enable Nassau in Round Setup</div>
+        </div>
+      </div>
+    </div>
+
+    <div id="gameTabSkins" class="game-tab">
+      <div id="skinsSection" class="game-section">
+        <div class="card">
+          <div class="skins-pool" id="skinsPool">
+            <div class="skins-stat"><strong id="skinsPoolTotal">$0</strong><span>Pool</span></div>
+            <div class="skins-stat"><strong id="skinsWon">0</strong><span>Holes Won</span></div>
+            <div class="skins-stat"><strong id="skinsCarry">$0</strong><span>Carryover</span></div>
+          </div>
+          <div class="mini" style="margin-bottom:6px">HOLES</div>
+          <div id="skinsBoard"></div>
+        </div>
+      </div>
+    </div>
+
+    <div id="gameTabVegas" class="game-tab">
+      <div id="vegasSection" class="game-section">
+        <div class="card">
+          <div id="vegasBoard"></div>
+        </div>
+      </div>
+      <div id="vegasEmptyState" style="display:none">
+        <div class="card" style="text-align:center;padding:24px">
+          <div style="font-size:28px;margin-bottom:8px">🎰</div>
+          <div class="title">Vegas not active</div>
+          <div class="meta">Enable Vegas in Round Setup</div>
+        </div>
+      </div>
+    </div>
+
+    <div id="gameTabPresses" class="game-tab">
+      <div id="nassauSection2">
+        <div class="card">
+          <div class="title" style="margin-bottom:6px">Active Presses</div>
+          <div class="meta">Nassau must be active to add presses</div>
+          <div id="pressBoard" style="margin-top:10px"></div>
+          <button class="btn ghost" onclick="addManualPress()" style="margin-top:10px">+ Add press from hole <span id="pressHoleNum">1</span></button>
+        </div>
+      </div>
+    </div>
+
+    <div id="gameTabBestball" class="game-tab">
+      <div id="teamBestBallSection" class="game-section">
+        <div class="card">
+          <div class="title" style="margin-bottom:10px">2v2 Best Ball</div>
+          <div id="teamBestBallBoard"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:4px">
+      <div class="mini" id="leaderboardNote">Leaderboard based on scored holes only.</div>
+      <div style="margin-top:6px" id="gamesLeaderboard"></div>
+    </div>
+  </div>
 </section>
 
-
+<!-- ══════════════════════════════════════
+     COMPLETE SCREEN
+══════════════════════════════════════ -->
 <section id="complete" class="screen">
-  <div class="complete-hero">
-    <div class="title" style="color:white">Round Complete</div>
-    <div class="meta">Final summary, settlement, and sharing.</div>
-    <div class="complete-grid">
-      <div class="complete-stat"><strong id="completeHoles">0</strong><span>holes scored</span></div>
-      <div class="complete-stat"><strong id="completeLeader">-</strong><span>money leader</span></div>
+  <header class="screen-header">
+    <button class="sh-btn" onclick="showMore()">☰</button>
+    <div class="sh-title">ROUND COMPLETE</div>
+    <button class="sh-btn" onclick="copySettlement()">↑</button>
+  </header>
+  <div class="inner-tabs">
+    <button class="itab active" onclick="showCompleteTab('summary')">SUMMARY</button>
+    <button class="itab" onclick="showCompleteTab('leaderboard')">LEADERBOARD</button>
+    <button class="itab" onclick="showCompleteTab('settlement')">SETTLEMENT</button>
+  </div>
+  <div class="screen-body">
+
+    <div id="completeTabSummary" class="complete-tab-content active">
+      <div class="complete-hero">
+        <div class="title" style="color:white;font-family:var(--ff-display);letter-spacing:1px">Round Complete ✓</div>
+        <div class="meta">Final results at Greystone</div>
+        <div class="complete-grid">
+          <div class="complete-stat"><strong id="completeHoles">0</strong><span>holes scored</span></div>
+          <div class="complete-stat"><strong id="completeLeader">–</strong><span>money leader</span></div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="title" style="margin-bottom:10px">Game Breakdown</div>
+        <div id="completeBreakdown"></div>
+      </div>
+      <div class="action-stack">
+        <button class="btn gold" onclick="postRoundRecap()">Post to Lounge</button>
+        <button class="btn green" onclick="saveRoundResult()">Save Result</button>
+        <button class="btn ghost" onclick="copySettlement()">Copy Settlement</button>
+      </div>
     </div>
-  </div>
 
-  <div class="card">
-    <div class="title">Final Leaderboard</div>
-    <div id="completeLeaderboard"></div>
-  </div>
-
-  <div class="card">
-    <div class="title">Settlement</div>
-    <div class="meta">Exact transfers to settle the round.</div>
-    <div id="completeTransfers"></div>
-    <div class="action-stack">
-      <button class="btn ghost" onclick="copySettlement()">Copy settlement text</button>
-      <button class="btn green" onclick="saveRoundResult()">Save result</button>
-      <button class="btn gold" onclick="postRoundRecap()">Post recap to Lounge</button>
+    <div id="completeTabLeaderboard" class="complete-tab-content">
+      <div class="card">
+        <div class="title" style="margin-bottom:10px">Final Leaderboard</div>
+        <div id="completeLeaderboard"></div>
+      </div>
+      <div class="card">
+        <div class="title" style="margin-bottom:6px">Settlement Audit</div>
+        <div class="meta" style="margin-bottom:10px">Hole-by-hole breakdown</div>
+        <div id="auditTrail"></div>
+      </div>
     </div>
-  </div>
 
-  <div class="card">
-    <div class="title">Game Breakdown</div>
-    <div id="completeBreakdown"></div>
-  </div>
+    <div id="completeTabSettlement" class="complete-tab-content">
+      <div class="card">
+        <div class="title" style="margin-bottom:4px">Exact Settlements</div>
+        <div class="meta" style="margin-bottom:12px">Transfers to settle the round</div>
+        <div id="completeTransfers"></div>
+      </div>
+      <div class="card">
+        <div class="title" style="margin-bottom:6px">Share Text</div>
+        <div class="share-text" id="shareText"></div>
+        <button class="btn ghost" onclick="copySettlement()" style="margin-top:8px">Copy Text</button>
+      </div>
+    </div>
 
-  
-  <div class="card">
-    <div class="title">Settlement Audit Trail</div>
-    <div class="meta">Hole-by-hole explanation for active games.</div>
-    <div id="auditTrail"></div>
-  </div>
-
-  <div class="card">
-    <div class="title">Share Text</div>
-    <div class="meta">Plain text for group chat.</div>
-    <div class="share-text" id="shareText"></div>
   </div>
 </section>
 
+<!-- ══════════════════════════════════════
+     LOUNGE SCREEN
+══════════════════════════════════════ -->
 <section id="lounge" class="screen">
-  <div class="card lounge center"><div class="small-logo">G</div><div class="brand">THE LOUNGE</div><p class="meta">Invite-only. Results, stories, and receipts.</p><button class="btn gold" onclick="addLoungePost()">Post to Lounge</button></div>
-  <div class="section"><h2>Feed</h2><button onclick="postRoundRecap()">Recap</button></div>
-  <div id="loungeFeed"></div>
+  <header class="screen-header">
+    <button class="sh-btn" onclick="showMore()">☰</button>
+    <div class="sh-title">THE LOUNGE</div>
+    <button class="sh-btn" onclick="addLoungePost()">＋</button>
+  </header>
+  <div class="inner-tabs">
+    <button class="itab active" onclick="showLoungeTab('feed')">FEED</button>
+    <button class="itab" onclick="showLoungeTab('myrounds')">MY ROUNDS</button>
+  </div>
+  <div class="screen-body">
+
+    <div id="loungeTabFeed" class="lounge-tab-content active">
+      <div id="loungeFeed"></div>
+      <button class="btn gold" onclick="postRoundRecap()" style="margin-top:4px">Post Round Recap</button>
+    </div>
+
+    <div id="loungeTabMyRounds" class="lounge-tab-content">
+      <div class="section" style="padding-top:4px">
+        <h2>Round History</h2>
+        <button onclick="saveRoundResult()">Save Current</button>
+      </div>
+      <div id="roundHistory"></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     ADMIN SCREEN
+══════════════════════════════════════ -->
+<section id="admin" class="screen">
+  <header class="screen-header">
+    <button class="sh-btn" onclick="showMore()">☰</button>
+    <div class="sh-title">ADMIN</div>
+    <button class="sh-btn" onclick="renderAdmin()">↺</button>
+  </header>
+  <div class="screen-body">
+    <div class="admin-card">
+      <div class="title" style="font-family:var(--ff-display);font-size:11px;letter-spacing:1.5px;color:var(--muted);margin-bottom:4px">DATA &amp; TOOLS</div>
+      <div class="admin-row" onclick="exportBackup()">
+        <div class="admin-icon green-bg"><svg viewBox="0 0 24 24" style="stroke:#2a6a48"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></div>
+        <div class="admin-text"><strong>Export Backup</strong><span>Download all your data</span></div>
+        <div class="admin-action">›</div>
+      </div>
+      <div class="admin-row" onclick="importBackup()">
+        <div class="admin-icon gold-bg"><svg viewBox="0 0 24 24" style="stroke:#8a6a1a"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg></div>
+        <div class="admin-text"><strong>Import Backup</strong><span>Restore data from a file</span></div>
+        <div class="admin-action">›</div>
+      </div>
+      <div class="admin-row">
+        <div class="admin-icon blue-bg"><svg viewBox="0 0 24 24" style="stroke:#2a5a8a"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+        <div class="admin-text"><strong>Data Status</strong><div id="storageStatus" style="font-size:11px;color:var(--muted)">Checking…</div></div>
+      </div>
+      <div class="admin-row" onclick="hardResetAll()" style="cursor:pointer">
+        <div class="admin-icon red-bg"><svg viewBox="0 0 24 24" style="stroke:#b6483f"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 01-2 2H8a2 2 0 01-2-2L5 6"/><path d="M10 11v6M14 11v6"/><path d="M9 6V4a1 1 0 011-1h4a1 1 0 011 1v2"/></svg></div>
+        <div class="admin-text" style="color:var(--danger)"><strong style="color:var(--danger)">Clear All Data</strong><span>Reset all saved data</span></div>
+        <div class="admin-action" style="color:var(--danger)">›</div>
+      </div>
+    </div>
+
+    <div class="admin-card">
+      <div class="title" style="font-family:var(--ff-display);font-size:11px;letter-spacing:1.5px;color:var(--muted);margin-bottom:4px">SETTINGS</div>
+      <div class="admin-row">
+        <div class="admin-icon gray-bg"><svg viewBox="0 0 24 24" style="stroke:var(--ink)"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg></div>
+        <div class="admin-text"><strong>Dark Mode</strong><span>Saves on this browser</span></div>
+        <button id="darkToggle" class="toggle" onclick="toggleDarkMode()"></button>
+      </div>
+      <div class="admin-row">
+        <div class="admin-icon gray-bg"><svg viewBox="0 0 24 24" style="stroke:var(--green)"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="6"/><line x1="12" y1="18" x2="12" y2="22"/><line x1="4.93" y1="4.93" x2="7.76" y2="7.76"/><line x1="16.24" y1="16.24" x2="19.07" y2="19.07"/><line x1="2" y1="12" x2="6" y2="12"/><line x1="18" y1="12" x2="22" y2="12"/><line x1="4.93" y1="19.07" x2="7.76" y2="16.24"/><line x1="16.24" y1="7.76" x2="19.07" y2="4.93"/></svg></div>
+        <div class="admin-text"><strong>Course / Tee Info</strong><span>Greystone Golf Club</span></div>
+        <div class="admin-action">›</div>
+      </div>
+    </div>
+
+    <div class="admin-card">
+      <div class="title" style="margin-bottom:6px">Backup Data</div>
+      <div class="admin-grid">
+        <button class="small-btn" onclick="exportBackup()">Export</button>
+        <button class="small-btn" onclick="importBackup()">Import</button>
+      </div>
+      <textarea id="backupBox" class="textarea-box" placeholder="Backup JSON appears here. Paste to import."></textarea>
+    </div>
+
+    <div class="admin-card">
+      <div class="title" style="margin-bottom:8px">Current Round</div>
+      <div id="adminRoundSummary"></div>
+      <div class="admin-grid" style="margin-top:10px">
+        <button class="small-btn" onclick="startFreshRound()">Fresh round</button>
+        <button class="small-btn" onclick="hardResetAll()">Reset all</button>
+      </div>
+    </div>
+
+    <div class="admin-card">
+      <div class="title" style="margin-bottom:8px">Game Templates</div>
+      <div class="grid2">
+        <button class="small-btn" onclick="applyTemplate('nassau5')">$5 Nassau</button>
+        <button class="small-btn" onclick="applyTemplate('nassau10')">$10 Nassau</button>
+        <button class="small-btn" onclick="applyTemplate('skins')">Skins Game</button>
+        <button class="small-btn" onclick="applyTemplate('bestballskins')">Best Ball + Skins</button>
+        <button class="small-btn" onclick="applyTemplate('vegas')">Vegas</button>
+        <button class="small-btn" onclick="applyTemplate('fullmix')">Full Mix</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     HOME / PROFILE (legacy, via More)
+══════════════════════════════════════ -->
+<section id="home" class="screen">
+  <header class="screen-header">
+    <button class="sh-btn" onclick="showMore()">☰</button>
+    <div class="press-mark" style="flex:1;justify-content:center">
+      <div class="press-logo-circle">
+        <svg viewBox="0 0 120 120" fill="none"><defs><linearGradient id="g2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f3d992"/><stop offset=".55" stop-color="#cba15a"/><stop offset="1" stop-color="#8c6428"/></linearGradient></defs><path d="M30 96V24h34c19 0 30 10 30 26s-11 26-30 26H48v20H30Z" stroke="url(#g2)" stroke-width="5" stroke-linejoin="round"/><path d="M48 60V38h16c8 0 13 5 13 11s-5 11-13 11H48Z" stroke="url(#g2)" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <div><div class="press-brand-name">PRESS</div><div class="press-brand-sub">GREYSTONE</div></div>
+    </div>
+    <div style="width:36px"></div>
+  </header>
+  <div class="screen-body">
+    <div class="card">
+      <div class="title">Current Round Stats</div>
+      <div class="stat-grid">
+        <div class="stat-box"><div class="stat-value" id="profileHoles">0</div><div class="meta">holes scored</div></div>
+        <div class="stat-box"><div class="stat-value" id="profileMoney">$0</div><div class="meta">ledger</div></div>
+      </div>
+    </div>
+    <div class="card"><div class="title">Current Round</div><div class="meta" id="liveMeta">Ready to score</div><div class="meta" id="liveTitle" style="display:none"></div><button class="btn green" onclick="switchTab('score')">Go to Scorecard</button><button class="btn gold" onclick="switchTab('setup')">New Round</button></div>
+  </div>
 </section>
 
 <section id="profile" class="screen">
-  <div class="section"><h2>Profile</h2><button onclick="saveLocal()">Save</button></div>
-  <div class="card"><div class="title">Current Round Stats</div><div class="stat-grid"><div class="stat-box"><div class="stat-value" id="profileHoles">0</div><div class="meta">holes scored</div></div><div class="stat-box"><div class="stat-value" id="profileMoney">$0</div><div class="meta">ledger</div></div></div></div>
-  <div class="section"><h2>Game Templates</h2></div>
-  <div class="template-card" onclick="applyTemplate('nassau5')"><div class="title">$5 Nassau Template</div><div class="meta">2v2 team Nassau</div></div>
-  <div class="template-card" onclick="applyTemplate('nassau10')"><div class="title">$10 Nassau Template</div><div class="meta">2v2 team Nassau</div></div>
-  <div class="template-card" onclick="applyTemplate('skins')"><div class="title">Skins Game Template</div><div class="meta">Net skins · carryovers</div></div>
-  <div class="template-card" onclick="applyTemplate('bestballskins')"><div class="title">Best Ball + Skins Template</div><div class="meta">2v2 best ball with skins</div></div>
-  <div class="template-card" onclick="applyTemplate('vegas')"><div class="title">Vegas Template</div><div class="meta">2v2 Vegas scoring</div></div>
-  <div class="section"><h2>Round History</h2><button onclick="saveRoundResult()">Save result</button></div>
-  <div id="roundHistory"></div>
-</section>
-
-<section id="admin" class="screen">
-  <div class="section"><h2>Admin</h2><button onclick="renderAdmin()">Refresh</button></div>
-  <div class="admin-card">
-    <div class="title">Backup and restore</div>
-    <div class="meta">Move saved data between browsers or protect against data loss.</div>
-    <div class="admin-grid">
-      <button class="small-btn" onclick="exportBackup()">Export backup</button>
-      <button class="small-btn" onclick="importBackup()">Import backup</button>
-    </div>
-    <textarea id="backupBox" class="textarea-box" placeholder="Backup data appears here. Paste backup data here to import."></textarea>
-  </div>
-  <div class="admin-card">
-    <div class="title">Current round</div>
-    <div id="adminRoundSummary"></div>
-    <div class="admin-grid">
-      <button class="small-btn" onclick="startFreshRound()">Start fresh round</button>
-      <button class="small-btn" onclick="hardResetAll()">Reset app data</button>
-    </div>
-  </div>
-  <div class="admin-card">
-    <div class="title">Display</div>
-    <div class="settle-row"><div><div class="score-name">Dark mode</div><div class="score-note">Saves on this browser.</div></div><button class="small-btn" onclick="toggleDarkMode()">Toggle</button></div>
-  </div>
-  <div class="admin-card">
-    <div class="title">Data status</div>
-    <div id="storageStatus"></div>
+  <header class="screen-header">
+    <button class="sh-btn" onclick="showMore()">☰</button>
+    <div class="sh-title">PROFILE</div>
+    <button class="sh-btn" onclick="saveLocal()">✓</button>
+  </header>
+  <div class="screen-body">
+    <div class="card"><div class="title">Stats</div><div class="stat-grid"><div class="stat-box"><div class="stat-value" id="profileHoles2">0</div><div class="meta">holes scored</div></div><div class="stat-box"><div class="stat-value" id="profileMoney2">$0</div><div class="meta">ledger</div></div></div></div>
   </div>
 </section>
 
-</main>
-<nav class="tabs"><button class="tab active" data-tab="home" onclick="show('home',this)"><span>⌂</span>Home</button><button class="tab" data-tab="setup" onclick="show('setup',this)"><span>＋</span>Round</button><button class="tab" data-tab="score" onclick="show('score',this)"><span>□</span>Score</button><button class="tab" data-tab="games" onclick="show('games',this)"><span>♛</span>Games</button><button class="tab" data-tab="complete" onclick="show('complete',this)"><span>✓</span>Done</button><button class="tab" data-tab="lounge" onclick="show('lounge',this)"><span>☰</span>Lounge</button><button class="tab" data-tab="profile" onclick="show('profile',this)"><span>◉</span>Profile</button><button class="tab" data-tab="admin" onclick="show('admin',this)"><span>⚙</span>Admin</button>
+</div><!-- /.app -->
+
+<!-- BOTTOM NAV -->
+<nav class="tabs">
+  <button class="tab active" data-tab="setup" onclick="show('setup',this)">
+    <div class="tab-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><path d="M14 17.5h7M17.5 14v7"/></svg>
+    </div>
+    Setup
+  </button>
+  <button class="tab" data-tab="score" onclick="show('score',this)">
+    <div class="tab-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/><path d="M9 12h6M9 16h4"/></svg>
+    </div>
+    Scorecard
+  </button>
+  <button class="tab" data-tab="games" onclick="show('games',this)">
+    <div class="tab-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+    </div>
+    Games
+  </button>
+  <button class="tab" data-tab="lounge" onclick="show('lounge',this)">
+    <div class="tab-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+    </div>
+    Lounge
+  </button>
+  <button class="tab" data-tab="more" onclick="showMore()">
+    <div class="tab-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="5" cy="12" r="1.5"/><circle cx="12" cy="12" r="1.5"/><circle cx="19" cy="12" r="1.5"/></svg>
+    </div>
+    More
+  </button>
 </nav>
+
+<!-- MORE SHEET -->
+<div class="more-overlay" id="moreOverlay" onclick="hideMore(event)">
+  <div class="more-sheet">
+    <div class="more-handle"></div>
+    <div style="display:flex;align-items:center;gap:12px;padding:4px 0 14px;border-bottom:1px solid var(--line);margin-bottom:4px">
+      <div class="press-logo-circle" style="width:46px;height:46px">
+        <svg viewBox="0 0 120 120" fill="none"><defs><linearGradient id="g3" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f3d992"/><stop offset=".55" stop-color="#cba15a"/><stop offset="1" stop-color="#8c6428"/></linearGradient></defs><path d="M30 96V24h34c19 0 30 10 30 26s-11 26-30 26H48v20H30Z" stroke="url(#g3)" stroke-width="5" stroke-linejoin="round"/><path d="M48 60V38h16c8 0 13 5 13 11s-5 11-13 11H48Z" stroke="url(#g3)" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <div><div style="font-family:var(--ff-display);font-size:18px;font-weight:700;letter-spacing:4px;color:var(--ink)">PRESS</div><div style="font-size:11px;color:var(--muted);font-weight:600">Greystone Golf Club</div></div>
+    </div>
+    <button class="more-item" onclick="navTo('complete')"><div class="more-icon"><svg viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div><div class="more-item-text"><strong>Round Complete</strong><span>Final results &amp; settlement</span></div><svg style="width:16px;height:16px;stroke:var(--line);stroke-width:2;fill:none;flex-shrink:0" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></buttonon>
+    <button class="more-item" onclick="navTo('home')"><div class="more-icon"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div><div class="more-item-text"><strong>Home</strong><span>Dashboard &amp; quick actions</span></div><svg style="width:16px;height:16px;stroke:var(--line);stroke-width:2;fill:none;flex-shrink:0" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></button>
+    <button class="more-item" onclick="navTo('profile')"><div class="more-icon"><svg viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div><div class="more-item-text"><strong>Profile</strong><span>Stats &amp; history</span></div><svg style="width:16px;height:16px;stroke:var(--line);stroke-width:2;fill:none;flex-shrink:0" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></button>
+    <button class="more-item" onclick="navTo('admin')"><div class="more-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-4 0v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83-2.83l.06-.06A1.65 1.65 0 004.68 15a1.65 1.65 0 00-1.51-1H3a2 2 0 010-4h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 012.83-2.83l.06.06A1.65 1.65 0 009 4.68a1.65 1.65 0 001-1.51V3a2 2 0 014 0v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 2.83l-.06.06A1.65 1.65 0 0019.4 9a1.65 1.65 0 001.51 1H21a2 2 0 010 4h-.09a1.65 1.65 0 00-1.51 1z"/></svg></div><div class="more-item-text"><strong>Admin</strong><span>Data, backup &amp; settings</span></div><svg style="width:16px;height:16px;stroke:var(--line);stroke-width:2;fill:none;flex-shrink:0" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></button>
+    <button class="more-item" onclick="hideMore();openSettlement()"><div class="more-icon" style="background:#e6f2ec"><svg viewBox="0 0 24 24" style="stroke:var(--green2)"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div><div class="more-item-text"><strong>Settle Now</strong><span>View current settlement</span></div><svg style="width:16px;height:16px;stroke:var(--line);stroke-width:2;fill:none;flex-shrink:0" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></buttonton>
+  </div>
 </div>
+
+<!-- MODALS -->
 <div class="modal" id="settlementModal" onclick="closeSettlement(event)"><div class="sheet" id="settlementSheet"></div></div>
 <div class="modal" id="historyModal" onclick="closeHistory(event)"><div class="sheet" id="historySheet"></div></div>
+
 <script>
-const defaults={players:[{name:"Rob",tee:"Blue",hcp:7,team:"A"},{name:"Mike",tee:"Blue",hcp:11,team:"B"},{name:"Chris",tee:"White",hcp:15,team:"B"},{name:"Alex",tee:"Blue",hcp:4,team:"A"}],lounge:[{by:"Press",text:"Round is ready. Choose games and start scoring.",reactions:2}]};
-const course={pars:[5,3,4,5,4,3,4,4,4,5,3,4,4,3,4,4,4,5],hcp:[17,13,7,11,3,15,1,5,9,4,12,2,8,14,18,10,6,16],tees:{Gold:[515,213,435,541,430,186,436,363,404,536,189,405,409,150,301,405,417,529],Blue:[488,191,411,520,419,161,405,351,394,511,160,383,387,145,282,384,395,514],Grey:[488,169,389,520,395,161,365,339,394,511,160,361,355,145,282,384,373,514],White:[467,169,389,494,395,142,365,339,363,478,135,361,355,138,259,369,326,463],Green:[467,148,360,494,307,142,349,305,323,478,135,311,311,125,259,369,326,463],Red:[430,148,360,466,307,125,349,305,323,434,111,311,311,125,237,337,326,425]}};
+// ─── AVATAR COLORS ───────────────────────────────────────────────────────────
+const AV_COLORS = ['#2a5a45','#4a7c5e','#8a6a1a','#6a3a2a'];
+function avColor(i){ return AV_COLORS[i % AV_COLORS.length]; }
+function initials(name){ return name.split(' ').map(w=>w[0]).join('').toUpperCase().slice(0,2); }
+function avatarHtml(name, idx){
+  return `<div class="avatar" style="background:${avColor(idx)}">${initials(name)}</div>`;
+}
+
+// ─── DATA & STATE ────────────────────────────────────────────────────────────
+const defaults={players:[{name:"John Miller",tee:"White",hcp:7,team:"A"},{name:"Brad White",tee:"White",hcp:11,team:"B"},{name:"Dan Clark",tee:"White",hcp:15,team:"B"},{name:"Ryan Smith",tee:"White",hcp:4,team:"A"}],lounge:[{by:"Press",text:"Round is ready. Choose games and start scoring.",reactions:2}]};
+const course={pars:[5,3,4,5,4,3,4,4,4,5,3,4,4,3,4,4,4,5],hcp:[17,13,7,11,3,15,1,5,9,4,12,2,8,14,18,10,6,16],tees:{Gold:[515,213,435,541,430,186,436,363,404,536,189,405,409,150,301,405,417,529],Blue:[488,191,411,520,419,161,405,351,394,511,160,383,387,145,282,384,395,514],White:[467,169,389,494,395,142,365,339,363,478,135,361,355,138,259,369,326,463],Green:[467,148,360,494,307,142,349,305,323,478,135,311,311,125,259,369,326,463],Red:[430,148,360,466,307,125,349,305,323,434,111,311,311,125,237,337,326,425]}};
 let players=copy(defaults.players),scores={},currentHole=0,selectedGames=["Skins","Best Ball"],sideGames=["Skins"],loungePosts=copy(defaults.lounge),manualPresses=[];
 const games=["Skins","Nassau","Best Ball","Vegas","Wolf"],sides=["Skins","Closest to Pin","Snake","Birdies","Greenies","Putts"];
+
 function copy(x){return JSON.parse(JSON.stringify(x))}
 function cleanName(v,f){v=String(v||"").trim();return v||f}
 function emptyScores(){let s={};players.forEach(p=>s[p.name]=Array(18).fill(0));return s}
-function ensurePlayers(){if(!Array.isArray(players)||players.length<2)players=copy(defaults.players);players=players.map((p,i)=>({name:cleanName(p.name,"Player "+(i+1)),tee:p.tee||"Blue",hcp:Number(p.hcp??10),team:p.team||(i%2===0?"A":"B")}));if(!scores||typeof scores!=="object")scores={};players.forEach(p=>{if(!scores[p.name])scores[p.name]=Array(18).fill(0);scores[p.name]=scores[p.name].map(v=>Number(v||0))});Object.keys(scores).forEach(n=>{if(!players.some(p=>p.name===n))delete scores[n]});if(playerCount)playerCount.value=String(players.length)}
-function initScores(){ensurePlayers()}
-function show(id,btn){document.querySelectorAll(".screen").forEach(s=>s.classList.remove("active"));document.getElementById(id).classList.add("active");document.querySelectorAll(".tab").forEach(t=>t.classList.remove("active"));document.querySelector(`[data-tab="${id}"]`).classList.add("active");if(btn)btn.classList.add("active");renderAll(false)}
-function switchTab(id){let t=document.querySelector(`[data-tab="${id}"]`);if(t)t.click()}
-function setPlayerCount(){let c=Number(playerCount.value);players=players.slice(0,c);while(players.length<c)players.push({name:`Player ${players.length+1}`,tee:"Blue",hcp:10,team:players.length%2===0?"A":"B"});scores=emptyScores();autoTeams(false);renderAll();saveLocal()}
-function renderPlayers(){ensurePlayers();playersSetup.innerHTML=players.map((p,i)=>`<div class="player"><div><input class="name-input" value="${p.name}" onchange="renamePlayer(${i},this.value)"><div class="score-note">Team ${p.team} · ${p.tee} · HCP ${p.hcp}</div></div><select onchange="players[${i}].tee=this.value;saveLocal();renderAll()">${Object.keys(course.tees).map(t=>`<option ${t===p.tee?"selected":""}>${t}</option>`).join("")}</select><input type="number" value="${p.hcp}" onchange="players[${i}].hcp=Number(this.value||0);saveLocal();renderAll()"><button class="small-btn" style="grid-column:1 / -1" onclick="removePlayer(${i})">Remove ${p.name}</button></div>`).join("")}
+function ensurePlayers(){
+  if(!Array.isArray(players)||players.length<2)players=copy(defaults.players);
+  players=players.map((p,i)=>({name:cleanName(p.name,"Player "+(i+1)),tee:p.tee||"White",hcp:Number(p.hcp??10),team:p.team||(i%2===0?"A":"B")}));
+  if(!scores||typeof scores!=="object")scores={};
+  players.forEach(p=>{if(!scores[p.name])scores[p.name]=Array(18).fill(0);scores[p.name]=scores[p.name].map(v=>Number(v||0))});
+  Object.keys(scores).forEach(n=>{if(!players.some(p=>p.name===n))delete scores[n]});
+  if(playerCount)playerCount.value=String(players.length);
+}
+
+// ─── NAV ─────────────────────────────────────────────────────────────────────
+function show(id,btn){
+  document.querySelectorAll(".screen").forEach(s=>s.classList.remove("active"));
+  document.getElementById(id).classList.add("active");
+  document.querySelectorAll(".tab").forEach(t=>t.classList.remove("active"));
+  if(btn && btn.dataset && btn.dataset.tab){
+    document.querySelector(`[data-tab="${btn.dataset.tab}"]`)?.classList.add("active");
+  }
+  renderAll(false);
+}
+function switchTab(id){
+  const t=document.querySelector(`[data-tab="${id}"]`);
+  if(t){t.click();}else{
+    document.querySelectorAll(".screen").forEach(s=>s.classList.remove("active"));
+    document.getElementById(id)?.classList.add("active");
+    renderAll(false);
+  }
+}
+function navTo(id){hideMore();show(id,{dataset:{tab:id}});}
+
+function showMore(){document.getElementById("moreOverlay").classList.add("active")}
+function hideMore(e){if(!e||e.target.id==="moreOverlay")document.getElementById("moreOverlay").classList.remove("active")}
+
+function showGameTab(tab){
+  document.querySelectorAll("#games .game-tab").forEach(t=>t.classList.remove("active"));
+  document.getElementById("gameTab"+tab.charAt(0).toUpperCase()+tab.slice(1))?.classList.add("active");
+  document.querySelectorAll("#games .itab").forEach((t,i)=>{
+    const tabs=["nassau","skins","vegas","presses","bestball"];
+    t.classList.toggle("active",tabs[i]===tab);
+  });
+}
+function showCompleteTab(tab){
+  document.querySelectorAll(".complete-tab-content").forEach(t=>t.classList.remove("active"));
+  document.getElementById("completeTab"+tab.charAt(0).toUpperCase()+tab.slice(1))?.classList.add("active");
+  document.querySelectorAll("#complete .itab").forEach((t,i)=>{
+    const tabs=["summary","leaderboard","settlement"];
+    t.classList.toggle("active",tabs[i]===tab);
+  });
+}
+function showLoungeTab(tab){
+  document.querySelectorAll(".lounge-tab-content").forEach(t=>t.classList.remove("active"));
+  document.getElementById("loungeTab"+tab.charAt(0).toUpperCase()+tab.slice(1))?.classList.add("active");
+  document.querySelectorAll("#lounge .itab").forEach((t,i)=>{
+    const tabs=["feed","myrounds"];
+    t.classList.toggle("active",tabs[i]===tab);
+  });
+}
+
+// ─── SETUP ───────────────────────────────────────────────────────────────────
+function setPlayerCount(){let c=Number(playerCount.value);players=players.slice(0,c);while(players.length<c)players.push({name:`Player ${players.length+1}`,tee:"White",hcp:10,team:players.length%2===0?"A":"B"});scores=emptyScores();autoTeams(false);renderAll();saveLocal()}
+function renderPlayers(){
+  ensurePlayers();
+  playersSetup.innerHTML=players.map((p,i)=>`
+    <div class="player">
+      <div>
+        <input class="name-input" value="${p.name}" onchange="renamePlayer(${i},this.value)">
+        <div class="score-note">Team ${p.team} · ${p.tee} · HCP ${p.hcp}</div>
+      </div>
+      <select onchange="players[${i}].tee=this.value;saveLocal();renderAll()">${Object.keys(course.tees).map(t=>`<option ${t===p.tee?"selected":""}>${t}</option>`).join("")}</select>
+      <input type="number" value="${p.hcp}" onchange="players[${i}].hcp=Number(this.value||0);saveLocal();renderAll()">
+    </div>`).join("");
+}
 function renamePlayer(i,v){let old=players[i].name,n=cleanName(v,old);players[i].name=n;scores[n]=scores[old]||Array(18).fill(0);if(old!==n)delete scores[old];renderAll();saveLocal()}
 function removePlayer(i){if(players.length<=2){alert("Keep at least 2 players.");return}let n=players[i].name;players.splice(i,1);delete scores[n];autoTeams(false);renderAll();saveLocal()}
-function addPlayer(){if(players.length>=4){alert("Prototype supports up to 4 players for now.");return}players.push({name:`Player ${players.length+1}`,tee:"Blue",hcp:10,team:players.length%2===0?"A":"B"});scores[players.at(-1).name]=Array(18).fill(0);renderAll();saveLocal()}
+function addPlayer(){if(players.length>=4){alert("Up to 4 players.");return}players.push({name:`Player ${players.length+1}`,tee:"White",hcp:10,team:players.length%2===0?"A":"B"});scores[players.at(-1).name]=Array(18).fill(0);renderAll();saveLocal()}
 function autoTeams(save=true){if(players.length===4){let s=[...players].sort((a,b)=>a.hcp-b.hcp);s[0].team="A";s[3].team="A";s[1].team="B";s[2].team="B"}else players.forEach((p,i)=>p.team=i%2===0?"A":"B");if(save){renderAll();saveLocal()}}
 function setTeam(i,t){players[i].team=t;renderAll();saveLocal()}
-function renderTeams(){let A=players.filter(p=>p.team==="A").map(p=>p.name),B=players.filter(p=>p.team==="B").map(p=>p.name);teamsSetup.innerHTML=`<div class="team-card"><div class="title">Team A</div>${A.map(n=>`<span class="team-chip a">${n}</span>`).join("")||'<div class="meta">No players</div>'}</div><div class="team-card"><div class="title">Team B</div>${B.map(n=>`<span class="team-chip b">${n}</span>`).join("")||'<div class="meta">No players</div>'}</div>${players.map((p,i)=>`<div class="player" style="grid-template-columns:1fr 56px 56px"><div><div class="score-name">${p.name}</div><div class="score-note">Current: Team ${p.team}</div></div><button class="btn ghost" style="padding:9px;margin:0" onclick="setTeam(${i},'A')">A</button><button class="btn ghost" style="padding:9px;margin:0" onclick="setTeam(${i},'B')">B</button></div>`).join("")}`}
-function renderGameOptions(){gameOptions.innerHTML=games.map(g=>{const allowed=gameIsAllowed(g);const label=g==="Nassau"?`$${nassauValue.value||5} Nassau`:g==="Vegas"?`Vegas ($${vegasPoint.value||1}/pt)`:g;return `<button class="chip ${selectedGames.includes(g)?"on":""} ${allowed?"":"disabled-chip"}" onclick="${allowed?`toggleGame('${g}')`:""}">${label}</button>`}).join("")}
+function renderTeams(){
+  let A=players.filter(p=>p.team==="A"),B=players.filter(p=>p.team==="B");
+  teamsSetup.innerHTML=`
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px">
+      <div class="team-card"><div style="font-size:10px;font-weight:700;color:var(--muted);margin-bottom:6px">TEAM A</div>${A.map(p=>`<span class="team-chip a">${p.name}</span>`).join("")||'<span style="color:var(--muted);font-size:12px">Empty</span>'}</div>
+      <div class="team-card"><div style="font-size:10px;font-weight:700;color:var(--muted);margin-bottom:6px">TEAM B</div>${B.map(p=>`<span class="team-chip b">${p.name}</span>`).join("")||'<span style="color:var(--muted);font-size:12px">Empty</span>'}</div>
+    </div>
+    ${players.map((p,i)=>`<div class="player" style="grid-template-columns:1fr 44px 44px"><div><div class="score-name">${p.name}</div><div class="score-note">Team ${p.team}</div></div><button class="btn ghost" style="margin:0;padding:8px;font-size:12px;border-radius:10px" onclick="setTeam(${i},'A')">A</button><button class="btn ghost" style="margin:0;padding:8px;font-size:12px;border-radius:10px" onclick="setTeam(${i},'B')">B</button></div>`).join("")}`;
+}
+function renderGameOptions(){
+  gameOptions.innerHTML=games.map(g=>{
+    const allowed=gameIsAllowed(g);
+    const label=g==="Nassau"?`$${nassauValue.value||5} Nassau`:g==="Vegas"?`Vegas ($${vegasPoint.value||1}/pt)`:g;
+    return `<button class="chip ${selectedGames.includes(g)?"on":""} ${allowed?"":"disabled-chip"}" onclick="${allowed?`toggleGame('${g}')`:""}"> ${label}</button>`;
+  }).join("");
+}
 function renderSideOptions(){sideOptions.innerHTML=sides.map(s=>`<button class="chip ${sideGames.includes(s)?"on":""}" onclick="toggleSide('${s}')">${s}</button>`).join("")}
 function toggleGame(g){selectedGames=selectedGames.includes(g)?selectedGames.filter(x=>x!==g):[...selectedGames,g];renderAll();saveLocal()}
 function toggleSide(s){sideGames=sideGames.includes(s)?sideGames.filter(x=>x!==s):[...sideGames,s];renderAll();saveLocal()}
 function resetGames(){selectedGames=[];sideGames=[];renderAll();saveLocal()}
-function saveRoster(){ensurePlayers();localStorage.setItem("theTurnSavedRoster",JSON.stringify(players));alert("Roster saved.")}
-function loadRoster(){let raw=localStorage.getItem("theTurnSavedRoster");if(!raw){players=copy(defaults.players);scores=emptyScores();autoTeams(false);renderAll();saveLocal();alert("No saved roster found. Default roster loaded.");return}try{players=JSON.parse(raw);scores=emptyScores();ensurePlayers();renderAll();saveLocal();alert("Roster loaded.")}catch(e){alert("Saved roster could not be loaded.")}}
-function startRound(){ensurePlayers();let r=roundName.value||"Current Round";heroTitle.innerText=r;liveTitle.innerText=r;liveMeta.innerText=`${players.length} players · ${selectedGames.join(" + ")||"Stroke Play"}`;renderAll();saveLocal();switchTab("score")}
+function gameIsAllowed(g){if(g==="Vegas")return players.length===4&&team("A").length===2&&team("B").length===2;if(g==="Best Ball")return team("A").length>0&&team("B").length>0;return true}
+function renderWarnings(){let w=[];if(selectedGames.includes("Vegas")&&!gameIsAllowed("Vegas"))w.push("Vegas needs 2 players on each team.");gameWarnings.innerHTML=w.map(x=>`<div class="warn">${x}</div>`).join("")}
+function renderRoundSummary(){
+  const el=document.getElementById("roundSummary");if(!el)return;
+  const gamesText=selectedGames.length?selectedGames.join(" + "):"Stroke Play";
+  el.innerHTML=`<div class="title" style="font-size:13px;margin-bottom:8px">Round Summary</div><div class="summary-grid"><div class="summary-item"><div class="summary-value">${players.length}</div><div class="summary-label">players</div></div><div class="summary-item"><div class="summary-value">${gameScoring.value}</div><div class="summary-label">scoring</div></div><div class="summary-item"><div class="summary-value">$${nassauValue.value||0}</div><div class="summary-label">Nassau</div></div><div class="summary-item"><div class="summary-value">$${skinValue.value||0}</div><div class="summary-label">per skin</div></div></div><div class="mini" style="margin-top:8px">Games: ${gamesText}</div>`;
+}
+
+// ─── ROSTER ──────────────────────────────────────────────────────────────────
+function saveNamedRoster(){ensurePlayers();const name=prompt("Roster name","Greystone Foursome");if(!name)return;const rosters=JSON.parse(localStorage.getItem("theTurnNamedRosters")||"[]");const entry={id:Date.now(),name,players:copy(players)};const filtered=rosters.filter(r=>r.name!==name);filtered.unshift(entry);localStorage.setItem("theTurnNamedRosters",JSON.stringify(filtered.slice(0,10)));localStorage.setItem("theTurnSavedRoster",JSON.stringify(players));renderNamedRosters();alert("Roster saved.")}
+function loadRoster(){let raw=localStorage.getItem("theTurnSavedRoster");if(!raw){players=copy(defaults.players);scores=emptyScores();autoTeams(false);renderAll();saveLocal();alert("Default roster loaded.");return}try{players=JSON.parse(raw);scores=emptyScores();ensurePlayers();renderAll();saveLocal();alert("Roster loaded.")}catch(e){alert("Could not load roster.")}}
+function loadNamedRoster(id){const rosters=JSON.parse(localStorage.getItem("theTurnNamedRosters")||"[]");const roster=rosters.find(r=>r.id===id);if(!roster)return;players=copy(roster.players);scores=emptyScores();ensurePlayers();renderAll();saveLocal()}
+function deleteNamedRoster(id){let rosters=JSON.parse(localStorage.getItem("theTurnNamedRosters")||"[]");rosters=rosters.filter(r=>r.id!==id);localStorage.setItem("theTurnNamedRosters",JSON.stringify(rosters));renderNamedRosters()}
+function renderNamedRosters(){const el=document.getElementById("namedRosterList");if(!el)return;const rosters=JSON.parse(localStorage.getItem("theTurnNamedRosters")||"[]");if(!rosters.length){el.innerHTML='<div class="meta">No saved rosters.</div>';return}el.innerHTML=rosters.map(r=>`<div class="named-roster-row"><div><div class="score-name">${r.name}</div><div class="score-note">${(r.players||[]).map(p=>p.name).join(" · ")}</div></div><div style="display:flex;gap:6px"><button class="small-btn" onclick="loadNamedRoster(${r.id})">Load</button><button class="small-btn" onclick="deleteNamedRoster(${r.id})">✕</button></div></div>`).join("")}
+
+// ─── ROUND ───────────────────────────────────────────────────────────────────
+function startRound(){ensurePlayers();renderAll();saveLocal();switchTab("score")}
 function startFreshRound(){scores=emptyScores();currentHole=0;renderAll();saveLocal();switchTab("score")}
-function hardResetAll(){localStorage.removeItem("theTurnFixed");players=copy(defaults.players);scores=emptyScores();currentHole=0;selectedGames=["Skins","Best Ball"];sideGames=["Skins"];loungePosts=copy(defaults.lounge);manualPresses=[];roundName.value="New Round";renderAll();saveLocal();alert("Saved app data cleared.")}
+function hardResetAll(){localStorage.removeItem("theTurnFixed");players=copy(defaults.players);scores=emptyScores();currentHole=0;selectedGames=["Skins","Best Ball"];sideGames=["Skins"];loungePosts=copy(defaults.lounge);manualPresses=[];roundName.value="New Round";renderAll();saveLocal();alert("App data cleared.")}
+
+// ─── SCORING ─────────────────────────────────────────────────────────────────
 function holesScored(){let c=0;for(let i=0;i<18;i++)if(players.some(p=>scores[p.name]?.[i]))c++;return c}
-function updateProgress(){let c=holesScored(),txt=`${c} hole${c===1?"":"s"} scored · leaderboard based on scored holes only`;scoreProgress.innerText=txt;leaderboardNote.innerText=txt}
-function updateBadges(){heroBadges.innerHTML=`<span class="badge live">LIVE</span>`+(selectedGames.length?selectedGames:["Stroke Play"]).map(g=>`<span class="badge">${g}</span>`).join("")+`<span class="badge">Greystone</span>`}
-function renderWarnings(){let w=[];if(selectedGames.includes("Vegas")&&(players.length!==4||team("A").length!==2||team("B").length!==2))w.push("Vegas is disabled until you have exactly 2 players on Team A and 2 on Team B.");if(selectedGames.includes("Best Ball")&&(team("A").length<1||team("B").length<1))w.push("Best Ball needs at least one player on each team.");gameWarnings.innerHTML=w.map(x=>`<div class="warn">${x}</div>`).join("")}
-function renderHoles(){holeStrip.innerHTML=course.pars.map((p,i)=>`<button class="hole ${i===currentHole?"active":""} ${players.some(pl=>scores[pl.name]?.[i])?"played":""}" onclick="setHole(${i})">${i+1}</button>`).join("")}
-function setHole(i){currentHole=i;renderAll();saveLocal()}function nextHole(){if(currentHole<17)currentHole++;renderAll();saveLocal()}function prevHole(){if(currentHole>0)currentHole--;renderAll();saveLocal()}
+function updateProgress(){let c=holesScored();if(scoreProgress)scoreProgress.innerText=`${c} hole${c===1?"":"s"} scored`;if(leaderboardNote)leaderboardNote.innerText=`Based on ${c} scored hole${c===1?"":"s"}`;}
+function renderHoles(){if(!holeStrip)return;holeStrip.innerHTML=course.pars.map((p,i)=>`<button class="hole ${i===currentHole?"active":""} ${players.some(pl=>scores[pl.name]?.[i])?"played":""}" onclick="setHole(${i})">${i+1}</button>`).join("")}
+function setHole(i){currentHole=i;renderAll();saveLocal()}
+function nextHole(){if(currentHole<17)currentHole++;renderAll();saveLocal()}
+function prevHole(){if(currentHole>0)currentHole--;renderAll();saveLocal()}
 function strokes(p,h){let s=0;if(p.hcp>=course.hcp[h])s++;if(p.hcp>18&&p.hcp-18>=course.hcp[h])s++;return s}
 function dots(p,h){return Array.from({length:strokes(p,h)}).map(()=>'<span class="dot"></span>').join("")}
 function scoreFor(p,h){let g=scores[p.name]?.[h]||0;if(!g)return null;return gameScoring.value==="Net"?g-strokes(p,h):g}
-function renderScore(){renderHoles();holeTitle.innerText=`Hole ${currentHole+1}`;holeMeta.innerText=`Par ${course.pars[currentHole]} · HCP ${course.hcp[currentHole]}`;holeStatus.innerText=gameScoring.value;scoreRows.innerHTML=players.map(p=>{let g=scores[p.name]?.[currentHole]||0,n=g?g-strokes(p,currentHole):0;return `<div class="score-row"><div><div class="score-name">${p.name}${dots(p,currentHole)}</div><div class="score-note">Team ${p.team} · ${p.tee} · HCP ${p.hcp}</div><span class="score-pill">Gross ${g || 0} · Net ${n || 0}</span></div><div class="control"><button onclick="change('${p.name}',-1)">−</button><strong>${g}</strong><button onclick="change('${p.name}',1)">+</button></div><div class="net">${n}</div></div>`}).join("")}
+function renderScore(){
+  renderHoles();
+  if(holeTitle)holeTitle.innerText=`Hole ${currentHole+1}`;
+  if(holeMeta)holeMeta.innerText=`Par ${course.pars[currentHole]} · HCP ${course.hcp[currentHole]}`;
+  if(holeStatus)holeStatus.innerText=gameScoring.value;
+  if(pressHoleNum)pressHoleNum.innerText=currentHole+1;
+  if(!scoreRows)return;
+  scoreRows.innerHTML=players.map((p,i)=>{
+    let g=scores[p.name]?.[currentHole]||0,n=g?g-strokes(p,currentHole):0;
+    return `<div class="score-row">
+      <div style="display:flex;align-items:center;gap:8px">
+        ${avatarHtml(p.name,i)}
+        <div>
+          <div class="score-name">${p.name}${dots(p,currentHole)}</div>
+          <div class="score-note">HCP ${p.hcp} · ${p.tee}</div>
+          <span class="score-pill">Gross ${g||0} · Net ${n||0}</span>
+        </div>
+      </div>
+      <div class="control">
+        <button onclick="change('${p.name}',-1)">−</button>
+        <strong>${g}</strong>
+        <button onclick="change('${p.name}',1)">+</button>
+      </div>
+      <div class="net">${n}</div>
+    </div>`;
+  }).join("");
+}
 function quickScore(d){players.forEach(p=>scores[p.name][currentHole]=Math.max(1,course.pars[currentHole]+d));renderAll();saveLocal()}
 function clearHole(){players.forEach(p=>scores[p.name][currentHole]=0);renderAll();saveLocal()}
 function copyParToHole(){players.forEach(p=>scores[p.name][currentHole]=course.pars[currentHole]);renderAll();saveLocal()}
 function change(n,d){let cur=scores[n][currentHole];if(!cur&&d>0)scores[n][currentHole]=course.pars[currentHole];else if(!cur&&d<0)scores[n][currentHole]=Math.max(1,course.pars[currentHole]-1);else scores[n][currentHole]+=d;if(scores[n][currentHole]<1)scores[n][currentHole]=0;renderAll();saveLocal()}
 function totals(p){let g=0,n=0;scores[p.name].forEach((s,i)=>{if(s){g+=s;n+=s-strokes(p,i)}});return{gross:g,net:n}}
-function team(t){return players.filter(p=>p.team===t)}function best(t,h){let vals=team(t).map(p=>scoreFor(p,h)).filter(v=>v!==null);return vals.length?Math.min(...vals):null}
-function renderGames(){renderLeaderboard();["teamBestBallSection","skinsSection","nassauSection","vegasSection","sideSection"].forEach(id=>document.getElementById(id).classList.remove("active"));if(selectedGames.includes("Best Ball")){teamBestBallSection.classList.add("active");renderBestBall()}if(selectedGames.includes("Skins")||sideGames.includes("Skins")){skinsSection.classList.add("active");renderSkins()}if(selectedGames.includes("Nassau")){nassauSection.classList.add("active");renderNassau()}if(selectedGames.includes("Vegas")){vegasSection.classList.add("active");renderVegas()}if(sideGames.length){sideSection.classList.add("active");sideActionText.innerText=sideGames.join(" · ")}}
-function renderLeaderboard(){let led=settlement(),type=gameScoring.value;leaderboard.innerHTML=players.map(p=>({...p,...totals(p)})).sort((a,b)=>type==="Net"?a.net-b.net:a.gross-b.gross).map((p,i)=>`<div class="leader"><div class="rank">${i+1}</div><div><div class="score-name">${p.name}</div><div class="score-note">Team ${p.team} · ${p.tee} · HCP ${p.hcp}</div></div><div class="num">${p.gross}</div><div class="num">${p.net}</div><div class="${led[p.name]>=0?"money-pos":"money-neg"}">${money(led[p.name])}</div></div>`).join("")}
-function renderBestBall(){let ta=0,tb=0,ha=0,hb=0;for(let i=0;i<18;i++){let a=best("A",i),b=best("B",i);if(a!==null)ta+=a;if(b!==null)tb+=b;if(a!==null&&b!==null){if(a<b)ha++;if(b<a)hb++}}teamBestBallBoard.innerHTML=`<div class="leader"><div class="rank">A</div><div><div class="score-name">Team A</div><div class="score-note">${team("A").map(p=>p.name).join(" + ")}</div></div><div class="num">${ta}</div><div class="num">${ha}</div><div></div></div><div class="leader"><div class="rank">B</div><div><div class="score-name">Team B</div><div class="score-note">${team("B").map(p=>p.name).join(" + ")}</div></div><div class="num">${tb}</div><div class="num">${hb}</div><div></div></div>`}
-function renderSkins(){let type=gameScoring.value,carry=0;skinsBoard.innerHTML=course.pars.map((p,i)=>{if(!players.some(pl=>scores[pl.name][i]))return `<div class="leader"><div class="rank">${i+1}</div><div><div class="score-name">Not played</div><div class="score-note">Par ${p}</div></div><div></div><div></div><div></div></div>`;carry++;let r=players.filter(pl=>scores[pl.name][i]).map(pl=>({name:pl.name,score:type==="Net"?scores[pl.name][i]-strokes(pl,i):scores[pl.name][i]})),low=Math.min(...r.map(x=>x.score)),w=r.filter(x=>x.score===low),pay=Number(skinValue.value||5)*carry,out=`<div class="leader"><div class="rank">${i+1}</div><div><div class="score-name">${w.length===1?w[0].name:"Carryover"}</div><div class="score-note">Par ${p} · ${type} ${low} · ${w.length===1?"$"+pay:carry+" carried"}</div></div><div></div><div></div><div class="money-pos">${w.length===1?"Skin":""}</div></div>`;if(w.length===1)carry=0;return out}).join("")}
+function team(t){return players.filter(p=>p.team===t)}
+function best(t,h){let vals=team(t).map(p=>scoreFor(p,h)).filter(v=>v!==null);return vals.length?Math.min(...vals):null}
+function renderFinishRoundPanel(){const el=document.getElementById("finishRoundPanel");if(!el)return;if(currentHole!==17){el.innerHTML="";return}el.innerHTML=`<div class="finish-card"><div class="title">Finish Round</div><div class="meta">All 18 holes complete.</div><button class="btn green" onclick="finishRound()" style="margin-top:10px">Save & View Results</button></div>`}
+
+// ─── GAMES ───────────────────────────────────────────────────────────────────
+function renderGames(){
+  renderLeaderboard();
+  // Nassau
+  const nassauActive=selectedGames.includes("Nassau");
+  if(document.getElementById("nassauEmptyState"))document.getElementById("nassauEmptyState").style.display=nassauActive?"none":"block";
+  if(nassauActive){renderNassauPressDisplay()}
+  // Skins
+  const skinsActive=selectedGames.includes("Skins")||sideGames.includes("Skins");
+  if(skinsActive)renderSkinsDisplay();
+  // Vegas
+  const vegasActive=selectedGames.includes("Vegas");
+  if(document.getElementById("vegasEmptyState"))document.getElementById("vegasEmptyState").style.display=vegasActive?"none":"block";
+  if(vegasActive)renderVegas();
+  // Presses
+  renderPresses();
+  // Best Ball
+  const bbActive=selectedGames.includes("Best Ball");
+  if(teamBestBallSection)teamBestBallSection.classList.toggle("active",bbActive);
+  if(bbActive)renderBestBall();
+  // Games leaderboard
+  if(document.getElementById("gamesLeaderboard"))document.getElementById("gamesLeaderboard").innerHTML=gamesLeaderboardHtml();
+}
+function gamesLeaderboardHtml(){
+  const led=settlement();
+  return players.map((p,i)=>({...p,...totals(p),money:led[p.name]||0})).sort((a,b)=>(gameScoring.value==="Net"?a.net-b.net:a.gross-b.gross)).map((p,i)=>`<div class="leader"><div class="rank">${i+1}</div><div><div class="score-name">${p.name}</div><div class="score-note">${p.gross||0} gross</div></div><div class="num">${p.gross||0}</div><div class="num">${p.net||0}</div><div class="${p.money>=0?"money-pos":"money-neg"}">${money(p.money)}</div></div>`).join("");
+}
+
+function renderLeaderboard(){
+  const led=settlement(),type=gameScoring.value;
+  const html=players.map(p=>({...p,...totals(p)})).sort((a,b)=>type==="Net"?a.net-b.net:a.gross-b.gross).map((p,i)=>`<div class="leader"><div class="rank">${i+1}</div><div><div class="score-name">${p.name}</div><div class="score-note">HCP ${p.hcp}</div></div><div class="num">${p.gross}</div><div class="num">${p.net}</div><div class="${(led[p.name]||0)>=0?"money-pos":"money-neg"}">${money(led[p.name]||0)}</div></div>`).join("");
+  if(leaderboard)leaderboard.innerHTML=html;
+}
+
+function renderNassauPressDisplay(){
+  const n=nassau();
+  const sled=settlement();
+  // Show individual player standings based on team result
+  if(!nassauBoard)return;
+  nassauBoard.innerHTML=players.map(p=>{
+    const teamRes=p.team==="A"?n:null;
+    const front=p.team==="A"?n.front:-n.front;
+    const back=p.team==="A"?n.back:-n.back;
+    const total=p.team==="A"?n.total:-n.total;
+    function arr(v){if(v>0)return`<span style="color:var(--green2)">+${v}▲</span>`;if(v<0)return`<span style="color:var(--danger)">${v}▼</span>`;return`<span style="color:var(--muted)">–</span>`}
+    return`<div class="nassau-row"><div style="font-weight:700;font-size:14px">${p.name}</div><div class="nassau-val">${arr(front)}</div><div class="nassau-val">${holesScored()<=9?"<span style='color:var(--muted)'>–</span>":arr(back)}</div><div class="nassau-val">${arr(total)}</div></div>`;
+  }).join("");
+}
+
+function renderSkinsDisplay(){
+  const sv=Number(skinValue.value||5),type=gameScoring.value;
+  let carry=0,skinsWon=0,totalPool=0;
+  const holeResults=course.pars.map((par,i)=>{
+    if(!players.some(pl=>scores[pl.name][i]))return null;
+    carry++;totalPool+=sv;
+    const r=players.filter(pl=>scores[pl.name][i]).map(pl=>({name:pl.name,score:type==="Net"?scores[pl.name][i]-strokes(pl,i):scores[pl.name][i]}));
+    const low=Math.min(...r.map(x=>x.score)),w=r.filter(x=>x.score===low);
+    if(w.length===1){const pay=sv*carry;carry=0;skinsWon++;return{hole:i+1,winner:w[0].name,pay};}
+    return{hole:i+1,winner:null};
+  }).filter(Boolean);
+  if(document.getElementById("skinsPoolTotal"))document.getElementById("skinsPoolTotal").innerText="$"+(totalPool);
+  if(document.getElementById("skinsWon"))document.getElementById("skinsWon").innerText=skinsWon;
+  if(document.getElementById("skinsCarry"))document.getElementById("skinsCarry").innerText="$"+(carry*sv);
+  if(skinsBoard){
+    const holeDots=Array.from({length:18},(_,i)=>{
+      const res=holeResults.find(h=>h.hole===i+1);
+      const won=res&&res.winner;
+      return`<div class="skins-hole ${won?"won":""}" title="${won?res.winner+' wins $'+res.pay:'Not decided'}">${i+1}</div>`;
+    }).join("");
+    skinsBoard.innerHTML=`<div class="skins-holes">${holeDots}</div>`;
+    if(holeResults.length){
+      skinsBoard.innerHTML+=`<div style="margin-top:10px">${holeResults.filter(h=>h.winner).map(h=>`<div class="card-row"><div class="score-name">${h.winner}</div><div class="money-pos">$${h.pay} — Hole ${h.hole}</div></div>`).join("")}</div>`;
+    }
+  }
+}
+
+function renderBestBall(){let ta=0,tb=0,ha=0,hb=0;for(let i=0;i<18;i++){let a=best("A",i),b=best("B",i);if(a!==null)ta+=a;if(b!==null)tb+=b;if(a!==null&&b!==null){if(a<b)ha++;if(b<a)hb++}}if(teamBestBallBoard)teamBestBallBoard.innerHTML=`<div class="leader"><div class="rank">A</div><div><div class="score-name">Team A</div><div class="score-note">${team("A").map(p=>p.name).join(" + ")}</div></div><div class="num">${ta}</div><div class="num">${ha}W</div><div></div></div><div class="leader"><div class="rank">B</div><div><div class="score-name">Team B</div><div class="score-note">${team("B").map(p=>p.name).join(" + ")}</div></div><div class="num">${tb}</div><div class="num">${hb}W</div><div></div></div>`}
+
 function holeRes(i){let a=best("A",i),b=best("B",i);if(a===null||b===null)return 0;if(a<b)return 1;if(b<a)return-1;return 0}
 function nassau(){let f=0,b=0;for(let i=0;i<9;i++)f+=holeRes(i);for(let i=9;i<18;i++)b+=holeRes(i);return{front:f,back:b,total:f+b}}
 function match(v){return v===0?"All square":v>0?`Team A ${v} up`:`Team B ${Math.abs(v)} up`}
-function renderNassau(){let n=nassau();nassauBoard.innerHTML=[["F","Front Nine",n.front],["B","Back Nine",n.back],["T","Total",n.total]].map(x=>`<div class="leader"><div class="rank">${x[0]}</div><div><div class="score-name">${x[1]}</div><div class="score-note">${match(x[2])}</div></div><div></div><div></div><div class="${x[2]>=0?"money-pos":"money-neg"}">${x[2]}</div></div>`).join("");renderPresses()}
+
 function vegasHole(h){let A=team("A").map(p=>scoreFor(p,h)).filter(v=>v!==null).sort((a,b)=>a-b),B=team("B").map(p=>scoreFor(p,h)).filter(v=>v!==null).sort((a,b)=>a-b);if(A.length<2||B.length<2)return null;let a=Number(""+A[0]+A[1]),b=Number(""+B[0]+B[1]),d=Math.abs(a-b),w=a<b?"A":b<a?"B":"Push";return{a,b,d,w}}
-function renderVegas(){let ta=0,tb=0;vegasBoard.innerHTML=course.pars.map((p,i)=>{let v=vegasHole(i);if(!v)return `<div class="leader"><div class="rank">${i+1}</div><div>Not played</div><div></div><div></div><div></div></div>`;if(v.w==="A")ta+=v.d;if(v.w==="B")tb+=v.d;return `<div class="leader"><div class="rank">${i+1}</div><div>A ${v.a} · B ${v.b}</div><div></div><div></div><div class="${v.w==="A"?"money-pos":v.w==="B"?"money-neg":""}">${v.w==="Push"?"Push":v.w+" +"+v.d}</div></div>`}).join("")+`<div class="mini">Running points: Team A ${ta} · Team B ${tb} · $${vegasPoint.value||1}/pt</div>`}
-function addManualPress(){if(!selectedGames.includes("Nassau")){alert("Turn on Nassau first.");return}manualPresses.push({id:Date.now(),from:currentHole+1,amount:Number(nassauValue.value||5)});renderAll();saveLocal()}
+function renderVegas(){let ta=0,tb=0;if(!vegasBoard)return;vegasBoard.innerHTML=`<div style="margin-bottom:8px"><div style="display:grid;grid-template-columns:28px 1fr auto;gap:6px;padding:6px 0;border-bottom:1px solid var(--line)"><span style="font-family:var(--ff-display);font-size:9px;color:var(--muted)">#</span><span style="font-family:var(--ff-display);font-size:9px;color:var(--muted)">Hole</span><span style="font-family:var(--ff-display);font-size:9px;color:var(--muted);text-align:right">Result</span></div>`+course.pars.map((p,i)=>{let v=vegasHole(i);if(!v)return"";if(v.w==="A")ta+=v.d;if(v.w==="B")tb+=v.d;return`<div style="display:grid;grid-template-columns:28px 1fr auto;gap:6px;align-items:center;padding:8px 0;border-bottom:1px solid var(--line)"><div class="rank">${i+1}</div><div>A: ${v.a} · B: ${v.b}</div><div class="${v.w==="A"?"money-pos":v.w==="B"?"money-neg":""}">${v.w==="Push"?"Push":v.w+" +"+v.d}</div></div>`;}).join("")+`</div><div class="mini">Team A: ${ta}pts · Team B: ${tb}pts · $${vegasPoint.value||1}/pt</div>`}
+
+function addManualPress(){if(!selectedGames.includes("Nassau")){alert("Enable Nassau first.");return}manualPresses.push({id:Date.now(),from:currentHole+1,amount:Number(nassauValue.value||5)});renderAll();saveLocal()}
 function pressResult(p){let r=0;for(let i=p.from-1;i<18;i++)r+=holeRes(i);return r}
 function removePress(id){manualPresses=manualPresses.filter(p=>p.id!==id);renderAll();saveLocal()}
-function renderPresses(){if(!pressBoard)return;if(!manualPresses.length){pressBoard.innerHTML='<div class="meta">No active presses.</div>';return}pressBoard.innerHTML=manualPresses.map(p=>{let r=pressResult(p);return `<div class="settle-row"><div><div class="score-name">Press from hole ${p.from}</div><div class="score-note">${match(r)} · $${p.amount}</div></div><button class="small-btn" onclick="removePress(${p.id})">Remove</button></div>`}).join("")}
+function renderPresses(){if(!pressBoard)return;if(!manualPresses.length){pressBoard.innerHTML='<div class="meta">No active presses.</div>';return}pressBoard.innerHTML=manualPresses.map(p=>{let r=pressResult(p);return`<div class="settle-row"><div><div class="score-name">Press from Hole ${p.from}</div><div class="score-note">${match(r)} · $${p.amount}</div></div><button class="small-btn" onclick="removePress(${p.id})">Remove</button></div>`}).join("")}
+
+// ─── SETTLEMENT ───────────────────────────────────────────────────────────────
 function money(v){let r=Math.round(v||0);return(r>=0?"+$":"-$")+Math.abs(r)}
 function skinsLedger(){let l={};players.forEach(p=>l[p.name]=0);let type=gameScoring.value,sv=Number(skinValue.value||5),carry=0;for(let i=0;i<18;i++){if(!players.some(p=>scores[p.name][i]))continue;carry++;let r=players.filter(p=>scores[p.name][i]).map(p=>({name:p.name,score:type==="Net"?scores[p.name][i]-strokes(p,i):scores[p.name][i]})),low=Math.min(...r.map(x=>x.score)),w=r.filter(x=>x.score===low);if(w.length===1){let pay=sv*carry;l[w[0].name]+=pay;players.filter(p=>p.name!==w[0].name).forEach(p=>l[p.name]-=pay/(players.length-1));carry=0}}return l}
 function nassauLedger(){let l={};players.forEach(p=>l[p.name]=0);if(!selectedGames.includes("Nassau"))return l;let nv=Number(nassauValue.value||5),n=nassau();["front","back","total"].forEach(k=>{let r=n[k];if(r>0){team("A").forEach(p=>l[p.name]+=nv);team("B").forEach(p=>l[p.name]-=nv)}if(r<0){team("B").forEach(p=>l[p.name]+=nv);team("A").forEach(p=>l[p.name]-=nv)}});return l}
@@ -423,430 +1062,143 @@ function pressLedger(){let l={};players.forEach(p=>l[p.name]=0);manualPresses.fo
 function vegasLedger(){let l={};players.forEach(p=>l[p.name]=0);if(!selectedGames.includes("Vegas"))return l;for(let i=0;i<18;i++){let v=vegasHole(i);if(!v||v.w==="Push")continue;let amt=v.d*Number(vegasPoint.value||1);if(v.w==="A"){team("A").forEach(p=>l[p.name]+=amt);team("B").forEach(p=>l[p.name]-=amt)}else{team("B").forEach(p=>l[p.name]+=amt);team("A").forEach(p=>l[p.name]-=amt)}}return l}
 function settlement(){let l={};players.forEach(p=>l[p.name]=0);if(selectedGames.includes("Skins")||sideGames.includes("Skins"))Object.entries(skinsLedger()).forEach(([n,v])=>l[n]+=v);Object.entries(nassauLedger()).forEach(([n,v])=>l[n]+=v);Object.entries(pressLedger()).forEach(([n,v])=>l[n]+=v);Object.entries(vegasLedger()).forEach(([n,v])=>l[n]+=v);return l}
 function transfers(){let l=settlement(),d=Object.entries(l).filter(x=>x[1]<0).map(x=>({n:x[0],a:-x[1]})),c=Object.entries(l).filter(x=>x[1]>0).map(x=>({n:x[0],a:x[1]})),out=[];let i=0,j=0;while(i<d.length&&j<c.length){let a=Math.min(d[i].a,c[j].a);if(a>0.01)out.push({from:d[i].n,to:c[j].n,amount:Math.round(a)});d[i].a-=a;c[j].a-=a;if(d[i].a<=.01)i++;if(c[j].a<=.01)j++}return out}
-function openSettlement(){let l=settlement();settlementSheet.innerHTML=`<div class="section"><h2>Settlement</h2><button onclick="closeSettlement()">Close</button></div><div class="card"><div class="title">Settlement summary</div><div class="meta">Buy-in is informational. Settlement uses Nassau, skins, presses, and Vegas values only.</div>${Object.entries(l).sort((a,b)=>b[1]-a[1]).map(([n,v])=>`<div class="settle-row"><div>${n}</div><div class="${v>=0?"money-pos":"money-neg"}">${money(v)}</div></div>`).join("")}</div><div class="card"><div class="title">Game breakdown</div>${settlementBreakdownHtml()}</div><div class="card"><div class="title">Exact transfers</div>${transfers().map(t=>`<div class="transfer-row"><div>${t.from} pays ${t.to}</div><div class="money-neg">$${t.amount}</div></div>`).join("")||'<div class="meta">No transfers needed.</div>'}<button class="btn ghost" onclick="copySettlement()">Copy settlement text</button><div class="copy-box">${settlementText().replace(/\n/g,'<br>')}</div></div>`;settlementModal.classList.add("active")}
-function closeSettlement(e){if(!e||e.target.id==="settlementModal")settlementModal.classList.remove("active")}
-function postRoundRecap(){let l=settlement(),lead=Object.entries(l).sort((a,b)=>b[1]-a[1])[0]||["No leader",0];loungePosts.unshift({by:"Press",text:typeof buildShareText==="function" ? buildShareText() : `Round recap posted. ${lead[0]} leads at ${money(lead[1])}.`,reactions:0});renderLounge();switchTab("lounge");saveLocal()}
-function addLoungePost(){let t=prompt("Post to The Lounge");if(!t)return;loungePosts.unshift({by:"Rob",text:t,reactions:0});renderLounge();saveLocal()}
-function reactToPost(i){loungePosts[i].reactions++;renderLounge();saveLocal()}
-function renderLounge(){loungeFeed.innerHTML=loungePosts.map((p,i)=>`<div class="feed"><div class="feed-top"><div class="feed-avatar">${p.by[0]}</div><div><div class="score-name">${p.by}</div><div class="score-note">Greystone Lounge · private</div></div></div><div>${p.text}</div><div class="reacts"><button class="react" onclick="reactToPost(${i})">🍻 ${p.reactions}</button><button class="react">Comment</button><button class="react">Receipt</button></div></div>`).join("")}
-function applyTemplate(t){players=copy(defaults.players);scores=emptyScores();if(t==="nassau5"){selectedGames=["Nassau"];sideGames=[];nassauValue.value=5;roundName.value="$5 Nassau"}if(t==="nassau10"){selectedGames=["Nassau"];sideGames=[];nassauValue.value=10;roundName.value="$10 Nassau"}if(t==="skins"){selectedGames=["Skins"];sideGames=["Skins"];roundName.value="Skins Game"}if(t==="bestballskins"){selectedGames=["Best Ball","Skins"];sideGames=["Skins"];roundName.value="Best Ball + Skins"}if(t==="vegas"){selectedGames=["Vegas"];sideGames=[];roundName.value="Vegas"}if(t==="fullmix"){selectedGames=["Nassau","Skins","Best Ball","Vegas"];sideGames=["Skins","Birdies"];nassauValue.value=10;skinValue.value=5;roundName.value="Full Mix"}autoTeams(false);renderAll();saveLocal();switchTab("setup")}
-function saveRoundResult(){let h=JSON.parse(localStorage.getItem("theTurnHistory")||"[]");let r={id:Date.now(),name:roundName.value,date:new Date().toLocaleString(),holes:holesScored(),ledger:settlement(),transfers:transfers(),games:selectedGames,snapshot:{players:copy(players),scores:copy(scores),selectedGames:copy(selectedGames),sideGames:copy(sideGames),manualPresses:copy(manualPresses),currentHole}};h.unshift(r);localStorage.setItem("theTurnHistory",JSON.stringify(h.slice(0,20)));renderHistory();alert("Round saved.")}
-function renderHistory(){let h=JSON.parse(localStorage.getItem("theTurnHistory")||"[]");roundHistory.innerHTML=h.map(r=>`<div class="history-card"><div class="title">${r.name}</div><div class="meta">${r.date} · ${r.holes} holes · ${(r.games||[]).join(" + ")}</div><div style="margin-top:8px">${Object.entries(r.ledger||{}).map(([n,v])=>`<span class="badge">${n} ${money(v)}</span>`).join("")}</div><div class="grid2" style="margin-top:10px"><button class="small-btn" onclick="restoreRound(${r.id})">Restore</button><button class="small-btn" onclick="postHistory(${r.id})">Post</button><button class="small-btn" onclick="deleteHistory(${r.id})">Delete</button></div></div>`).join("")||'<div class="card"><div class="meta">No saved rounds yet.</div></div>'}
-function renderProfile(){profileHoles.innerText=holesScored();let rob=players[0],l=settlement();profileMoney.innerText=money(l[rob.name]||0)}
-
-function gameIsAllowed(g){
-  if(g === "Vegas"){
-    return players.length === 4 && team("A").length === 2 && team("B").length === 2;
-  }
-  if(g === "Best Ball"){
-    return team("A").length > 0 && team("B").length > 0;
-  }
-  return true;
-}
-
-function saveNamedRoster(){
-  ensurePlayers();
-  const name = prompt("Roster name", "Default foursome");
-  if(!name) return;
-  const rosters = JSON.parse(localStorage.getItem("theTurnNamedRosters") || "[]");
-  const entry = {id:Date.now(),name,players:copy(players)};
-  const filtered = rosters.filter(r=>r.name !== name);
-  filtered.unshift(entry);
-  localStorage.setItem("theTurnNamedRosters", JSON.stringify(filtered.slice(0,10)));
-  localStorage.setItem("theTurnSavedRoster", JSON.stringify(players));
-  renderNamedRosters();
-  alert("Roster saved.");
-}
-
-function loadNamedRoster(id){
-  const rosters = JSON.parse(localStorage.getItem("theTurnNamedRosters") || "[]");
-  const roster = rosters.find(r=>r.id === id);
-  if(!roster) return;
-  players = copy(roster.players);
-  scores = emptyScores();
-  ensurePlayers();
-  renderAll();
-  saveLocal();
-}
-
-function deleteNamedRoster(id){
-  let rosters = JSON.parse(localStorage.getItem("theTurnNamedRosters") || "[]");
-  rosters = rosters.filter(r=>r.id !== id);
-  localStorage.setItem("theTurnNamedRosters", JSON.stringify(rosters));
-  renderNamedRosters();
-}
-
-function renderNamedRosters(){
-  const el = document.getElementById("namedRosterList");
-  if(!el) return;
-  const rosters = JSON.parse(localStorage.getItem("theTurnNamedRosters") || "[]");
-  if(!rosters.length){
-    el.innerHTML = '<div class="meta">No named rosters saved yet.</div>';
-    return;
-  }
-  el.innerHTML = '<div class="score-name">Saved rosters</div>' + rosters.map(r=>`
-    <div class="named-roster-row">
-      <div>
-        <div class="score-name">${r.name}</div>
-        <div class="score-note">${(r.players||[]).map(p=>p.name).join(" · ")}</div>
-      </div>
-      <div>
-        <button class="small-btn" onclick="loadNamedRoster(${r.id})">Load</button>
-        <button class="small-btn" onclick="deleteNamedRoster(${r.id})">Delete</button>
-      </div>
-    </div>
-  `).join("");
-}
-
+function settlementText(){const rows=transfers();if(!rows.length)return"No transfers needed.";return rows.map(t=>`${t.from} pays ${t.to} $${t.amount}`).join("\n")}
+function copySettlement(){const text=settlementText();if(navigator.clipboard){navigator.clipboard.writeText(text).then(()=>alert("Settlement copied."))}else{alert(text)}}
 function settlementBreakdownHtml(){
-  const parts = [
-    {name:"Skins", ledger:(selectedGames.includes("Skins")||sideGames.includes("Skins")) ? skinsLedger() : null},
-    {name:"Nassau", ledger:selectedGames.includes("Nassau") ? nassauLedger() : null},
-    {name:"Presses", ledger:manualPresses.length ? pressLedger() : null},
-    {name:"Vegas", ledger:selectedGames.includes("Vegas") ? vegasLedger() : null}
-  ].filter(p=>p.ledger);
-  if(!parts.length) return '<div class="meta">No active settlement games.</div>';
-  return parts.map(part=>`
-    <div class="explain-card">
-      <div class="score-name">${part.name}</div>
-      ${Object.entries(part.ledger).map(([n,v])=>`<div class="explain-row"><div>${n}</div><div class="${v>=0?"money-pos":"money-neg"}">${money(v)}</div></div>`).join("")}
-    </div>
-  `).join("");
+  const parts=[{name:"Skins",ledger:(selectedGames.includes("Skins")||sideGames.includes("Skins"))?skinsLedger():null},{name:"Nassau",ledger:selectedGames.includes("Nassau")?nassauLedger():null},{name:"Presses",ledger:manualPresses.length?pressLedger():null},{name:"Vegas",ledger:selectedGames.includes("Vegas")?vegasLedger():null}].filter(p=>p.ledger);
+  if(!parts.length)return'<div class="meta">No active settlement games.</div>';
+  return parts.map(part=>`<div style="margin-bottom:12px"><div style="font-weight:700;font-size:13px;margin-bottom:6px">${part.name}</div>${Object.entries(part.ledger).map(([n,v])=>`<div class="settle-row"><div>${n}</div><div class="${v>=0?"money-pos":"money-neg"}">${money(v)}</div></div>`).join("")}</div>`).join("");
 }
-
-
-function renderRoundSummary(){
-  const el = document.getElementById("roundSummary");
-  if(!el) return;
-  const gamesText = selectedGames.length ? selectedGames.join(" + ") : "Stroke Play";
-  const sidesText = sideGames.length ? sideGames.join(" + ") : "None";
-  el.innerHTML = `
-    <div class="title">Round summary</div>
-    <div class="meta">Review before scoring.</div>
-    <div class="summary-grid">
-      <div class="summary-item"><div class="summary-value">${players.length}</div><div class="summary-label">players</div></div>
-      <div class="summary-item"><div class="summary-value">${gameScoring.value}</div><div class="summary-label">scoring</div></div>
-      <div class="summary-item"><div class="summary-value">$${nassauValue.value || 0}</div><div class="summary-label">Nassau</div></div>
-      <div class="summary-item"><div class="summary-value">$${skinValue.value || 0}</div><div class="summary-label">skin value</div></div>
-    </div>
-    <div class="mini">Games: ${gamesText}</div>
-    <div class="mini">Side action: ${sidesText}</div>
-  `;
+function openSettlement(){
+  let l=settlement();
+  settlementSheet.innerHTML=`<div class="section"><h2>Settlement</h2><button onclick="closeSettlement()">Close</button></div><div class="card"><div class="title" style="margin-bottom:10px">Summary</div>${Object.entries(l).sort((a,b)=>b[1]-a[1]).map(([n,v])=>`<div class="settle-row"><div class="score-name">${n}</div><div class="${v>=0?"money-pos":"money-neg"}">${money(v)}</div></div>`).join("")}</div><div class="card"><div class="title" style="margin-bottom:10px">Game Breakdown</div>${settlementBreakdownHtml()}</div><div class="card"><div class="title" style="margin-bottom:10px">Exact Transfers</div>${transfers().map(t=>`<div class="transfer-row"><div class="score-name">${t.from} pays ${t.to}</div><div class="money-neg">$${t.amount}</div></div>`).join("")||'<div class="meta">No transfers needed.</div>'}<button class="btn ghost" onclick="copySettlement()">Copy Settlement Text</button><div class="copy-box">${settlementText().replace(/\n/g,"<br>")}</div></div>`;
+  settlementModal.classList.add("active");
 }
+function closeSettlement(e){if(!e||e.target.id==="settlementModal")settlementModal.classList.remove("active")}
 
-function settlementText(){
-  const rows = transfers();
-  if(!rows.length) return "No transfers needed.";
-  return rows.map(t=>`${t.from} pays ${t.to} $${t.amount}`).join("\\n");
-}
-
-function copySettlement(){
-  const text = settlementText();
-  if(navigator.clipboard){
-    navigator.clipboard.writeText(text).then(()=>alert("Settlement copied."));
-  } else {
-    alert(text);
-  }
-}
-
-function restoreRound(id){
-  const h = JSON.parse(localStorage.getItem("theTurnHistory") || "[]");
-  const r = h.find(x=>x.id===id);
-  if(!r || !r.snapshot){
-    alert("This saved round cannot be restored.");
-    return;
-  }
-  players = r.snapshot.players;
-  scores = r.snapshot.scores;
-  selectedGames = r.snapshot.selectedGames;
-  sideGames = r.snapshot.sideGames;
-  manualPresses = r.snapshot.manualPresses || [];
-  currentHole = r.snapshot.currentHole || 0;
-  ensurePlayers();
-  renderAll();
-  saveLocal();
-  switchTab("score");
-}
-
-function deleteHistory(id){
-  let h = JSON.parse(localStorage.getItem("theTurnHistory") || "[]");
-  h = h.filter(x=>x.id!==id);
-  localStorage.setItem("theTurnHistory", JSON.stringify(h));
-  renderHistory();
-}
-
-function postHistory(id){
-  const h = JSON.parse(localStorage.getItem("theTurnHistory") || "[]");
-  const r = h.find(x=>x.id===id);
-  if(!r) return;
-  const leader = Object.entries(r.ledger||{}).sort((a,b)=>b[1]-a[1])[0] || ["No leader",0];
-  loungePosts.unshift({by:"Press",text:`Saved round posted. ${r.name}: ${leader[0]} finished at ${money(leader[1])}.`,reactions:0});
-  renderLounge();
-  saveLocal();
-  switchTab("lounge");
-}
-
-
-function renderFinishRoundPanel(){
-  const el = document.getElementById("finishRoundPanel");
-  if(!el) return;
-  if(currentHole !== 17){
-    el.innerHTML = "";
-    return;
-  }
-  const scored18 = players.some(p=>scores[p.name]?.[17]);
-  el.innerHTML = `
-    <div class="finish-card">
-      <div class="title">Finish round</div>
-      <div class="meta">${scored18 ? "Hole 18 has scores entered. Save this result to Round History." : "You are on hole 18. Enter scores, then save the round."}</div>
-      <button class="btn green" onclick="finishRound()">Save round result</button>
-      <button class="btn ghost" onclick="openSettlement()">Review settlement</button>
-    </div>
-  `;
-}
-
-
-function roundLeader(){
-  const led = settlement();
-  const rows = Object.entries(led).sort((a,b)=>b[1]-a[1]);
-  return rows[0] || ["-",0];
-}
-
-function finalLeaderboardRows(){
-  const type = gameScoring.value;
-  return players.map(p=>({...p,...totals(p)})).sort((a,b)=>type==="Net"?a.net-b.net:a.gross-b.gross);
-}
-
-function gameSegmentsSummary(){
-  const parts = [];
-  if(selectedGames.includes("Nassau")){
-    const n = nassau();
-    parts.push(`Nassau: Front ${match(n.front)}, Back ${match(n.back)}, Total ${match(n.total)}`);
-  }
-  if(selectedGames.includes("Skins") || sideGames.includes("Skins")){
-    const skins = Object.entries(skinsLedger()).filter(([n,v])=>Math.abs(v)>0);
-    parts.push(`Skins: ${skins.length ? skins.map(([n,v])=>`${n} ${money(v)}`).join(", ") : "No decided skins yet"}`);
-  }
-  if(selectedGames.includes("Vegas")){
-    const v = Object.entries(vegasLedger()).filter(([n,val])=>Math.abs(val)>0);
-    parts.push(`Vegas: ${v.length ? v.map(([n,val])=>`${n} ${money(val)}`).join(", ") : "No Vegas points yet"}`);
-  }
-  if(manualPresses.length){
-    const p = Object.entries(pressLedger()).filter(([n,val])=>Math.abs(val)>0);
-    parts.push(`Presses: ${p.length ? p.map(([n,val])=>`${n} ${money(val)}`).join(", ") : "No press winner yet"}`);
-  }
-  return parts;
-}
-
-function buildShareText(){
-  const leader = roundLeader();
-  const transfersText = settlementText();
-  const lb = finalLeaderboardRows().map((p,i)=>`${i+1}. ${p.name}: Gross ${p.gross}, Net ${p.net}`).join("\\n");
-  const gamesText = selectedGames.length ? selectedGames.join(" + ") : "Stroke Play";
-  return `${roundName.value || "Round"}\\n${holesScored()} holes scored · ${gamesText}\\n\\nLeaderboard:\\n${lb}\\n\\nSettlement:\\n${transfersText}\\n\\nLeader: ${leader[0]} ${money(leader[1])}`;
-}
-
+// ─── COMPLETE ────────────────────────────────────────────────────────────────
+function roundLeader(){const led=settlement(),rows=Object.entries(led).sort((a,b)=>b[1]-a[1]);return rows[0]||["-",0]}
+function buildShareText(){const leader=roundLeader();const lb=players.map(p=>({...p,...totals(p)})).sort((a,b)=>gameScoring.value==="Net"?a.net-b.net:a.gross-b.gross);const t=transfers();return`⛳ Greystone — ${roundName.value}\n\n`+lb.map((p,i)=>`${i+1}. ${p.name} — ${p.gross} (${p.net>=0?"+":""}${p.net})`).join("\n")+"\n\n"+`Games: ${selectedGames.join(", ")||"Stroke Play"}\n\n`+(t.length?t.map(x=>`${x.from} → ${x.to} $${x.amount}`).join("\n"):"No transfers needed.")}
 function renderComplete(){
-  const holesEl = document.getElementById("completeHoles");
-  if(!holesEl) return;
-  const leader = roundLeader();
-  holesEl.innerText = holesScored();
-  document.getElementById("completeLeader").innerText = `${leader[0]} ${money(leader[1])}`;
+  const l=settlement(),leader=roundLeader(),h=holesScored();
+  if(completeHoles)completeHoles.innerText=h;
+  if(completeLeader)completeLeader.innerText=leader[0];
+  const lb=players.map(p=>({...p,...totals(p)})).sort((a,b)=>gameScoring.value==="Net"?a.net-b.net:a.gross-b.gross);
+  if(completeLeaderboard)completeLeaderboard.innerHTML=lb.map((p,i)=>`<div class="leader"><div class="rank">${i+1}</div><div><div class="score-name">${p.name}</div><div class="score-note">${p.gross} gross · ${p.net>=0?"+":""}${p.net} net</div></div><div class="num">${p.gross}</div><div class="num">${p.net}</div><div class="${(l[p.name]||0)>=0?"money-pos":"money-neg"}">${money(l[p.name]||0)}</div></div>`).join("");
+  if(completeBreakdown)completeBreakdown.innerHTML=settlementBreakdownHtml();
+  if(completeTransfers)completeTransfers.innerHTML=transfers().map(t=>`<div class="transfer-row"><div class="score-name">${t.from} → ${t.to}</div><div class="money-neg">$${t.amount}</div></div>`).join("")||'<div class="meta">No transfers needed.</div>';
+  if(shareText)shareText.innerText=buildShareText();
+  if(auditTrail)auditTrail.innerHTML=buildAuditTrail();
+}
+function buildAuditTrail(){
+  const parts=[];
+  if(selectedGames.includes("Nassau")){const n=nassau();parts.push(`<div class="explain-card"><div style="font-weight:700;margin-bottom:6px">Nassau</div><div class="explain-row"><span>Front 9</span><span>${match(n.front)}</span></div><div class="explain-row"><span>Back 9</span><span>${match(n.back)}</span></div><div class="explain-row"><span>Total</span><span>${match(n.total)}</span></div></div>`)}
+  if(selectedGames.includes("Skins")||sideGames.includes("Skins")){const sl=skinsLedger();parts.push(`<div class="explain-card"><div style="font-weight:700;margin-bottom:6px">Skins</div>${Object.entries(sl).map(([n,v])=>`<div class="explain-row"><span>${n}</span><span class="${v>=0?"money-pos":"money-neg"}">${money(v)}</span></div>`).join("")}</div>`)}
+  return parts.join("")||'<div class="meta">No games to audit.</div>';
+}
+function finishRound(){saveRoundResult();switchTab("complete")}
+function saveRoundResult(){let h=JSON.parse(localStorage.getItem("theTurnHistory")||"[]");let r={id:Date.now(),name:roundName.value,date:new Date().toLocaleString(),holes:holesScored(),ledger:settlement(),transfers:transfers(),games:selectedGames,snapshot:{players:copy(players),scores:copy(scores),selectedGames:copy(selectedGames),sideGames:copy(sideGames),manualPresses:copy(manualPresses),currentHole}};h.unshift(r);localStorage.setItem("theTurnHistory",JSON.stringify(h.slice(0,20)));renderHistory();alert("Round saved.")}
 
-  document.getElementById("completeLeaderboard").innerHTML = finalLeaderboardRows().map((p,i)=>`
-    <div class="leader">
-      <div class="rank">${i+1}</div>
-      <div><div class="score-name">${p.name}</div><div class="score-note">Team ${p.team} · ${p.tee} · HCP ${p.hcp}</div></div>
-      <div class="num">${p.gross}</div>
-      <div class="num">${p.net}</div>
-      <div></div>
-    </div>
-  `).join("");
-
-  const tr = transfers();
-  document.getElementById("completeTransfers").innerHTML = tr.length ? tr.map(t=>`
-    <div class="transfer-row"><div>${t.from} pays ${t.to}</div><div class="money-neg">$${t.amount}</div></div>
-  `).join("") : '<div class="meta">No transfers needed.</div>';
-
-  document.getElementById("completeBreakdown").innerHTML = gameSegmentsSummary().map(x=>`<div class="segment-pill">${x}</div>`).join("") || '<div class="meta">No active games.</div>';
-  document.getElementById("shareText").innerText = buildShareText();
+// ─── LOUNGE ──────────────────────────────────────────────────────────────────
+function postRoundRecap(){const text=buildShareText?buildShareText():"Round recap";loungePosts.unshift({by:"Press",text,reactions:0});renderLounge();switchTab("lounge");saveLocal()}
+function addLoungePost(){let t=prompt("Post to The Lounge");if(!t)return;loungePosts.unshift({by:players[0]?.name||"Player",text:t,reactions:0});renderLounge();saveLocal()}
+function reactToPost(i){loungePosts[i].reactions++;renderLounge();saveLocal()}
+function renderLounge(){
+  if(loungeFeed)loungeFeed.innerHTML=loungePosts.map((p,i)=>`
+    <div class="feed">
+      <div class="feed-top">
+        <div class="feed-avatar">${initials(p.by)}</div>
+        <div><div class="score-name">${p.by}</div><div class="score-note">Greystone · private</div></div>
+      </div>
+      <div style="font-size:13px;line-height:1.5">${p.text}</div>
+      <div class="reacts">
+        <button class="react" onclick="reactToPost(${i})">🍺 ${p.reactions}</button>
+        <button class="react">💬 Comment</button>
+      </div>
+    </div>`).join("");
 }
 
-function finishRound(){
-  saveRoundResult();
-  switchTab("complete");
+// ─── HISTORY ─────────────────────────────────────────────────────────────────
+function renderHistory(){
+  let h=JSON.parse(localStorage.getItem("theTurnHistory")||"[]");
+  if(roundHistory)roundHistory.innerHTML=h.map(r=>`
+    <div class="history-card">
+      <div class="title">${r.name}</div>
+      <div class="meta">${r.date} · ${r.holes} holes · ${(r.games||[]).join(" + ")}</div>
+      <div style="margin-top:8px;display:flex;gap:6px;flex-wrap:wrap">${Object.entries(r.ledger||{}).map(([n,v])=>`<span class="segment-pill">${n} ${money(v)}</span>`).join("")}</div>
+      <div class="grid2" style="margin-top:10px">
+        <button class="small-btn" onclick="restoreRound(${r.id})">Restore</button>
+        <button class="small-btn" onclick="postHistory(${r.id})">Post</button>
+      </div>
+    </div>`).join("")||'<div class="card"><div class="meta">No saved rounds yet.</div></div>';
+}
+function restoreRound(id){const h=JSON.parse(localStorage.getItem("theTurnHistory")||"[]"),r=h.find(x=>x.id===id);if(!r||!r.snapshot){alert("Cannot restore this round.");return}players=r.snapshot.players;scores=r.snapshot.scores;selectedGames=r.snapshot.selectedGames;sideGames=r.snapshot.sideGames;manualPresses=r.snapshot.manualPresses||[];currentHole=r.snapshot.currentHole||0;ensurePlayers();renderAll();saveLocal();switchTab("score")}
+function deleteHistory(id){let h=JSON.parse(localStorage.getItem("theTurnHistory")||"[]");h=h.filter(x=>x.id!==id);localStorage.setItem("theTurnHistory",JSON.stringify(h));renderHistory()}
+function postHistory(id){const h=JSON.parse(localStorage.getItem("theTurnHistory")||"[]"),r=h.find(x=>x.id===id);if(!r)return;const leader=Object.entries(r.ledger||{}).sort((a,b)=>b[1]-a[1])[0]||["No leader",0];loungePosts.unshift({by:"Press",text:`${r.name}: ${leader[0]} at ${money(leader[1])}`,reactions:0});renderLounge();saveLocal();switchTab("lounge")}
+function closeHistory(e){if(!e||e.target.id==="historyModal")historyModal.classList.remove("active")}
+
+// ─── PROFILE ─────────────────────────────────────────────────────────────────
+function renderProfile(){
+  const h=holesScored(),l=settlement();
+  [profileHoles,document.getElementById("profileHoles2")].forEach(el=>{if(el)el.innerText=h});
+  const rob=players[0],val=l[rob?.name]||0;
+  [profileMoney,document.getElementById("profileMoney2")].forEach(el=>{if(el)el.innerText=money(val)});
 }
 
-
-
-function backupState(){
-  return {
-    version:"v18-html",
-    exportedAt:new Date().toISOString(),
-    players,
-    scores,
-    currentHole,
-    selectedGames,
-    sideGames,
-    loungePosts,
-    manualPresses,
-    settings:{
-      roundName:roundName?.value,
-      gameScoring:gameScoring?.value,
-      buyIn:buyIn?.value,
-      skinValue:skinValue?.value,
-      nassauValue:nassauValue?.value,
-      vegasPoint:document.getElementById("vegasPoint")?.value
-    },
-    history:JSON.parse(localStorage.getItem("theTurnHistory")||"[]"),
-    rosters:JSON.parse(localStorage.getItem("theTurnNamedRosters")||"[]"),
-    savedRoster:JSON.parse(localStorage.getItem("theTurnSavedRoster")||"null"),
-    darkMode:localStorage.getItem("theTurnDarkMode")==="1"
-  };
-}
-
-function exportBackup(){
-  const data = JSON.stringify(backupState(),null,2);
-  const box = document.getElementById("backupBox");
-  if(box) box.value = data;
-  if(navigator.clipboard){
-    navigator.clipboard.writeText(data).then(()=>alert("Backup copied to clipboard."));
-  }
-}
-
-function importBackup(){
-  const box = document.getElementById("backupBox");
-  const raw = box?.value?.trim();
-  if(!raw){alert("Paste backup data into the box first.");return;}
-  try{
-    const data = JSON.parse(raw);
-    players = Array.isArray(data.players) ? data.players : players;
-    scores = data.scores || scores;
-    currentHole = Number(data.currentHole || 0);
-    selectedGames = Array.isArray(data.selectedGames) ? data.selectedGames : selectedGames;
-    sideGames = Array.isArray(data.sideGames) ? data.sideGames : sideGames;
-    loungePosts = Array.isArray(data.loungePosts) ? data.loungePosts : loungePosts;
-    manualPresses = Array.isArray(data.manualPresses) ? data.manualPresses : [];
-    if(data.settings){
-      if(data.settings.roundName) roundName.value=data.settings.roundName;
-      if(data.settings.gameScoring) gameScoring.value=data.settings.gameScoring;
-      if(data.settings.buyIn) buyIn.value=data.settings.buyIn;
-      if(data.settings.skinValue) skinValue.value=data.settings.skinValue;
-      if(data.settings.nassauValue) nassauValue.value=data.settings.nassauValue;
-      if(data.settings.vegasPoint && document.getElementById("vegasPoint")) vegasPoint.value=data.settings.vegasPoint;
-    }
-    if(Array.isArray(data.history)) localStorage.setItem("theTurnHistory", JSON.stringify(data.history));
-    if(Array.isArray(data.rosters)) localStorage.setItem("theTurnNamedRosters", JSON.stringify(data.rosters));
-    if(data.savedRoster) localStorage.setItem("theTurnSavedRoster", JSON.stringify(data.savedRoster));
-    if(data.darkMode) localStorage.setItem("theTurnDarkMode","1"); else localStorage.removeItem("theTurnDarkMode");
-    applyDisplayMode();
-    ensurePlayers();
-    renderAll();
-    saveLocal();
-    alert("Backup imported.");
-  }catch(e){alert("Backup import failed. Check the pasted data.");}
-}
-
-function storageBytes(){
-  let total = 0;
-  for(let key in localStorage){
-    if(Object.prototype.hasOwnProperty.call(localStorage,key)){
-      total += (localStorage[key].length + key.length);
-    }
-  }
-  return total;
-}
-
+// ─── ADMIN ───────────────────────────────────────────────────────────────────
 function renderAdmin(){
-  const summary = document.getElementById("adminRoundSummary");
-  if(summary){
-    summary.innerHTML = `
-      <div class="settle-row"><div>Players</div><div>${players.length}</div></div>
-      <div class="settle-row"><div>Holes scored</div><div>${holesScored()}</div></div>
-      <div class="settle-row"><div>Games</div><div>${selectedGames.length}</div></div>
-      <div class="settle-row"><div>Side games</div><div>${sideGames.length}</div></div>
-    `;
-  }
-  const status = document.getElementById("storageStatus");
-  if(status){
-    const history = JSON.parse(localStorage.getItem("theTurnHistory")||"[]");
-    const rosters = JSON.parse(localStorage.getItem("theTurnNamedRosters")||"[]");
-    status.innerHTML = `
-      <div class="settle-row"><div>Saved rounds</div><div>${history.length}</div></div>
-      <div class="settle-row"><div>Named rosters</div><div>${rosters.length}</div></div>
-      <div class="settle-row"><div>Storage used</div><div>${Math.round(storageBytes()/1024)} KB</div></div>
-    `;
-  }
+  const el=document.getElementById("adminRoundSummary");
+  if(el){const h=holesScored(),l=settlement();el.innerHTML=`<div class="meta">${roundName?.value||"Round"} · ${players.length} players · ${h} holes scored</div><div style="margin-top:8px;display:flex;gap:6px;flex-wrap:wrap">${Object.entries(l).map(([n,v])=>`<span class="segment-pill">${n} ${money(v)}</span>`).join("")}</div>`}
+  if(storageStatus){try{const keys=Object.keys(localStorage).filter(k=>k.includes("theTurn"));storageStatus.innerText=`${keys.length} keys · OK`}catch(e){storageStatus.innerText="Storage unavailable"}}
+  const dark=document.body.classList.contains("mode-dark");
+  const tog=document.getElementById("darkToggle");
+  if(tog)tog.classList.toggle("on",dark);
+}
+function exportBackup(){const data={players,scores,selectedGames,sideGames,loungePosts,manualPresses,currentHole,roundName:roundName?.value,skinValue:skinValue?.value,nassauValue:nassauValue?.value,buyIn:buyIn?.value,vegasPoint:vegasPoint?.value};if(backupBox)backupBox.value=JSON.stringify(data,null,2);alert("Backup ready in the text area.")}
+function importBackup(){const raw=backupBox?.value;if(!raw){alert("Paste backup data first.");return}try{const d=JSON.parse(raw);if(d.players)players=d.players;if(d.scores)scores=d.scores;if(d.selectedGames)selectedGames=d.selectedGames;if(d.sideGames)sideGames=d.sideGames;if(d.loungePosts)loungePosts=d.loungePosts;if(d.manualPresses)manualPresses=d.manualPresses;if(d.currentHole!==undefined)currentHole=d.currentHole;if(d.roundName&&roundName)roundName.value=d.roundName;if(d.skinValue&&skinValue)skinValue.value=d.skinValue;if(d.nassauValue&&nassauValue)nassauValue.value=d.nassauValue;if(d.buyIn&&buyIn)buyIn.value=d.buyIn;if(d.vegasPoint&&vegasPoint)vegasPoint.value=d.vegasPoint;ensurePlayers();renderAll();saveLocal();alert("Backup imported.")}catch(e){alert("Invalid backup data.")}}
+function toggleDarkMode(){document.body.classList.toggle("mode-dark");document.querySelector(".app").classList.toggle("mode-dark");localStorage.setItem("theTurnDark",document.body.classList.contains("mode-dark")?"1":"0");const tog=document.getElementById("darkToggle");if(tog)tog.classList.toggle("on");}
+function applyTemplate(t){players=copy(defaults.players);scores=emptyScores();if(t==="nassau5"){selectedGames=["Nassau"];sideGames=[];nassauValue.value=5;roundName.value="$5 Nassau"}if(t==="nassau10"){selectedGames=["Nassau"];sideGames=[];nassauValue.value=10;roundName.value="$10 Nassau"}if(t==="skins"){selectedGames=["Skins"];sideGames=["Skins"];roundName.value="Skins Game"}if(t==="bestballskins"){selectedGames=["Best Ball","Skins"];sideGames=["Skins"];roundName.value="Best Ball + Skins"}if(t==="vegas"){selectedGames=["Vegas"];sideGames=[];roundName.value="Vegas"}if(t==="fullmix"){selectedGames=["Nassau","Skins","Best Ball","Vegas"];sideGames=["Skins","Birdies"];nassauValue.value=10;skinValue.value=5;roundName.value="Full Mix"}autoTeams(false);renderAll();saveLocal();switchTab("setup")}
+
+// ─── SAVE / LOAD ─────────────────────────────────────────────────────────────
+function saveLocal(){try{localStorage.setItem("theTurnFixed",JSON.stringify({players,scores,currentHole,selectedGames,sideGames,loungePosts,manualPresses,roundName:roundName?.value,skinValue:skinValue?.value,nassauValue:nassauValue?.value,buyIn:buyIn?.value,vegasPoint:vegasPoint?.value,gameScoring:gameScoring?.value}))}catch(e){}}
+function loadLocal(){try{const raw=localStorage.getItem("theTurnFixed");if(!raw)return;const d=JSON.parse(raw);if(d.players)players=d.players;if(d.scores)scores=d.scores;if(d.currentHole!==undefined)currentHole=d.currentHole;if(d.selectedGames)selectedGames=d.selectedGames;if(d.sideGames)sideGames=d.sideGames;if(d.loungePosts)loungePosts=d.loungePosts;if(d.manualPresses)manualPresses=d.manualPresses;if(d.roundName&&roundName)roundName.value=d.roundName;if(d.skinValue&&skinValue)skinValue.value=d.skinValue;if(d.nassauValue&&nassauValue)nassauValue.value=d.nassauValue;if(d.buyIn&&buyIn)buyIn.value=d.buyIn;if(d.vegasPoint&&vegasPoint)vegasPoint.value=d.vegasPoint;if(d.gameScoring&&gameScoring)gameScoring.value=d.gameScoring}catch(e){}}
+
+// ─── RENDER ALL ──────────────────────────────────────────────────────────────
+function renderAll(save=true){
+  ensurePlayers();
+  renderPlayers();
+  renderTeams();
+  renderGameOptions();
+  renderSideOptions();
+  renderWarnings();
+  renderRoundSummary();
+  renderScore();
+  renderFinishRoundPanel();
+  renderGames();
+  renderComplete();
+  renderLounge();
+  renderHistory();
+  renderProfile();
+  renderAdmin();
+  renderNamedRosters();
+  updateProgress();
+  if(save)saveLocal();
+  // Date
+  const el=document.getElementById("todayDate");
+  if(el){const now=new Date();el.innerText=now.toLocaleDateString("en-US",{month:"long",day:"numeric",year:"numeric"})}
 }
 
-function toggleDarkMode(){
-  const on = localStorage.getItem("theTurnDarkMode")==="1";
-  if(on) localStorage.removeItem("theTurnDarkMode"); else localStorage.setItem("theTurnDarkMode","1");
-  applyDisplayMode();
-}
+// ─── SPLASH ──────────────────────────────────────────────────────────────────
+function hidePressSplash(){document.getElementById("pressSplash").classList.add("hide")}
 
-function applyDisplayMode(){
-  const on = localStorage.getItem("theTurnDarkMode")==="1";
-  document.body.classList.toggle("mode-dark", on);
-}
-
-function auditTrailRows(){
-  const rows = [];
-  const type = gameScoring.value;
-  for(let h=0; h<18; h++){
-    const played = players.some(p=>scores[p.name]?.[h]);
-    if(!played){
-      rows.push({hole:h+1,title:"Not played",detail:`Par ${course.pars[h]}`,amount:""});
-      continue;
-    }
-    if(selectedGames.includes("Nassau")){
-      const r = holeRes(h);
-      rows.push({hole:h+1,title:"Nassau",detail:r===0?"Hole tied":r>0?"Team A wins hole":"Team B wins hole",amount:r===0?"":(r>0?"A":"B")});
-    }
-    if(selectedGames.includes("Skins") || sideGames.includes("Skins")){
-      const results = players.filter(p=>scores[p.name]?.[h]).map(p=>({name:p.name,score:type==="Net"?scores[p.name][h]-strokes(p,h):scores[p.name][h]}));
-      const low = Math.min(...results.map(r=>r.score));
-      const winners = results.filter(r=>r.score===low);
-      rows.push({hole:h+1,title:"Skins",detail:winners.length===1?`${winners[0].name} low ${type} ${low}`:`Carryover, ${winners.length} tied at ${low}`,amount:winners.length===1?"Skin":""});
-    }
-    if(selectedGames.includes("Vegas")){
-      const v = vegasHole(h);
-      if(v) rows.push({hole:h+1,title:"Vegas",detail:`Team A ${v.a} · Team B ${v.b}`,amount:v.w==="Push"?"Push":`${v.w} +${v.d}`});
-    }
-  }
-  return rows;
-}
-
-function renderAuditTrail(){
-  const el = document.getElementById("auditTrail");
-  if(!el) return;
-  el.innerHTML = auditTrailRows().map(r=>`
-    <div class="audit-row">
-      <div class="rank">${r.hole}</div>
-      <div><div class="score-name">${r.title}</div><div class="score-note">${r.detail}</div></div>
-      <div class="money-pos">${r.amount}</div>
-    </div>
-  `).join("");
-}
-
-function saveLocal(){let st={players,scores,currentHole,selectedGames,sideGames,loungePosts,manualPresses,roundName:roundName.value,gameScoring:gameScoring.value,buyIn:buyIn.value,skinValue:skinValue.value,nassauValue:nassauValue.value,vegasPoint:vegasPoint.value};localStorage.setItem("theTurnFixed",JSON.stringify(st))}
-function loadLocal(){let raw=localStorage.getItem("theTurnFixed");if(!raw){scores=emptyScores();return}try{let s=JSON.parse(raw);players=Array.isArray(s.players)&&s.players.length>=2?s.players:copy(defaults.players);scores=s.scores||{};currentHole=Number(s.currentHole||0);selectedGames=Array.isArray(s.selectedGames)?s.selectedGames:selectedGames;sideGames=Array.isArray(s.sideGames)?s.sideGames:sideGames;loungePosts=Array.isArray(s.loungePosts)?s.loungePosts:loungePosts;manualPresses=Array.isArray(s.manualPresses)?s.manualPresses:[];ensurePlayers();roundName.value=s.roundName||"New Round";gameScoring.value=s.gameScoring||"Net";buyIn.value=s.buyIn||20;skinValue.value=s.skinValue||5;nassauValue.value=s.nassauValue||5;vegasPoint.value=s.vegasPoint||1}catch(e){players=copy(defaults.players);scores=emptyScores()}}
-function renderAll(save=false){ensurePlayers();updateBadges();updateProgress();renderGameOptions();renderWarnings();renderTeams();renderSideOptions();renderPlayers();renderScore();renderGames();renderLounge();renderProfile();renderHistory();renderNamedRosters();renderRoundSummary();renderFinishRoundPanel();renderComplete();renderAdmin();renderAuditTrail();applyDisplayMode()}
-applyDisplayMode();
-loadLocal();ensurePlayers();renderAll();
+// ─── INIT ────────────────────────────────────────────────────────────────────
+window.addEventListener("DOMContentLoaded",()=>{
+  loadLocal();
+  ensurePlayers();
+  if(localStorage.getItem("theTurnDark")==="1"){document.body.classList.add("mode-dark");document.querySelector(".app").classList.add("mode-dark")}
+  renderAll(false);
+  setTimeout(hidePressSplash, 1800);
+});
 </script>
-
-<script>
-(function(){
-  window.hidePressSplash = function(){
-    var s = document.getElementById('pressSplash');
-    if(s){ s.classList.add('hide'); setTimeout(function(){ if(s && s.parentNode){ s.parentNode.removeChild(s); } }, 650); }
-  };
-  setTimeout(window.hidePressSplash, 1200);
-  window.addEventListener('load', function(){ setTimeout(window.hidePressSplash, 700); });
-  setTimeout(window.hidePressSplash, 2500);
-})();
-</script>
-
 </body>
 </html>
