@@ -59,10 +59,11 @@
 .mode-dark input,.mode-dark select,.mode-dark .textarea-box{background:#161a13;color:#f7f1e7;border-color:#343c30}
 
 
-/* PRESS v19 brand layer */
+/* PRESS SAFE BRAND LAYER */
 :root{
   --green:#0f2e23;
   --green2:#184332;
+  --deep:#07140f;
   --paper:#f3efe6;
   --gold:#cba15a;
   --gold2:#e3bd68;
@@ -76,299 +77,53 @@ body{
   background:radial-gradient(circle at top left,rgba(203,161,90,.18),transparent 32%),linear-gradient(180deg,#e9e2d6,#f8f3ea);
   color:var(--ink);
 }
-.app{background:radial-gradient(circle at top right,rgba(203,161,90,.10),transparent 25%),var(--paper)}
-.hero{
-  background:linear-gradient(180deg,rgba(7,20,15,.20),rgba(7,20,15,.92)),radial-gradient(circle at top right,rgba(203,161,90,.32),transparent 38%),linear-gradient(135deg,#07140f,#0f2e23 58%,#184332);
-}
-.logo{border:1.5px solid var(--gold2);color:var(--gold2);background:radial-gradient(circle at 40% 25%,rgba(255,255,255,.20),transparent 34%),linear-gradient(145deg,#082117,#0f3b2b);box-shadow:0 0 0 2px rgba(203,161,90,.08),0 8px 18px rgba(0,0,0,.18)}
-.brand{font-family:Georgia,serif;letter-spacing:5px;font-size:17px}
-.hero h1{font-family:Georgia,serif;letter-spacing:.5px}
-.badge.live,.status{background:linear-gradient(135deg,#0f5f3d,#184332)}
-.badge{color:#f4ead4;border-color:rgba(203,161,90,.28)}
-.card,.admin-card,.template-card,.history-card,.feed{border-radius:24px;background:rgba(255,255,255,.88);border:1px solid rgba(222,213,198,.95);box-shadow:0 18px 38px rgba(23,18,12,.10)}
-.gold{background:linear-gradient(135deg,#b78335,#e3bd68);color:#17120a;box-shadow:0 10px 22px rgba(183,131,53,.22)}
-.green{background:linear-gradient(135deg,#0f2e23,#184332);color:white;box-shadow:0 10px 22px rgba(15,46,35,.20)}
-.ghost{background:#fffdf8;border:1px solid var(--line);color:#0f2e23}
-.chip.on{background:linear-gradient(135deg,#0f2e23,#184332);color:white;border-color:#0f2e23}
-.tabs{background:rgba(243,239,230,.95)}
-.tab.active{color:#0f5f3d}
-.tab.active span{background:linear-gradient(135deg,#0f2e23,#184332)}
-input,select,.textarea-box{background:#f7efe4;border-color:#ded5c6}
-.lounge{background:linear-gradient(180deg,rgba(7,20,15,.18),rgba(7,20,15,.95)),radial-gradient(circle at top right,rgba(203,161,90,.30),transparent 35%),linear-gradient(135deg,#07140f,#0f2e23)}
-.lounge .meta{color:#d0c7b7}
-.small-logo{border-color:var(--gold2);color:var(--gold2);background:linear-gradient(145deg,#082117,#0f3b2b)}
-.press-mark{width:38px;height:38px;border-radius:50%;display:grid;place-items:center}
-.press-mark svg{width:33px;height:33px;display:block}
-.press-tagline{font-size:11px;letter-spacing:2px;color:var(--gold2);text-transform:uppercase;font-weight:900}
-#splash{position:fixed;inset:0;z-index:9999;display:grid;place-items:center;background:linear-gradient(180deg,rgba(6,16,12,.15),rgba(6,16,12,.92)),radial-gradient(circle at 50% 26%,rgba(203,161,90,.22),transparent 28%),linear-gradient(145deg,#06100c,#0f2e23 62%,#07140f);color:white;transition:opacity .55s ease,visibility .55s ease}
-#splash.hide{opacity:0;visibility:hidden}
-.splash-inner{text-align:center;transform:translateY(-8px)}
-.splash-logo{width:118px;height:118px;border:2px solid var(--gold2);border-radius:50%;display:grid;place-items:center;margin:0 auto 20px;box-shadow:0 0 0 8px rgba(203,161,90,.08),0 22px 52px rgba(0,0,0,.34);background:radial-gradient(circle at 38% 28%,rgba(255,255,255,.18),transparent 32%),linear-gradient(145deg,#082117,#0f3b2b)}
-.splash-logo svg{width:92px;height:92px}
-.splash-title{font-family:Georgia,serif;font-size:46px;letter-spacing:9px;margin:0}
-.splash-tag{margin-top:10px;color:var(--gold2);text-transform:uppercase;letter-spacing:2.4px;font-weight:900;font-size:12px}
-.splash-line{width:58px;height:2px;background:var(--gold2);margin:24px auto 0}
-.press-wordmark{font-family:Georgia,serif;letter-spacing:8px;font-size:28px;line-height:1}
-.course-photo{min-height:155px;border-radius:26px;background:linear-gradient(180deg,rgba(6,16,12,.05),rgba(6,16,12,.92)),radial-gradient(circle at 30% 70%,rgba(203,161,90,.16),transparent 28%),linear-gradient(135deg,#14271e,#0b2118 45%,#07140f);position:relative;overflow:hidden}
-.course-photo:before{content:"";position:absolute;left:-12%;right:-12%;bottom:-28px;height:78px;background:radial-gradient(ellipse at center,rgba(203,161,90,.20),transparent 62%),linear-gradient(90deg,transparent,#2c5b38,transparent);border-radius:50%}
-.course-photo:after{content:"";position:absolute;left:0;right:0;bottom:0;height:70px;background:repeating-linear-gradient(-12deg,rgba(255,255,255,.04) 0 5px,transparent 5px 18px);opacity:.9}
-.icon-row{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:14px}
-.icon-card{text-align:center;color:#f4ead4;font-size:10px;font-weight:900;text-transform:uppercase;letter-spacing:.4px}
-.icon-bubble{width:42px;height:42px;border:1px solid var(--gold2);border-radius:50%;display:grid;place-items:center;margin:0 auto 7px;color:var(--gold2)}
-.mode-dark{--paper:#151812;--line:#2e352b;--muted:#b8b2a8;color:#f7f1e7;background:#0f110d}
-
-
-/* PRESS v20 design system */
-:root{
-  --green:#0f2e23;
-  --green2:#184332;
-  --deep:#07140f;
-  --paper:#f3efe6;
-  --cream:#f3efe6;
-  --card:#fffdf8;
-  --gold:#cba15a;
-  --gold2:#e3bd68;
-  --muted:#746f65;
-  --line:#ded5c6;
-  --danger:#b6483f;
-  --shadow:0 18px 45px rgba(20,24,18,.14);
-  --ink:#142018;
-  --slate:#1c1c1c;
-}
-body{
-  background:
-    radial-gradient(circle at top left,rgba(203,161,90,.18),transparent 32%),
-    linear-gradient(180deg,#e9e2d6,#f8f3ea);
-  color:var(--ink);
-}
 .app{
-  background:
-    radial-gradient(circle at top right,rgba(203,161,90,.08),transparent 26%),
-    linear-gradient(180deg,#f7f1e8,#f3efe6);
+  background:radial-gradient(circle at top right,rgba(203,161,90,.08),transparent 26%),linear-gradient(180deg,#f7f1e8,#f3efe6);
 }
 .hero{
-  background:
-    linear-gradient(180deg,rgba(7,20,15,.12),rgba(7,20,15,.92)),
-    radial-gradient(circle at 78% 4%,rgba(203,161,90,.26),transparent 30%),
-    linear-gradient(135deg,#07140f,#0f2e23 56%,#184332);
-  border-bottom-left-radius:42px;
-  border-bottom-right-radius:42px;
-  padding:24px 18px 30px;
+  background:linear-gradient(180deg,rgba(7,20,15,.12),rgba(7,20,15,.92)),radial-gradient(circle at 78% 4%,rgba(203,161,90,.26),transparent 30%),linear-gradient(135deg,#07140f,#0f2e23 56%,#184332) !important;
+  border-bottom-left-radius:42px !important;
+  border-bottom-right-radius:42px !important;
+  padding:24px 18px 30px !important;
   box-shadow:0 20px 44px rgba(7,20,15,.22);
 }
-.logo{
-  border:1.5px solid var(--gold2);
-  color:var(--gold2);
-  background:
-    radial-gradient(circle at 35% 25%,rgba(255,255,255,.16),transparent 32%),
-    linear-gradient(145deg,#082117,#0f3b2b);
-  box-shadow:0 0 0 2px rgba(203,161,90,.10),0 12px 24px rgba(0,0,0,.20);
-}
-.press-mark{
+.logo.press-brand-logo{
   width:44px !important;
   height:44px !important;
-  border-radius:50%;
-  display:grid;
-  place-items:center;
+  border-radius:50% !important;
+  display:grid !important;
+  place-items:center !important;
+  border:1.5px solid var(--gold2) !important;
+  background:radial-gradient(circle at 35% 25%,rgba(255,255,255,.16),transparent 32%),linear-gradient(145deg,#082117,#0f3b2b) !important;
+  box-shadow:0 0 0 2px rgba(203,161,90,.10),0 12px 24px rgba(0,0,0,.20);
 }
-.press-mark svg{width:36px;height:36px;display:block}
-.brand{
-  font-family:Georgia,serif;
-  letter-spacing:8px;
-  font-size:20px;
-  color:white;
-}
-.press-tagline{
-  font-size:11px;
-  letter-spacing:2.8px;
-  color:var(--gold2);
-  text-transform:uppercase;
-  font-weight:900;
-  margin-top:4px;
-}
-.hero h1{
-  font-family:Georgia,serif;
-  letter-spacing:.4px;
-  font-size:34px;
-  margin-top:30px;
-  color:#fff;
-}
-.sub{
-  color:#dce5df;
-  font-size:15px;
-  margin-top:8px;
-}
-.badges{gap:10px;margin-top:22px}
-.badge{
-  color:#f4ead4;
-  border-color:rgba(203,161,90,.34);
-  background:rgba(255,255,255,.08);
-  padding:9px 14px;
-  font-size:13px;
-  box-shadow:inset 0 0 0 1px rgba(255,255,255,.03);
-}
-.badge.live,.status{
-  background:linear-gradient(135deg,#0f7a4b,#12613f);
-  color:white;
-}
-.content{padding:18px 14px 100px}
-.section{margin:22px 4px 10px}
-.section h2{
-  letter-spacing:3px;
-  font-size:12px;
-  color:#81796d;
-}
+.logo.press-brand-logo svg{width:35px;height:35px;display:block}
+.brand{font-family:Georgia,serif !important;letter-spacing:8px !important;font-size:20px !important;color:white}
+.press-small-tag{font-size:10px;letter-spacing:2.5px;color:var(--gold2);text-transform:uppercase;font-weight:900;margin-top:4px}
+.hero h1{font-family:Georgia,serif !important;letter-spacing:.4px;font-size:34px !important;color:#fff}
+.sub{color:#dce5df !important;font-size:15px !important}
 .card,.admin-card,.template-card,.history-card,.feed,.setup-step{
   border-radius:24px !important;
   background:rgba(255,253,248,.92) !important;
   border:1px solid rgba(222,213,198,.95) !important;
   box-shadow:0 18px 42px rgba(23,18,12,.10) !important;
 }
-.title{font-weight:900;color:#142018}
-.meta{color:#746f65;line-height:1.35}
-.btn{
-  border-radius:999px;
-  padding:15px 16px;
-  letter-spacing:.3px;
-}
-.gold{
-  background:linear-gradient(135deg,#b78335,#e3bd68);
-  color:#17120a;
-  box-shadow:0 10px 22px rgba(183,131,53,.22);
-}
-.green{
-  background:linear-gradient(135deg,#0f2e23,#184332);
-  color:white;
-  box-shadow:0 10px 22px rgba(15,46,35,.20);
-}
-.ghost{
-  background:#fffdf8;
-  border:1px solid var(--line);
-  color:#0f2e23;
-}
-.danger{
-  background:#fff0ee;
-  color:var(--danger);
-  border:1px solid #efc7c1;
-}
-input,select,.textarea-box{
-  background:#f7efe4 !important;
-  border-color:#ded5c6 !important;
-  border-radius:18px !important;
-  padding:14px !important;
-}
-.chip{
-  border-radius:999px;
-  background:#fffdf8;
-  border:1px solid #ded5c6;
-  padding:12px 15px;
-  font-weight:900;
-}
-.chip.on{
-  background:linear-gradient(135deg,#0f2e23,#184332);
-  color:white;
-  border-color:#0f2e23;
-}
-.tabs{
-  background:rgba(243,239,230,.96);
-  border-top:1px solid rgba(222,213,198,.95);
-  box-shadow:0 -12px 34px rgba(23,18,12,.08);
-}
-.tab span{
-  font-size:16px;
-}
-.tab.active{color:#0f5f3d}
-.tab.active span{
-  background:linear-gradient(135deg,#0f2e23,#184332);
-}
-.player,.team-card,.stat-box,.round-summary,.finish-card,.detail-section,.explain-card{
-  background:#fffaf1 !important;
-  border:1px solid #ded5c6 !important;
-  border-radius:18px !important;
-}
-.leader,.settle-row,.transfer-row,.audit-row,.vegas-row{
-  border-bottom-color:#e6ddcf !important;
-}
-.rank{
-  background:#efe2c8;
-  color:#75521f;
-}
-.money-pos{color:#0f5f3d}
-.money-neg{color:#b6483f}
-.lounge{
-  background:
-    linear-gradient(180deg,rgba(7,20,15,.16),rgba(7,20,15,.96)),
-    radial-gradient(circle at top right,rgba(203,161,90,.30),transparent 35%),
-    linear-gradient(135deg,#07140f,#0f2e23);
-}
-.lounge .meta{color:#d0c7b7}
-.small-logo{
-  border-color:var(--gold2);
-  color:var(--gold2);
-  background:linear-gradient(145deg,#082117,#0f3b2b);
-}
-.press-wordmark{
-  font-family:Georgia,serif;
-  letter-spacing:11px;
-  font-size:42px;
-  line-height:1;
-  color:white;
-}
-#splash{
-  position:fixed;
-  inset:0;
-  z-index:9999;
-  display:grid;
-  place-items:center;
-  background:
-    linear-gradient(180deg,rgba(6,16,12,.10),rgba(6,16,12,.94)),
-    radial-gradient(circle at 50% 24%,rgba(203,161,90,.22),transparent 30%),
-    linear-gradient(145deg,#06100c,#0f2e23 62%,#07140f);
-  color:white;
-  transition:opacity .55s ease,visibility .55s ease;
-}
-#splash.hide{opacity:0;visibility:hidden}
-.splash-inner{text-align:center;transform:translateY(-8px)}
-.splash-logo{
-  width:126px;
-  height:126px;
-  border:2px solid var(--gold2);
-  border-radius:28px;
-  display:grid;
-  place-items:center;
-  margin:0 auto 22px;
-  box-shadow:0 0 0 8px rgba(203,161,90,.08),0 22px 52px rgba(0,0,0,.34);
-  background:radial-gradient(circle at 38% 28%,rgba(255,255,255,.15),transparent 32%),linear-gradient(145deg,#082117,#0f3b2b);
-}
-.splash-logo svg{width:96px;height:96px}
-.splash-title{
-  font-family:Georgia,serif;
-  font-size:48px;
-  letter-spacing:13px;
-  margin:0;
-}
-.splash-tag{
-  margin-top:12px;
-  color:var(--gold2);
-  text-transform:uppercase;
-  letter-spacing:2.4px;
-  font-weight:900;
-  font-size:12px;
-}
-.splash-line{width:58px;height:2px;background:var(--gold2);margin:24px auto 0}
-.brand-panel{
-  min-height:235px;
+.gold{background:linear-gradient(135deg,#b78335,#e3bd68) !important;color:#17120a !important}
+.green{background:linear-gradient(135deg,#0f2e23,#184332) !important;color:white !important}
+.chip.on,.tab.active span,.badge.live,.status{background:linear-gradient(135deg,#0f2e23,#184332) !important;color:white !important}
+input,select,.textarea-box{background:#f7efe4 !important;border-color:#ded5c6 !important}
+.tabs{background:rgba(243,239,230,.96) !important;border-top:1px solid rgba(222,213,198,.95) !important}
+.press-brand-panel{
+  min-height:230px;
   border-radius:28px;
   overflow:hidden;
   position:relative;
-  background:
-    linear-gradient(180deg,rgba(7,20,15,.05),rgba(7,20,15,.93)),
-    radial-gradient(circle at 32% 78%,rgba(203,161,90,.18),transparent 30%),
-    linear-gradient(135deg,#173628,#0b2118 46%,#07140f);
+  background:linear-gradient(180deg,rgba(7,20,15,.05),rgba(7,20,15,.93)),radial-gradient(circle at 32% 78%,rgba(203,161,90,.18),transparent 30%),linear-gradient(135deg,#173628,#0b2118 46%,#07140f);
   border:1px solid rgba(222,213,198,.95);
   box-shadow:0 18px 42px rgba(23,18,12,.12);
+  margin-bottom:14px;
 }
-.brand-panel:before{
+.press-brand-panel:before{
   content:"";
   position:absolute;
   left:-8%;
@@ -376,90 +131,179 @@ input,select,.textarea-box{
   bottom:-34px;
   height:112px;
   border-radius:50%;
-  background:
-    radial-gradient(ellipse at center,rgba(203,161,90,.24),transparent 62%),
-    linear-gradient(90deg,transparent,#2c5b38,transparent);
+  background:radial-gradient(ellipse at center,rgba(203,161,90,.24),transparent 62%),linear-gradient(90deg,transparent,#2c5b38,transparent);
 }
-.brand-panel:after{
+.press-brand-panel:after{
   content:"";
   position:absolute;
   left:0;right:0;bottom:0;height:85px;
   background:repeating-linear-gradient(-12deg,rgba(255,255,255,.05) 0 5px,transparent 5px 18px);
   opacity:.95;
 }
-.brand-panel-content{
-  position:relative;
-  z-index:2;
-  padding:28px 18px;
-  color:white;
-}
-.brand-panel .press-wordmark{font-size:44px}
-.brand-panel .press-tagline{margin-top:12px}
-.icon-row{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:30px}
-.icon-card{text-align:center;color:#f4ead4;font-size:10px;font-weight:900;text-transform:uppercase;letter-spacing:.5px}
-.icon-bubble{width:48px;height:48px;border:1.5px solid var(--gold2);border-radius:50%;display:grid;place-items:center;margin:0 auto 8px;color:var(--gold2);font-size:18px;background:rgba(7,20,15,.22)}
-.app-icon-demo{
+.press-panel-content{position:relative;z-index:2;padding:26px 18px;color:white}
+.press-app-icon{
   width:64px;height:64px;border-radius:18px;display:grid;place-items:center;
   background:radial-gradient(circle at 38% 28%,rgba(255,255,255,.16),transparent 32%),linear-gradient(145deg,#082117,#0f3b2b);
   border:1.5px solid var(--gold2);
   box-shadow:0 12px 28px rgba(0,0,0,.18);
 }
-.app-icon-demo svg{width:48px;height:48px}
-.complete-hero{
-  background:linear-gradient(135deg,#07140f,#0f2e23 62%,#184332) !important;
-  border:1px solid rgba(203,161,90,.25);
+.press-app-icon svg{width:48px;height:48px}
+.press-word{font-family:Georgia,serif;letter-spacing:11px;font-size:42px;line-height:1;color:white}
+.press-tagline{font-size:11px;letter-spacing:2.4px;color:var(--gold2);text-transform:uppercase;font-weight:900;margin-top:8px}
+.press-icons{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:30px}
+.press-icon-card{text-align:center;color:#f4ead4;font-size:10px;font-weight:900;text-transform:uppercase;letter-spacing:.5px}
+.press-icon-bubble{width:48px;height:48px;border:1.5px solid var(--gold2);border-radius:50%;display:grid;place-items:center;margin:0 auto 8px;color:var(--gold2);font-size:18px;background:rgba(7,20,15,.22)}
+#pressSplash{
+  position:fixed;
+  inset:0;
+  z-index:9999;
+  display:grid;
+  place-items:center;
+  background:linear-gradient(180deg,rgba(6,16,12,.10),rgba(6,16,12,.94)),radial-gradient(circle at 50% 24%,rgba(203,161,90,.22),transparent 30%),linear-gradient(145deg,#06100c,#0f2e23 62%,#07140f);
+  color:white;
+  transition:opacity .45s ease,visibility .45s ease;
 }
-.mode-dark{
-  --paper:#151812;--line:#2e352b;--muted:#b8b2a8;color:#f7f1e7;background:#0f110d;
+#pressSplash.hide{opacity:0;visibility:hidden;pointer-events:none}
+.press-splash-inner{text-align:center;transform:translateY(-8px)}
+.press-splash-logo{
+  width:126px;height:126px;border:2px solid var(--gold2);border-radius:28px;display:grid;place-items:center;margin:0 auto 22px;
+  box-shadow:0 0 0 8px rgba(203,161,90,.08),0 22px 52px rgba(0,0,0,.34);
+  background:radial-gradient(circle at 38% 28%,rgba(255,255,255,.15),transparent 32%),linear-gradient(145deg,#082117,#0f3b2b);
 }
-.mode-dark .app{background:#151812}
-.mode-dark .card,.mode-dark .admin-card,.mode-dark .template-card,.mode-dark .history-card,.mode-dark .feed{
-  background:#1f241b !important;color:#f7f1e7;
-}
-.mode-dark input,.mode-dark select,.mode-dark .textarea-box{
-  background:#161a13 !important;color:#f7f1e7;border-color:#343c30 !important;
-}
+.press-splash-logo svg{width:96px;height:96px}
+.press-splash-title{font-family:Georgia,serif;font-size:48px;letter-spacing:13px;margin:0}
+.press-splash-tag{margin-top:12px;color:var(--gold2);text-transform:uppercase;letter-spacing:2.4px;font-weight:900;font-size:12px}
+.press-splash-line{width:58px;height:2px;background:var(--gold2);margin:24px auto 0}
 
 </style>
 </head>
 <body>
 
-
-<div id="splash">
-  <div class="splash-inner">
-    <div class="splash-logo"><svg viewBox="0 0 120 120" role="img" aria-label="Press logo">
+<div id="pressSplash" onclick="hidePressSplash()">
+  <div class="press-splash-inner">
+    <div class="press-splash-logo"><svg viewBox="0 0 120 120" role="img" aria-label="Press logo">
   <defs>
-    <linearGradient id="pressGold" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#f1d28a"/>
-      <stop offset="0.52" stop-color="#cba15a"/>
-      <stop offset="1" stop-color="#8f6929"/>
+    <linearGradient id="pressGoldA" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f3d992"/>
+      <stop offset="0.55" stop-color="#cba15a"/>
+      <stop offset="1" stop-color="#8c6428"/>
     </linearGradient>
   </defs>
-  <path d="M32 96V22h35c20 0 33 12 33 29 0 18-13 30-33 30H51v15H32Z" fill="none" stroke="url(#pressGold)" stroke-width="5" stroke-linejoin="round"/>
-  <path d="M46 96V36h21c11 0 18 6 18 15 0 10-7 16-18 16H58" fill="none" stroke="url(#pressGold)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M60 52h8c3 0 5-1 5-3s-2-3-5-3h-8v21" fill="none" stroke="url(#pressGold)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M31 96V24h36c20 0 32 11 32 29s-12 29-32 29H51v14H31Z" fill="none" stroke="url(#pressGoldA)" stroke-width="5" stroke-linejoin="round"/>
+  <path d="M45 96V38h22c11 0 18 6 18 15s-7 15-18 15H58" fill="none" stroke="url(#pressGoldA)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M59 52h9c3 0 5-1 5-3s-2-3-5-3h-9v22" fill="none" stroke="url(#pressGoldA)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
 </svg></div>
-    <h1 class="splash-title">PRESS</h1>
-    <div class="splash-tag">Every shot. Every press. Every dollar.</div>
-    <div class="splash-line"></div>
+    <h1 class="press-splash-title">PRESS</h1>
+    <div class="press-splash-tag">Every shot. Every press. Every dollar.</div>
+    <div class="press-splash-line"></div>
   </div>
 </div>
 
-</div>
-
 <div class="app">
-<header class="hero"><div class="top"><div class="mark"><div class="logo press-mark"><svg viewBox="0 0 120 120" role="img" aria-label="Press logo">
+<header class="hero"><div class="top"><div class="mark"><div class="logo press-brand-logo"><svg viewBox="0 0 120 120" role="img" aria-label="Press logo">
   <defs>
-    <linearGradient id="pressGold" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#f1d28a"/>
-      <stop offset="0.52" stop-color="#cba15a"/>
-      <stop offset="1" stop-color="#8f6929"/>
+    <linearGradient id="pressGoldA" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f3d992"/>
+      <stop offset="0.55" stop-color="#cba15a"/>
+      <stop offset="1" stop-color="#8c6428"/>
     </linearGradient>
   </defs>
-  <path d="M32 96V22h35c20 0 33 12 33 29 0 18-13 30-33 30H51v15H32Z" fill="none" stroke="url(#pressGold)" stroke-width="5" stroke-linejoin="round"/>
-  <path d="M46 96V36h21c11 0 18 6 18 15 0 10-7 16-18 16H58" fill="none" stroke="url(#pressGold)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M60 52h8c3 0 5-1 5-3s-2-3-5-3h-8v21" fill="none" stroke="url(#pressGold)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-</svg></div><div><div class="brand">PRESS</div><div class="press-tagline">EVERY SHOT SETTLED</div></div><p class="meta">Invite-only. Results, stories, and receipts.</p><button class="btn gold" onclick="addLoungePost()">Post to Lounge</button></div>
+  <path d="M31 96V24h36c20 0 32 11 32 29s-12 29-32 29H51v14H31Z" fill="none" stroke="url(#pressGoldA)" stroke-width="5" stroke-linejoin="round"/>
+  <path d="M45 96V38h22c11 0 18 6 18 15s-7 15-18 15H58" fill="none" stroke="url(#pressGoldA)" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M59 52h9c3 0 5-1 5-3s-2-3-5-3h-9v22" fill="none" stroke="url(#pressGoldA)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+</svg></div><div><div class="brand">PRESS</div><div class="press-small-tag">EVERY SHOT SETTLED</div></div></div><div class="avatar"></div></div><h1 id="heroTitle">Press</h1><p class="sub">Every shot. Every press. Every dollar.</p><div class="badges" id="heroBadges"></div></header>
+<main class="content">
+<section id="home" class="screen active">
+  <div class="prototype-note">v18 HTML: Admin, backup/restore, settlement audit trail, and stronger saved data tools.</div>
+  <div class="section"><h2>Upcoming Rounds</h2><button onclick="switchTab('setup')">New</button></div>
+  <div class="card"><div class="title">App Controls</div><div class="meta">Use during testing if Chrome keeps old scores.</div><button class="btn ghost" onclick="startFreshRound()">Start fresh round</button><button class="btn danger" onclick="hardResetAll()">Reset saved app data</button></div>
+  <div class="card"><div class="row"><div><div class="title">New Round</div><div class="meta">4 players · choose games on Round tab</div></div><span class="status">GROUP</span></div><button class="btn gold" onclick="switchTab('setup')">Create Round</button></div>
+  <div class="section"><h2>Live Now</h2><button onclick="switchTab('games')">View</button></div>
+  <div class="card" onclick="switchTab('score')"><div class="row"><div><div class="title" id="liveTitle">Current Round</div><div class="meta" id="liveMeta">Ready to score · tap to open scorecard</div></div><span class="status">LIVE</span></div></div>
+</section>
+
+<section id="setup" class="screen">
+  <div class="section"><h2>Game Builder</h2><button onclick="resetGames()">Reset</button></div>
+  <div class="card"><div class="title">Round controls</div><div class="meta">Clear scores without losing players, or fully clear this browser.</div><button class="btn ghost" onclick="startFreshRound()">Start fresh round</button><button class="btn danger" onclick="hardResetAll()">Reset saved app data</button></div>
+  <div class="card"><div class="title">Create a round</div><div class="meta">Choose players, teams, games, and scoring basis.</div><div style="margin-top:14px"><label>Round name</label><input id="roundName" value="New Round" onchange="saveLocal()"></div><div class="grid2" style="margin-top:14px"><div><label>Players</label><select id="playerCount" onchange="setPlayerCount()"><option value="2">2 players</option><option value="3">3 players</option><option value="4" selected>4 players</option></select></div><div><label>Scoring</label><select id="gameScoring" onchange="saveLocal();renderAll()"><option>Net</option><option>Gross</option></select></div></div></div>
+  <div class="section"><h2>Step 1 · Games</h2></div>
+  <div class="side-grid" id="gameOptions"></div>
+  <div id="gameWarnings"></div>
+  <div class="section"><h2>Step 2 · Teams</h2><button onclick="autoTeams()">Auto teams</button></div>
+  <div id="teamsSetup"></div>
+  <div class="section"><h2>Side Action</h2></div>
+  <div class="side-grid" id="sideOptions"></div>
+  <div class="section"><h2>Step 3 · Players</h2><button onclick="addPlayer()">Add</button></div>
+  <div id="playersSetup"></div>
+  <div class="grid2" style="margin-top:8px"><button class="small-btn" onclick="saveNamedRoster()">Save named roster</button><button class="small-btn" onclick="loadRoster()">Load last roster</button></div><div id="namedRosterList" class="card" style="box-shadow:none;margin-top:10px"></div>
+  <div class="section"><h2>Step 4 · Settings</h2></div>
+  <div class="card"><div class="grid2"><div><label>Buy-in</label><input type="number" id="buyIn" value="20" onchange="saveLocal();renderAll()"></div><div><label>Skin value</label><input type="number" id="skinValue" value="5" onchange="saveLocal();renderAll()"></div></div><div class="grid2" style="margin-top:10px"><div><label>Nassau</label><input type="number" id="nassauValue" value="5" onchange="saveLocal();renderAll()"></div><div><label>Vegas Point</label><input type="number" id="vegasPoint" value="1" onchange="saveLocal();renderAll()"></div></div><div class="mini">Buy-in is informational for now. Settlement uses game values only.</div><div class="round-summary" id="roundSummary"></div><button class="btn green" onclick="startRound()">Start Scoring</button></div>
+</section>
+
+<section id="score" class="screen">
+  <div class="row" style="margin-bottom:12px"><div><div class="title">Scorecard</div><div class="meta" id="scoreProgress">0 holes scored · leaderboard based on scored holes only</div></div><span class="status">LIVE</span></div>
+  <div class="card"><div class="holes" id="holeStrip"></div></div>
+  <div class="card"><div class="row"><div><div class="title" id="holeTitle">Hole 1</div><div class="meta" id="holeMeta">Par 5 · HCP 17</div></div><span class="status" id="holeStatus">Net</span></div><div class="quick"><button onclick="quickScore(-1)">Birdie</button><button onclick="quickScore(0)">Par</button><button onclick="quickScore(1)">Bogey</button><button onclick="quickScore(2)">Double</button></div><div class="grid2" style="margin-top:8px"><button class="small-btn" onclick="clearHole()">Clear this hole</button><button class="small-btn" onclick="copyParToHole()">Copy par to all</button></div><div id="scoreRows" style="margin-top:14px"></div><div id="finishRoundPanel"></div><div class="grid2" style="margin-top:12px"><button class="btn ghost" onclick="prevHole()">Previous</button><button class="btn green" onclick="nextHole()">Next Hole</button></div></div>
+</section>
+
+<section id="games" class="screen">
+  <div class="section"><h2>Leaderboard</h2><button onclick="openSettlement()">Settle</button></div>
+  <div class="card"><div class="mini" id="leaderboardNote">Leaderboard based on scored holes only.</div><div id="leaderboard"></div></div>
+  <div id="teamBestBallSection" class="game-section"><div class="section"><h2>Team Best Ball</h2></div><div class="card"><div class="title">2v2 Best Ball</div><div id="teamBestBallBoard"></div></div></div>
+  <div id="skinsSection" class="game-section"><div class="section"><h2>Skins</h2></div><div class="card"><div class="title">Skins Board</div><div id="skinsBoard"></div></div></div>
+  <div id="nassauSection" class="game-section"><div class="section"><h2>Nassau</h2></div><div class="card"><div class="title">Team Nassau</div><div id="nassauBoard"></div><div class="card" style="box-shadow:none;margin-top:10px"><div class="score-name">Presses</div><div class="meta">Manual presses are tracked separately.</div><div id="pressBoard"></div><button class="btn ghost" onclick="addManualPress()">Add manual press from current hole</button></div></div></div>
+  <div id="vegasSection" class="game-section"><div class="section"><h2>Vegas</h2></div><div class="card"><div class="title">Vegas Board</div><div id="vegasBoard"></div></div></div>
+  <div id="sideSection" class="game-section"><div class="section"><h2>Side Action</h2></div><div class="card"><div class="title">Active Side Games</div><div class="meta" id="sideActionText">Skins</div></div></div>
+</section>
+
+
+<section id="complete" class="screen">
+  <div class="complete-hero">
+    <div class="title" style="color:white">Round Complete</div>
+    <div class="meta">Final summary, settlement, and sharing.</div>
+    <div class="complete-grid">
+      <div class="complete-stat"><strong id="completeHoles">0</strong><span>holes scored</span></div>
+      <div class="complete-stat"><strong id="completeLeader">-</strong><span>money leader</span></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="title">Final Leaderboard</div>
+    <div id="completeLeaderboard"></div>
+  </div>
+
+  <div class="card">
+    <div class="title">Settlement</div>
+    <div class="meta">Exact transfers to settle the round.</div>
+    <div id="completeTransfers"></div>
+    <div class="action-stack">
+      <button class="btn ghost" onclick="copySettlement()">Copy settlement text</button>
+      <button class="btn green" onclick="saveRoundResult()">Save result</button>
+      <button class="btn gold" onclick="postRoundRecap()">Post recap to Lounge</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="title">Game Breakdown</div>
+    <div id="completeBreakdown"></div>
+  </div>
+
+  
+  <div class="card">
+    <div class="title">Settlement Audit Trail</div>
+    <div class="meta">Hole-by-hole explanation for active games.</div>
+    <div id="auditTrail"></div>
+  </div>
+
+  <div class="card">
+    <div class="title">Share Text</div>
+    <div class="meta">Plain text for group chat.</div>
+    <div class="share-text" id="shareText"></div>
+  </div>
+</section>
+
+<section id="lounge" class="screen">
+  <div class="card lounge center"><div class="small-logo">G</div><div class="brand">THE LOUNGE</div><p class="meta">Invite-only. Results, stories, and receipts.</p><button class="btn gold" onclick="addLoungePost()">Post to Lounge</button></div>
   <div class="section"><h2>Feed</h2><button onclick="postRoundRecap()">Recap</button></div>
   <div id="loungeFeed"></div>
 </section>
@@ -989,15 +833,20 @@ function saveLocal(){let st={players,scores,currentHole,selectedGames,sideGames,
 function loadLocal(){let raw=localStorage.getItem("theTurnFixed");if(!raw){scores=emptyScores();return}try{let s=JSON.parse(raw);players=Array.isArray(s.players)&&s.players.length>=2?s.players:copy(defaults.players);scores=s.scores||{};currentHole=Number(s.currentHole||0);selectedGames=Array.isArray(s.selectedGames)?s.selectedGames:selectedGames;sideGames=Array.isArray(s.sideGames)?s.sideGames:sideGames;loungePosts=Array.isArray(s.loungePosts)?s.loungePosts:loungePosts;manualPresses=Array.isArray(s.manualPresses)?s.manualPresses:[];ensurePlayers();roundName.value=s.roundName||"New Round";gameScoring.value=s.gameScoring||"Net";buyIn.value=s.buyIn||20;skinValue.value=s.skinValue||5;nassauValue.value=s.nassauValue||5;vegasPoint.value=s.vegasPoint||1}catch(e){players=copy(defaults.players);scores=emptyScores()}}
 function renderAll(save=false){ensurePlayers();updateBadges();updateProgress();renderGameOptions();renderWarnings();renderTeams();renderSideOptions();renderPlayers();renderScore();renderGames();renderLounge();renderProfile();renderHistory();renderNamedRosters();renderRoundSummary();renderFinishRoundPanel();renderComplete();renderAdmin();renderAuditTrail();applyDisplayMode()}
 applyDisplayMode();
-
-function hideSplash(){
-  const s=document.getElementById("splash");
-  if(s) s.classList.add("hide");
-}
-setTimeout(hideSplash,1500);
-window.addEventListener("load",()=>setTimeout(hideSplash,900));
-
 loadLocal();ensurePlayers();renderAll();
 </script>
+
+<script>
+(function(){
+  window.hidePressSplash = function(){
+    var s = document.getElementById('pressSplash');
+    if(s){ s.classList.add('hide'); setTimeout(function(){ if(s && s.parentNode){ s.parentNode.removeChild(s); } }, 650); }
+  };
+  setTimeout(window.hidePressSplash, 1200);
+  window.addEventListener('load', function(){ setTimeout(window.hidePressSplash, 700); });
+  setTimeout(window.hidePressSplash, 2500);
+})();
+</script>
+
 </body>
 </html>
