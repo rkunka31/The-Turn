@@ -173,6 +173,11 @@ input,select{width:100%;border:1px solid var(--line);background:#f0e9dd;border-r
 .admin-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}
 .textarea-box{width:100%;min-height:120px;border:1px solid var(--line);border-radius:12px;padding:10px;background:#f0e9dd;font-size:12px;color:var(--ink);margin-top:8px;resize:none}
 
+
+.setup-nav{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}
+.setup-step-block{display:none}
+.setup-step-block.active{display:block}
+
 /* MISC */
 .warn{background:#fff8e8;border:1px solid #ead5aa;color:#7a5d18;border-radius:12px;padding:10px;font-size:12px;margin:8px 0}
 .mini{font-size:11px;color:var(--muted);margin-top:6px;line-height:1.4}
@@ -306,7 +311,7 @@ input,select{width:100%;border:1px solid var(--line);background:#f0e9dd;border-r
     <button class="sh-btn" onclick="show('admin',document.querySelector('[data-tab=more]'))">⚙</button>
   </header>
   <div class="screen-body">
-    <div class="card">
+    <div class="card setup-step-block" data-step="1">
       <div class="card-row">
         <div><div class="title">Greystone Golf Club</div><div class="meta" id="courseDetail">White Tees · 71.2 / 132</div></div>
         <span style="color:var(--muted);font-size:18px">›</span>
@@ -331,8 +336,12 @@ input,select{width:100%;border:1px solid var(--line);background:#f0e9dd;border-r
       </div>
       <div id="namedRosterList" style="margin-top:8px"></div>
     </div>
+    <div class="setup-nav">
+      <button class="small-btn" onclick="prevSetupStep()">← Back</button>
+      <button class="small-btn" onclick="nextSetupStep()">Next →</button>
+    </div>
 
-    <div class="card">
+    <div class="card setup-step-block" data-step="2">
       <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px">
         <div class="title">Games</div>
         <button class="small-btn" onclick="resetGames()">Reset</button>
@@ -345,7 +354,7 @@ input,select{width:100%;border:1px solid var(--line);background:#f0e9dd;border-r
       <div class="side-grid" style="margin-top:8px" id="sideOptions"></div>
     </div>
 
-    <div class="card">
+    <div class="card setup-step-block" data-step="3">
       <div class="title" style="margin-bottom:12px">Settings</div>
       <div class="grid2">
         <div><label>Round Name</label><input id="roundName" value="New Round" onchange="saveLocal()"></div>
@@ -364,7 +373,7 @@ input,select{width:100%;border:1px solid var(--line);background:#f0e9dd;border-r
       <button class="btn ghost" onclick="startFreshRound()">Reset Scores</button>
     </div>
 
-    <div class="card">
+    <div class="card setup-step-block" data-step="3">
       <div class="title" style="margin-bottom:8px">Teams</div>
       <button class="small-btn" onclick="autoTeams()" style="margin-bottom:8px">Auto-assign teams</button>
       <div id="teamsSetup"></div>
@@ -854,6 +863,20 @@ function showLoungeTab(tab){
   });
 }
 
+
+let setupStep=1;
+function renderSetupWizard(){
+  const blocks=document.querySelectorAll('#setup .setup-step-block');
+  blocks.forEach(b=>b.classList.toggle('active',Number(b.dataset.step)===setupStep));
+  const nextBtn=document.querySelector('#setup .setup-nav button:last-child');
+  if(nextBtn) nextBtn.innerText=setupStep===3?'Done ✓':'Next →';
+}
+function nextSetupStep(){
+  if(setupStep<3){setupStep++;renderSetupWizard();}
+  else switchTab('score');
+}
+function prevSetupStep(){if(setupStep>1){setupStep--;renderSetupWizard();}}
+
 // ─── SETUP ───────────────────────────────────────────────────────────────────
 function setPlayerCount(){let c=Number(playerCount.value);players=players.slice(0,c);while(players.length<c)players.push({name:`Player ${players.length+1}`,tee:"White",hcp:10,team:players.length%2===0?"A":"B"});scores=emptyScores();autoTeams(false);renderAll();saveLocal()}
 function renderPlayers(){
@@ -909,7 +932,7 @@ function deleteNamedRoster(id){let rosters=JSON.parse(localStorage.getItem("theT
 function renderNamedRosters(){const el=document.getElementById("namedRosterList");if(!el)return;const rosters=JSON.parse(localStorage.getItem("theTurnNamedRosters")||"[]");if(!rosters.length){el.innerHTML='<div class="meta">No saved rosters.</div>';return}el.innerHTML=rosters.map(r=>`<div class="named-roster-row"><div><div class="score-name">${r.name}</div><div class="score-note">${(r.players||[]).map(p=>p.name).join(" · ")}</div></div><div style="display:flex;gap:6px"><button class="small-btn" onclick="loadNamedRoster(${r.id})">Load</button><button class="small-btn" onclick="deleteNamedRoster(${r.id})">✕</button></div></div>`).join("")}
 
 // ─── ROUND ───────────────────────────────────────────────────────────────────
-function startRound(){ensurePlayers();renderAll();saveLocal();switchTab("score")}
+function startRound(){setupStep=3;ensurePlayers();renderAll();saveLocal();switchTab("score")}
 function startFreshRound(){scores=emptyScores();currentHole=0;renderAll();saveLocal();switchTab("score")}
 function hardResetAll(){localStorage.removeItem("theTurnFixed");players=copy(defaults.players);scores=emptyScores();currentHole=0;selectedGames=["Skins","Best Ball"];sideGames=["Skins"];loungePosts=copy(defaults.lounge);manualPresses=[];roundName.value="New Round";renderAll();saveLocal();alert("App data cleared.")}
 
