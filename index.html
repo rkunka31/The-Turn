@@ -6,6 +6,9 @@
 <title>Press | Greystone</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#0f2623">
+<link rel="apple-touch-icon" href="icons/icon-192.svg">
 <style>
 :root{
   --green:#0f2623;--green2:#184332;--gold:#c0a35a;--gold2:#e3bd68;
@@ -113,6 +116,16 @@ input,select{width:100%;border:1px solid var(--line);background:#f0e9dd;border-r
 .quick{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin:10px 0}
 .quick button{border:1px solid var(--line);background:#f0e9dd;border-radius:999px;padding:8px 4px;font-size:12px;font-weight:700;color:var(--ink)}
 
+
+.score-toolbar{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:10px}
+.progress-track{height:8px;background:#e5ddd0;border-radius:999px;overflow:hidden;margin:8px 0 10px}
+.progress-fill{height:100%;background:linear-gradient(135deg,var(--green2),var(--green));width:0%}
+.save-flash{font-size:11px;color:var(--green2);font-weight:700;opacity:0;transition:opacity .2s}
+.save-flash.show{opacity:1}
+.result-kpis{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-top:10px}
+.result-kpi{background:#f0e9dd;border:1px solid var(--line);border-radius:12px;padding:9px;text-align:center}
+.result-kpi strong{display:block;font-size:16px}
+
 /* LEADERBOARD */
 .leader{display:grid;grid-template-columns:28px 1fr 36px 36px 60px;gap:6px;align-items:center;padding:10px 0;border-bottom:1px solid var(--line)}
 .leader:last-child{border-bottom:none}
@@ -172,6 +185,16 @@ input,select{width:100%;border:1px solid var(--line);background:#f0e9dd;border-r
 .toggle.on::after{transform:translateX(20px)}
 .admin-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}
 .textarea-box{width:100%;min-height:120px;border:1px solid var(--line);border-radius:12px;padding:10px;background:#f0e9dd;font-size:12px;color:var(--ink);margin-top:8px;resize:none}
+
+
+.setup-progress{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:10px}
+.setup-progress .pill{border:1px solid var(--line);background:#f0e9dd;border-radius:999px;padding:7px 6px;font-size:10px;font-weight:700;letter-spacing:.8px;text-align:center;color:var(--muted);transition:all .2s}
+.setup-progress .pill.active{background:var(--green);color:white;border-color:var(--green)}
+.setup-progress .pill.done{background:#e6f2ec;color:#184332;border-color:#9fcdb7}
+.setup-nav{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:10px 0}
+.setup-step-block{display:none;animation:fadeIn .18s ease}
+.setup-step-block.active{display:block}
+@keyframes fadeIn{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:translateY(0)}}
 
 /* MISC */
 .warn{background:#fff8e8;border:1px solid #ead5aa;color:#7a5d18;border-radius:12px;padding:10px;font-size:12px;margin:8px 0}
@@ -247,6 +270,12 @@ input,select{width:100%;border:1px solid var(--line);background:#f0e9dd;border-r
 .modal.active{display:flex}
 .sheet{width:min(430px,100%);max-height:86vh;overflow-y:auto;background:var(--paper);border-top-left-radius:24px;border-top-right-radius:24px;padding:16px}
 
+
+.lock-overlay{position:fixed;inset:0;background:rgba(7,18,14,.88);backdrop-filter:blur(6px);z-index:120;display:none;align-items:center;justify-content:center;padding:18px}
+.lock-overlay.active{display:flex}
+.lock-card{width:min(360px,100%);background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:18px}
+.lock-card .title{font-family:var(--ff-display)}
+
 /* SPLASH */
 #pressSplash{position:fixed;inset:0;z-index:9999;display:grid;place-items:center;background:linear-gradient(160deg,#081610 0%,#0f2623 55%,#0a1c14 100%);color:white;transition:opacity .5s ease,visibility .5s ease}
 #pressSplash.hide{opacity:0;visibility:hidden;pointer-events:none}
@@ -294,6 +323,8 @@ input,select{width:100%;border:1px solid var(--line);background:#f0e9dd;border-r
   </div>
 </div>
 
+<div class="lock-overlay" id="accessLock"><div class="lock-card"><div class="title" style="margin-bottom:6px">Private Club Access</div><div class="meta" style="margin-bottom:10px">Enter club PIN to unlock this app.</div><input id="accessPinInput" type="password" inputmode="numeric" placeholder="4-8 digit PIN"><button class="btn green" onclick="unlockAccess()" style="margin-top:10px">Unlock</button><div class="mini" id="accessLockMsg"></div></div></div>
+
 <div class="app">
 
 <!-- ══════════════════════════════════════
@@ -306,7 +337,8 @@ input,select{width:100%;border:1px solid var(--line);background:#f0e9dd;border-r
     <button class="sh-btn" onclick="show('admin',document.querySelector('[data-tab=more]'))">⚙</button>
   </header>
   <div class="screen-body">
-    <div class="card">
+    <div class="setup-progress" id="setupProgress"></div>
+    <div class="card setup-step-block" data-step="1">
       <div class="card-row">
         <div><div class="title">Greystone Golf Club</div><div class="meta" id="courseDetail">White Tees · 71.2 / 132</div></div>
         <span style="color:var(--muted);font-size:18px">›</span>
@@ -317,7 +349,7 @@ input,select{width:100%;border:1px solid var(--line);background:#f0e9dd;border-r
       </div>
     </div>
 
-    <div class="card">
+    <div class="card setup-step-block" data-step="1">
       <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px">
         <div class="title">Players</div>
         <select id="playerCount" onchange="setPlayerCount()" style="width:auto;padding:6px 10px;font-size:13px;border-radius:999px">
@@ -331,8 +363,12 @@ input,select{width:100%;border:1px solid var(--line);background:#f0e9dd;border-r
       </div>
       <div id="namedRosterList" style="margin-top:8px"></div>
     </div>
+    <div class="setup-nav">
+      <button id="setupBackBtn" class="small-btn" onclick="prevSetupStep()">← Back</button>
+      <button id="setupNextBtn" class="small-btn" onclick="nextSetupStep()">Next →</button>
+    </div>
 
-    <div class="card">
+    <div class="card setup-step-block" data-step="2">
       <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px">
         <div class="title">Games</div>
         <button class="small-btn" onclick="resetGames()">Reset</button>
@@ -345,7 +381,7 @@ input,select{width:100%;border:1px solid var(--line);background:#f0e9dd;border-r
       <div class="side-grid" style="margin-top:8px" id="sideOptions"></div>
     </div>
 
-    <div class="card">
+    <div class="card setup-step-block" data-step="3">
       <div class="title" style="margin-bottom:12px">Settings</div>
       <div class="grid2">
         <div><label>Round Name</label><input id="roundName" value="New Round" onchange="saveLocal()"></div>
@@ -364,7 +400,7 @@ input,select{width:100%;border:1px solid var(--line);background:#f0e9dd;border-r
       <button class="btn ghost" onclick="startFreshRound()">Reset Scores</button>
     </div>
 
-    <div class="card">
+    <div class="card setup-step-block" data-step="3">
       <div class="title" style="margin-bottom:8px">Teams</div>
       <button class="small-btn" onclick="autoTeams()" style="margin-bottom:8px">Auto-assign teams</button>
       <div id="teamsSetup"></div>
@@ -389,6 +425,7 @@ input,select{width:100%;border:1px solid var(--line);background:#f0e9dd;border-r
       <div class="holes" id="holeStrip"></div>
     </div>
     <div class="card">
+      <div class="score-toolbar"><div class="mini" id="scoreModeLabel">Net scoring</div><div class="save-flash" id="saveFlash">Saved</div></div>
       <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px">
         <div>
           <div class="title" id="holeTitle">Hole 1</div>
@@ -402,6 +439,7 @@ input,select{width:100%;border:1px solid var(--line);background:#f0e9dd;border-r
         <button onclick="quickScore(1)">Bogey</button>
         <button onclick="quickScore(2)">Double</button>
       </div>
+      <div class="progress-track"><div class="progress-fill" id="scoreProgressFill"></div></div>
       <div id="scoreRows"></div>
       <div id="finishRoundPanel"></div>
       <div class="grid2" style="margin-top:12px">
@@ -539,6 +577,7 @@ input,select{width:100%;border:1px solid var(--line);background:#f0e9dd;border-r
           <div class="complete-stat"><strong id="completeHoles">0</strong><span>holes scored</span></div>
           <div class="complete-stat"><strong id="completeLeader">–</strong><span>money leader</span></div>
         </div>
+        <div class="result-kpis" id="resultKpis"></div>
       </div>
       <div class="card">
         <div class="title" style="margin-bottom:10px">Game Breakdown</div>
@@ -664,6 +703,20 @@ input,select{width:100%;border:1px solid var(--line);background:#f0e9dd;border-r
         <div class="admin-text"><strong>Course / Tee Info</strong><span>Greystone Golf Club</span></div>
         <div class="admin-action">›</div>
       </div>
+    </div>
+
+    <div class="admin-card">
+      <div class="title" style="margin-bottom:8px">Private Access</div>
+      <div class="admin-row">
+        <div class="admin-icon blue-bg"><svg viewBox="0 0 24 24" style="stroke:#2a5a8a"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V8a5 5 0 0110 0v3"/></svg></div>
+        <div class="admin-text"><strong>Require PIN</strong><span>Protect app access on shared links</span></div>
+        <button id="pinToggle" class="toggle" onclick="togglePinLock()"></button>
+      </div>
+      <div class="grid2" style="margin-top:8px">
+        <div><label>PIN Code</label><input id="clubPin" type="password" inputmode="numeric" placeholder="4-8 digits"></div>
+        <div style="display:flex;align-items:end"><button class="small-btn" onclick="saveClubPin()">Save PIN</button></div>
+      </div>
+      <div class="mini">Stored locally (hashed PIN). Share only with invited members.</div>
     </div>
 
     <div class="admin-card">
@@ -854,6 +907,43 @@ function showLoungeTab(tab){
   });
 }
 
+
+let setupStep=1;
+function setupIsStepValid(step){
+  if(step===1){
+    const validPlayers=players.filter(p=>p.name&&p.name.trim()).length>=2;
+    return validPlayers;
+  }
+  if(step===2){
+    return true;
+  }
+  return true;
+}
+function renderSetupProgress(){
+  const el=document.getElementById('setupProgress');
+  if(!el) return;
+  const labels=['1. Players','2. Games','3. Settings'];
+  el.innerHTML=labels.map((label,idx)=>{const step=idx+1;const cls=step<setupStep?'pill done':step===setupStep?'pill active':'pill';return `<div class="${cls}">${label}</div>`;}).join('');
+}
+function renderSetupWizard(){
+  const blocks=document.querySelectorAll('#setup .setup-step-block');
+  blocks.forEach(b=>b.classList.toggle('active',Number(b.dataset.step)===setupStep));
+  const backBtn=document.getElementById('setupBackBtn');
+  const nextBtn=document.getElementById('setupNextBtn');
+  if(backBtn) backBtn.disabled=setupStep===1;
+  if(nextBtn){
+    nextBtn.innerText=setupStep===3?'Start Round ✓':'Next →';
+    nextBtn.disabled=!setupIsStepValid(setupStep);
+  }
+  renderSetupProgress();
+}
+function nextSetupStep(){
+  if(!setupIsStepValid(setupStep)){alert('Please complete required setup info before continuing.');return;}
+  if(setupStep<3){setupStep++;renderSetupWizard();}
+  else startRound();
+}
+function prevSetupStep(){if(setupStep>1){setupStep--;renderSetupWizard();}}
+
 // ─── SETUP ───────────────────────────────────────────────────────────────────
 function setPlayerCount(){let c=Number(playerCount.value);players=players.slice(0,c);while(players.length<c)players.push({name:`Player ${players.length+1}`,tee:"White",hcp:10,team:players.length%2===0?"A":"B"});scores=emptyScores();autoTeams(false);renderAll();saveLocal()}
 function renderPlayers(){
@@ -909,9 +999,17 @@ function deleteNamedRoster(id){let rosters=JSON.parse(localStorage.getItem("theT
 function renderNamedRosters(){const el=document.getElementById("namedRosterList");if(!el)return;const rosters=JSON.parse(localStorage.getItem("theTurnNamedRosters")||"[]");if(!rosters.length){el.innerHTML='<div class="meta">No saved rosters.</div>';return}el.innerHTML=rosters.map(r=>`<div class="named-roster-row"><div><div class="score-name">${r.name}</div><div class="score-note">${(r.players||[]).map(p=>p.name).join(" · ")}</div></div><div style="display:flex;gap:6px"><button class="small-btn" onclick="loadNamedRoster(${r.id})">Load</button><button class="small-btn" onclick="deleteNamedRoster(${r.id})">✕</button></div></div>`).join("")}
 
 // ─── ROUND ───────────────────────────────────────────────────────────────────
-function startRound(){ensurePlayers();renderAll();saveLocal();switchTab("score")}
+function startRound(){setupStep=3;ensurePlayers();renderAll();saveLocal();switchTab("score")}
 function startFreshRound(){scores=emptyScores();currentHole=0;renderAll();saveLocal();switchTab("score")}
 function hardResetAll(){localStorage.removeItem("theTurnFixed");players=copy(defaults.players);scores=emptyScores();currentHole=0;selectedGames=["Skins","Best Ball"];sideGames=["Skins"];loungePosts=copy(defaults.lounge);manualPresses=[];roundName.value="New Round";renderAll();saveLocal();alert("App data cleared.")}
+
+function flashSave(){
+  const el=document.getElementById('saveFlash');
+  if(!el) return;
+  el.classList.add('show');
+  clearTimeout(window.__saveFlashTimer);
+  window.__saveFlashTimer=setTimeout(()=>el.classList.remove('show'),700);
+}
 
 // ─── SCORING ─────────────────────────────────────────────────────────────────
 function holesScored(){let c=0;for(let i=0;i<18;i++)if(players.some(p=>scores[p.name]?.[i]))c++;return c}
@@ -928,6 +1026,10 @@ function renderScore(){
   if(holeTitle)holeTitle.innerText=`Hole ${currentHole+1}`;
   if(holeMeta)holeMeta.innerText=`Par ${course.pars[currentHole]} · HCP ${course.hcp[currentHole]}`;
   if(holeStatus)holeStatus.innerText=gameScoring.value;
+  const modeLabel=document.getElementById("scoreModeLabel");
+  if(modeLabel) modeLabel.innerText=gameScoring.value+" scoring";
+  const pf=document.getElementById("scoreProgressFill");
+  if(pf){const pct=Math.round((holesScored()/18)*100);pf.style.width=pct+"%";}
   if(pressHoleNum)pressHoleNum.innerText=currentHole+1;
   if(!scoreRows)return;
   scoreRows.innerHTML=players.map((p,i)=>{
@@ -950,10 +1052,10 @@ function renderScore(){
     </div>`;
   }).join("");
 }
-function quickScore(d){players.forEach(p=>scores[p.name][currentHole]=Math.max(1,course.pars[currentHole]+d));renderAll();saveLocal()}
-function clearHole(){players.forEach(p=>scores[p.name][currentHole]=0);renderAll();saveLocal()}
-function copyParToHole(){players.forEach(p=>scores[p.name][currentHole]=course.pars[currentHole]);renderAll();saveLocal()}
-function change(n,d){let cur=scores[n][currentHole];if(!cur&&d>0)scores[n][currentHole]=course.pars[currentHole];else if(!cur&&d<0)scores[n][currentHole]=Math.max(1,course.pars[currentHole]-1);else scores[n][currentHole]+=d;if(scores[n][currentHole]<1)scores[n][currentHole]=0;renderAll();saveLocal()}
+function quickScore(d){players.forEach(p=>scores[p.name][currentHole]=Math.max(1,course.pars[currentHole]+d));renderAll();flashSave();saveLocal()}
+function clearHole(){players.forEach(p=>scores[p.name][currentHole]=0);renderAll();flashSave();saveLocal()}
+function copyParToHole(){players.forEach(p=>scores[p.name][currentHole]=course.pars[currentHole]);renderAll();flashSave();saveLocal()}
+function change(n,d){let cur=scores[n][currentHole];if(!cur&&d>0)scores[n][currentHole]=course.pars[currentHole];else if(!cur&&d<0)scores[n][currentHole]=Math.max(1,course.pars[currentHole]-1);else scores[n][currentHole]+=d;if(scores[n][currentHole]<1)scores[n][currentHole]=0;renderAll();flashSave();saveLocal()}
 function totals(p){let g=0,n=0;scores[p.name].forEach((s,i)=>{if(s){g+=s;n+=s-strokes(p,i)}});return{gross:g,net:n}}
 function team(t){return players.filter(p=>p.team===t)}
 function best(t,h){let vals=team(t).map(p=>scoreFor(p,h)).filter(v=>v!==null);return vals.length?Math.min(...vals):null}
@@ -1084,6 +1186,8 @@ function renderComplete(){
   const l=settlement(),leader=roundLeader(),h=holesScored();
   if(completeHoles)completeHoles.innerText=h;
   if(completeLeader)completeLeader.innerText=leader[0];
+  const rk=document.getElementById("resultKpis");
+  if(rk){const t=transfers();const totalPot=Math.abs(Object.values(l).filter(v=>v>0).reduce((a,b)=>a+b,0));rk.innerHTML=`<div class="result-kpi"><strong>${selectedGames.length||1}</strong><span class="meta">games</span></div><div class="result-kpi"><strong>${t.length}</strong><span class="meta">transfers</span></div><div class="result-kpi"><strong>$${totalPot}</strong><span class="meta">settled</span></div>`;}
   const lb=players.map(p=>({...p,...totals(p)})).sort((a,b)=>gameScoring.value==="Net"?a.net-b.net:a.gross-b.gross);
   if(completeLeaderboard)completeLeaderboard.innerHTML=lb.map((p,i)=>`<div class="leader"><div class="rank">${i+1}</div><div><div class="score-name">${p.name}</div><div class="score-note">${p.gross} gross · ${p.net>=0?"+":""}${p.net} net</div></div><div class="num">${p.gross}</div><div class="num">${p.net}</div><div class="${(l[p.name]||0)>=0?"money-pos":"money-neg"}">${money(l[p.name]||0)}</div></div>`).join("");
   if(completeBreakdown)completeBreakdown.innerHTML=settlementBreakdownHtml();
@@ -1166,11 +1270,35 @@ function renderProfile(){
   rrEl.innerHTML=hist.slice(0,5).map(r=>{const v=r.ledger?.[me.name]||0;return`<div class="history-card"><div style="display:flex;justify-content:space-between;align-items:center"><div><div class="title">${r.name}</div><div class="meta">${r.date} · ${r.holes} holes · ${(r.games||[]).join(' + ')||'Stroke Play'}</div></div><div class="${v>=0?'money-pos':'money-neg'}" style="font-size:16px;font-weight:800">${money(v)}</div></div></div>`;}).join('');
 }
 
+
+let requirePin=false;
+let clubPinHash="";
+let accessUnlocked=false;
+function pinHash(pin){return btoa(pin.split("").reverse().join("")+"::greystone");}
+function saveClubPin(){
+  const val=(document.getElementById('clubPin')?.value||'').trim();
+  if(!/^\d{4,8}$/.test(val)){alert('PIN must be 4 to 8 digits.');return;}
+  clubPinHash=pinHash(val); requirePin=true; saveLocal(); renderAdmin(); document.getElementById("clubPin").value=""; alert('PIN saved.');
+}
+function togglePinLock(){requirePin=!requirePin; if(!requirePin){accessUnlocked=true;} saveLocal(); renderAdmin();}
+function showAccessLock(){
+  if(!requirePin || accessUnlocked) return;
+  const el=document.getElementById('accessLock'); if(el) el.classList.add('active');
+}
+function unlockAccess(){
+  const entered=(document.getElementById('accessPinInput')?.value||'').trim();
+  const msg=document.getElementById('accessLockMsg');
+  if(pinHash(entered)===clubPinHash){accessUnlocked=true; document.getElementById('accessLock')?.classList.remove('active'); if(msg) msg.innerText='';}
+  else if(msg){msg.innerText='Incorrect PIN.';}
+}
+
 // ─── ADMIN ───────────────────────────────────────────────────────────────────
 function renderAdmin(){
   const el=document.getElementById("adminRoundSummary");
   if(el){const h=holesScored(),l=settlement();el.innerHTML=`<div class="meta">${roundName?.value||"Round"} · ${players.length} players · ${h} holes scored</div><div style="margin-top:8px;display:flex;gap:6px;flex-wrap:wrap">${Object.entries(l).map(([n,v])=>`<span class="segment-pill">${n} ${money(v)}</span>`).join("")}</div>`}
   if(storageStatus){try{const keys=Object.keys(localStorage).filter(k=>k.includes("theTurn"));storageStatus.innerText=`${keys.length} keys · OK`}catch(e){storageStatus.innerText="Storage unavailable"}}
+  const pin=document.getElementById("pinToggle"); if(pin) pin.classList.toggle("on",requirePin);
+  const cp=document.getElementById("clubPin"); if(cp) cp.value="";
   const dark=document.body.classList.contains("mode-dark");
   const tog=document.getElementById("darkToggle");
   if(tog)tog.classList.toggle("on",dark);
@@ -1181,8 +1309,8 @@ function toggleDarkMode(){document.body.classList.toggle("mode-dark");document.q
 function applyTemplate(t){players=copy(defaults.players);scores=emptyScores();if(t==="nassau5"){selectedGames=["Nassau"];sideGames=[];nassauValue.value=5;roundName.value="$5 Nassau"}if(t==="nassau10"){selectedGames=["Nassau"];sideGames=[];nassauValue.value=10;roundName.value="$10 Nassau"}if(t==="skins"){selectedGames=["Skins"];sideGames=["Skins"];roundName.value="Skins Game"}if(t==="bestballskins"){selectedGames=["Best Ball","Skins"];sideGames=["Skins"];roundName.value="Best Ball + Skins"}if(t==="vegas"){selectedGames=["Vegas"];sideGames=[];roundName.value="Vegas"}if(t==="fullmix"){selectedGames=["Nassau","Skins","Best Ball","Vegas"];sideGames=["Skins","Birdies"];nassauValue.value=10;skinValue.value=5;roundName.value="Full Mix"}autoTeams(false);renderAll();saveLocal();switchTab("setup")}
 
 // ─── SAVE / LOAD ─────────────────────────────────────────────────────────────
-function saveLocal(){try{localStorage.setItem("theTurnFixed",JSON.stringify({players,scores,currentHole,selectedGames,sideGames,loungePosts,manualPresses,roundName:roundName?.value,skinValue:skinValue?.value,nassauValue:nassauValue?.value,buyIn:buyIn?.value,vegasPoint:vegasPoint?.value,gameScoring:gameScoring?.value}))}catch(e){}}
-function loadLocal(){try{const raw=localStorage.getItem("theTurnFixed");if(!raw)return;const d=JSON.parse(raw);if(d.players)players=d.players;if(d.scores)scores=d.scores;if(d.currentHole!==undefined)currentHole=d.currentHole;if(d.selectedGames)selectedGames=d.selectedGames;if(d.sideGames)sideGames=d.sideGames;if(d.loungePosts)loungePosts=d.loungePosts;if(d.manualPresses)manualPresses=d.manualPresses;if(d.roundName&&roundName)roundName.value=d.roundName;if(d.skinValue&&skinValue)skinValue.value=d.skinValue;if(d.nassauValue&&nassauValue)nassauValue.value=d.nassauValue;if(d.buyIn&&buyIn)buyIn.value=d.buyIn;if(d.vegasPoint&&vegasPoint)vegasPoint.value=d.vegasPoint;if(d.gameScoring&&gameScoring)gameScoring.value=d.gameScoring}catch(e){}}
+function saveLocal(){try{localStorage.setItem("theTurnFixed",JSON.stringify({players,scores,currentHole,selectedGames,sideGames,loungePosts,manualPresses,roundName:roundName?.value,skinValue:skinValue?.value,nassauValue:nassauValue?.value,buyIn:buyIn?.value,vegasPoint:vegasPoint?.value,gameScoring:gameScoring?.value,requirePin,clubPinHash}))}catch(e){}}
+function loadLocal(){try{const raw=localStorage.getItem("theTurnFixed");if(!raw)return;const d=JSON.parse(raw);if(d.players)players=d.players;if(d.scores)scores=d.scores;if(d.currentHole!==undefined)currentHole=d.currentHole;if(d.selectedGames)selectedGames=d.selectedGames;if(d.sideGames)sideGames=d.sideGames;if(d.loungePosts)loungePosts=d.loungePosts;if(d.manualPresses)manualPresses=d.manualPresses;if(d.roundName&&roundName)roundName.value=d.roundName;if(d.skinValue&&skinValue)skinValue.value=d.skinValue;if(d.nassauValue&&nassauValue)nassauValue.value=d.nassauValue;if(d.buyIn&&buyIn)buyIn.value=d.buyIn;if(d.vegasPoint&&vegasPoint)vegasPoint.value=d.vegasPoint;if(d.gameScoring&&gameScoring)gameScoring.value=d.gameScoring;if(d.requirePin!==undefined)requirePin=!!d.requirePin;if(d.clubPinHash)clubPinHash=d.clubPinHash}catch(e){}}
 
 // ─── RENDER ALL ──────────────────────────────────────────────────────────────
 function renderAll(save=true){
@@ -1193,6 +1321,7 @@ function renderAll(save=true){
   renderSideOptions();
   renderWarnings();
   renderRoundSummary();
+  renderSetupWizard();
   renderScore();
   renderFinishRoundPanel();
   renderGames();
@@ -1219,6 +1348,10 @@ window.addEventListener("DOMContentLoaded",()=>{
   ensurePlayers();
   if(localStorage.getItem("theTurnDark")==="1"){document.body.classList.add("mode-dark");document.querySelector(".app").classList.add("mode-dark")}
   renderAll(false);
+  if ("serviceWorker" in navigator) {
+    navigator.serviceWorker.register("./sw.js").catch(()=>{});
+  }
+  showAccessLock();
   setTimeout(hidePressSplash, 1800);
 });
 </script>
