@@ -187,14 +187,9 @@ input,select{width:100%;border:1px solid var(--line);background:#f0e9dd;border-r
 .textarea-box{width:100%;min-height:120px;border:1px solid var(--line);border-radius:12px;padding:10px;background:#f0e9dd;font-size:12px;color:var(--ink);margin-top:8px;resize:none}
 
 
-.setup-progress{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:10px}
-.setup-progress .pill{border:1px solid var(--line);background:#f0e9dd;border-radius:999px;padding:7px 6px;font-size:10px;font-weight:700;letter-spacing:.8px;text-align:center;color:var(--muted);transition:all .2s}
-.setup-progress .pill.active{background:var(--green);color:white;border-color:var(--green)}
-.setup-progress .pill.done{background:#e6f2ec;color:#184332;border-color:#9fcdb7}
-.setup-nav{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:10px 0}
-.setup-step-block{display:none;animation:fadeIn .18s ease}
+.setup-nav{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px}
+.setup-step-block{display:none}
 .setup-step-block.active{display:block}
-@keyframes fadeIn{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:translateY(0)}}
 
 /* MISC */
 .warn{background:#fff8e8;border:1px solid #ead5aa;color:#7a5d18;border-radius:12px;padding:10px;font-size:12px;margin:8px 0}
@@ -337,7 +332,6 @@ input,select{width:100%;border:1px solid var(--line);background:#f0e9dd;border-r
     <button class="sh-btn" onclick="show('admin',document.querySelector('[data-tab=more]'))">⚙</button>
   </header>
   <div class="screen-body">
-    <div class="setup-progress" id="setupProgress"></div>
     <div class="card setup-step-block" data-step="1">
       <div class="card-row">
         <div><div class="title">Greystone Golf Club</div><div class="meta" id="courseDetail">White Tees · 71.2 / 132</div></div>
@@ -364,8 +358,8 @@ input,select{width:100%;border:1px solid var(--line);background:#f0e9dd;border-r
       <div id="namedRosterList" style="margin-top:8px"></div>
     </div>
     <div class="setup-nav">
-      <button id="setupBackBtn" class="small-btn" onclick="prevSetupStep()">← Back</button>
-      <button id="setupNextBtn" class="small-btn" onclick="nextSetupStep()">Next →</button>
+      <button class="small-btn" onclick="prevSetupStep()">← Back</button>
+      <button class="small-btn" onclick="nextSetupStep()">Next →</button>
     </div>
 
     <div class="card setup-step-block" data-step="2">
@@ -909,38 +903,15 @@ function showLoungeTab(tab){
 
 
 let setupStep=1;
-function setupIsStepValid(step){
-  if(step===1){
-    const validPlayers=players.filter(p=>p.name&&p.name.trim()).length>=2;
-    return validPlayers;
-  }
-  if(step===2){
-    return true;
-  }
-  return true;
-}
-function renderSetupProgress(){
-  const el=document.getElementById('setupProgress');
-  if(!el) return;
-  const labels=['1. Players','2. Games','3. Settings'];
-  el.innerHTML=labels.map((label,idx)=>{const step=idx+1;const cls=step<setupStep?'pill done':step===setupStep?'pill active':'pill';return `<div class="${cls}">${label}</div>`;}).join('');
-}
 function renderSetupWizard(){
   const blocks=document.querySelectorAll('#setup .setup-step-block');
   blocks.forEach(b=>b.classList.toggle('active',Number(b.dataset.step)===setupStep));
-  const backBtn=document.getElementById('setupBackBtn');
-  const nextBtn=document.getElementById('setupNextBtn');
-  if(backBtn) backBtn.disabled=setupStep===1;
-  if(nextBtn){
-    nextBtn.innerText=setupStep===3?'Start Round ✓':'Next →';
-    nextBtn.disabled=!setupIsStepValid(setupStep);
-  }
-  renderSetupProgress();
+  const nextBtn=document.querySelector('#setup .setup-nav button:last-child');
+  if(nextBtn) nextBtn.innerText=setupStep===3?'Done ✓':'Next →';
 }
 function nextSetupStep(){
-  if(!setupIsStepValid(setupStep)){alert('Please complete required setup info before continuing.');return;}
   if(setupStep<3){setupStep++;renderSetupWizard();}
-  else startRound();
+  else switchTab('score');
 }
 function prevSetupStep(){if(setupStep>1){setupStep--;renderSetupWizard();}}
 
@@ -1348,9 +1319,6 @@ window.addEventListener("DOMContentLoaded",()=>{
   ensurePlayers();
   if(localStorage.getItem("theTurnDark")==="1"){document.body.classList.add("mode-dark");document.querySelector(".app").classList.add("mode-dark")}
   renderAll(false);
-  if ("serviceWorker" in navigator) {
-    navigator.serviceWorker.register("./sw.js").catch(()=>{});
-  }
   showAccessLock();
   setTimeout(hidePressSplash, 1800);
 });
