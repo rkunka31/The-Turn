@@ -197,6 +197,27 @@ input,select{width:100%;border:1px solid var(--line);background:#f0e9dd;border-r
 .game-section{display:none}
 .game-section.active{display:block}
 .game-tab{display:none}
+.sc-wrap{overflow-x:auto;margin:0 -4px}
+.sc{width:100%;border-collapse:collapse;font-size:13px;text-align:center;font-variant-numeric:tabular-nums}
+.sc th,.sc td{padding:6px 3px;border-bottom:1px solid var(--line)}
+.sc th{font-family:var(--ff-display);font-size:9.5px;color:var(--muted);font-weight:600;letter-spacing:.5px;white-space:nowrap}
+.sc .sc-team th{font-size:10px;color:var(--ink);letter-spacing:1px}
+.sc .ta{background:rgba(24,67,50,.06)}
+.sc .tb{background:rgba(192,163,90,.12)}
+.sc .sc-hole{font-weight:800;text-align:left;padding-left:6px}
+.sc .sc-par{color:var(--muted);font-size:11px}
+.sc .sc-sub td{background:#f0e9dd;font-weight:800}
+.sc .sc-note td{text-align:left;font-size:11px;color:var(--muted);line-height:1.45;padding:2px 6px 8px;border-bottom:1px solid var(--line)}
+.sc .sc-has-note td{border-bottom:none}
+.sc .pos{color:var(--green2);font-weight:800}
+.sc .neg{color:var(--danger);font-weight:800}
+.sc-score{display:inline-grid;vertical-align:middle;place-items:center;min-width:22px;height:22px;position:relative;font-weight:700}
+.sc-score.bird{border:1.5px solid var(--green2);border-radius:50%}
+.sc-score.eagle{border:3px double var(--green2);border-radius:50%}
+.sc-score.bogey{border:1px solid var(--muted);border-radius:3px}
+.sc-score.dbl{border:3px double var(--muted);border-radius:3px}
+.sc-dot{position:absolute;top:-3px;right:-5px;font-size:9px;color:var(--gold);line-height:1;letter-spacing:-1px}
+.sc-legend{font-size:11px;color:var(--muted);margin-top:8px;line-height:1.5}
 .game-tab.active{display:block}
 .lounge-tab-content{display:none}
 .lounge-tab-content.active{display:block}
@@ -447,6 +468,7 @@ input,select{width:100%;border:1px solid var(--line);background:#f0e9dd;border-r
         <div class="meta" id="scoreProgress">0 holes scored</div>
       </div>
       <div id="leaderboard"></div>
+      <button class="btn ghost" style="margin-top:10px" onclick="openScorecard()">Full Scorecard &amp; $ by Hole</button>
     </div>
     <div class="grid2">
       <button class="small-btn" onclick="clearHole()">Clear hole</button>
@@ -465,7 +487,8 @@ input,select{width:100%;border:1px solid var(--line);background:#f0e9dd;border-r
     <button class="sh-btn" onclick="openSettlement()">⚙</button>
   </header>
   <div class="inner-tabs">
-    <button class="itab active" onclick="showGameTab('nassau')">NASSAU</button>
+    <button class="itab active" onclick="showGameTab('card')">CARD</button>
+    <button class="itab" onclick="showGameTab('nassau')">NASSAU</button>
     <button class="itab" onclick="showGameTab('skins')">SKINS</button>
     <button class="itab" onclick="showGameTab('vegas')">VEGAS</button>
     <button class="itab" onclick="showGameTab('presses')">PRESSES</button>
@@ -473,7 +496,20 @@ input,select{width:100%;border:1px solid var(--line);background:#f0e9dd;border-r
   </div>
   <div class="screen-body">
 
-    <div id="gameTabNassau" class="game-tab active">
+    <div id="gameTabCard" class="game-tab active">
+      <div class="card">
+        <div class="title" style="margin-bottom:8px">Scorecard</div>
+        <div class="sc-wrap"><table class="sc" id="scorecardTable"></table></div>
+        <div class="sc-legend">Gross scores. <span style="color:var(--gold)">•</span> = handicap stroke. Circle = birdie, square = bogey.</div>
+      </div>
+      <div class="card">
+        <div class="title" style="margin-bottom:4px">Money by Hole</div>
+        <div class="meta" style="margin-bottom:8px">What each player wins or owes on each hole, with the reason.</div>
+        <div class="sc-wrap"><table class="sc" id="moneyByHoleTable"></table></div>
+      </div>
+    </div>
+
+    <div id="gameTabNassau" class="game-tab">
       <div id="nassauSection" class="game-section">
         <div class="card">
           <div class="nassau-header">
@@ -880,7 +916,7 @@ function showGameTab(tab){
   document.querySelectorAll("#games .game-tab").forEach(t=>t.classList.remove("active"));
   document.getElementById("gameTab"+tab.charAt(0).toUpperCase()+tab.slice(1))?.classList.add("active");
   document.querySelectorAll("#games .itab").forEach((t,i)=>{
-    const tabs=["nassau","skins","vegas","presses","bestball"];
+    const tabs=["card","nassau","skins","vegas","presses","bestball"];
     t.classList.toggle("active",tabs[i]===tab);
   });
 }
@@ -1035,6 +1071,7 @@ function renderFinishRoundPanel(){const el=document.getElementById("finishRoundP
 // ─── GAMES ───────────────────────────────────────────────────────────────────
 function renderGames(){
   renderLeaderboard();
+  renderScorecard();
   // Nassau
   const nassauActive=selectedGames.includes("Nassau");
   if(document.getElementById("nassauEmptyState"))document.getElementById("nassauEmptyState").style.display=nassauActive?"none":"block";
@@ -1125,6 +1162,43 @@ function addManualPress(){if(!selectedGames.includes("Nassau")){alert("Enable Na
 function pressResult(p){let r=0;for(let i=p.from-1;i<18;i++)r+=holeRes(i);return r}
 function removePress(id){manualPresses=manualPresses.filter(p=>p.id!==id);renderAll();saveLocal()}
 function renderPresses(){if(!pressBoard)return;if(!manualPresses.length){pressBoard.innerHTML='<div class="meta">No active presses.</div>';return}pressBoard.innerHTML=manualPresses.map(p=>{let r=pressResult(p);return`<div class="settle-row"><div><div class="score-name">Press from Hole ${p.from}</div><div class="score-note">${match(r)} · $${p.amount}</div></div><button class="small-btn" onclick="removePress(${p.id})">Remove</button></div>`}).join("")}
+
+// ─── SCORECARD / MONEY BY HOLE ───────────────────────────────────────────────
+function openScorecard(){switchTab("games");showGameTab("card")}
+function cardPlayers(){return[...team("A"),...team("B"),...players.filter(p=>p.team!=="A"&&p.team!=="B")]}
+function shortName(n){let f=String(n).split(" ")[0];return f.length>8?f.slice(0,7)+"…":f}
+function esc(v){return String(v).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"})[c])}
+function cardHead(){const cp=cardPlayers(),a=team("A").length,b=team("B").length,o=cp.length-a-b;return`<thead><tr class="sc-team"><th></th>${a?`<th colspan="${a}" class="ta">TEAM A</th>`:""}${b?`<th colspan="${b}" class="tb">TEAM B</th>`:""}${o?`<th colspan="${o}"></th>`:""}</tr><tr><th style="text-align:left;padding-left:6px">HOLE</th>${cp.map(p=>`<th class="${p.team==="A"?"ta":p.team==="B"?"tb":""}">${esc(shortName(p.name))}</th>`).join("")}</tr></thead>`}
+function tcls(p){return p.team==="A"?"ta":p.team==="B"?"tb":""}
+function scoreCell(p,h){const g=scores[p.name]?.[h]||0,st=strokes(p,h),par=course.pars[h];if(!g)return`<td class="${tcls(p)}">${st?`<span class="sc-score"><span class="sc-dot">${"•".repeat(st)}</span></span>`:""}</td>`;const d=g-par,c=d<=-2?"eagle":d===-1?"bird":d===1?"bogey":d>=2?"dbl":"";return`<td class="${tcls(p)}"><span class="sc-score ${c}">${g}${st?`<span class="sc-dot">${"•".repeat(st)}</span>`:""}</span></td>`}
+function renderScorecard(){
+  const t=document.getElementById("scorecardTable"),m=document.getElementById("moneyByHoleTable");if(!t||!m)return;
+  const cp=cardPlayers(),sum=(p,a,b)=>{let g=0;for(let i=a;i<b;i++)g+=scores[p.name]?.[i]||0;return g||""},par=(a,b)=>course.pars.slice(a,b).reduce((x,y)=>x+y,0);
+  const row=h=>`<tr><td class="sc-hole">${h+1} <span class="sc-par">P${course.pars[h]}·${course.hcp[h]}</span></td>${cp.map(p=>scoreCell(p,h)).join("")}</tr>`;
+  const sub=(l,a,b)=>`<tr class="sc-sub"><td class="sc-hole">${l} <span class="sc-par">${par(a,b)}</span></td>${cp.map(p=>`<td class="${tcls(p)}">${sum(p,a,b)}</td>`).join("")}</tr>`;
+  let body="";for(let h=0;h<9;h++)body+=row(h);body+=sub("OUT",0,9);for(let h=9;h<18;h++)body+=row(h);body+=sub("IN",9,18)+sub("TOT",0,18);
+  body+=`<tr class="sc-sub"><td class="sc-hole">NET</td>${cp.map(p=>{const t=totals(p);return`<td class="${tcls(p)}">${t.gross?t.net:""}</td>`}).join("")}</tr>`;
+  t.innerHTML=cardHead()+`<tbody>${body}</tbody>`;
+  const rows=moneyByHole(),run=Object.fromEntries(players.map(p=>[p.name,0])),cols=cp.length+1;
+  const cell=(p,v)=>`<td class="${tcls(p)} ${v>0.004?"pos":v<-0.004?"neg":""}">${Math.abs(v)>0.004?money(v):""}</td>`;
+  let mb="";rows.forEach((r,h)=>{cp.forEach(p=>run[p.name]+=r.d[p.name]);mb+=`<tr class="${r.notes.length?"sc-has-note":""}"><td class="sc-hole">${h+1}</td>${cp.map(p=>cell(p,r.d[p.name])).join("")}</tr>`;if(r.notes.length)mb+=`<tr class="sc-note"><td colspan="${cols}">${r.notes.map(esc).join("<br>")}</td></tr>`;if(h===8)mb+=`<tr class="sc-sub"><td class="sc-hole">OUT</td>${cp.map(p=>cell(p,run[p.name])).join("")}</tr>`});
+  mb+=`<tr class="sc-sub"><td class="sc-hole">TOTAL</td>${cp.map(p=>cell(p,run[p.name])).join("")}</tr>`;
+  m.innerHTML=cardHead()+`<tbody>${mb}</tbody>`;
+}
+// Splits every game's payouts onto the hole where they are earned. Nassau front
+// settles on hole 9; back, overall and presses on hole 18. Totals match settlement().
+function moneyByHole(){
+  const rows=Array.from({length:18},()=>({d:Object.fromEntries(players.map(p=>[p.name,0])),notes:[]}));
+  const add=(h,n,v)=>rows[h].d[n]+=v,cash=v=>money(v).slice(1);
+  const teamPay=(h,w,amt)=>{team(w).forEach(p=>add(h,p.name,amt));team(w==="A"?"B":"A").forEach(p=>add(h,p.name,-amt))};
+  const played=(a,b)=>{for(let i=a;i<b;i++)if(!players.every(p=>scores[p.name]?.[i]))return false;return true};
+  const anyPlayed=(a,b)=>{for(let i=a;i<b;i++)if(players.some(p=>scores[p.name]?.[i]))return true;return false};
+  if(selectedGames.includes("Vegas")){const pt=Number(vegasPoint.value||1);for(let h=0;h<18;h++){const v=vegasHole(h);if(!v)continue;const flip=v.flip?` (${v.flip==="A"?"B":"A"} birdie, ${v.flip} flipped)`:"";if(v.w==="Push"){rows[h].notes.push(`Vegas: A ${v.a} · B ${v.b}${flip} → push`);continue}const amt=v.d*pt,l=v.w==="A"?"B":"A";teamPay(h,v.w,amt);rows[h].notes.push(`Vegas: A ${v.a} · B ${v.b}${flip} → Team ${l} pays Team ${v.w} ${v.d} pts × ${cash(pt)} = ${cash(amt)} each`)}}
+  if(selectedGames.includes("Skins")||sideGames.includes("Skins")){const type=gameScoring.value,sv=Number(skinValue.value||5);let carry=0;for(let h=0;h<18;h++){if(!players.some(p=>scores[p.name][h]))continue;carry++;const r=players.filter(p=>scores[p.name][h]).map(p=>({name:p.name,score:type==="Net"?scores[p.name][h]-strokes(p,h):scores[p.name][h]})),low=Math.min(...r.map(x=>x.score)),w=r.filter(x=>x.score===low);if(w.length===1){const pay=sv*carry,each=pay/(players.length-1);add(h,w[0].name,pay);players.filter(p=>p.name!==w[0].name).forEach(p=>add(h,p.name,-each));rows[h].notes.push(`Skins: ${w[0].name} wins ${carry} skin${carry>1?"s":""} (${cash(pay)}), ${cash(each)} from each other player`);carry=0}else rows[h].notes.push(`Skins: tied, carries over (${carry} skin${carry>1?"s":""} riding)`)}}
+  if(selectedGames.includes("Nassau")){const nv=Number(nassauValue.value||5),n=nassau();[["front","Front",8,0,9],["back","Back",17,9,18],["total","Overall",17,0,18]].forEach(([k,l,h,a,b])=>{if(!anyPlayed(a,b))return;const r=n[k],sf=played(a,b)?"":" (so far)";if(!r){rows[h].notes.push(`${l} Nassau: all square${sf}`);return}const w=r>0?"A":"B";teamPay(h,w,nv);rows[h].notes.push(`${l} Nassau: Team ${w} ${Math.abs(r)} up${sf} → Team ${w==="A"?"B":"A"} pays ${cash(nv)} each`)})}
+  manualPresses.forEach(pr=>{if(!anyPlayed(pr.from-1,18))return;const r=pressResult(pr),sf=played(pr.from-1,18)?"":" (so far)";if(!r){rows[17].notes.push(`Press from ${pr.from}: all square${sf}`);return}const w=r>0?"A":"B";teamPay(17,w,pr.amount);rows[17].notes.push(`Press from ${pr.from}: Team ${w} ${Math.abs(r)} up${sf} → Team ${w==="A"?"B":"A"} pays ${cash(pr.amount)} each`)});
+  return rows;
+}
 
 // ─── SETTLEMENT ───────────────────────────────────────────────────────────────
 function money(v){let r=Math.round((v||0)*100)/100;return(r>=0?"+$":"-$")+(Number.isInteger(r)?Math.abs(r):Math.abs(r).toFixed(2))}
