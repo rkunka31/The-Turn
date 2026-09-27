@@ -1,4 +1,4 @@
-const CACHE_NAME = "greystone-press-v4";
+const CACHE_NAME = "greystone-press-v5";
 const ASSETS = ["./", "./index.html", "./manifest.webmanifest"];
 
 self.addEventListener("install", (event) => {
